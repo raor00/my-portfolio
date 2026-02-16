@@ -1,12 +1,44 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
 import { skills, projects } from "@/data/portfolio";
 import ProjectCard from "@/components/ProjectCard";
 
 const featuredProjects = projects.filter((p) => p.featured);
 
+/* ── Animation variants ─────────────────────────────────── */
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: (i: number = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.55, delay: i * 0.09, ease: [0.21, 1.02, 0.73, 1] },
+  }),
+};
+
+const staggerContainer = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.09 } },
+};
+
+const fadeScale = {
+  hidden: { opacity: 0, scale: 0.96, y: 16 },
+  visible: {
+    opacity: 1,
+    scale: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.21, 1.02, 0.73, 1] },
+  },
+};
+
+const lineReveal = {
+  hidden: { scaleX: 0, originX: 0 },
+  visible: { scaleX: 1, transition: { duration: 0.6, ease: [0.21, 1.02, 0.73, 1] } },
+};
+
+/* ── Category colors ────────────────────────────────────── */
 const categoryColors: Record<string, string> = {
   frontend: "rgba(217,119,6,0.07)",
   backend:  "rgba(16,185,129,0.07)",
@@ -26,6 +58,59 @@ const categoryText: Record<string, string> = {
   tools:    "#7c3aed",
 };
 
+/* ── Animated counter ───────────────────────────────────── */
+function Counter({ value, suffix = "" }: { value: string; suffix?: string }) {
+  const ref = useRef<HTMLSpanElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-40px" });
+  const [display, setDisplay] = useState("0");
+
+  useEffect(() => {
+    if (!inView) return;
+    const num = parseInt(value.replace(/\D/g, ""), 10);
+    if (isNaN(num)) { setDisplay(value); return; }
+    const duration = 900;
+    const steps = 40;
+    const inc = num / steps;
+    let current = 0;
+    const timer = setInterval(() => {
+      current += inc;
+      if (current >= num) { setDisplay(`${num}${suffix}`); clearInterval(timer); }
+      else setDisplay(`${Math.floor(current)}${suffix}`);
+    }, duration / steps);
+    return () => clearInterval(timer);
+  }, [inView, value, suffix]);
+
+  return <span ref={ref}>{inView ? display : "0"}</span>;
+}
+
+/* ── Section heading ────────────────────────────────────── */
+function SectionHeading({ label, title }: { label: string; title: string }) {
+  return (
+    <motion.div
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-60px" }}
+      className="mb-10 sm:mb-14"
+    >
+      <motion.span variants={fadeUp} className="tech-label">{label}</motion.span>
+      <motion.h2
+        variants={fadeUp}
+        className="text-3xl md:text-4xl font-bold mt-2"
+        style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
+      >
+        {title}
+      </motion.h2>
+      <motion.div
+        variants={lineReveal}
+        className="mt-3 h-px w-16"
+        style={{ background: "linear-gradient(90deg, #d97706, transparent)" }}
+      />
+    </motion.div>
+  );
+}
+
+/* ════════════════════════════════════════════════════════ */
 export default function Home() {
   return (
     <>
@@ -33,7 +118,7 @@ export default function Home() {
           HERO
       ═══════════════════════════════════════════ */}
       <section className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 overflow-hidden">
-        {/* Tech decorators — hidden on small screens to avoid overflow */}
+        {/* Tech decorators */}
         <span className="tech-label absolute top-24 right-8 md:right-20 hidden sm:block">NODE_0x52</span>
         <span className="tech-label absolute top-1/3 right-6 md:right-16 hidden sm:block">SYNC_ACTIVE</span>
         <span className="tech-label absolute bottom-32 left-6 md:left-16 hidden sm:block">STATUS: ONLINE</span>
@@ -44,128 +129,114 @@ export default function Home() {
           BUILD_v2.0
         </span>
 
-        {/* Crosshairs — hide on smallest screens */}
+        {/* Crosshairs */}
         <CrossHair className="absolute top-28 right-28 md:right-56 text-black/15 hidden sm:block" />
         <CrossHair className="absolute bottom-40 right-12 md:right-32 text-black/10 hidden sm:block" />
 
-        {/* Subtle indigo glow */}
+        {/* Glow */}
         <div
           className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"
-          style={{
-            background:
-              "radial-gradient(ellipse at 20% 50%, rgba(217,119,6,0.07) 0%, transparent 65%)",
-          }}
+          style={{ background: "radial-gradient(ellipse at 20% 50%, rgba(217,119,6,0.07) 0%, transparent 65%)" }}
         />
 
         <div className="max-w-6xl mx-auto w-full">
-          {/* Badge */}
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.05 }}
-            className="mb-8"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            className="flex flex-col"
           >
-            <span
-              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium tracking-widest uppercase"
+            {/* Badge */}
+            <motion.div variants={fadeUp} custom={0} className="mb-8">
+              <span
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium tracking-widest uppercase"
+                style={{
+                  fontFamily: "var(--font-mono-display), monospace",
+                  background: "rgba(217,119,6,0.08)",
+                  border: "1px solid rgba(217,119,6,0.2)",
+                  color: "#b45309",
+                }}
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
+                ■ FULL STACK DEV_V2
+              </span>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.div variants={fadeUp} custom={1} className="mb-6">
+              <h1
+                className="font-bold leading-tight tracking-tight"
+                style={{
+                  fontFamily: "var(--font-mono-display), monospace",
+                  fontSize: "clamp(2.4rem, 6vw, 5rem)",
+                  color: "#0a0a0f",
+                }}
+              >
+                Rafael Oviedo
+              </h1>
+              <div
+                className="mt-1 font-semibold tracking-widest"
+                style={{
+                  fontFamily: "var(--font-mono-display), monospace",
+                  fontSize: "clamp(0.75rem, 1.5vw, 1rem)",
+                  background: "linear-gradient(90deg, #b45309, #f59e0b)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  backgroundClip: "text",
+                }}
+              >
+                FULL STACK DEVELOPER · INGENIERO EN INFORMÁTICA
+              </div>
+            </motion.div>
+
+            <motion.p
+              variants={fadeUp}
+              custom={2}
+              className="text-sm mb-3"
               style={{
                 fontFamily: "var(--font-mono-display), monospace",
-                background: "rgba(217,119,6,0.08)",
-                border: "1px solid rgba(217,119,6,0.2)",
-                color: "#b45309",
+                color: "rgba(0,0,0,0.35)",
+                letterSpacing: "0.04em",
               }}
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-              ■ FULL STACK DEV_V2
-            </span>
-          </motion.div>
+              {"// construyo para la web"}
+            </motion.p>
 
-          {/* Headline — proportional, not gigantic */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.55, delay: 0.1 }}
-            className="mb-6"
-          >
-            <h1
-              className="font-bold leading-tight tracking-tight"
-              style={{
-                fontFamily: "var(--font-mono-display), monospace",
-                fontSize: "clamp(2.4rem, 6vw, 5rem)",
-                color: "#0a0a0f",
-              }}
+            <motion.p
+              variants={fadeUp}
+              custom={3}
+              className="text-base md:text-lg max-w-xl mb-12 leading-relaxed"
+              style={{ color: "rgba(0,0,0,0.55)" }}
             >
-              Rafael Oviedo
-            </h1>
-            <div
-              className="mt-1 font-semibold tracking-widest"
-              style={{
-                fontFamily: "var(--font-mono-display), monospace",
-                fontSize: "clamp(0.75rem, 1.5vw, 1rem)",
-                background: "linear-gradient(90deg, #b45309, #f59e0b)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-              }}
-            >
-              FULL STACK DEVELOPER · INGENIERO EN INFORMÁTICA
-            </div>
-          </motion.div>
+              Construyo aplicaciones web modernas y escalables — desde APIs robustas
+              hasta interfaces elegantes. Full stack de principio a fin.
+            </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-sm mb-3"
-            style={{
-              fontFamily: "var(--font-mono-display), monospace",
-              color: "rgba(0,0,0,0.35)",
-              letterSpacing: "0.04em",
-            }}
-          >
-            {"// construyo para la web"}
-          </motion.p>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.25 }}
-            className="text-base md:text-lg max-w-xl mb-12 leading-relaxed"
-            style={{ color: "rgba(0,0,0,0.55)" }}
-          >
-            Construyo aplicaciones web modernas y escalables — desde APIs robustas
-            hasta interfaces elegantes. Full stack de principio a fin.
-          </motion.p>
-
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-wrap gap-4"
-          >
-            <Link
-              href="/proyectos"
-              className="group glass-btn-amber inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-sm text-white"
-            >
-              Ver proyectos
-              <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-
-            <Link
-              href="/contacto"
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-sm font-semibold transition-all hover:scale-[1.02]"
-              style={{
-                background: "rgba(255,255,255,0.75)",
-                border: "1px solid rgba(0,0,0,0.1)",
-                color: "rgba(0,0,0,0.7)",
-                backdropFilter: "blur(8px)",
-                boxShadow: "0 2px 12px rgba(0,0,0,0.07)",
-              }}
-            >
-              Contáctame
-            </Link>
+            {/* CTAs */}
+            <motion.div variants={fadeUp} custom={4} className="flex flex-wrap gap-4">
+              <Link
+                href="/proyectos"
+                className="group glass-btn-amber inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-sm text-white"
+              >
+                Ver proyectos
+                <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+              <Link
+                href="/contacto"
+                className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-sm font-semibold transition-all hover:scale-[1.02]"
+                style={{
+                  background: "rgba(255,255,255,0.75)",
+                  border: "1px solid rgba(0,0,0,0.1)",
+                  color: "rgba(0,0,0,0.7)",
+                  backdropFilter: "blur(8px)",
+                  boxShadow: "0 2px 12px rgba(0,0,0,0.07)",
+                }}
+              >
+                Contáctame
+              </Link>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -173,7 +244,7 @@ export default function Home() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.3 }}
+          transition={{ delay: 1.4 }}
           className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
         >
           <span className="tech-label">SCROLL</span>
@@ -186,36 +257,70 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          STATS
+          STATS — "En números"
       ═══════════════════════════════════════════ */}
       <section className="py-12 sm:py-16 px-4 sm:px-6 border-y" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
-          {[
-            { value: "5",   label: "PROYECTOS" },
-            { value: "1+",  label: "AÑO_DEV" },
-            { value: "2+",  label: "AÑOS_META_ADS" },
-            { value: "∞",   label: "CAFÉ_CONSUMIDO" },
-          ].map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="text-center md:text-left"
+        <div className="max-w-6xl mx-auto">
+          {/* Header de la sección */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5 }}
+            className="mb-8 sm:mb-10"
+          >
+            <span className="tech-label">{"// MÉTRICAS"}</span>
+            <h2
+              className="text-2xl md:text-3xl font-bold mt-1"
+              style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
             >
-              <div
-                className="text-4xl md:text-5xl font-bold mb-1"
+              EN_NÚMEROS_
+            </h2>
+            <p className="text-sm mt-2 max-w-sm" style={{ color: "rgba(0,0,0,0.4)" }}>
+              Resumen de mi trayectoria, proyectos y experiencia acumulada.
+            </p>
+          </motion.div>
+
+          {/* Stats grid */}
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-40px" }}
+            className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8"
+          >
+            {[
+              { raw: "5", suffix: "", label: "PROYECTOS", desc: "construidos" },
+              { raw: "1", suffix: "+", label: "AÑO_DEV",  desc: "full stack" },
+              { raw: "2", suffix: "+", label: "META_ADS",  desc: "años gestionando campañas" },
+              { raw: "∞", suffix: "", label: "CAFÉ",       desc: "consumido" },
+            ].map((stat, i) => (
+              <motion.div
+                key={stat.label}
+                variants={fadeScale}
+                custom={i}
+                className="group p-5 rounded-2xl transition-all hover:scale-[1.03]"
                 style={{
-                  fontFamily: "var(--font-mono-display), monospace",
-                  color: "#0a0a0f",
+                  background: "rgba(255,255,255,0.7)",
+                  border: "1px solid rgba(0,0,0,0.07)",
+                  backdropFilter: "blur(8px)",
+                  boxShadow: "0 2px 12px rgba(0,0,0,0.04)",
                 }}
               >
-                {stat.value}
-              </div>
-              <div className="tech-label text-left">{stat.label}</div>
-            </motion.div>
-          ))}
+                <div
+                  className="text-3xl md:text-4xl font-bold mb-1"
+                  style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
+                >
+                  {stat.raw === "∞"
+                    ? "∞"
+                    : <Counter value={stat.raw} suffix={stat.suffix} />
+                  }
+                </div>
+                <div className="tech-label">{stat.label}</div>
+                <div className="text-xs mt-1" style={{ color: "rgba(0,0,0,0.35)" }}>{stat.desc}</div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -224,29 +329,19 @@ export default function Home() {
       ═══════════════════════════════════════════ */}
       <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-10 sm:mb-14"
-          >
-            <span className="tech-label">{"// STACK"}</span>
-            <h2
-              className="text-3xl md:text-4xl font-bold mt-2"
-              style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
-            >
-              TECNOLOGÍAS_
-            </h2>
-          </motion.div>
+          <SectionHeading label="// STACK" title="TECNOLOGÍAS_" />
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {(["frontend", "backend", "database", "tools"] as const).map((cat, i) => (
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          >
+            {(["frontend", "backend", "database", "tools"] as const).map((cat) => (
               <motion.div
                 key={cat}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
+                variants={fadeScale}
                 className="p-5 rounded-2xl hover:scale-[1.02] transition-transform"
                 style={{
                   background: categoryColors[cat],
@@ -278,7 +373,7 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -288,33 +383,39 @@ export default function Home() {
       <section className="py-16 sm:py-24 px-4 sm:px-6 border-t" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
         <div className="max-w-6xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-14"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={staggerContainer}
+            className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-14"
           >
             <div>
-              <span className="tech-label">{"// TRABAJO"}</span>
-              <h2
+              <motion.span variants={fadeUp} className="tech-label">{"// TRABAJO"}</motion.span>
+              <motion.h2
+                variants={fadeUp}
                 className="text-3xl md:text-4xl font-bold mt-2"
                 style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
               >
                 PROYECTOS_DESTACADOS
-              </h2>
+              </motion.h2>
+              <motion.div
+                variants={lineReveal}
+                className="mt-3 h-px w-16"
+                style={{ background: "linear-gradient(90deg, #d97706, transparent)" }}
+              />
             </div>
-            <Link
-              href="/proyectos"
-              className="group flex items-center gap-1.5 text-sm font-medium shrink-0 transition-colors"
-              style={{
-                fontFamily: "var(--font-mono-display), monospace",
-                color: "rgba(0,0,0,0.35)",
-              }}
-            >
-              VER_TODOS
-              <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+            <motion.div variants={fadeUp}>
+              <Link
+                href="/proyectos"
+                className="group flex items-center gap-1.5 text-sm font-medium shrink-0 transition-colors"
+                style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.35)" }}
+              >
+                VER_TODOS
+                <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            </motion.div>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -331,9 +432,10 @@ export default function Home() {
       <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, y: 32, scale: 0.98 }}
+            whileInView={{ opacity: 1, y: 0, scale: 1 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: [0.21, 1.02, 0.73, 1] }}
             className="relative rounded-3xl overflow-hidden p-8 sm:p-12 text-center"
             style={{
               background: "rgba(255,255,255,0.7)",
@@ -344,23 +446,15 @@ export default function Home() {
           >
             <div
               className="absolute inset-0 pointer-events-none"
-              style={{
-                background:
-                  "radial-gradient(ellipse at 50% 0%, rgba(217,119,6,0.08) 0%, transparent 65%)",
-              }}
+              style={{ background: "radial-gradient(ellipse at 50% 0%, rgba(217,119,6,0.08) 0%, transparent 65%)" }}
             />
             <span className="tech-label block mb-4">{"// DISPONIBLE"}</span>
             <h2
               className="text-3xl md:text-4xl font-bold mb-4 relative"
-              style={{
-                fontFamily: "var(--font-mono-display), monospace",
-                color: "#0a0a0f",
-              }}
+              style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
             >
               ¿Tienes un{" "}
-              <span style={{ color: "#d97706" }}>
-                proyecto?
-              </span>
+              <span style={{ color: "#d97706" }}>proyecto?</span>
             </h2>
             <p className="mb-10 max-w-md mx-auto relative" style={{ color: "rgba(0,0,0,0.5)" }}>
               Estoy disponible para proyectos freelance y colaboraciones. Hablemos.
