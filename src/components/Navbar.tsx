@@ -121,7 +121,7 @@ export default function Navbar() {
             <div className="w-px h-4 bg-black/10 mx-2" />
 
             {/* Language switch */}
-            <LangSwitch lang={lang} setLang={setLang} />
+            <LangSwitch lang={lang} setLang={setLang} mounted={mounted} />
 
             {/* Divider */}
             <div className="w-px h-4 bg-black/10 mx-2" />
@@ -156,7 +156,7 @@ export default function Navbar() {
 
             <div className="flex items-center gap-2">
               {/* Language switch mobile */}
-              <LangSwitch lang={lang} setLang={setLang} />
+              <LangSwitch lang={lang} setLang={setLang} mounted={mounted} />
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -211,7 +211,7 @@ export default function Navbar() {
 }
 
 /* ── Language Switch component ──────────────────────────── */
-function LangSwitch({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
+function LangSwitch({ lang, setLang, mounted }: { lang: Lang; setLang: (l: Lang) => void; mounted: boolean }) {
   return (
     <div
       className="relative flex items-center rounded-lg p-0.5 gap-0.5"
@@ -228,11 +228,11 @@ function LangSwitch({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void 
           style={{
             fontFamily: "var(--font-mono-display), monospace",
             letterSpacing: "0.08em",
-            color: lang === l ? "#b45309" : "rgba(0,0,0,0.35)",
+            color: mounted && lang === l ? "#b45309" : "rgba(0,0,0,0.35)",
             transition: "color 0.2s ease",
           }}
         >
-          {lang === l && (
+          {mounted && lang === l && (
             <motion.span
               layoutId="lang-pill"
               className="absolute inset-0 rounded-md"
