@@ -4,6 +4,42 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { personalInfo } from "@/data/portfolio";
 
+/* ── Animation variants ─────────────────────────────────── */
+const fadeUp = {
+  hidden: { opacity: 0, y: 28 },
+  visible: (i: number = 0) => ({
+    opacity: 1, y: 0,
+    transition: { duration: 0.55, delay: i * 0.09, ease: [0.21, 1.02, 0.73, 1] },
+  }),
+};
+
+const fadeLeft = {
+  hidden: { opacity: 0, x: -20 },
+  visible: (i: number = 0) => ({
+    opacity: 1, x: 0,
+    transition: { duration: 0.5, delay: i * 0.08, ease: [0.21, 1.02, 0.73, 1] },
+  }),
+};
+
+const fadeRight = {
+  hidden: { opacity: 0, x: 20 },
+  visible: {
+    opacity: 1, x: 0,
+    transition: { duration: 0.55, delay: 0.15, ease: [0.21, 1.02, 0.73, 1] },
+  },
+};
+
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.09 } },
+};
+
+const lineReveal = {
+  hidden: { scaleX: 0, originX: 0 },
+  visible: { scaleX: 1, transition: { duration: 0.6, ease: [0.21, 1.02, 0.73, 1] } },
+};
+
+/* ── Types ──────────────────────────────────────────────── */
 interface FormData   { nombre: string; email: string; mensaje: string; }
 interface FormErrors { nombre?: string; email?: string; mensaje?: string; }
 type Status = "idle" | "loading" | "success";
@@ -52,31 +88,38 @@ export default function ContactoPage() {
     <div className="min-h-screen py-20 sm:py-24 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
 
+        {/* ── Header ─────────────────────────────────── */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="mb-16"
+          variants={stagger}
+          initial="hidden"
+          animate="visible"
+          className="mb-12 sm:mb-16"
         >
-          <span className="tech-label">{"// CONTACTO"}</span>
-          <h1
-            className="text-4xl md:text-5xl font-bold mt-2 mb-4"
+          <motion.span variants={fadeUp} className="tech-label">{"// CONTACTO"}</motion.span>
+          <motion.h1
+            variants={fadeUp}
+            className="text-4xl md:text-5xl font-bold mt-2 mb-3"
             style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
           >
             HABLEMOS_
-          </h1>
-          <p className="max-w-lg" style={{ color: "rgba(0,0,0,0.5)" }}>
+          </motion.h1>
+          <motion.div
+            variants={lineReveal}
+            className="mb-4 h-px w-16"
+            style={{ background: "linear-gradient(90deg, #d97706, transparent)" }}
+          />
+          <motion.p variants={fadeUp} className="max-w-lg" style={{ color: "rgba(0,0,0,0.5)" }}>
             ¿Tienes un proyecto o idea? Escríbeme. Respondo en menos de 24 horas.
-          </p>
+          </motion.p>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-10">
 
-          {/* Info cards */}
+          {/* ── Info cards ─────────────────────────────── */}
           <motion.div
-            initial={{ opacity: 0, x: -16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.1 }}
+            variants={stagger}
+            initial="hidden"
+            animate="visible"
             className="lg:col-span-2 space-y-3"
           >
             {[
@@ -119,9 +162,11 @@ export default function ContactoPage() {
                   </svg>
                 ),
               },
-            ].map((item) => (
-              <a
+            ].map((item, i) => (
+              <motion.a
                 key={item.label}
+                variants={fadeLeft}
+                custom={i}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -149,10 +194,12 @@ export default function ContactoPage() {
                     {item.value}
                   </p>
                 </div>
-              </a>
+              </motion.a>
             ))}
 
-            <div
+            <motion.div
+              variants={fadeLeft}
+              custom={3}
               className="p-4 rounded-2xl mt-2"
               style={{ background: "rgba(240,253,244,0.8)", border: "1px solid rgba(74,222,128,0.25)" }}
             >
@@ -166,20 +213,21 @@ export default function ContactoPage() {
                 </span>
               </div>
               <p className="tech-label mt-1">TIEMPO_RESPUESTA: &lt;24H</p>
-            </div>
+            </motion.div>
           </motion.div>
 
-          {/* Form */}
+          {/* ── Form ───────────────────────────────────── */}
           <motion.div
-            initial={{ opacity: 0, x: 16 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.15 }}
+            variants={fadeRight}
+            initial="hidden"
+            animate="visible"
             className="lg:col-span-3"
           >
             {status === "success" ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.97 }}
                 animate={{ opacity: 1, scale: 1 }}
+                transition={{ ease: [0.21, 1.02, 0.73, 1] }}
                 className="h-full flex flex-col items-center justify-center text-center py-20 rounded-2xl"
                 style={{
                   background: "rgba(255,255,255,0.8)",
@@ -187,12 +235,15 @@ export default function ContactoPage() {
                   boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
                 }}
               >
-                <div
+                <motion.div
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.1, ease: [0.21, 1.02, 0.73, 1] }}
                   className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 text-2xl text-green-600"
                   style={{ background: "rgba(240,253,244,0.9)", border: "1px solid rgba(74,222,128,0.3)" }}
                 >
                   ✓
-                </div>
+                </motion.div>
                 <h3
                   className="text-xl font-bold mb-2"
                   style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
@@ -202,16 +253,19 @@ export default function ContactoPage() {
                 <p className="mb-6 text-sm" style={{ color: "rgba(0,0,0,0.45)" }}>Gracias, te respondo pronto.</p>
                 <button
                   onClick={() => setStatus("idle")}
-                  className="text-xs transition-colors"
+                  className="text-xs transition-colors hover:opacity-70"
                   style={{ fontFamily: "var(--font-mono-display), monospace", color: "#b45309" }}
                 >
                   {"// ENVIAR_OTRO_MENSAJE"}
                 </button>
               </motion.div>
             ) : (
-              <form
+              <motion.form
                 onSubmit={handleSubmit}
                 noValidate
+                variants={stagger}
+                initial="hidden"
+                animate="visible"
                 className="p-5 sm:p-7 rounded-2xl space-y-5"
                 style={{
                   background: "rgba(255,255,255,0.85)",
@@ -220,10 +274,10 @@ export default function ContactoPage() {
                   boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
                 }}
               >
-                <span className="tech-label block mb-2">{"// INIT_CONTACT"}</span>
+                <motion.span variants={fadeUp} className="tech-label block mb-2">{"// INIT_CONTACT"}</motion.span>
 
                 {/* Nombre */}
-                <div>
+                <motion.div variants={fadeUp}>
                   <label
                     htmlFor="nombre"
                     className="block mb-2 text-xs"
@@ -243,10 +297,10 @@ export default function ContactoPage() {
                       {errors.nombre}
                     </p>
                   )}
-                </div>
+                </motion.div>
 
                 {/* Email */}
-                <div>
+                <motion.div variants={fadeUp}>
                   <label
                     htmlFor="email"
                     className="block mb-2 text-xs"
@@ -266,10 +320,10 @@ export default function ContactoPage() {
                       {errors.email}
                     </p>
                   )}
-                </div>
+                </motion.div>
 
                 {/* Mensaje */}
-                <div>
+                <motion.div variants={fadeUp}>
                   <label
                     htmlFor="mensaje"
                     className="block mb-2 text-xs"
@@ -291,9 +345,10 @@ export default function ContactoPage() {
                   ) : (
                     <p className="tech-label mt-1">{form.mensaje.length}/500</p>
                   )}
-                </div>
+                </motion.div>
 
-                <button
+                <motion.button
+                  variants={fadeUp}
                   type="submit"
                   disabled={status === "loading"}
                   className="glass-btn-amber w-full flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm text-white"
@@ -315,8 +370,8 @@ export default function ContactoPage() {
                       </svg>
                     </>
                   )}
-                </button>
-              </form>
+                </motion.button>
+              </motion.form>
             )}
           </motion.div>
         </div>
