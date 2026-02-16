@@ -214,7 +214,7 @@ export default function Navbar() {
 function LangSwitch({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
   return (
     <div
-      className="flex items-center rounded-lg overflow-hidden"
+      className="relative flex items-center rounded-lg p-0.5 gap-0.5"
       style={{
         background: "rgba(0,0,0,0.04)",
         border: "1px solid rgba(0,0,0,0.08)",
@@ -224,16 +224,23 @@ function LangSwitch({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void 
         <button
           key={l}
           onClick={() => setLang(l)}
-          className="px-2.5 py-1 text-[11px] font-semibold transition-all"
+          className="relative px-2.5 py-1 text-[11px] font-semibold z-10"
           style={{
             fontFamily: "var(--font-mono-display), monospace",
             letterSpacing: "0.08em",
-            background: lang === l ? "rgba(217,119,6,0.12)" : "transparent",
             color: lang === l ? "#b45309" : "rgba(0,0,0,0.35)",
-            borderRight: l === "es" ? "1px solid rgba(0,0,0,0.08)" : "none",
+            transition: "color 0.2s ease",
           }}
         >
-          {l.toUpperCase()}
+          {lang === l && (
+            <motion.span
+              layoutId="lang-pill"
+              className="absolute inset-0 rounded-md"
+              style={{ background: "rgba(217,119,6,0.14)", border: "1px solid rgba(217,119,6,0.25)" }}
+              transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            />
+          )}
+          <span className="relative z-10">{l.toUpperCase()}</span>
         </button>
       ))}
     </div>
