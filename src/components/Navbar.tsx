@@ -4,20 +4,23 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const links = [
-  { href: "/", label: "Inicio" },
-  { href: "/proyectos", label: "Proyectos" },
-  { href: "/sobre-mi", label: "Sobre Mí" },
-  { href: "/contacto", label: "Contacto" },
-];
+import { useLanguage } from "@/i18n/LanguageContext";
+import type { Lang } from "@/i18n/translations";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
+  const { lang, setLang, t } = useLanguage();
 
   useEffect(() => { setMounted(true); }, []);
+
+  const links = [
+    { href: "/",          label: t.nav.home },
+    { href: "/proyectos", label: t.nav.projects },
+    { href: "/sobre-mi",  label: t.nav.about },
+    { href: "/contacto",  label: t.nav.contact },
+  ];
 
   return (
     <>
@@ -32,7 +35,7 @@ export default function Navbar() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="relative"
         >
-          {/* ── Layer 1: backdrop blur — frosted glass ── */}
+          {/* Layer 1: backdrop blur */}
           <div
             className="absolute inset-0 rounded-2xl overflow-hidden"
             style={{
@@ -42,33 +45,18 @@ export default function Navbar() {
                 "linear-gradient(135deg, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0.68) 100%)",
             }}
           />
-
-          {/* ── Layer 2: SVG noise / liquid texture ── */}
-          <div
-            className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none"
-            style={{ filter: "url(#glass-refract)", opacity: 0.06 }}
-            aria-hidden="true"
-          >
-            <div className="w-full h-full bg-white" />
-          </div>
-
-          {/* ── Layer 3: shimmer sweep ── */}
-          <div
-            className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none"
-            aria-hidden="true"
-          >
+          {/* Layer 2: shimmer sweep */}
+          <div className="absolute inset-0 rounded-2xl overflow-hidden pointer-events-none" aria-hidden="true">
             <div
               className="absolute top-0 -left-full h-full w-1/2"
               style={{
-                background:
-                  "linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent)",
+                background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent)",
                 animation: "shimmer-sweep 9s ease-in-out infinite",
                 animationDelay: "3s",
               }}
             />
           </div>
-
-          {/* ── Layer 4: top specular highlight ── */}
+          {/* Layer 3: specular highlight */}
           <div
             className="absolute top-0 left-6 right-6 h-px pointer-events-none"
             style={{
@@ -78,8 +66,7 @@ export default function Navbar() {
             }}
             aria-hidden="true"
           />
-
-          {/* ── Layer 5: border + shadow (chromatic) ── */}
+          {/* Layer 4: border + shadow */}
           <div
             className="absolute inset-0 rounded-2xl pointer-events-none"
             style={{
@@ -88,23 +75,19 @@ export default function Navbar() {
                 0 0 0 1.5px rgba(217,119,6,0.18),
                 inset 0 0 0 0.5px rgba(255,255,255,0.7),
                 0 8px 32px rgba(0,0,0,0.10),
-                0 2px 8px rgba(0,0,0,0.07),
-                0 0 0 0.5px rgba(0,0,0,0.06)
+                0 2px 8px rgba(0,0,0,0.07)
               `,
             }}
             aria-hidden="true"
           />
 
-          {/* ── Nav content ── */}
+          {/* Nav content */}
           <nav className="relative z-10 flex items-center gap-1 px-3 py-2.5">
             {/* Logo */}
             <Link
               href="/"
               className="text-sm font-bold tracking-tight mr-4 px-2 py-1"
-              style={{
-                fontFamily: "var(--font-mono-display), monospace",
-                color: "#0a0a0f",
-              }}
+              style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
             >
               ovi<span style={{ color: "#d97706" }}>.</span>dev
             </Link>
@@ -124,10 +107,7 @@ export default function Navbar() {
                       <motion.span
                         layoutId="nav-pill"
                         className="absolute inset-0 rounded-xl"
-                        style={{
-                          background: "rgba(0,0,0,0.05)",
-                          border: "1px solid rgba(0,0,0,0.08)",
-                        }}
+                        style={{ background: "rgba(0,0,0,0.05)", border: "1px solid rgba(0,0,0,0.08)" }}
                         transition={{ type: "spring", duration: 0.35 }}
                       />
                     )}
@@ -140,12 +120,15 @@ export default function Navbar() {
             {/* Divider */}
             <div className="w-px h-4 bg-black/10 mx-2" />
 
+            {/* Language switch */}
+            <LangSwitch lang={lang} setLang={setLang} />
+
+            {/* Divider */}
+            <div className="w-px h-4 bg-black/10 mx-2" />
+
             {/* CTA */}
-            <Link
-              href="/contacto"
-              className="glass-btn-amber px-4 py-1.5 text-[13px] rounded-xl text-white"
-            >
-              Hablemos
+            <Link href="/contacto" className="glass-btn-amber px-4 py-1.5 text-[13px] rounded-xl text-white">
+              {t.nav.cta}
             </Link>
           </nav>
         </motion.div>
@@ -170,20 +153,26 @@ export default function Navbar() {
             >
               ovi<span style={{ color: "#d97706" }}>.</span>dev
             </Link>
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-1.5 rounded-lg transition-colors"
-              style={{ color: "rgba(0,0,0,0.5)" }}
-              aria-label="Toggle menu"
-            >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                {isOpen ? (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+
+            <div className="flex items-center gap-2">
+              {/* Language switch mobile */}
+              <LangSwitch lang={lang} setLang={setLang} />
+
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="p-1.5 rounded-lg transition-colors"
+                style={{ color: "rgba(0,0,0,0.5)" }}
+                aria-label="Toggle menu"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  {isOpen ? (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+                  ) : (
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16M4 18h16" />
+                  )}
+                </svg>
+              </button>
+            </div>
           </div>
 
           <AnimatePresence>
@@ -218,5 +207,35 @@ export default function Navbar() {
         </div>
       </header>
     </>
+  );
+}
+
+/* ── Language Switch component ──────────────────────────── */
+function LangSwitch({ lang, setLang }: { lang: Lang; setLang: (l: Lang) => void }) {
+  return (
+    <div
+      className="flex items-center rounded-lg overflow-hidden"
+      style={{
+        background: "rgba(0,0,0,0.04)",
+        border: "1px solid rgba(0,0,0,0.08)",
+      }}
+    >
+      {(["es", "en"] as Lang[]).map((l) => (
+        <button
+          key={l}
+          onClick={() => setLang(l)}
+          className="px-2.5 py-1 text-[11px] font-semibold transition-all"
+          style={{
+            fontFamily: "var(--font-mono-display), monospace",
+            letterSpacing: "0.08em",
+            background: lang === l ? "rgba(217,119,6,0.12)" : "transparent",
+            color: lang === l ? "#b45309" : "rgba(0,0,0,0.35)",
+            borderRight: l === "es" ? "1px solid rgba(0,0,0,0.08)" : "none",
+          }}
+        >
+          {l.toUpperCase()}
+        </button>
+      ))}
+    </div>
   );
 }

@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { personalInfo } from "@/data/portfolio";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 /* ── Animation variants ─────────────────────────────────── */
 const fadeUp = {
@@ -44,21 +45,22 @@ interface FormData   { nombre: string; email: string; mensaje: string; }
 interface FormErrors { nombre?: string; email?: string; mensaje?: string; }
 type Status = "idle" | "loading" | "success";
 
-function validate(d: FormData): FormErrors {
-  const e: FormErrors = {};
-  if (!d.nombre.trim()) e.nombre = "El nombre es obligatorio";
-  else if (d.nombre.trim().length < 2) e.nombre = "Mínimo 2 caracteres";
-  if (!d.email.trim()) e.email = "El email es obligatorio";
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) e.email = "Email inválido";
-  if (!d.mensaje.trim()) e.mensaje = "El mensaje es obligatorio";
-  else if (d.mensaje.trim().length < 10) e.mensaje = "Mínimo 10 caracteres";
-  return e;
-}
-
 export default function ContactoPage() {
+  const { t } = useLanguage();
   const [form, setForm] = useState<FormData>({ nombre: "", email: "", mensaje: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<Status>("idle");
+
+  function validate(d: FormData): FormErrors {
+    const e: FormErrors = {};
+    if (!d.nombre.trim()) e.nombre = t.contact.errors.nameRequired;
+    else if (d.nombre.trim().length < 2) e.nombre = t.contact.errors.nameMin;
+    if (!d.email.trim()) e.email = t.contact.errors.emailRequired;
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) e.email = t.contact.errors.emailInvalid;
+    if (!d.mensaje.trim()) e.mensaje = t.contact.errors.messageRequired;
+    else if (d.mensaje.trim().length < 10) e.mensaje = t.contact.errors.messageMin;
+    return e;
+  }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -95,13 +97,13 @@ export default function ContactoPage() {
           animate="visible"
           className="mb-12 sm:mb-16"
         >
-          <motion.span variants={fadeUp} className="tech-label">{"// CONTACTO"}</motion.span>
+          <motion.span variants={fadeUp} className="tech-label">{t.contact.pageLabel}</motion.span>
           <motion.h1
             variants={fadeUp}
             className="text-4xl md:text-5xl font-bold mt-2 mb-3"
             style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
           >
-            HABLEMOS_
+            {t.contact.pageTitle}
           </motion.h1>
           <motion.div
             variants={lineReveal}
@@ -109,7 +111,7 @@ export default function ContactoPage() {
             style={{ background: "linear-gradient(90deg, #d97706, transparent)" }}
           />
           <motion.p variants={fadeUp} className="max-w-lg" style={{ color: "rgba(0,0,0,0.5)" }}>
-            ¿Tienes un proyecto o idea? Escríbeme. Respondo en menos de 24 horas.
+            {t.contact.pageDescription}
           </motion.p>
         </motion.div>
 
@@ -209,10 +211,10 @@ export default function ContactoPage() {
                   className="text-xs text-green-700"
                   style={{ fontFamily: "var(--font-mono-display), monospace", letterSpacing: "0.08em" }}
                 >
-                  DISPONIBLE_PARA_PROYECTOS
+                  {t.contact.available}
                 </span>
               </div>
-              <p className="tech-label mt-1">TIEMPO_RESPUESTA: &lt;24H</p>
+              <p className="tech-label mt-1">{t.contact.responseTime}</p>
             </motion.div>
           </motion.div>
 
@@ -248,15 +250,15 @@ export default function ContactoPage() {
                   className="text-xl font-bold mb-2"
                   style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
                 >
-                  MENSAJE_ENVIADO
+                  {t.contact.successTitle}
                 </h3>
-                <p className="mb-6 text-sm" style={{ color: "rgba(0,0,0,0.45)" }}>Gracias, te respondo pronto.</p>
+                <p className="mb-6 text-sm" style={{ color: "rgba(0,0,0,0.45)" }}>{t.contact.successDesc}</p>
                 <button
                   onClick={() => setStatus("idle")}
                   className="text-xs transition-colors hover:opacity-70"
                   style={{ fontFamily: "var(--font-mono-display), monospace", color: "#b45309" }}
                 >
-                  {"// ENVIAR_OTRO_MENSAJE"}
+                  {t.contact.sendAnother}
                 </button>
               </motion.div>
             ) : (
@@ -274,21 +276,21 @@ export default function ContactoPage() {
                   boxShadow: "0 4px 24px rgba(0,0,0,0.06)",
                 }}
               >
-                <motion.span variants={fadeUp} className="tech-label block mb-2">{"// INIT_CONTACT"}</motion.span>
+                <motion.span variants={fadeUp} className="tech-label block mb-2">{t.contact.formLabel}</motion.span>
 
-                {/* Nombre */}
+                {/* Name */}
                 <motion.div variants={fadeUp}>
                   <label
                     htmlFor="nombre"
                     className="block mb-2 text-xs"
                     style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.45)", letterSpacing: "0.1em" }}
                   >
-                    NOMBRE <span style={{ color: "#d97706" }}>*</span>
+                    {t.contact.nameLabel} <span style={{ color: "#d97706" }}>*</span>
                   </label>
                   <input
                     id="nombre" name="nombre" type="text"
                     value={form.nombre} onChange={handleChange}
-                    placeholder="Tu nombre completo"
+                    placeholder={t.contact.namePlaceholder}
                     className={inputCls}
                     style={inputStyle(!!errors.nombre)}
                   />
@@ -306,12 +308,12 @@ export default function ContactoPage() {
                     className="block mb-2 text-xs"
                     style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.45)", letterSpacing: "0.1em" }}
                   >
-                    EMAIL <span style={{ color: "#d97706" }}>*</span>
+                    {t.contact.emailLabel} <span style={{ color: "#d97706" }}>*</span>
                   </label>
                   <input
                     id="email" name="email" type="email"
                     value={form.email} onChange={handleChange}
-                    placeholder="tu@email.com"
+                    placeholder={t.contact.emailPlaceholder}
                     className={inputCls}
                     style={inputStyle(!!errors.email)}
                   />
@@ -322,19 +324,19 @@ export default function ContactoPage() {
                   )}
                 </motion.div>
 
-                {/* Mensaje */}
+                {/* Message */}
                 <motion.div variants={fadeUp}>
                   <label
                     htmlFor="mensaje"
                     className="block mb-2 text-xs"
                     style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.45)", letterSpacing: "0.1em" }}
                   >
-                    MENSAJE <span style={{ color: "#d97706" }}>*</span>
+                    {t.contact.messageLabel} <span style={{ color: "#d97706" }}>*</span>
                   </label>
                   <textarea
                     id="mensaje" name="mensaje" rows={5}
                     value={form.mensaje} onChange={handleChange}
-                    placeholder="Cuéntame sobre tu proyecto..."
+                    placeholder={t.contact.messagePlaceholder}
                     className={`${inputCls} resize-none`}
                     style={inputStyle(!!errors.mensaje)}
                   />
@@ -360,11 +362,11 @@ export default function ContactoPage() {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
                       </svg>
-                      ENVIANDO...
+                      {t.contact.sending}
                     </>
                   ) : (
                     <>
-                      ENVIAR_MENSAJE
+                      {t.contact.submit}
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                       </svg>

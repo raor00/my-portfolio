@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { projects } from "@/data/portfolio";
 import ProjectCard from "@/components/ProjectCard";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 /* ── Animation variants ─────────────────────────────────── */
 const fadeUp = {
@@ -35,6 +36,7 @@ const filterVariant = {
 const allTags = Array.from(new Set(projects.flatMap((p) => p.tags))).sort();
 
 export default function ProyectosPage() {
+  const { t } = useLanguage();
   const [activeTag, setActiveTag] = useState<string | null>(null);
   const filtered = activeTag ? projects.filter((p) => p.tags.includes(activeTag)) : projects;
 
@@ -49,13 +51,13 @@ export default function ProyectosPage() {
           animate="visible"
           className="mb-12 sm:mb-16"
         >
-          <motion.span variants={fadeUp} className="tech-label">{"// PORTFOLIO"}</motion.span>
+          <motion.span variants={fadeUp} className="tech-label">{t.projects.pageLabel}</motion.span>
           <motion.h1
             variants={fadeUp}
             className="text-4xl md:text-5xl font-bold mt-2 mb-3"
             style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
           >
-            MIS_PROYECTOS
+            {t.projects.pageTitle}
           </motion.h1>
           <motion.div
             variants={lineReveal}
@@ -63,7 +65,7 @@ export default function ProyectosPage() {
             style={{ background: "linear-gradient(90deg, #d97706, transparent)" }}
           />
           <motion.p variants={fadeUp} className="max-w-lg text-base" style={{ color: "rgba(0,0,0,0.5)" }}>
-            Selección de proyectos full stack — desde arquitectura hasta despliegue en producción.
+            {t.projects.pageDescription}
           </motion.p>
         </motion.div>
 
@@ -86,7 +88,7 @@ export default function ProyectosPage() {
               color: activeTag === null ? "#b45309" : "rgba(0,0,0,0.45)",
             }}
           >
-            TODOS [{projects.length}]
+            {t.projects.filterAll} [{projects.length}]
           </motion.button>
           {allTags.map((tag, i) => (
             <motion.button
@@ -114,7 +116,7 @@ export default function ProyectosPage() {
           className="mb-8"
         >
           <span className="tech-label">
-            MOSTRANDO [{filtered.length}] DE [{projects.length}] PROYECTOS
+            {t.projects.showing} [{filtered.length}] {t.projects.of} [{projects.length}]
           </span>
         </motion.div>
 
@@ -141,7 +143,7 @@ export default function ProyectosPage() {
             className="text-center py-16 text-sm"
             style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.2)" }}
           >
-            {"// NO_RESULTS_FOUND"}
+            {t.projects.noResults}
           </motion.p>
         )}
       </div>

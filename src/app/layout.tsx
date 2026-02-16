@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GlassFilters from "@/components/GlassFilters";
+import Providers from "@/components/Providers";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const mono = IBM_Plex_Mono({
@@ -26,10 +27,12 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${inter.variable} ${mono.variable} font-sans antialiased`}>
-        <GlassFilters />
-        <Navbar />
-        <main className="pt-16 md:pt-20">{children}</main>
-        <Footer />
+        <Providers>
+          <GlassFilters />
+          <Navbar />
+          <main className="pt-16 md:pt-20">{children}</main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 export default function Footer() {
+  const { t } = useLanguage();
   const year = new Date().getFullYear();
 
   return (
@@ -24,7 +28,7 @@ export default function Footer() {
               letterSpacing: "0.08em",
             }}
           >
-            © {year} RAFAEL_OVIEDO — ALL_RIGHTS_RESERVED
+            © {year} RAFAEL_OVIEDO — {t.footer.rights}
           </p>
 
           <div className="flex items-center gap-2">
