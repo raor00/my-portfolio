@@ -191,9 +191,9 @@ export default function Home() {
       <section className="py-12 sm:py-16 px-4 sm:px-6 border-y" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
         <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8">
           {[
-            { value: "50+", label: "PROYECTOS" },
-            { value: "3+",  label: "AÑOS_EXP" },
-            { value: "99%", label: "UPTIME_AVG" },
+            { value: "4",   label: "PROYECTOS" },
+            { value: "1+",  label: "AÑO_DEV" },
+            { value: "2+",  label: "AÑOS_META_ADS" },
             { value: "∞",   label: "CAFÉ_CONSUMIDO" },
           ].map((stat, i) => (
             <motion.div
