@@ -6,8 +6,9 @@ export interface Project {
   image: string;
   tags: string[];
   demoUrl: string;
-  githubUrl: string;
+  githubUrl?: string;
   featured: boolean;
+  githubRepoName?: string;
 }
 
 export interface Skill {
@@ -142,7 +143,7 @@ export const experience: Experience[] = [
     description:
       "Especialista en publicidad paga en Meta (Facebook & Instagram Ads) con 2 años de experiencia. Gestión de campañas de rendimiento, optimización de presupuestos, segmentación de audiencias y análisis de métricas para maximizar el ROI de los clientes.",
     descriptionEn:
-      "Paid advertising specialist on Meta (Facebook & Instagram Ads) with 2 years of experience. Performance campaign management, budget optimization, audience segmentation, and metrics analysis to maximize client ROI.",
+      "Paid advertising specialist on Meta (Facebook & Instagram Ads) with 2 years of experience managing high-performance Meta Ads campaigns.",
     technologies: ["Meta Ads", "Facebook Business", "Pixel", "Analytics", "A/B Testing"],
   },
 ];
@@ -152,12 +153,11 @@ export const personalInfo = {
   title: "Full Stack Developer",
   subtitle: "Ingeniero en Informática",
   subtitleEn: "Software Engineer",
-  bio: "Soy Rafael Oviedo, Ingeniero en Informática con 1 año de experiencia en desarrollo web. Me especializo en el ecosistema JavaScript/TypeScript, construyendo tanto frontends modernos con React y Next.js como backends con Node.js y Supabase. También soy trafficker pago especializado en Meta Ads con 2 años de experiencia gestionando campañas de alto rendimiento.",
+  bio: "Soy Rafael Oviedo, Ingeniero en Informática y Full Stack Developer. Ofrezco soluciones tecnológicas integrales: desde el desarrollo de aplicaciones móviles y web, páginas web y web apps escalables y personalizadas, hasta la optimización de estrategias con IA y la gestión experta de campañas en Meta Ads para maximizar el retorno de inversión. Mi enfoque es crear soluciones robustas y a medida que impulsen el crecimiento de tu negocio.",
   bioEn:
-    "I'm Rafael Oviedo, a Software Engineer with 1 year of experience in web development. I specialize in the JavaScript/TypeScript ecosystem, building modern frontends with React and Next.js as well as backends with Node.js and Supabase. I'm also a paid traffic specialist with 2 years of experience managing high-performance Meta Ads campaigns.",
+    "I'm Rafael Oviedo, a Software Engineer and Full Stack Developer. I offer comprehensive technological solutions: from developing scalable and personalized mobile and web applications, websites, and web apps, to optimizing strategies with AI and expertly managing Meta Ads campaigns to maximize your return on investment. My approach is to create robust, tailor-made solutions that drive your business growth.",
   location: "Venezuela",
-  email: "rafaeloviedo@email.com",
   github: "https://github.com/raor00",
-  linkedin: "https://linkedin.com/in/rafaeloviedo",
+  linkedin: "https://www.linkedin.com/in/rafael-oviedo-ba876420a/",
   available: true,
 };

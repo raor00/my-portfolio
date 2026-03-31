@@ -14,7 +14,7 @@ export const translations = {
       subtitle: "FULL STACK DEVELOPER · INGENIERO EN INFORMÁTICA",
       comment: "// construyo para la web",
       description:
-        "Construyo aplicaciones web modernas y escalables — desde APIs robustas hasta interfaces elegantes. Full stack de principio a fin.",
+        "Como Full Stack Developer e Ingeniero en Informática, ofrezco soluciones tecnológicas integrales: desde el desarrollo de aplicaciones móviles y web, páginas web y web apps escalables y personalizadas, hasta la optimización de estrategias con IA y la gestión experta de campañas en Meta Ads para maximizar tu retorno de inversión. Mi enfoque es crear soluciones robustas y a medida que impulsen el crecimiento de tu negocio.",
       ctaPrimary: "Ver proyectos",
       ctaSecondary: "Contáctame",
       scroll: "SCROLL",
@@ -116,7 +116,7 @@ export const translations = {
       subtitle: "FULL STACK DEVELOPER · SOFTWARE ENGINEER",
       comment: "// I build for the web",
       description:
-        "I build modern and scalable web applications — from robust APIs to elegant interfaces. Full stack from start to finish.",
+        "As a Full Stack Developer and Software Engineer, I offer comprehensive technological solutions: from developing scalable and personalized mobile and web applications, websites, and web apps, to optimizing strategies with AI and expertly managing Meta Ads campaigns to maximize your return on investment. My approach is to create robust, tailor-made solutions that drive your business growth.",
       ctaPrimary: "View projects",
       ctaSecondary: "Contact me",
       scroll: "SCROLL",

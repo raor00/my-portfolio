@@ -92,6 +92,7 @@ export default function Navbar() {
               ovi<span style={{ color: "#d97706" }}>.</span>dev
             </Link>
 
+
             {/* Links */}
             <div className="flex items-center gap-0.5">
               {links.map((link) => {

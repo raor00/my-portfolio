@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { personalInfo } from "@/data/portfolio";
+import { personalInfo } from "@/config/data";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 /* ── Animation variants ─────────────────────────────────── */

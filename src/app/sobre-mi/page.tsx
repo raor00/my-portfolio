@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { skills, experience, personalInfo } from "@/data/portfolio";
+import { personalInfo, experience, skills } from "@/config/data";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const fadeUp = {

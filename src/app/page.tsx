@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { skills, projects } from "@/data/portfolio";
+import { skills, projects } from "@/config/data";
 import ProjectCard from "@/components/ProjectCard";
 import { useLanguage } from "@/i18n/LanguageContext";
 

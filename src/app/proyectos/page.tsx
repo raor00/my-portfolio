@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { projects } from "@/data/portfolio";
+import { projects } from "@/config/data";
 import ProjectCard from "@/components/ProjectCard";
 import { useLanguage } from "@/i18n/LanguageContext";
 
