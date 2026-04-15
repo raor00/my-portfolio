@@ -17,6 +17,8 @@ export const translations = {
         "Como Full Stack Developer e Ingeniero en Informática, ofrezco soluciones tecnológicas integrales: desde el desarrollo de aplicaciones móviles y web, páginas web y web apps escalables y personalizadas, hasta la optimización de estrategias con IA y la gestión experta de campañas en Meta Ads para maximizar tu retorno de inversión. Mi enfoque es crear soluciones robustas y a medida que impulsen el crecimiento de tu negocio.",
       ctaPrimary: "Ver proyectos",
       ctaSecondary: "Contáctame",
+      proofTitle: "// SOLUCIONES_REALES",
+      proofItems: ["ERP y operación interna", "Catálogos y captación", "Apps y herramientas técnicas", "E-commerce y growth"],
       scroll: "SCROLL",
     },
     metrics: {
@@ -38,6 +40,13 @@ export const translations = {
       label: "// TRABAJO",
       title: "PROYECTOS_DESTACADOS",
       viewAll: "VER_TODOS",
+      subtitle:
+        "Sistemas, apps y productos digitales pensados para resolver operaciones reales, acelerar ventas y mejorar procesos internos.",
+      contactCta: "HABLEMOS_DE_TU_PROYECTO",
+      secondaryLabel: "// MÁS_PROYECTOS",
+      secondaryDescription:
+        "También he construido productos orientados a finanzas, e-commerce, presencia digital y utilidades específicas para distintos contextos de negocio.",
+      secondaryCtaText: "Si buscas una solución similar, puedo ayudarte a diseñarla, construirla y lanzarla.",
     },
     cta: {
       label: "// DISPONIBLE",
@@ -61,10 +70,24 @@ export const translations = {
       pageLabel: "// PORTFOLIO",
       pageTitle: "MIS_PROYECTOS",
       pageDescription:
-        "Selección de proyectos full stack — desde arquitectura hasta despliegue en producción.",
+        "Selección curada de sistemas, plataformas y productos digitales enfocados en resolver problemas reales de negocio.",
+      businessLabel: "// SOLUCIONES_QUE_CONSTRUYO",
+      businessDescription:
+        "No presento solo interfaces: presento soluciones con contexto, lógica de negocio y enfoque en conversión, operación o experiencia de usuario.",
+      contactCta: "QUIERO_ALGO_SIMILAR",
       filterAll: "TODOS",
       showing: "MOSTRANDO",
       of: "DE",
+      featuredTitle: "DESTACADOS",
+      featuredDescription:
+        "Los proyectos más sólidos para entender cómo convierto necesidades reales en productos digitales útiles y escalables.",
+      secondaryTitle: "MÁS_PROYECTOS",
+      secondaryDescription:
+        "Otros trabajos que amplían el rango: finanzas personales, e-commerce, webs comerciales y herramientas especializadas.",
+      bottomCtaLabel: "// SIGUIENTE_PASO",
+      bottomCtaTitle: "¿Quieres una solución pensada para tu negocio?",
+      bottomCtaDescription:
+        "Puedo ayudarte a convertir una idea, proceso interno o necesidad comercial en una plataforma clara, útil y lista para crecer.",
       noResults: "// SIN_RESULTADOS",
     },
     contact: {
@@ -98,8 +121,29 @@ export const translations = {
       rights: "TODOS LOS DERECHOS RESERVADOS",
     },
     card: {
+      featured: "DESTACADO",
+      secondary: "SOLUCIÓN",
+      role: "ROL",
+      impact: "IMPACTO",
+      result: "RESULTADO",
+      ctaDetail: "VER_CASO",
+      ctaSolve: "QUIERO_ALGO_SIMILAR",
+      ctaSimilar: "SOLICITAR_SIMILAR",
       demo: "DEMO",
       github: "GITHUB",
+    },
+    projectDetail: {
+      notFoundTitle: "PROYECTO_NO_ENCONTRADO",
+      notFoundDescription: "No encontré ese caso dentro del portfolio actual.",
+      backToProjects: "VOLVER_A_PROYECTOS",
+      summary: "// RESUMEN",
+      problem: "// PROBLEMA",
+      solution: "// SOLUCIÓN",
+      results: "// RESULTADOS",
+      ctaLabel: "// SIGUIENTE_PASO",
+      ctaDescription:
+        "Si te interesa una solución de este tipo, puedo ayudarte a aterrizarla y construir una versión adaptada a tu operación.",
+      ctaButton: "HABLEMOS",
     },
   },
 
@@ -119,6 +163,8 @@ export const translations = {
         "As a Full Stack Developer and Software Engineer, I offer comprehensive technological solutions: from developing scalable and personalized mobile and web applications, websites, and web apps, to optimizing strategies with AI and expertly managing Meta Ads campaigns to maximize your return on investment. My approach is to create robust, tailor-made solutions that drive your business growth.",
       ctaPrimary: "View projects",
       ctaSecondary: "Contact me",
+      proofTitle: "// REAL_SOLUTIONS",
+      proofItems: ["ERPs and internal ops", "Catalogs and lead capture", "Apps and technical tools", "E-commerce and growth"],
       scroll: "SCROLL",
     },
     metrics: {
@@ -140,6 +186,13 @@ export const translations = {
       label: "// WORK",
       title: "FEATURED_PROJECTS",
       viewAll: "VIEW_ALL",
+      subtitle:
+        "Systems, apps, and digital products designed to solve real operations, accelerate sales, and improve internal workflows.",
+      contactCta: "LET'S_TALK_ABOUT_YOUR_PROJECT",
+      secondaryLabel: "// MORE_PROJECTS",
+      secondaryDescription:
+        "I have also built products focused on finance, e-commerce, digital presence, and specialized utilities for different business contexts.",
+      secondaryCtaText: "If you need a similar solution, I can help design it, build it, and launch it.",
     },
     cta: {
       label: "// AVAILABLE",
@@ -163,10 +216,24 @@ export const translations = {
       pageLabel: "// PORTFOLIO",
       pageTitle: "MY_PROJECTS",
       pageDescription:
-        "A selection of full stack projects — from architecture to production deployment.",
+        "A curated selection of systems, platforms, and digital products focused on solving real business problems.",
+      businessLabel: "// WHAT_I_BUILD",
+      businessDescription:
+        "I don't just ship interfaces: I build solutions with business logic, context, and a clear focus on conversion, operations, or user experience.",
+      contactCta: "I_WANT_SOMETHING_SIMILAR",
       filterAll: "ALL",
       showing: "SHOWING",
       of: "OF",
+      featuredTitle: "FEATURED",
+      featuredDescription:
+        "The strongest projects to understand how I turn real needs into useful, scalable digital products.",
+      secondaryTitle: "MORE_PROJECTS",
+      secondaryDescription:
+        "Additional work across personal finance, e-commerce, commercial websites, and specialized tools.",
+      bottomCtaLabel: "// NEXT_STEP",
+      bottomCtaTitle: "Need a solution designed for your business?",
+      bottomCtaDescription:
+        "I can help turn an idea, internal process, or commercial need into a clear, useful platform ready to grow.",
       noResults: "// NO_RESULTS_FOUND",
     },
     contact: {
@@ -200,8 +267,29 @@ export const translations = {
       rights: "ALL RIGHTS RESERVED",
     },
     card: {
+      featured: "FEATURED",
+      secondary: "SOLUTION",
+      role: "ROLE",
+      impact: "IMPACT",
+      result: "RESULT",
+      ctaDetail: "VIEW_CASE",
+      ctaSolve: "I_WANT_SOMETHING_SIMILAR",
+      ctaSimilar: "REQUEST_SIMILAR",
       demo: "DEMO",
       github: "GITHUB",
+    },
+    projectDetail: {
+      notFoundTitle: "PROJECT_NOT_FOUND",
+      notFoundDescription: "I couldn't find that case inside the current portfolio.",
+      backToProjects: "BACK_TO_PROJECTS",
+      summary: "// SUMMARY",
+      problem: "// PROBLEM",
+      solution: "// SOLUTION",
+      results: "// RESULTS",
+      ctaLabel: "// NEXT_STEP",
+      ctaDescription:
+        "If you need this kind of solution, I can help shape it and build a version tailored to your operation.",
+      ctaButton: "LET'S_TALK",
     },
   },
 } as const;

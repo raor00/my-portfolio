@@ -1,8 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { projects } from "@/config/data";
+import { projects, featuredProjects, secondaryProjects } from "@/config/data";
 import ProjectCard from "@/components/ProjectCard";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -38,7 +39,13 @@ const allTags = Array.from(new Set(projects.flatMap((p) => p.tags))).sort();
 export default function ProyectosPage() {
   const { t } = useLanguage();
   const [activeTag, setActiveTag] = useState<string | null>(null);
-  const filtered = activeTag ? projects.filter((p) => p.tags.includes(activeTag)) : projects;
+  const filteredFeatured = activeTag
+    ? featuredProjects.filter((p) => p.tags.includes(activeTag))
+    : featuredProjects;
+  const filteredSecondary = activeTag
+    ? secondaryProjects.filter((p) => p.tags.includes(activeTag))
+    : secondaryProjects;
+  const filteredTotal = filteredFeatured.length + filteredSecondary.length;
 
   return (
     <div className="min-h-screen py-20 sm:py-24 px-4 sm:px-6">
@@ -64,9 +71,29 @@ export default function ProyectosPage() {
             className="mb-4 h-px w-16"
             style={{ background: "linear-gradient(90deg, #d97706, transparent)" }}
           />
-          <motion.p variants={fadeUp} className="max-w-lg text-base" style={{ color: "rgba(0,0,0,0.5)" }}>
+          <motion.p variants={fadeUp} className="max-w-2xl text-base" style={{ color: "rgba(0,0,0,0.5)" }}>
             {t.projects.pageDescription}
           </motion.p>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.12, duration: 0.45 }}
+          className="rounded-2xl p-5 sm:p-6 mb-10"
+          style={{
+            background: "rgba(255,255,255,0.72)",
+            border: "1px solid rgba(0,0,0,0.08)",
+            backdropFilter: "blur(10px)",
+          }}
+        >
+          <p className="tech-label">{t.projects.businessLabel}</p>
+          <p className="text-sm mt-3 max-w-3xl" style={{ color: "rgba(0,0,0,0.5)" }}>
+            {t.projects.businessDescription}
+          </p>
+          <Link href="/contacto" className="glass-btn-amber inline-flex mt-4 px-4 py-2 rounded-lg text-xs text-white" style={{ fontFamily: "var(--font-mono-display), monospace" }}>
+            {t.projects.contactCta}
+          </Link>
         </motion.div>
 
         {/* ── Filters ────────────────────────────────── */}
@@ -116,27 +143,81 @@ export default function ProyectosPage() {
           className="mb-8"
         >
           <span className="tech-label">
-            {t.projects.showing} [{filtered.length}] {t.projects.of} [{projects.length}]
+            {t.projects.showing} [{filteredTotal}] {t.projects.of} [{projects.length}]
           </span>
         </motion.div>
 
-        {/* ── Grid ───────────────────────────────────── */}
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={activeTag ?? "all"}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            transition={{ duration: 0.25, ease: "easeOut" }}
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
-          >
-            {filtered.map((project, i) => (
-              <ProjectCard key={project.id} project={project} index={i} />
-            ))}
-          </motion.div>
-        </AnimatePresence>
+        {/* ── Featured ───────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="mb-8"
+        >
+          <div className="flex items-center justify-between gap-4 mb-5">
+            <h2
+              className="text-xl sm:text-2xl font-bold"
+              style={{ color: "#0a0a0f", fontFamily: "var(--font-mono-display), monospace" }}
+            >
+              {t.projects.featuredTitle}
+            </h2>
+            <span className="tech-label">[{filteredFeatured.length}]</span>
+          </div>
+          <p className="text-sm mb-4" style={{ color: "rgba(0,0,0,0.48)" }}>
+            {t.projects.featuredDescription}
+          </p>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`featured-${activeTag ?? "all"}`}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
+            >
+              {filteredFeatured.map((project, i) => (
+                <ProjectCard key={project.id} project={project} index={i} />
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
 
-        {filtered.length === 0 && (
+        {/* ── Secondary ──────────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 14 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.28 }}
+          className="mb-8"
+        >
+          <div className="flex items-center justify-between gap-4 mb-5">
+            <h2
+              className="text-xl sm:text-2xl font-bold"
+              style={{ color: "#0a0a0f", fontFamily: "var(--font-mono-display), monospace" }}
+            >
+              {t.projects.secondaryTitle}
+            </h2>
+            <span className="tech-label">[{filteredSecondary.length}]</span>
+          </div>
+          <p className="text-sm mb-4" style={{ color: "rgba(0,0,0,0.48)" }}>
+            {t.projects.secondaryDescription}
+          </p>
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={`secondary-${activeTag ?? "all"}`}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
+            >
+              {filteredSecondary.map((project, i) => (
+                <ProjectCard key={project.id} project={project} index={i} />
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </motion.div>
+
+        {filteredTotal === 0 && (
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -146,6 +227,29 @@ export default function ProyectosPage() {
             {t.projects.noResults}
           </motion.p>
         )}
+
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.34 }}
+          className="rounded-2xl p-6 sm:p-7 mt-12"
+          style={{
+            background: "rgba(255,255,255,0.72)",
+            border: "1px solid rgba(0,0,0,0.08)",
+            backdropFilter: "blur(10px)",
+          }}
+        >
+          <p className="tech-label">{t.projects.bottomCtaLabel}</p>
+          <h3 className="text-lg sm:text-xl font-bold mt-2" style={{ color: "#0a0a0f", fontFamily: "var(--font-mono-display), monospace" }}>
+            {t.projects.bottomCtaTitle}
+          </h3>
+          <p className="text-sm mt-3 max-w-3xl" style={{ color: "rgba(0,0,0,0.5)" }}>
+            {t.projects.bottomCtaDescription}
+          </p>
+          <Link href="/contacto" className="glass-btn-amber inline-flex mt-5 px-4 py-2 rounded-lg text-xs text-white" style={{ fontFamily: "var(--font-mono-display), monospace" }}>
+            {t.projects.contactCta}
+          </Link>
+        </motion.div>
       </div>
     </div>
   );

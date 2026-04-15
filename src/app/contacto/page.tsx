@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { personalInfo } from "@/config/data";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -47,9 +48,25 @@ type Status = "idle" | "loading" | "success";
 
 export default function ContactoPage() {
   const { t } = useLanguage();
+  const searchParams = useSearchParams();
   const [form, setForm] = useState<FormData>({ nombre: "", email: "", mensaje: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<Status>("idle");
+
+  useEffect(() => {
+    const proyecto = searchParams.get("proyecto");
+    if (!proyecto) return;
+
+    const normalized = proyecto.replace(/-/g, " ");
+    setForm((prev) => {
+      if (prev.mensaje.trim()) return prev;
+
+      return {
+        ...prev,
+        mensaje: `Hola Rafael, quiero una solución similar a ${normalized}. Me gustaría conversar sobre mi proyecto.`,
+      };
+    });
+  }, [searchParams]);
 
   function validate(d: FormData): FormErrors {
     const e: FormErrors = {};
@@ -337,6 +354,7 @@ export default function ContactoPage() {
                     id="mensaje" name="mensaje" rows={5}
                     value={form.mensaje} onChange={handleChange}
                     placeholder={t.contact.messagePlaceholder}
+                    maxLength={500}
                     className={`${inputCls} resize-none`}
                     style={inputStyle(!!errors.mensaje)}
                   />

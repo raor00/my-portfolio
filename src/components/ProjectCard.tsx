@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { Project } from "@/config/data";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -6,12 +6,29 @@ import { useLanguage } from "@/i18n/LanguageContext";
 interface ProjectCardProps {
   project: Project;
   index?: number;
-  lang?: string; // optional, used by parent — card reads from context directly
 }
 
 export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const { t, lang } = useLanguage();
-  const description = lang === "en" ? project.descriptionEn : project.description;
+  const isEn = lang === "en";
+
+  const headline = isEn ? project.headlineEn : project.headline;
+  const subtitle = isEn ? project.subtitleEn : project.subtitle;
+  const role = isEn ? project.roleEn : project.role;
+  const impact = isEn ? project.impactEn : project.impact;
+  const resultHighlight = isEn ? project.resultHighlightEn : project.resultHighlight;
+  const status = isEn ? project.statusLabelEn : project.statusLabel;
+  const primaryCtaLabel = project.primaryCta
+    ? isEn
+      ? project.primaryCta.labelEn
+      : project.primaryCta.label
+    : t.card.ctaSimilar;
+  const secondaryCtaLabel = project.secondaryCta
+    ? isEn
+      ? project.secondaryCta.labelEn
+      : project.secondaryCta.label
+    : null;
+  const conversionCta = isEn ? project.conversionCtaEn : project.conversionCta;
 
   return (
     <motion.article
@@ -33,13 +50,14 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         style={{ boxShadow: "inset 0 0 0 1.5px rgba(217,119,6,0.25)" }}
       />
 
-      {/* Image area */}
+      {/* Hero area */}
       <div className="relative h-44 overflow-hidden">
-        <Image
-          src={project.image}
-          alt={project.title}
-          layout="fill"
-          objectFit="cover"
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "radial-gradient(ellipse at 20% 25%, rgba(217,119,6,0.18) 0%, rgba(255,255,255,0.45) 40%, rgba(255,255,255,0.88) 100%)",
+          }}
         />
         <div
           className="absolute inset-0"
@@ -49,12 +67,32 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             backgroundSize: "32px 32px",
           }}
         />
-        <div className="absolute inset-0 flex items-center justify-center">
-          <span className="text-6xl select-none opacity-[0.12]" style={{ fontFamily: "var(--font-mono-display), monospace" }}>
-            ◈
-          </span>
+        <div className="absolute inset-0 flex flex-col justify-between p-4">
+          <div className="flex items-center justify-between gap-2">
+            <span className="tech-label">{project.featured ? t.card.featured : t.card.secondary}</span>
+            <span
+              className="text-[10px] px-2.5 py-1 rounded-md"
+              style={{
+                background: "rgba(255,255,255,0.7)",
+                border: "1px solid rgba(0,0,0,0.1)",
+                color: "rgba(0,0,0,0.55)",
+                fontFamily: "var(--font-mono-display), monospace",
+              }}
+            >
+              {status}
+            </span>
+          </div>
+
+          <div>
+            <h4
+              className="text-sm font-semibold"
+              style={{ color: "#0a0a0f", fontFamily: "var(--font-mono-display), monospace" }}
+            >
+              {headline}
+            </h4>
+          </div>
         </div>
-        <span className="absolute top-3 right-3 tech-label">
+        <span className="absolute bottom-3 left-3 tech-label">
           {project.tags[0].toUpperCase()}_MOD
         </span>
         <div
@@ -66,13 +104,32 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
       {/* Content */}
       <div className="flex flex-col flex-1 p-5">
         <h3
-          className="text-base font-bold mb-2 group-hover:text-amber-700 transition-colors"
+          className="text-base font-bold mb-1 group-hover:text-amber-700 transition-colors"
           style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
         >
           {project.title}
         </h3>
-        <p className="text-sm leading-relaxed flex-1 mb-4" style={{ color: "rgba(0,0,0,0.5)" }}>
-          {description}
+
+        <p className="text-sm leading-relaxed mb-3" style={{ color: "rgba(0,0,0,0.52)" }}>
+          {subtitle}
+        </p>
+
+        <div className="space-y-2 mb-4">
+          <p className="text-xs" style={{ color: "rgba(0,0,0,0.46)" }}>
+            <strong style={{ color: "#0a0a0f" }}>{t.card.role}:</strong> {role}
+          </p>
+          <p className="text-xs leading-relaxed" style={{ color: "rgba(0,0,0,0.46)" }}>
+            <strong style={{ color: "#0a0a0f" }}>{t.card.impact}:</strong> {impact}
+          </p>
+          {resultHighlight && (
+            <p className="text-xs leading-relaxed" style={{ color: "rgba(0,0,0,0.46)" }}>
+              <strong style={{ color: "#0a0a0f" }}>{t.card.result}:</strong> {resultHighlight}
+            </p>
+          )}
+        </div>
+
+        <p className="text-xs leading-relaxed flex-1 mb-4" style={{ color: "rgba(0,0,0,0.42)" }}>
+          {isEn ? project.descriptionEn : project.description}
         </p>
 
         {/* Tags */}
@@ -94,22 +151,66 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         </div>
 
         {/* Links */}
-        <div className="flex items-center gap-2.5 pt-3 border-t" style={{ borderColor: "rgba(0,0,0,0.07)" }}>
-          {project.demoUrl && project.demoUrl !== "#" && (
-            <a
-              href={project.demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="glass-btn-amber flex items-center gap-1.5 text-xs px-4 py-2 rounded-lg text-white"
-              style={{ fontFamily: "var(--font-mono-display), monospace" }}
+        <div className="flex flex-wrap items-center gap-2.5 pt-3 border-t" style={{ borderColor: "rgba(0,0,0,0.07)" }}>
+          <Link
+            href={`/proyectos/${project.slug}`}
+            className="glass-btn-amber flex items-center gap-1.5 text-xs px-4 py-2 rounded-lg text-white"
+            style={{ fontFamily: "var(--font-mono-display), monospace" }}
+          >
+            {t.card.ctaDetail}
+            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+
+          {project.primaryCta && project.primaryCta.href !== "/contacto" && (
+            <Link
+              href={project.primaryCta.href}
+              target={project.primaryCta.external ? "_blank" : undefined}
+              rel={project.primaryCta.external ? "noopener noreferrer" : undefined}
+              className="flex items-center gap-1.5 text-xs font-medium px-4 py-2 rounded-lg transition-all hover:scale-[1.02]"
+              style={{
+                background: "rgba(217,119,6,0.08)",
+                border: "1px solid rgba(217,119,6,0.2)",
+                color: "#b45309",
+                fontFamily: "var(--font-mono-display), monospace",
+              }}
             >
-              {t.card.demo}
-              <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-              </svg>
-            </a>
+              {primaryCtaLabel}
+            </Link>
           )}
-          {project.githubUrl && project.githubUrl !== "#" && (
+
+          {project.secondaryCta && secondaryCtaLabel && (
+            <Link
+              href={project.secondaryCta.href}
+              target={project.secondaryCta.external ? "_blank" : undefined}
+              rel={project.secondaryCta.external ? "noopener noreferrer" : undefined}
+              className="flex items-center gap-1.5 text-xs font-medium px-4 py-2 rounded-lg transition-all hover:scale-[1.02]"
+              style={{
+                background: "rgba(217,119,6,0.08)",
+                border: "1px solid rgba(217,119,6,0.2)",
+                color: "#b45309",
+                fontFamily: "var(--font-mono-display), monospace",
+              }}
+            >
+              {secondaryCtaLabel}
+            </Link>
+          )}
+
+          <Link
+            href={`/contacto?proyecto=${project.slug}`}
+            className="flex items-center gap-1.5 text-xs font-medium px-4 py-2 rounded-lg transition-all hover:scale-[1.02]"
+            style={{
+              background: "rgba(0,0,0,0.04)",
+              border: "1px solid rgba(0,0,0,0.09)",
+              color: "rgba(0,0,0,0.6)",
+              fontFamily: "var(--font-mono-display), monospace",
+            }}
+          >
+            {conversionCta || t.card.ctaSolve}
+          </Link>
+
+          {project.githubUrl && project.githubUrl !== "#" && !project.secondaryCta && (
             <a
               href={project.githubUrl}
               target="_blank"

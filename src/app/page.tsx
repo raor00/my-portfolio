@@ -3,11 +3,9 @@
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { skills, projects } from "@/config/data";
+import { skills, featuredProjects, secondaryProjects } from "@/config/data";
 import ProjectCard from "@/components/ProjectCard";
 import { useLanguage } from "@/i18n/LanguageContext";
-
-const featuredProjects = projects.filter((p) => p.featured);
 
 /* ── Animation variants ─────────────────────────────────── */
 const fadeUp = {
@@ -94,7 +92,7 @@ function SectionHeading({ label, title }: { label: string; title: string }) {
 
 /* ════════════════════════════════════════════════════════ */
 export default function Home() {
-  const { t, lang } = useLanguage();
+  const { t } = useLanguage();
 
   return (
     <>
@@ -173,6 +171,27 @@ export default function Home() {
                 {t.hero.ctaSecondary}
               </Link>
             </motion.div>
+
+            <motion.div variants={fadeUp} custom={5} className="mt-8">
+              <p className="tech-label mb-3">{t.hero.proofTitle}</p>
+              <div className="flex flex-wrap gap-2.5 max-w-3xl">
+                {t.hero.proofItems.map((item) => (
+                  <span
+                    key={item}
+                    className="text-xs px-3 py-1.5 rounded-lg"
+                    style={{
+                      fontFamily: "var(--font-mono-display), monospace",
+                      background: "rgba(255,255,255,0.72)",
+                      border: "1px solid rgba(0,0,0,0.08)",
+                      color: "rgba(0,0,0,0.62)",
+                      backdropFilter: "blur(8px)",
+                    }}
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
         </div>
 
@@ -201,11 +220,11 @@ export default function Home() {
 
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible"
             viewport={{ once: true, margin: "-40px" }} className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-            {[
-              { raw: "5", suffix: "", idx: 0 },
-              { raw: "1", suffix: "+", idx: 1 },
-              { raw: "2", suffix: "+", idx: 2 },
-              { raw: "∞", suffix: "", idx: 3 },
+              {[
+                { raw: "9", suffix: "", idx: 0 },
+                { raw: "1", suffix: "+", idx: 1 },
+                { raw: "2", suffix: "+", idx: 2 },
+                { raw: "∞", suffix: "", idx: 3 },
             ].map((stat) => (
               <motion.div key={stat.idx} variants={fadeScale}
                 className="group p-5 rounded-2xl transition-all hover:scale-[1.03]"
@@ -252,8 +271,8 @@ export default function Home() {
       {/* ═══ FEATURED PROJECTS ═══ */}
       <section className="py-16 sm:py-24 px-4 sm:px-6 border-t" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
         <div className="max-w-6xl mx-auto">
-          <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
-            variants={staggerContainer} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-14">
+           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-60px" }}
+             variants={staggerContainer} className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-14">
             <div>
               <motion.span variants={fadeUp} className="tech-label">{t.featuredProjects.label}</motion.span>
               <motion.h2 variants={fadeUp} className="text-3xl md:text-4xl font-bold mt-2"
@@ -262,8 +281,11 @@ export default function Home() {
               </motion.h2>
               <motion.div variants={lineReveal} className="mt-3 h-px w-16"
                 style={{ background: "linear-gradient(90deg, #d97706, transparent)" }} />
+              <motion.p variants={fadeUp} className="text-sm mt-4 max-w-2xl" style={{ color: "rgba(0,0,0,0.48)" }}>
+                {t.featuredProjects.subtitle}
+              </motion.p>
             </div>
-            <motion.div variants={fadeUp}>
+            <motion.div variants={fadeUp} className="flex gap-3">
               <Link href="/proyectos" className="group flex items-center gap-1.5 text-sm font-medium shrink-0 transition-colors"
                 style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.35)" }}>
                 {t.featuredProjects.viewAll}
@@ -271,14 +293,78 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
+              <Link href="/contacto" className="glass-btn-amber inline-flex items-center px-4 py-2 rounded-lg text-xs text-white" style={{ fontFamily: "var(--font-mono-display), monospace" }}>
+                {t.featuredProjects.contactCta}
+              </Link>
             </motion.div>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {featuredProjects.map((p, i) => (
-              <ProjectCard key={p.id} project={p} index={i} lang={lang} />
+              <ProjectCard key={p.id} project={p} index={i} />
             ))}
           </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 14 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.45 }}
+            className="mt-10 p-5 sm:p-6 rounded-2xl"
+            style={{
+              background: "rgba(255,255,255,0.66)",
+              border: "1px solid rgba(0,0,0,0.08)",
+              backdropFilter: "blur(10px)",
+            }}
+          >
+            <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+              <div>
+                <p className="tech-label">{t.featuredProjects.secondaryLabel}</p>
+                <p className="text-sm mt-2" style={{ color: "rgba(0,0,0,0.5)" }}>
+                  {t.featuredProjects.secondaryDescription}
+                </p>
+              </div>
+              <Link
+                href="/proyectos"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-medium"
+                style={{
+                  fontFamily: "var(--font-mono-display), monospace",
+                  background: "rgba(0,0,0,0.04)",
+                  border: "1px solid rgba(0,0,0,0.08)",
+                  color: "rgba(0,0,0,0.6)",
+                }}
+              >
+                {t.featuredProjects.viewAll}
+              </Link>
+            </div>
+
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-2.5">
+              {secondaryProjects.map((project) => (
+                <Link
+                  key={project.id}
+                  href={`/proyectos/${project.slug}`}
+                  className="text-xs px-3 py-2 rounded-lg transition-colors"
+                  style={{
+                    fontFamily: "var(--font-mono-display), monospace",
+                    background: "rgba(0,0,0,0.03)",
+                    border: "1px solid rgba(0,0,0,0.07)",
+                    color: "rgba(0,0,0,0.62)",
+                  }}
+                >
+                  {project.title}
+                </Link>
+              ))}
+            </div>
+
+            <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
+              <p className="text-xs" style={{ color: "rgba(0,0,0,0.45)" }}>
+                {t.featuredProjects.secondaryCtaText}
+              </p>
+              <Link href="/contacto" className="glass-btn-amber inline-flex items-center px-4 py-2 rounded-lg text-xs text-white" style={{ fontFamily: "var(--font-mono-display), monospace" }}>
+                {t.featuredProjects.contactCta}
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
