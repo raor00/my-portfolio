@@ -12,7 +12,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   visible: (i: number = 0) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.55, delay: i * 0.09, ease: [0.21, 1.02, 0.73, 1] },
+    transition: { duration: 0.55, delay: i * 0.09, ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] },
   }),
 };
 
@@ -23,14 +23,14 @@ const stagger = {
 
 const lineReveal = {
   hidden: { scaleX: 0, originX: 0 },
-  visible: { scaleX: 1, transition: { duration: 0.6, ease: [0.21, 1.02, 0.73, 1] } },
+  visible: { scaleX: 1, transition: { duration: 0.6, ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] } },
 };
 
 const filterVariant = {
   hidden: { opacity: 0, scale: 0.92 },
   visible: (i: number) => ({
     opacity: 1, scale: 1,
-    transition: { duration: 0.35, delay: i * 0.04, ease: [0.21, 1.02, 0.73, 1] },
+    transition: { duration: 0.35, delay: i * 0.04, ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] },
   }),
 };
 

@@ -11,7 +11,7 @@ const fadeUp = {
   visible: (i: number = 0) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.55, delay: i * 0.09, ease: [0.21, 1.02, 0.73, 1] },
+    transition: { duration: 0.55, delay: i * 0.09, ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] },
   }),
 };
 

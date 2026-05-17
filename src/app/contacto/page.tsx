@@ -11,7 +11,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   visible: (i: number = 0) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.55, delay: i * 0.09, ease: [0.21, 1.02, 0.73, 1] },
+    transition: { duration: 0.55, delay: i * 0.09, ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] },
   }),
 };
 
@@ -19,7 +19,7 @@ const fadeLeft = {
   hidden: { opacity: 0, x: -20 },
   visible: (i: number = 0) => ({
     opacity: 1, x: 0,
-    transition: { duration: 0.5, delay: i * 0.08, ease: [0.21, 1.02, 0.73, 1] },
+    transition: { duration: 0.5, delay: i * 0.08, ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] },
   }),
 };
 
@@ -27,7 +27,7 @@ const fadeRight = {
   hidden: { opacity: 0, x: 20 },
   visible: {
     opacity: 1, x: 0,
-    transition: { duration: 0.55, delay: 0.15, ease: [0.21, 1.02, 0.73, 1] },
+    transition: { duration: 0.55, delay: 0.15, ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] },
   },
 };
 
@@ -38,7 +38,7 @@ const stagger = {
 
 const lineReveal = {
   hidden: { scaleX: 0, originX: 0 },
-  visible: { scaleX: 1, transition: { duration: 0.6, ease: [0.21, 1.02, 0.73, 1] } },
+  visible: { scaleX: 1, transition: { duration: 0.6, ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] } },
 };
 
 /* ── Types ──────────────────────────────────────────────── */
@@ -246,7 +246,7 @@ export default function ContactoPage() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.97 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ ease: [0.21, 1.02, 0.73, 1] }}
+                transition={{ ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] }}
                 className="h-full flex flex-col items-center justify-center text-center py-20 rounded-2xl"
                 style={{
                   background: "rgba(255,255,255,0.8)",
@@ -257,7 +257,7 @@ export default function ContactoPage() {
                 <motion.div
                   initial={{ scale: 0.5, opacity: 0 }}
                   animate={{ scale: 1, opacity: 1 }}
-                  transition={{ delay: 0.1, ease: [0.21, 1.02, 0.73, 1] }}
+                  transition={{ delay: 0.1, ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] }}
                   className="w-14 h-14 rounded-2xl flex items-center justify-center mb-5 text-2xl text-green-600"
                   style={{ background: "rgba(240,253,244,0.9)", border: "1px solid rgba(74,222,128,0.3)" }}
                 >

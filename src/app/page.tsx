@@ -12,7 +12,7 @@ const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   visible: (i: number = 0) => ({
     opacity: 1, y: 0,
-    transition: { duration: 0.55, delay: i * 0.09, ease: [0.21, 1.02, 0.73, 1] },
+    transition: { duration: 0.55, delay: i * 0.09, ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] },
   }),
 };
 const staggerContainer = {
@@ -21,11 +21,11 @@ const staggerContainer = {
 };
 const fadeScale = {
   hidden: { opacity: 0, scale: 0.96, y: 16 },
-  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: [0.21, 1.02, 0.73, 1] } },
+  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5, ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] } },
 };
 const lineReveal = {
   hidden: { scaleX: 0, originX: 0 },
-  visible: { scaleX: 1, transition: { duration: 0.6, ease: [0.21, 1.02, 0.73, 1] } },
+  visible: { scaleX: 1, transition: { duration: 0.6, ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] } },
 };
 
 /* ── Category colors ────────────────────────────────────── */
@@ -451,7 +451,7 @@ export default function Home() {
       <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
           <motion.div initial={{ opacity: 0, y: 32, scale: 0.98 }} whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.6, ease: [0.21, 1.02, 0.73, 1] }}
+            viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.6, ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] }}
             className="relative rounded-3xl overflow-hidden p-8 sm:p-12 text-center"
             style={{ background: "rgba(255,255,255,0.7)", border: "1px solid rgba(0,0,0,0.08)", backdropFilter: "blur(16px)", boxShadow: "0 8px 40px rgba(0,0,0,0.07)" }}>
             <div className="absolute inset-0 pointer-events-none"
