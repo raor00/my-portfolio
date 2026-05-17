@@ -38,7 +38,7 @@ export default function ProjectDetailPage() {
               backdropFilter: "blur(12px)",
             }}
           >
-            <p className="tech-label">// 404</p>
+            <p className="tech-label">{'// 404'}</p>
             <h1
               className="text-2xl font-bold mt-3"
               style={{ color: "#0a0a0f", fontFamily: "var(--font-mono-display), monospace" }}
