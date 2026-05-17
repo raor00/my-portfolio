@@ -115,6 +115,12 @@ export default function Home() {
           className="absolute left-0 top-1/2 -translate-y-1/2 w-[500px] h-[500px] pointer-events-none"
           style={{ background: "radial-gradient(ellipse at 20% 50%, rgba(217,119,6,0.07) 0%, transparent 65%)" }}
         />
+        <motion.div
+          className="absolute right-1/4 top-1/3 w-[320px] h-[320px] rounded-full pointer-events-none"
+          animate={{ scale: [1, 1.12, 1], x: [0, 18, 0], y: [0, -12, 0] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+          style={{ background: "radial-gradient(ellipse, rgba(217,119,6,0.05) 0%, transparent 70%)", filter: "blur(32px)" }}
+        />
 
         <div className="max-w-6xl mx-auto w-full">
           <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="flex flex-col">
@@ -129,23 +135,24 @@ export default function Home() {
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                 {t.hero.badge}
               </span>
-              <span
+              <motion.span
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold tracking-widest uppercase"
+                animate={{ boxShadow: ["0 0 8px rgba(217,119,6,0.15)", "0 0 22px rgba(217,119,6,0.38)", "0 0 8px rgba(217,119,6,0.15)"] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 style={{
                   fontFamily: "var(--font-mono-display), monospace",
                   background: "rgba(217,119,6,0.14)",
                   border: "1px solid rgba(217,119,6,0.35)",
                   color: "#92400e",
-                  boxShadow: "0 0 12px rgba(217,119,6,0.15)",
                 }}
               >
                 🏆 {t.hero.hackathonBadge}
-              </span>
+              </motion.span>
             </motion.div>
 
             <motion.div variants={fadeUp} custom={1} className="mb-6">
               <h1
-                className="font-bold leading-tight tracking-tight"
+                className="font-bold leading-tight tracking-tight cursor-blink"
                 style={{
                   fontFamily: "var(--font-mono-display), monospace",
                   fontSize: "clamp(2.4rem, 6vw, 5rem)", color: "#0a0a0f",
@@ -403,12 +410,19 @@ export default function Home() {
               <motion.div
                 key={svc.id}
                 variants={fadeScale}
-                className="group flex flex-col p-6 rounded-2xl hover:scale-[1.02] transition-transform"
+                whileHover={{ scale: 1.025, boxShadow: "0 12px 36px rgba(0,0,0,0.1), 0 0 0 1px rgba(217,119,6,0.2)" }}
+                transition={{ type: "spring", stiffness: 350, damping: 28 }}
+                className="group flex flex-col p-6 rounded-2xl cursor-pointer"
                 style={{ background: "rgba(255,255,255,0.75)", border: "1px solid rgba(0,0,0,0.07)", backdropFilter: "blur(8px)", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
               >
-                <span className="text-xl mb-3 block" style={{ fontFamily: "var(--font-mono-display), monospace", color: "#d97706" }}>
+                <motion.span
+                  className="text-xl mb-3 block"
+                  style={{ fontFamily: "var(--font-mono-display), monospace", color: "#d97706", display: "inline-block" }}
+                  whileHover={{ scale: 1.3, rotate: 8 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                >
                   {svc.icon}
-                </span>
+                </motion.span>
                 <h3 className="font-bold text-sm mb-2" style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}>
                   {lang === "en" ? svc.titleEn : svc.title}
                 </h3>

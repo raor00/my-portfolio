@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, useSpring, useMotionTemplate } from "framer-motion";
+import { useState } from "react";
 import { Project } from "@/config/data";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -11,6 +12,23 @@ interface ProjectCardProps {
 export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const { t, lang } = useLanguage();
   const isEn = lang === "en";
+
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  const rotateX = useSpring(useTransform(mouseY, [-0.5, 0.5], [5, -5]), { stiffness: 400, damping: 40 });
+  const rotateY = useSpring(useTransform(mouseX, [-0.5, 0.5], [-5, 5]), { stiffness: 400, damping: 40 });
+  const glareX = useTransform(mouseX, [-0.5, 0.5], ["30%", "70%"]);
+  const glareY = useTransform(mouseY, [-0.5, 0.5], ["30%", "70%"]);
+  const glareBg = useMotionTemplate`radial-gradient(circle at ${glareX} ${glareY}, rgba(255,255,255,0.13) 0%, transparent 65%)`;
+  const [hovering, setHovering] = useState(false);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+    mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+  };
+  const handleMouseLeave = () => { mouseX.set(0); mouseY.set(0); setHovering(false); };
+  const handleMouseEnter = () => setHovering(true);
 
   const headline = isEn ? project.headlineEn : project.headline;
   const subtitle = isEn ? project.subtitleEn : project.subtitle;
@@ -31,23 +49,35 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const conversionCta = isEn ? project.conversionCtaEn : project.conversionCta;
 
   return (
+    <div
+      style={{ perspective: "900px" }}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      onMouseEnter={handleMouseEnter}
+    >
     <motion.article
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.45, delay: index * 0.08 }}
-      className="group relative flex flex-col rounded-2xl overflow-hidden transition-all duration-300 hover:scale-[1.01]"
       style={{
+        rotateX,
+        rotateY,
+        transformStyle: "preserve-3d",
         background: "rgba(255,255,255,0.8)",
-        border: "1px solid rgba(0,0,0,0.08)",
+        border: hovering ? "1px solid rgba(217,119,6,0.3)" : "1px solid rgba(0,0,0,0.08)",
         backdropFilter: "blur(12px)",
-        boxShadow: "0 4px 24px rgba(0,0,0,0.07)",
+        boxShadow: hovering
+          ? "0 16px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(217,119,6,0.15)"
+          : "0 4px 24px rgba(0,0,0,0.07)",
+        transition: "border 0.2s, box-shadow 0.2s",
       }}
+      className="group relative flex flex-col rounded-2xl overflow-hidden"
     >
-      {/* Hover border glow */}
-      <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 pointer-events-none rounded-2xl"
-        style={{ boxShadow: "inset 0 0 0 1.5px rgba(217,119,6,0.25)" }}
+      {/* Mouse-tracking glare */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none rounded-2xl z-10"
+        style={{ background: glareBg, opacity: hovering ? 1 : 0, transition: "opacity 0.2s" }}
       />
 
       {/* Hero area */}
@@ -249,5 +279,6 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         </div>
       </div>
     </motion.article>
+    </div>
   );
 }
