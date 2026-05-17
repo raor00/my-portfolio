@@ -17,6 +17,7 @@ export interface Project {
   statusLabel: string;
   statusLabelEn: string;
   featuredPriority: number;
+  hackathonBadge?: string;
   problem: string;
   problemEn: string;
   solution: string;
@@ -30,6 +31,7 @@ export interface Project {
   tags: string[];
   featured: boolean;
   image?: string;
+  liveUrl?: string;
   primaryCta?: {
     label: string;
     labelEn: string;
@@ -47,8 +49,28 @@ export interface Project {
 
 export interface Skill {
   name: string;
-  category: "frontend" | "backend" | "tools" | "database";
+  category: "frontend" | "backend" | "tools" | "database" | "blockchain" | "ai" | "marketing";
   level: number; // 1-5
+}
+
+export interface Achievement {
+  icon: string;
+  title: string;
+  titleEn: string;
+  detail: string;
+  detailEn: string;
+  project: string | null;
+}
+
+export interface Service {
+  id: string;
+  icon: string;
+  title: string;
+  titleEn: string;
+  description: string;
+  descriptionEn: string;
+  tags: string[];
+  ctaHref: string;
 }
 
 export interface Experience {
@@ -62,6 +84,117 @@ export interface Experience {
 }
 
 const baseProjects: Project[] = [
+  {
+    id: 10,
+    slug: "tropico-wallet",
+    title: "Tropico Wallet",
+    headline: "Wallet Solana que conecta USDC con la banca venezolana en tiempo real",
+    headlineEn: "Solana wallet bridging USDC and the Venezuelan banking system in real time",
+    subtitle: "Protocolo JIT BsX, agente IA financiero y UI en 4 idiomas. Ganador Dev3pack 2026.",
+    subtitleEn: "JIT BsX protocol, AI financial agent, and 4-language UI. Dev3pack 2026 winner.",
+    description:
+      "Tropico Wallet es una wallet no-custodial en Solana que actúa como riel entre USDC y el sistema bancario venezolano (Pago Móvil). Incluye BsX, un protocolo JIT personalizado en Anchor, y Carlos AI, un agente financiero venezolano construido sobre el runtime Lumen.",
+    descriptionEn:
+      "Tropico Wallet is a non-custodial Solana wallet acting as a rail between USDC and the Venezuelan banking system (Pago Móvil). Features BsX, a custom JIT Anchor protocol, and Carlos AI, a Venezuelan financial agent built on the Lumen runtime.",
+    role: "Arquitectura full-stack · Anchor · AI Agent",
+    roleEn: "Full-stack architecture · Anchor · AI Agent",
+    impact: "Primer puente directo entre Solana USDC y Pago Móvil VE con agente IA integrado.",
+    impactEn: "First direct bridge between Solana USDC and Venezuelan Pago Móvil with integrated AI agent.",
+    status: "live",
+    statusLabel: "En producción",
+    statusLabelEn: "Live",
+    featuredPriority: 1,
+    hackathonBadge: "#1 Venezuela · #28 Global · Dev3pack 2026",
+    problem:
+      "Venezuela opera con dos sistemas monetarios paralelos sin puente digital confiable entre USDC on-chain y la banca local.",
+    problemEn:
+      "Venezuela operates with two parallel monetary systems with no reliable digital bridge between on-chain USDC and local banking.",
+    solution:
+      "Se diseñó un protocolo JIT (BsX) en Anchor que mintea/quema entre USDC y BsX, conectado a Pago Móvil VE, con un agente IA (Carlos) para asistir transacciones.",
+    solutionEn:
+      "A JIT protocol (BsX) in Anchor was built to mint/burn between USDC and BsX, connected to Pago Móvil VE, with an AI agent (Carlos) to assist transactions.",
+    results: [
+      "Protocolo Anchor personalizado con 25+ rutas: wallet consumer, pagos merchant, P2P, yield y firma offline.",
+      "UI en 4 idiomas (ES/EN/PT/FR) con i18n propio.",
+      "Integración WhatsApp Bot via Cloud API.",
+      "Top 9 LATAM · Top 28 mundial entre 386 proyectos.",
+    ],
+    resultsEn: [
+      "Custom Anchor program with 25+ routes: consumer wallet, merchant payments, P2P, yield, and offline tx signing.",
+      "4-language UI (ES/EN/PT/FR) with custom i18n.",
+      "WhatsApp Bot integration via Cloud API.",
+      "Top 9 LATAM · Top 28 worldwide out of 386 projects.",
+    ],
+    resultHighlight: "#1 Venezuela · Top 9 LATAM · Top 28 mundial en Dev3pack 2026",
+    resultHighlightEn: "#1 Venezuela · Top 9 LATAM · Top 28 worldwide at Dev3pack 2026",
+    tags: ["Solana", "Blockchain", "AI Agent", "Next.js", "TypeScript"],
+    featured: true,
+    liveUrl: "https://tropico.vercel.app",
+    primaryCta: {
+      label: "Ver proyecto en vivo",
+      labelEn: "View live project",
+      href: "https://tropico.vercel.app",
+      external: true,
+    },
+    secondaryCta: {
+      label: "Ver repositorio",
+      labelEn: "View repository",
+      href: "https://github.com/raor00/Tropico",
+      external: true,
+    },
+    githubUrl: "https://github.com/raor00/Tropico",
+  },
+  {
+    id: 11,
+    slug: "llave",
+    title: "Llave",
+    headline: "Marketplace de alquiler venezolano con agente IA que elimina depósitos abusivos",
+    headlineEn: "Venezuelan rental marketplace with AI agent eliminating abusive advance deposits",
+    subtitle: "Llavero, el agente IA potenciado por Claude API, guía a inquilinos y propietarios.",
+    subtitleEn: "Llavero, the AI agent powered by Claude API, guides renters and landlords.",
+    description:
+      "Llave es un marketplace de alquiler venezolano que elimina los depósitos 'meses por adelantado' estándar del mercado local. Incluye Llavero, un agente IA construido sobre Claude API que ayuda a ambas partes a navegar la plataforma.",
+    descriptionEn:
+      "Llave is a Venezuelan rental marketplace eliminating the painful 'months in advance' deposits standard in the local market. Features Llavero, an AI agent built on Claude API helping both parties navigate the platform.",
+    role: "Full-stack · AI Agent con Claude API",
+    roleEn: "Full-stack · AI Agent with Claude API",
+    impact: "Resuelve una fricción estructural del mercado inmobiliario venezolano con tecnología IA.",
+    impactEn: "Solves a structural friction in the Venezuelan real estate market with AI technology.",
+    status: "private",
+    statusLabel: "Hackathon",
+    statusLabelEn: "Hackathon",
+    featuredPriority: 2,
+    hackathonBadge: "Platanus · Anthropic Hackathon 2026",
+    problem:
+      "El mercado de alquiler en Venezuela exige depósitos de varios meses por adelantado, excluyendo a inquilinos con capacidad real de pago.",
+    problemEn:
+      "The Venezuelan rental market demands multi-month advance deposits, excluding renters with real payment capacity.",
+    solution:
+      "Se construyó un marketplace con modelo de garantía alternativo y Llavero, agente IA que asiste a usuarios durante el proceso de alquiler.",
+    solutionEn:
+      "A marketplace was built with an alternative guarantee model and Llavero, an AI agent assisting users throughout the rental process.",
+    results: [
+      "Agente Llavero integrado con Claude API para soporte conversacional.",
+      "Flujo de alquiler sin depósitos tradicionales.",
+      "Seleccionado en Platanus · Anthropic Hackathon 2026.",
+    ],
+    resultsEn: [
+      "Llavero agent integrated with Claude API for conversational support.",
+      "Rental flow without traditional deposits.",
+      "Selected at Platanus · Anthropic Hackathon 2026.",
+    ],
+    resultHighlight: "Marketplace de alquiler con agente IA — Platanus · Anthropic Hackathon 2026",
+    resultHighlightEn: "Rental marketplace with AI agent — Platanus · Anthropic Hackathon 2026",
+    tags: ["AI Agent", "Claude API", "Next.js", "Marketplace"],
+    featured: true,
+    primaryCta: {
+      label: "Ver repositorio",
+      labelEn: "View repository",
+      href: "https://github.com/raor00/llave",
+      external: true,
+    },
+    githubUrl: "https://github.com/raor00/llave",
+  },
   {
     id: 1,
     slug: "cops-platform",
@@ -81,7 +214,7 @@ const baseProjects: Project[] = [
     status: "private",
     statusLabel: "Implementado",
     statusLabelEn: "Implemented",
-    featuredPriority: 1,
+    featuredPriority: 3,
     problem:
       "La gestión de soporte estaba fragmentada entre canales y no existía una trazabilidad clara por caso.",
     problemEn:
@@ -136,7 +269,7 @@ const baseProjects: Project[] = [
     status: "private",
     statusLabel: "Implementado",
     statusLabelEn: "Implemented",
-    featuredPriority: 2,
+    featuredPriority: 4,
     problem:
       "El equipo operaba con procesos dispersos para inventario, ventas y reparaciones, generando retrabajo.",
     problemEn:
@@ -191,7 +324,7 @@ const baseProjects: Project[] = [
     status: "live",
     statusLabel: "En uso",
     statusLabelEn: "In use",
-    featuredPriority: 3,
+    featuredPriority: 5,
     problem:
       "El negocio necesitaba mostrar productos y generar pedidos sin fricción desde móvil.",
     problemEn:
@@ -246,7 +379,7 @@ const baseProjects: Project[] = [
     status: "in-progress",
     statusLabel: "En evolución",
     statusLabelEn: "Evolving",
-    featuredPriority: 4,
+    featuredPriority: 6,
     problem:
       "Los usuarios no tenían una forma clara de registrar sesiones y visualizar su progreso real.",
     problemEn:
@@ -301,7 +434,7 @@ const baseProjects: Project[] = [
     status: "private",
     statusLabel: "Implementado",
     statusLabelEn: "Implemented",
-    featuredPriority: 5,
+    featuredPriority: 10,
     problem:
       "La recuperación de backups dañados requería procesos manuales lentos y con alto riesgo.",
     problemEn:
@@ -323,7 +456,7 @@ const baseProjects: Project[] = [
     resultHighlight: "Herramienta técnica para recuperar y reparar backups dañados de iPhone.",
     resultHighlightEn: "Technical tool to recover and repair damaged iPhone backups.",
     tags: ["Electron", "TypeScript", "Python", "iPhone"],
-    featured: true,
+    featured: false,
     primaryCta: {
       label: "Consultar solución técnica",
       labelEn: "Discuss a technical solution",
@@ -578,66 +711,191 @@ export function getProjectBySlug(slug: string) {
 export const skills: Skill[] = [
   // Frontend
   { name: "React", category: "frontend", level: 4 },
-  { name: "React Native", category: "frontend", level: 3 },
-  { name: "Next.js", category: "frontend", level: 4 },
+  { name: "Next.js", category: "frontend", level: 5 },
   { name: "TypeScript", category: "frontend", level: 4 },
   { name: "JavaScript", category: "frontend", level: 5 },
   { name: "Tailwind CSS", category: "frontend", level: 5 },
-  { name: "HTML / CSS", category: "frontend", level: 5 },
+  { name: "Framer Motion", category: "frontend", level: 4 },
 
   // Backend
-  { name: "Node.js", category: "backend", level: 3 },
+  { name: "Node.js", category: "backend", level: 4 },
   { name: "REST APIs", category: "backend", level: 4 },
+  { name: "Python", category: "backend", level: 3 },
   { name: "Supabase Functions", category: "backend", level: 3 },
 
   // Database
   { name: "Supabase", category: "database", level: 4 },
-  { name: "PostgreSQL", category: "database", level: 3 },
-  { name: "MySQL", category: "database", level: 2 },
+  { name: "PostgreSQL", category: "database", level: 4 },
+
+  // Blockchain
+  { name: "Solana", category: "blockchain", level: 4 },
+  { name: "Anchor 0.30", category: "blockchain", level: 3 },
+  { name: "Jupiter v6", category: "blockchain", level: 3 },
+  { name: "Privy MPC", category: "blockchain", level: 3 },
+
+  // AI & Automation
+  { name: "Claude API", category: "ai", level: 5 },
+  { name: "AI Agent Dev", category: "ai", level: 4 },
+  { name: "Gemini API", category: "ai", level: 3 },
+  { name: "Prompt Engineering", category: "ai", level: 5 },
+
+  // Marketing
+  { name: "Meta Ads", category: "marketing", level: 5 },
+  { name: "Google Ads", category: "marketing", level: 3 },
+  { name: "Meta Pixel", category: "marketing", level: 4 },
+  { name: "GA4", category: "marketing", level: 4 },
 
   // Tools
   { name: "Git / GitHub", category: "tools", level: 4 },
-  { name: "Vercel", category: "tools", level: 4 },
-  { name: "VS Code", category: "tools", level: 5 },
-  { name: "Claude", category: "tools", level: 4 },
-  { name: "ChatGPT", category: "tools", level: 4 },
+  { name: "Vercel", category: "tools", level: 5 },
+  { name: "Linux / SSH", category: "tools", level: 3 },
 ];
 
 export const experience: Experience[] = [
   {
-    role: "Full Stack Developer",
-    roleEn: "Full Stack Developer",
-    company: "Freelance",
+    role: "Coordinador de Desarrollo Tecnológico",
+    roleEn: "Technology Development Coordinator",
+    company: "COP'S Electronics, S.A.",
     period: "2025 — Presente",
     description:
-      "Desarrollo de aplicaciones web a medida para clientes de distintos sectores. Construcción de ERPs, sistemas de cotización y plataformas e-commerce desde el diseño hasta el despliegue en producción.",
+      "Lideré el desarrollo del sistema de tickets interno (Next.js 14 + Supabase) con RBAC de 5 niveles, reduciendo el tiempo de seguimiento de incidencias un 30%. Coordiné 10+ proyectos de seguridad electrónica: CCTV, control de acceso Hikvision y Milestone VMS para clientes bancarios, industriales y de gobierno.",
     descriptionEn:
-      "Custom web application development for clients across different industries. Built ERPs, quote systems, and e-commerce platforms from design to production deployment.",
-    technologies: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS"],
+      "Led development of the internal ticket management system (Next.js 14 + Supabase) with 5-level RBAC, reducing incident tracking time by 30%. Coordinated 10+ electronic security projects: CCTV, Hikvision access control, and Milestone VMS for banking, industrial, and government clients.",
+    technologies: ["Next.js", "Supabase", "TypeScript", "Hikvision", "Milestone VMS"],
+  },
+  {
+    role: "Full Stack Developer — Freelance",
+    roleEn: "Full Stack Developer — Freelance",
+    company: "Clientes independientes",
+    period: "2022 — Presente",
+    description:
+      "Desarrollo de aplicaciones web a medida: ERPs, plataformas e-commerce, catálogos digitales y sistemas de cotización. Proyectos ganadores de hackathon (Dev3pack 2026, Platanus · Anthropic 2026) e integración de agentes IA con Claude y Gemini.",
+    descriptionEn:
+      "Custom web application development: ERPs, e-commerce platforms, digital catalogs, and quote systems. Hackathon-winning projects (Dev3pack 2026, Platanus · Anthropic 2026) and AI agent integration with Claude and Gemini.",
+    technologies: ["Next.js", "Solana", "Claude API", "Supabase", "TypeScript"],
   },
   {
     role: "Trafficker Pago — Meta Ads",
     roleEn: "Paid Traffic Specialist — Meta Ads",
-    company: "Freelance",
-    period: "2023 — Presente",
+    company: "Cartera de clientes independientes",
+    period: "2022 — Presente",
     description:
-      "Especialista en publicidad paga en Meta (Facebook & Instagram Ads) con 2 años de experiencia. Gestión de campañas de rendimiento, optimización de presupuestos, segmentación de audiencias y análisis de métricas para maximizar el ROI de los clientes.",
+      "Gestión de campañas de rendimiento en Meta Ads con presupuestos de hasta $3,000/mes por cliente. Clientes activos en tecnología, reparación de dispositivos y retail. Auditorías de CPA/ROAS/CTR, audiencias personalizadas y lookalike via Meta Pixel.",
     descriptionEn:
-      "Paid advertising specialist on Meta (Facebook & Instagram Ads) with 2 years of experience managing high-performance Meta Ads campaigns.",
-    technologies: ["Meta Ads", "Facebook Business", "Pixel", "Analytics", "A/B Testing"],
+      "Performance campaign management on Meta Ads with budgets up to $3,000/month per client. Active clients in tech, device repair, and retail. CPA/ROAS/CTR audits, custom and lookalike audiences via Meta Pixel.",
+    technologies: ["Meta Ads", "Facebook Business", "Meta Pixel", "GA4", "A/B Testing"],
+  },
+  {
+    role: "Técnico iPhone · Paid Media Specialist",
+    roleEn: "iPhone Technician · Paid Media Specialist",
+    company: "UNLOCKZONE",
+    period: "2022 — 2024",
+    description:
+      "Técnico especializado en reparación de iPhone (pantallas, baterías, puertos, diagnóstico de placa). Diseño y gestión de campañas Meta Ads para captación local de clientes del servicio técnico.",
+    descriptionEn:
+      "Specialized iPhone repair technician (screens, batteries, charging ports, logic board diagnostics). Designed and managed Meta Ads campaigns for local service customer acquisition.",
+    technologies: ["Meta Ads", "Facebook Business", "iPhone Repair"],
   },
 ];
 
 export const personalInfo = {
   name: "Rafael Oviedo",
-  title: "Full Stack Developer",
+  title: "Full Stack Developer · AI Agent Engineer",
   subtitle: "Ingeniero en Informática",
   subtitleEn: "Software Engineer",
-  bio: "Soy Rafael Oviedo, Ingeniero en Informática y Full Stack Developer. Ofrezco soluciones tecnológicas integrales: desde el desarrollo de aplicaciones móviles y web, páginas web y web apps escalables y personalizadas, hasta la optimización de estrategias con IA y la gestión experta de campañas en Meta Ads para maximizar el retorno de inversión. Mi enfoque es crear soluciones robustas y a medida que impulsen el crecimiento de tu negocio.",
+  bio: "Soy Rafael Oviedo — Ingeniero en Informática, ganador del Dev3pack Global Hackathon 2026 (#1 Venezuela · #28 mundial de 386 proyectos). Construyo sistemas full-stack con Next.js, Supabase y TypeScript; desarrollo agentes IA con Claude y Gemini; e integro blockchain en Solana. También gestiono campañas Meta Ads con presupuestos de hasta $3,000/mes por cliente. Opero en la intersección de ingeniería de software, automatización IA y performance marketing.",
   bioEn:
-    "I'm Rafael Oviedo, a Software Engineer and Full Stack Developer. I offer comprehensive technological solutions: from developing scalable and personalized mobile and web applications, websites, and web apps, to optimizing strategies with AI and expertly managing Meta Ads campaigns to maximize your return on investment. My approach is to create robust, tailor-made solutions that drive your business growth.",
+    "I'm Rafael Oviedo — Software Engineer and Dev3pack Global Hackathon 2026 winner (#1 Venezuela · #28 worldwide out of 386 projects). I build full-stack systems with Next.js, Supabase, and TypeScript; develop AI agents with Claude and Gemini; and integrate blockchain on Solana. I also manage Meta Ads campaigns with budgets up to $3,000/month per client. I operate at the intersection of software engineering, AI automation, and performance marketing.",
   location: "Venezuela",
   github: "https://github.com/raor00",
   linkedin: "https://www.linkedin.com/in/rafael-oviedo-ba876420a/",
   available: true,
 };
+
+export const achievements: Achievement[] = [
+  {
+    icon: "🏆",
+    title: "Dev3pack Global Hackathon 2026",
+    titleEn: "Dev3pack Global Hackathon 2026",
+    detail: "#1 Venezuela · Top 9 LATAM · #28 mundial de 386 proyectos — Tropico Wallet",
+    detailEn: "#1 Venezuela · Top 9 LATAM · #28 worldwide out of 386 projects — Tropico Wallet",
+    project: "tropico-wallet",
+  },
+  {
+    icon: "🤖",
+    title: "Platanus · Anthropic Hackathon 2026",
+    titleEn: "Platanus · Anthropic Hackathon 2026",
+    detail: "Llave — marketplace de alquiler venezolano con agente IA (Claude API)",
+    detailEn: "Llave — Venezuelan rental marketplace with AI agent (Claude API)",
+    project: "llave",
+  },
+  {
+    icon: "🥈",
+    title: "GitHub Copilot Dev Days",
+    titleEn: "GitHub Copilot Dev Days",
+    detail: "Ganador del primer evento competitivo de prompt engineering de GitHub",
+    detailEn: "Winner of GitHub's first competitive prompt engineering event",
+    project: null,
+  },
+  {
+    icon: "🎓",
+    title: "Tesis universitaria en producción",
+    titleEn: "University thesis in production",
+    detail: "COP'S Platform — ticket management system desplegado como herramienta interna real",
+    detailEn: "COP'S Platform — ticket management system deployed as a real internal tool",
+    project: "cops-platform",
+  },
+];
+
+export const services: Service[] = [
+  {
+    id: "web",
+    icon: "◈",
+    title: "Páginas Web & Landing Pages",
+    titleEn: "Web Pages & Landing Pages",
+    description: "Sitios comerciales, landing pages y presencias digitales orientadas a conversión: diseño a medida, SEO técnico, carga rápida y estructura pensada para vender.",
+    descriptionEn: "Commercial sites, landing pages, and digital presences built for conversion: custom design, technical SEO, fast load, and structure designed to sell.",
+    tags: ["Next.js", "Tailwind CSS", "SEO", "Vercel"],
+    ctaHref: "/contacto?servicio=web",
+  },
+  {
+    id: "webapp",
+    icon: "◉",
+    title: "Web Apps & SaaS",
+    titleEn: "Web Apps & SaaS",
+    description: "Plataformas completas con autenticación, base de datos, paneles de control y lógica de negocio. Desde la arquitectura hasta el deploy en producción.",
+    descriptionEn: "Full platforms with auth, database, dashboards, and business logic. From architecture to production deploy.",
+    tags: ["Next.js", "Supabase", "TypeScript", "PostgreSQL"],
+    ctaHref: "/contacto?servicio=webapp",
+  },
+  {
+    id: "erp",
+    icon: "▦",
+    title: "ERPs & Sistemas Internos",
+    titleEn: "ERPs & Internal Systems",
+    description: "Sistemas de gestión a medida: inventario, facturación, tickets, reportes y control de acceso por roles. En producción real, no demos.",
+    descriptionEn: "Custom management systems: inventory, invoicing, tickets, reports, and role-based access control. Real production, not demos.",
+    tags: ["Full-Stack", "RBAC", "PostgreSQL", "Workflows"],
+    ctaHref: "/contacto?servicio=erp",
+  },
+  {
+    id: "ai",
+    icon: "◬",
+    title: "Agentes IA & Automatización",
+    titleEn: "AI Agents & Automation",
+    description: "Integración de agentes IA en productos reales con Claude API y Gemini. Automatización de flujos operativos, bots conversacionales y asistentes especializados.",
+    descriptionEn: "AI agent integration into real products with Claude API and Gemini. Operational workflow automation, conversational bots, and specialized assistants.",
+    tags: ["Claude API", "Gemini", "Next.js", "Automation"],
+    ctaHref: "/contacto?servicio=ai",
+  },
+  {
+    id: "ads",
+    icon: "◍",
+    title: "Meta Ads & Performance Marketing",
+    titleEn: "Meta Ads & Performance Marketing",
+    description: "Gestión de campañas Meta Ads con presupuestos de hasta $3,000/mes. Audiencias personalizadas, lookalike via Pixel, optimización CPA/ROAS y reportes de métricas reales.",
+    descriptionEn: "Meta Ads campaign management with budgets up to $3,000/month. Custom audiences, lookalike via Pixel, CPA/ROAS optimization, and real metrics reporting.",
+    tags: ["Meta Ads", "Meta Pixel", "GA4", "ROAS"],
+    ctaHref: "/contacto?servicio=ads",
+  },
+];

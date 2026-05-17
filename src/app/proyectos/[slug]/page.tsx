@@ -125,6 +125,19 @@ export default function ProjectDetailPage() {
               >
                 {status}
               </span>
+              {project.hackathonBadge && (
+                <span
+                  className="text-[10px] px-2.5 py-1 rounded-md font-semibold"
+                  style={{
+                    fontFamily: "var(--font-mono-display), monospace",
+                    background: "rgba(217,119,6,0.14)",
+                    border: "1px solid rgba(217,119,6,0.35)",
+                    color: "#92400e",
+                  }}
+                >
+                  🏆 {project.hackathonBadge}
+                </span>
+              )}
             </div>
 
             <h1

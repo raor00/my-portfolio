@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { skills, featuredProjects, secondaryProjects } from "@/config/data";
+import { skills, featuredProjects, secondaryProjects, services } from "@/config/data";
 import ProjectCard from "@/components/ProjectCard";
 import { useLanguage } from "@/i18n/LanguageContext";
 
@@ -32,13 +32,18 @@ const lineReveal = {
 const categoryColors: Record<string, string> = {
   frontend: "rgba(217,119,6,0.07)", backend: "rgba(16,185,129,0.07)",
   database: "rgba(245,158,11,0.07)", tools: "rgba(168,85,247,0.07)",
+  blockchain: "rgba(153,69,255,0.07)", ai: "rgba(20,241,149,0.07)",
+  marketing: "rgba(239,68,68,0.07)",
 };
 const categoryBorder: Record<string, string> = {
   frontend: "rgba(217,119,6,0.18)", backend: "rgba(16,185,129,0.18)",
   database: "rgba(245,158,11,0.18)", tools: "rgba(168,85,247,0.18)",
+  blockchain: "rgba(153,69,255,0.18)", ai: "rgba(20,241,149,0.18)",
+  marketing: "rgba(239,68,68,0.18)",
 };
 const categoryText: Record<string, string> = {
   frontend: "#b45309", backend: "#059669", database: "#d97706", tools: "#7c3aed",
+  blockchain: "#9945ff", ai: "#0f9463", marketing: "#dc2626",
 };
 
 /* ── Animated counter ───────────────────────────────────── */
@@ -92,7 +97,7 @@ function SectionHeading({ label, title }: { label: string; title: string }) {
 
 /* ════════════════════════════════════════════════════════ */
 export default function Home() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
 
   return (
     <>
@@ -113,7 +118,7 @@ export default function Home() {
 
         <div className="max-w-6xl mx-auto w-full">
           <motion.div variants={staggerContainer} initial="hidden" animate="visible" className="flex flex-col">
-            <motion.div variants={fadeUp} custom={0} className="mb-8">
+            <motion.div variants={fadeUp} custom={0} className="mb-4 flex flex-wrap gap-2">
               <span
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-medium tracking-widest uppercase"
                 style={{
@@ -123,6 +128,18 @@ export default function Home() {
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
                 {t.hero.badge}
+              </span>
+              <span
+                className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold tracking-widest uppercase"
+                style={{
+                  fontFamily: "var(--font-mono-display), monospace",
+                  background: "rgba(217,119,6,0.14)",
+                  border: "1px solid rgba(217,119,6,0.35)",
+                  color: "#92400e",
+                  boxShadow: "0 0 12px rgba(217,119,6,0.15)",
+                }}
+              >
+                🏆 {t.hero.hackathonBadge}
               </span>
             </motion.div>
 
@@ -220,21 +237,16 @@ export default function Home() {
 
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible"
             viewport={{ once: true, margin: "-40px" }} className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
-              {[
-                { raw: "9", suffix: "", idx: 0 },
-                { raw: "1", suffix: "+", idx: 1 },
-                { raw: "2", suffix: "+", idx: 2 },
-                { raw: "∞", suffix: "", idx: 3 },
-            ].map((stat) => (
-              <motion.div key={stat.idx} variants={fadeScale}
+            {t.metrics.items.map((item, idx) => (
+              <motion.div key={idx} variants={fadeScale}
                 className="group p-5 rounded-2xl transition-all hover:scale-[1.03]"
                 style={{ background: "rgba(255,255,255,0.7)", border: "1px solid rgba(0,0,0,0.07)", backdropFilter: "blur(8px)", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}>
                 <div className="text-3xl md:text-4xl font-bold mb-1"
                   style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}>
-                  {stat.raw === "∞" ? "∞" : <Counter value={stat.raw} suffix={stat.suffix} />}
+                  {item.value === "∞" ? "∞" : <Counter value={item.value} suffix={item.suffix} />}
                 </div>
-                <div className="tech-label">{t.metrics.items[stat.idx].label}</div>
-                <div className="text-xs mt-1" style={{ color: "rgba(0,0,0,0.35)" }}>{t.metrics.items[stat.idx].desc}</div>
+                <div className="tech-label">{item.label}</div>
+                <div className="text-xs mt-1" style={{ color: "rgba(0,0,0,0.35)" }}>{item.desc}</div>
               </motion.div>
             ))}
           </motion.div>
@@ -247,11 +259,11 @@ export default function Home() {
           <SectionHeading label={t.skills.label} title={t.skills.title} />
           <motion.div variants={staggerContainer} initial="hidden" whileInView="visible"
             viewport={{ once: true, margin: "-60px" }} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            {(["frontend", "backend", "database", "tools"] as const).map((cat) => (
+            {(["frontend", "backend", "blockchain", "ai", "database", "marketing", "tools"] as const).map((cat) => (
               <motion.div key={cat} variants={fadeScale}
                 className="p-5 rounded-2xl hover:scale-[1.02] transition-transform"
                 style={{ background: categoryColors[cat], border: `1px solid ${categoryBorder[cat]}`, backdropFilter: "blur(8px)" }}>
-                <span className="block mb-4 tech-label" style={{ color: categoryText[cat], opacity: 0.8 }}>
+                <span className="block mb-4 tech-label" style={{ color: categoryText[cat], opacity: 0.9 }}>
                   {cat.toUpperCase()}
                 </span>
                 <div className="flex flex-wrap gap-2">
@@ -364,6 +376,59 @@ export default function Home() {
                 {t.featuredProjects.contactCta}
               </Link>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══ SERVICES ═══ */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 border-t" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
+        <div className="max-w-6xl mx-auto">
+          <SectionHeading label={t.services.label} title={t.services.title} />
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45 }}
+            className="text-sm mb-12 max-w-xl -mt-6"
+            style={{ color: "rgba(0,0,0,0.45)" }}
+          >
+            {t.services.subtitle}
+          </motion.p>
+          <motion.div
+            variants={staggerContainer} initial="hidden" whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
+            {services.map((svc) => (
+              <motion.div
+                key={svc.id}
+                variants={fadeScale}
+                className="group flex flex-col p-6 rounded-2xl hover:scale-[1.02] transition-transform"
+                style={{ background: "rgba(255,255,255,0.75)", border: "1px solid rgba(0,0,0,0.07)", backdropFilter: "blur(8px)", boxShadow: "0 2px 12px rgba(0,0,0,0.04)" }}
+              >
+                <span className="text-xl mb-3 block" style={{ fontFamily: "var(--font-mono-display), monospace", color: "#d97706" }}>
+                  {svc.icon}
+                </span>
+                <h3 className="font-bold text-sm mb-2" style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}>
+                  {lang === "en" ? svc.titleEn : svc.title}
+                </h3>
+                <p className="text-xs leading-relaxed mb-4 flex-1" style={{ color: "rgba(0,0,0,0.48)" }}>
+                  {lang === "en" ? svc.descriptionEn : svc.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5 mb-4">
+                  {svc.tags.map((tag) => (
+                    <span key={tag} className="text-[10px] px-2 py-0.5 rounded-md"
+                      style={{ fontFamily: "var(--font-mono-display), monospace", background: "rgba(217,119,6,0.07)", border: "1px solid rgba(217,119,6,0.18)", color: "#b45309" }}>
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <Link href={svc.ctaHref} className="glass-btn-amber inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg text-xs text-white"
+                  style={{ fontFamily: "var(--font-mono-display), monospace" }}>
+                  {t.services.cta}
+                </Link>
+              </motion.div>
+            ))}
           </motion.div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { personalInfo, experience, skills } from "@/config/data";
+import { personalInfo, experience, skills, achievements } from "@/config/data";
 import { useLanguage } from "@/i18n/LanguageContext";
 
 const fadeUp = {
@@ -30,6 +30,12 @@ const lineReveal = {
 
 const categoryLabels: Record<string, string> = {
   frontend: "FRONTEND", backend: "BACKEND", database: "DATABASE", tools: "TOOLS",
+  blockchain: "BLOCKCHAIN", ai: "AI & AUTOMATION", marketing: "PAID MEDIA",
+};
+
+const categoryColors: Record<string, string> = {
+  frontend: "#b45309", backend: "#059669", database: "#d97706", tools: "#7c3aed",
+  blockchain: "#9945ff", ai: "#0f9463", marketing: "#dc2626",
 };
 
 export default function SobreMiPage() {
@@ -87,7 +93,7 @@ export default function SobreMiPage() {
             <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
               {[
                 { icon: "◎", label: personalInfo.location },
-                { icon: "✉", label: personalInfo.email },
+                { icon: "✉", label: "rafa.oviedo2000@gmail.com" },
               ].map((item) => (
                 <div key={item.label} className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg"
                   style={{ background: "rgba(255,255,255,0.75)", border: "1px solid rgba(0,0,0,0.08)", color: "rgba(0,0,0,0.5)", fontFamily: "var(--font-mono-display), monospace" }}>
@@ -110,6 +116,52 @@ export default function SobreMiPage() {
             </motion.div>
           </motion.div>
         </motion.div>
+
+        {/* Achievements */}
+        <div className="mb-20 sm:mb-24">
+          <motion.div variants={stagger} initial="hidden" whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }} className="mb-10 sm:mb-12">
+            <motion.span variants={fadeUp} className="tech-label">{t.achievements.label}</motion.span>
+            <motion.h2 variants={fadeUp} className="text-2xl md:text-3xl font-bold mt-1"
+              style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}>
+              {t.achievements.title}
+            </motion.h2>
+            <motion.div variants={lineReveal} className="mt-3 h-px w-16"
+              style={{ background: "linear-gradient(90deg, #d97706, transparent)" }} />
+          </motion.div>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            {achievements.map((ach, i) => (
+              <motion.div key={i} variants={fadeLeft} custom={i} initial="hidden" whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                className="flex items-start gap-4 p-5 rounded-2xl hover:scale-[1.01] transition-transform"
+                style={{ background: "rgba(255,255,255,0.8)", border: "1px solid rgba(0,0,0,0.07)", backdropFilter: "blur(8px)", boxShadow: "0 2px 16px rgba(0,0,0,0.05)" }}>
+                <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0 text-lg"
+                  style={{ background: "rgba(217,119,6,0.08)", border: "1px solid rgba(217,119,6,0.2)" }}>
+                  {ach.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-sm font-bold mb-1" style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}>
+                    {lang === "en" ? ach.titleEn : ach.title}
+                  </h3>
+                  <p className="text-xs leading-relaxed" style={{ color: "rgba(0,0,0,0.5)" }}>
+                    {lang === "en" ? ach.detailEn : ach.detail}
+                  </p>
+                  {ach.project && (
+                    <a href={`/proyectos/${ach.project}`}
+                      className="inline-flex items-center gap-1 text-[10px] mt-2 font-medium"
+                      style={{ fontFamily: "var(--font-mono-display), monospace", color: "#b45309" }}>
+                      {t.achievements.viewProject}
+                      <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </a>
+                  )}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
 
         {/* Experiencia */}
         <div className="mb-20 sm:mb-24">
@@ -184,10 +236,10 @@ export default function SobreMiPage() {
 
           <motion.div variants={stagger} initial="hidden" whileInView="visible"
             viewport={{ once: true, margin: "-60px" }} className="grid sm:grid-cols-2 gap-4">
-            {(["frontend", "backend", "database", "tools"] as const).map((cat) => (
+            {(["frontend", "backend", "blockchain", "ai", "database", "marketing", "tools"] as const).map((cat) => (
               <motion.div key={cat} variants={fadeScale} className="p-5 rounded-2xl"
                 style={{ background: "rgba(255,255,255,0.8)", border: "1px solid rgba(0,0,0,0.07)", backdropFilter: "blur(8px)", boxShadow: "0 2px 16px rgba(0,0,0,0.04)" }}>
-                <span className="block mb-4 tech-label" style={{ color: "rgba(0,0,0,0.3)" }}>
+                <span className="block mb-4 tech-label" style={{ color: categoryColors[cat] ?? "rgba(0,0,0,0.3)" }}>
                   {categoryLabels[cat]}
                 </span>
                 <div className="space-y-3">

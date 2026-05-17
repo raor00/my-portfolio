@@ -83,6 +83,23 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
             </span>
           </div>
 
+          {project.hackathonBadge && (
+            <div className="flex">
+              <span
+                className="text-[9px] font-semibold px-2 py-0.5 rounded-md"
+                style={{
+                  fontFamily: "var(--font-mono-display), monospace",
+                  background: "rgba(217,119,6,0.15)",
+                  border: "1px solid rgba(217,119,6,0.35)",
+                  color: "#92400e",
+                  letterSpacing: "0.06em",
+                }}
+              >
+                🏆 {project.hackathonBadge}
+              </span>
+            </div>
+          )}
+
           <div>
             <h4
               className="text-sm font-semibold"
