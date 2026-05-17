@@ -14,9 +14,13 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rafa — Full Stack Developer",
+  title: "Rafael Oviedo — Full Stack Developer · AI Agent · Blockchain",
   description:
-    "Portfolio de Rafael Oviedo, Ingeniero en Informática y Full Stack Developer especializado en React, Next.js y Node.js.",
+    "Portfolio de Rafael Oviedo — Full Stack Developer, AI Agent Engineer y Meta Ads Specialist. 🏆 Dev3pack 2026 #28 Global.",
+  icons: {
+    icon: "/icon.png",
+    apple: "/logo.png",
+  },
 };
 
 export default function RootLayout({
