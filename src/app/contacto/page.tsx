@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { personalInfo } from "@/config/data";
@@ -46,7 +46,7 @@ interface FormData   { nombre: string; email: string; mensaje: string; }
 interface FormErrors { nombre?: string; email?: string; mensaje?: string; }
 type Status = "idle" | "loading" | "success";
 
-export default function ContactoPage() {
+function ContactoContent() {
   const { t } = useLanguage();
   const searchParams = useSearchParams();
   const [form, setForm] = useState<FormData>({ nombre: "", email: "", mensaje: "" });
@@ -397,5 +397,13 @@ export default function ContactoPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ContactoPage() {
+  return (
+    <Suspense>
+      <ContactoContent />
+    </Suspense>
   );
 }
