@@ -65,15 +65,27 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         rotateY,
         transformStyle: "preserve-3d",
         background: "rgba(255,255,255,0.8)",
-        border: hovering ? "1px solid rgba(217,119,6,0.3)" : "1px solid rgba(0,0,0,0.08)",
+        border: hovering
+          ? "1px solid rgba(217,119,6,0.3)"
+          : project.featured
+          ? "1px solid rgba(217,119,6,0.2)"
+          : "1px solid rgba(0,0,0,0.08)",
         backdropFilter: "blur(12px)",
         boxShadow: hovering
           ? "0 16px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(217,119,6,0.15)"
+          : project.featured
+          ? "0 4px 24px rgba(217,119,6,0.1)"
           : "0 4px 24px rgba(0,0,0,0.07)",
         transition: "border 0.2s, box-shadow 0.2s",
       }}
       className="group relative flex flex-col rounded-2xl overflow-hidden"
     >
+      {project.featured && (
+        <div
+          className="absolute top-0 left-0 right-0 h-0.5 z-20"
+          style={{ background: "linear-gradient(90deg, #d97706, #f59e0b 60%, transparent)" }}
+        />
+      )}
       {/* Mouse-tracking glare */}
       <motion.div
         className="absolute inset-0 pointer-events-none rounded-2xl z-10"
@@ -85,8 +97,9 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         <div
           className="absolute inset-0"
           style={{
-            background:
-              "radial-gradient(ellipse at 20% 25%, rgba(217,119,6,0.18) 0%, rgba(255,255,255,0.45) 40%, rgba(255,255,255,0.88) 100%)",
+            background: project.featured
+              ? "radial-gradient(ellipse at 20% 25%, rgba(217,119,6,0.3) 0%, rgba(255,255,255,0.45) 40%, rgba(255,255,255,0.88) 100%)"
+              : "radial-gradient(ellipse at 20% 25%, rgba(100,100,100,0.08) 0%, rgba(255,255,255,0.45) 40%, rgba(255,255,255,0.88) 100%)",
           }}
         />
         <div
@@ -99,7 +112,22 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         />
         <div className="absolute inset-0 flex flex-col justify-between p-4">
           <div className="flex items-center justify-between gap-2">
-            <span className="tech-label">{project.featured ? t.card.featured : t.card.secondary}</span>
+            {project.featured ? (
+              <span
+                className="text-[10px] font-semibold px-2.5 py-1 rounded-md tracking-widest"
+                style={{
+                  fontFamily: "var(--font-mono-display), monospace",
+                  background: "rgba(217,119,6,0.18)",
+                  border: "1px solid rgba(217,119,6,0.42)",
+                  color: "#92400e",
+                  letterSpacing: "0.07em",
+                }}
+              >
+                ★ {t.card.featured}
+              </span>
+            ) : (
+              <span className="tech-label">{t.card.secondary}</span>
+            )}
             <span
               className="text-[10px] px-2.5 py-1 rounded-md"
               style={{

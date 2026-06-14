@@ -10,12 +10,12 @@ export const translations = {
       cta: "Hablemos",
     },
     hero: {
-      badge: "■ FULL STACK · AI AGENT · BLOCKCHAIN",
+      badge: "■ DISPONIBLE · REMOTO",
       hackathonBadge: "Dev3pack 2026 — #1 Venezuela · #28 Global",
       subtitle: "FULL STACK DEVELOPER · AI AGENT ENGINEER · INGENIERO EN INFORMÁTICA",
       comment: "// construyo sistemas que funcionan en producción",
       description:
-        "Ganador del Dev3pack Global Hackathon 2026 (#1 Venezuela · #28 mundial de 386 proyectos). Construyo sistemas full-stack, agentes IA con Claude y Gemini, aplicaciones blockchain en Solana, y gestiono campañas Meta Ads con resultados medibles. Del código al cliente.",
+        "Ganador del Dev3pack Global Hackathon 2026 (#1 Venezuela · #28 mundial de 386 proyectos). Construyo sistemas full-stack, agentes IA con Claude y Codex, aplicaciones blockchain en Solana, y gestiono campañas Meta Ads con resultados medibles. Del código al cliente.",
       ctaPrimary: "Ver proyectos",
       ctaSecondary: "Contáctame",
       proofTitle: "// LO_QUE_CONSTRUYO",
@@ -29,7 +29,7 @@ export const translations = {
       items: [
         { value: "12", suffix: "+", label: "PROYECTOS", desc: "en producción" },
         { value: "28", suffix: "", label: "DEV3PACK", desc: "#28 global de 386" },
-        { value: "3k", suffix: "", label: "META_ADS", desc: "USD/mes gestionados" },
+        { value: "3", suffix: "k+", label: "META_ADS", desc: "USD/mes en campañas" },
         { value: "∞", suffix: "", label: "CAFÉ", desc: "consumido" },
       ],
     },
@@ -168,12 +168,12 @@ export const translations = {
       cta: "Let's talk",
     },
     hero: {
-      badge: "■ FULL STACK · AI AGENT · BLOCKCHAIN",
+      badge: "■ AVAILABLE · REMOTE",
       hackathonBadge: "Dev3pack 2026 — #1 Venezuela · #28 Global",
       subtitle: "FULL STACK DEVELOPER · AI AGENT ENGINEER · SOFTWARE ENGINEER",
       comment: "// I build systems that work in production",
       description:
-        "Dev3pack Global Hackathon 2026 winner (#1 Venezuela · #28 worldwide out of 386 projects). I build full-stack systems, AI agents with Claude and Gemini, blockchain apps on Solana, and manage Meta Ads campaigns with measurable results. From code to client.",
+        "Dev3pack Global Hackathon 2026 winner (#1 Venezuela · #28 worldwide out of 386 projects). I build full-stack systems, AI agents with Claude and Codex, blockchain apps on Solana, and manage Meta Ads campaigns with measurable results. From code to client.",
       ctaPrimary: "View projects",
       ctaSecondary: "Contact me",
       proofTitle: "// WHAT_I_BUILD",
@@ -187,7 +187,7 @@ export const translations = {
       items: [
         { value: "12", suffix: "+", label: "PROJECTS", desc: "in production" },
         { value: "28", suffix: "", label: "DEV3PACK", desc: "#28 global of 386" },
-        { value: "3k", suffix: "", label: "META_ADS", desc: "USD/month managed" },
+        { value: "3", suffix: "k+", label: "META_ADS", desc: "USD/month in campaigns" },
         { value: "∞", suffix: "", label: "COFFEE", desc: "consumed" },
       ],
     },

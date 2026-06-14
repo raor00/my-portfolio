@@ -867,7 +867,7 @@ export const experience: Experience[] = [
     role: "Coordinador de Desarrollo Tecnológico",
     roleEn: "Technology Development Coordinator",
     company: "COP'S Electronics, S.A.",
-    period: "2025 — Presente",
+    period: "2025 — 2026",
     description:
       "Lideré el desarrollo del sistema de tickets interno (Next.js 14 + Supabase) con RBAC de 5 niveles, reduciendo el tiempo de seguimiento de incidencias un 30%. Coordiné 10+ proyectos de seguridad electrónica: CCTV, control de acceso Hikvision y Milestone VMS para clientes bancarios, industriales y de gobierno.",
     descriptionEn:
@@ -899,7 +899,7 @@ export const experience: Experience[] = [
   {
     role: "Técnico iPhone · Paid Media Specialist",
     roleEn: "iPhone Technician · Paid Media Specialist",
-    company: "UNLOCKZONE",
+    company: "Servicio técnico independiente",
     period: "2022 — 2024",
     description:
       "Técnico especializado en reparación de iPhone (pantallas, baterías, puertos, diagnóstico de placa). Diseño y gestión de campañas Meta Ads para captación local de clientes del servicio técnico.",
@@ -951,10 +951,10 @@ export const achievements: Achievement[] = [
   },
   {
     icon: "🎓",
-    title: "Tesis universitaria en producción",
-    titleEn: "University thesis in production",
-    detail: "COP'S Platform — ticket management system desplegado como herramienta interna real",
-    detailEn: "COP'S Platform — ticket management system deployed as a real internal tool",
+    title: "Tesis universitaria culminada",
+    titleEn: "University thesis completed",
+    detail: "COP'S Platform — ticket management system desarrollado y defendido como tesis, en uso como herramienta interna real",
+    detailEn: "COP'S Platform — ticket management system built and defended as a thesis, in use as a real internal tool",
     project: "cops-platform",
   },
 ];
