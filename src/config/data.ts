@@ -307,58 +307,58 @@ const baseProjects: Project[] = [
   },
   {
     id: 3,
-    slug: "invictus-catalogo",
-    title: "Invictus Catálogo",
-    headline: "Catálogo digital orientado a ventas y pedidos",
-    headlineEn: "Digital catalog focused on sales and order capture",
-    subtitle: "Presentación de productos, control de inventario y pedidos por WhatsApp.",
-    subtitleEn: "Product showcase, inventory control, and WhatsApp order flow.",
+    slug: "invictus-erp",
+    title: "Invictus ERP",
+    headline: "ERP de operaciones para una tienda de tecnología",
+    headlineEn: "Operations ERP for a tech retail store",
+    subtitle: "Inventario, ventas, facturación y gestión de tienda en un solo sistema.",
+    subtitleEn: "Inventory, sales, invoicing, and store management in one system.",
     description:
-      "Solución de catálogo digital para acelerar la venta: permite mostrar productos de forma clara, mantener inventario actualizado y facilitar pedidos directos por WhatsApp.",
+      "ERP independiente para la tienda Invictus, construido sobre Next.js con Convex como backend en tiempo real. Centraliza inventario, ventas, facturación y la operación diaria de la tienda en una sola plataforma a medida.",
     descriptionEn:
-      "Digital catalog solution built to accelerate sales: clear product display, updated inventory, and direct WhatsApp ordering.",
-    role: "Diseño de flujo comercial y desarrollo full stack",
-    roleEn: "Commercial flow design and full stack development",
-    impact: "Mejoró la conversión comercial al simplificar el paso de catálogo a conversación de venta.",
-    impactEn: "Improved conversion by simplifying the path from product browsing to sales conversation.",
-    status: "live",
-    statusLabel: "En uso",
-    statusLabelEn: "In use",
+      "Independent ERP for the Invictus store, built on Next.js with Convex as a real-time backend. It centralizes inventory, sales, invoicing, and daily store operations in a single tailored platform.",
+    role: "Arquitectura y desarrollo full stack",
+    roleEn: "Full stack architecture and development",
+    impact: "Unificó la operación de la tienda en una sola plataforma con datos en tiempo real.",
+    impactEn: "Unified store operations into a single platform with real-time data.",
+    status: "private",
+    statusLabel: "Privado",
+    statusLabelEn: "Private",
     featuredPriority: 5,
     problem:
-      "El negocio necesitaba mostrar productos y generar pedidos sin fricción desde móvil.",
+      "La tienda necesitaba un sistema propio para manejar inventario, ventas y facturación sin depender de planillas.",
     problemEn:
-      "The business needed a low-friction way to showcase products and capture mobile orders.",
+      "The store needed its own system to manage inventory, sales, and invoicing without relying on spreadsheets.",
     solution:
-      "Se implementó un catálogo digital con estructura de venta y atajos a WhatsApp para cierre rápido.",
+      "Se construyó un ERP a medida sobre Convex (backend reactivo) con módulos de inventario, ventas y facturación adaptados a la marca.",
     solutionEn:
-      "A sales-oriented digital catalog was implemented with WhatsApp shortcuts for faster deal closing.",
+      "A custom ERP was built on Convex (reactive backend) with inventory, sales, and invoicing modules tailored to the brand.",
     results: [
-      "Navegación más clara para clientes potenciales.",
-      "Pedidos más directos desde WhatsApp.",
-      "Mejor organización del catálogo y stock.",
+      "Operación centralizada en una sola plataforma.",
+      "Inventario y ventas sincronizados en tiempo real.",
+      "Facturación adaptada a la tienda.",
     ],
     resultsEn: [
-      "Clearer navigation for potential buyers.",
-      "More direct ordering via WhatsApp.",
-      "Better product and stock organization.",
+      "Operations centralized in a single platform.",
+      "Inventory and sales synced in real time.",
+      "Invoicing tailored to the store.",
     ],
-    resultHighlight: "Catálogo orientado a conversión con salida directa a WhatsApp.",
-    resultHighlightEn: "Conversion-oriented catalog with direct WhatsApp handoff.",
-    tags: ["Next.js", "Firebase", "Tailwind CSS", "WhatsApp"],
+    resultHighlight: "Operación de tienda unificada con backend en tiempo real.",
+    resultHighlightEn: "Unified store operations with a real-time backend.",
+    tags: ["Next.js", "Convex", "TypeScript", "Tailwind CSS"],
     featured: true,
     primaryCta: {
-      label: "Crear mi catálogo digital",
-      labelEn: "Build my digital catalog",
+      label: "Quiero un ERP para mi negocio",
+      labelEn: "I want an ERP for my business",
       href: "/contacto",
     },
     secondaryCta: {
       label: "Ver repositorio",
       labelEn: "View repository",
-      href: "https://github.com/raor00/invictus-catalogo",
+      href: "https://github.com/raor00/invictus-erp",
       external: true,
     },
-    githubUrl: "https://github.com/raor00/invictus-catalogo",
+    githubUrl: "https://github.com/raor00/invictus-erp",
   },
   {
     id: 4,
@@ -683,6 +683,116 @@ const baseProjects: Project[] = [
     },
     githubUrl: "https://github.com/raor00/VentasUSA",
   },
+  {
+    id: 12,
+    slug: "iparts-erp",
+    title: "iParts ERP",
+    headline: "ERP para el ciclo completo de reparación de dispositivos",
+    headlineEn: "ERP for the full device repair lifecycle",
+    subtitle: "Compra, recepción, diagnóstico, reparación, control de calidad y venta.",
+    subtitleEn: "Purchase, intake, diagnosis, repair, QA, and sale.",
+    description:
+      "ERP operativo para gestionar el flujo completo de iParts: desde la compra y recepción de dispositivos hasta el diagnóstico, la reparación, el control de calidad y la venta. Construido sobre Next.js, Prisma y PostgreSQL con manejo preciso de dinero en USD.",
+    descriptionEn:
+      "Operational ERP to manage iParts' full flow: from purchasing and intake of devices through diagnosis, repair, quality control, and sale. Built on Next.js, Prisma, and PostgreSQL with precise USD money handling.",
+    role: "Arquitectura de datos y desarrollo full stack",
+    roleEn: "Data architecture and full stack development",
+    impact: "Estandarizó el flujo de reparación en etapas trazables de punta a punta.",
+    impactEn: "Standardized the repair flow into traceable end-to-end stages.",
+    status: "private",
+    statusLabel: "Privado",
+    statusLabelEn: "Private",
+    featuredPriority: 6,
+    problem:
+      "El negocio necesitaba trazabilidad del dispositivo en cada etapa, desde la compra hasta la venta.",
+    problemEn:
+      "The business needed device traceability at every stage, from purchase to sale.",
+    solution:
+      "Se modeló el ciclo de vida del dispositivo con Prisma sobre PostgreSQL y montos en USD con precisión decimal.",
+    solutionEn:
+      "The device lifecycle was modeled with Prisma over PostgreSQL, with USD amounts handled at decimal precision.",
+    results: [
+      "Flujo de reparación trazable etapa por etapa.",
+      "Control de calidad antes de la venta.",
+      "Cálculo de dinero preciso en USD.",
+    ],
+    resultsEn: [
+      "Repair flow traceable stage by stage.",
+      "Quality control before each sale.",
+      "Precise USD money calculation.",
+    ],
+    resultHighlight: "Ciclo de reparación trazable de la compra a la venta.",
+    resultHighlightEn: "Repair lifecycle traceable from purchase to sale.",
+    tags: ["Next.js", "Prisma", "PostgreSQL", "TypeScript"],
+    featured: false,
+    primaryCta: {
+      label: "Quiero digitalizar mi taller",
+      labelEn: "Digitize my repair shop",
+      href: "/contacto",
+    },
+    secondaryCta: {
+      label: "Ver repositorio",
+      labelEn: "View repository",
+      href: "https://github.com/raor00/IPARTS-platfotrm",
+      external: true,
+    },
+    githubUrl: "https://github.com/raor00/IPARTS-platfotrm",
+  },
+  {
+    id: 13,
+    slug: "iparts-servicio-repuestos",
+    title: "iParts — Servicio Técnico & Repuestos",
+    headline: "Tickets de reparación y punto de venta de repuestos",
+    headlineEn: "Repair tickets and parts point-of-sale",
+    subtitle: "Dos módulos, un solo login: servicio técnico e inventario con POS.",
+    subtitleEn: "Two modules, one login: repair service and parts inventory with POS.",
+    description:
+      "App standalone para una tienda de repuestos de iPhone que une servicio técnico (tickets de reparación, garantías, técnicos y dashboard) con el módulo de repuestos (inventario y punto de venta que descuenta stock y emite factura imprimible). Todo sobre Convex.",
+    descriptionEn:
+      "Standalone app for an iPhone parts shop that joins repair service (repair tickets, warranties, technicians, and dashboard) with the parts module (inventory and point-of-sale that discounts stock and prints invoices). All on Convex.",
+    role: "Desarrollo full stack",
+    roleEn: "Full stack development",
+    impact: "Integró reparaciones y ventas de repuestos en una sola operación.",
+    impactEn: "Integrated repairs and parts sales into a single operation.",
+    status: "private",
+    statusLabel: "Privado",
+    statusLabelEn: "Private",
+    featuredPriority: 7,
+    problem:
+      "El servicio técnico y la venta de repuestos vivían separados, sin un sistema común.",
+    problemEn:
+      "Repair service and parts sales lived separately, with no shared system.",
+    solution:
+      "Se construyó una app sobre Convex que comparte login, sidebar y base de datos entre ambos módulos.",
+    solutionEn:
+      "An app was built on Convex sharing one login, sidebar, and database across both modules.",
+    results: [
+      "Tickets de reparación con garantías y técnicos.",
+      "POS que descuenta stock y emite factura imprimible.",
+      "Dashboard unificado de la operación.",
+    ],
+    resultsEn: [
+      "Repair tickets with warranties and technicians.",
+      "POS that discounts stock and prints invoices.",
+      "Unified operations dashboard.",
+    ],
+    resultHighlight: "Servicio técnico y repuestos en una sola plataforma.",
+    resultHighlightEn: "Repair service and parts in a single platform.",
+    tags: ["Next.js", "Convex", "TypeScript", "Tailwind CSS"],
+    featured: false,
+    primaryCta: {
+      label: "Quiero digitalizar mi taller",
+      labelEn: "Digitize my repair shop",
+      href: "/contacto",
+    },
+    secondaryCta: {
+      label: "Ver repositorio",
+      labelEn: "View repository",
+      href: "https://github.com/raor00/ERP-iParts",
+      external: true,
+    },
+    githubUrl: "https://github.com/raor00/ERP-iParts",
+  },
 ];
 
 export const projects: Project[] = baseProjects.map((project) => ({
@@ -736,7 +846,8 @@ export const skills: Skill[] = [
   // AI & Automation
   { name: "Claude API", category: "ai", level: 5 },
   { name: "AI Agent Dev", category: "ai", level: 4 },
-  { name: "Gemini API", category: "ai", level: 3 },
+  { name: "Codex", category: "ai", level: 4 },
+  { name: "OpenCode", category: "ai", level: 3 },
   { name: "Prompt Engineering", category: "ai", level: 5 },
 
   // Marketing
@@ -769,9 +880,9 @@ export const experience: Experience[] = [
     company: "Clientes independientes",
     period: "2022 — Presente",
     description:
-      "Desarrollo de aplicaciones web a medida: ERPs, plataformas e-commerce, catálogos digitales y sistemas de cotización. Proyectos ganadores de hackathon (Dev3pack 2026, Platanus · Anthropic 2026) e integración de agentes IA con Claude y Gemini.",
+      "Desarrollo de aplicaciones web a medida: ERPs, plataformas e-commerce, catálogos digitales y sistemas de cotización. Proyectos ganadores de hackathon (Dev3pack 2026, Platanus · Anthropic 2026) e integración de agentes IA con Claude y Codex.",
     descriptionEn:
-      "Custom web application development: ERPs, e-commerce platforms, digital catalogs, and quote systems. Hackathon-winning projects (Dev3pack 2026, Platanus · Anthropic 2026) and AI agent integration with Claude and Gemini.",
+      "Custom web application development: ERPs, e-commerce platforms, digital catalogs, and quote systems. Hackathon-winning projects (Dev3pack 2026, Platanus · Anthropic 2026) and AI agent integration with Claude and Codex.",
     technologies: ["Next.js", "Solana", "Claude API", "Supabase", "TypeScript"],
   },
   {
@@ -803,12 +914,13 @@ export const personalInfo = {
   title: "Full Stack Developer · AI Agent Engineer",
   subtitle: "Ingeniero en Informática",
   subtitleEn: "Software Engineer",
-  bio: "Soy Rafael Oviedo — Ingeniero en Informática, ganador del Dev3pack Global Hackathon 2026 (#1 Venezuela · #28 mundial de 386 proyectos). Construyo sistemas full-stack con Next.js, Supabase y TypeScript; desarrollo agentes IA con Claude y Gemini; e integro blockchain en Solana. También gestiono campañas Meta Ads con presupuestos de hasta $3,000/mes por cliente. Opero en la intersección de ingeniería de software, automatización IA y performance marketing.",
+  bio: "Soy Rafael Oviedo — Ingeniero en Informática, ganador del Dev3pack Global Hackathon 2026 (#1 Venezuela · #28 mundial de 386 proyectos). Construyo sistemas full-stack con Next.js, Supabase y TypeScript; desarrollo agentes IA con Claude y Codex; e integro blockchain en Solana. También gestiono campañas Meta Ads con presupuestos de hasta $3,000/mes por cliente. Opero en la intersección de ingeniería de software, automatización IA y performance marketing.",
   bioEn:
-    "I'm Rafael Oviedo — Software Engineer and Dev3pack Global Hackathon 2026 winner (#1 Venezuela · #28 worldwide out of 386 projects). I build full-stack systems with Next.js, Supabase, and TypeScript; develop AI agents with Claude and Gemini; and integrate blockchain on Solana. I also manage Meta Ads campaigns with budgets up to $3,000/month per client. I operate at the intersection of software engineering, AI automation, and performance marketing.",
+    "I'm Rafael Oviedo — Software Engineer and Dev3pack Global Hackathon 2026 winner (#1 Venezuela · #28 worldwide out of 386 projects). I build full-stack systems with Next.js, Supabase, and TypeScript; develop AI agents with Claude and Codex; and integrate blockchain on Solana. I also manage Meta Ads campaigns with budgets up to $3,000/month per client. I operate at the intersection of software engineering, AI automation, and performance marketing.",
   location: "Venezuela",
   github: "https://github.com/raor00",
   linkedin: "https://www.linkedin.com/in/rafael-oviedo-ba876420a/",
+  x: "https://x.com/raor_00",
   available: true,
 };
 
@@ -883,9 +995,9 @@ export const services: Service[] = [
     icon: "◬",
     title: "Agentes IA & Automatización",
     titleEn: "AI Agents & Automation",
-    description: "Integración de agentes IA en productos reales con Claude API y Gemini. Automatización de flujos operativos, bots conversacionales y asistentes especializados.",
-    descriptionEn: "AI agent integration into real products with Claude API and Gemini. Operational workflow automation, conversational bots, and specialized assistants.",
-    tags: ["Claude API", "Gemini", "Next.js", "Automation"],
+    description: "Integración de agentes IA en productos reales con Claude API y Codex. Automatización de flujos operativos, bots conversacionales y asistentes especializados.",
+    descriptionEn: "AI agent integration into real products with Claude API and Codex. Operational workflow automation, conversational bots, and specialized assistants.",
+    tags: ["Claude API", "Codex", "Next.js", "Automation"],
     ctaHref: "/contacto?servicio=ai",
   },
   {
