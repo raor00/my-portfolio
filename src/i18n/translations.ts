@@ -143,6 +143,11 @@ export const translations = {
       ctaSimilar: "SOLICITAR_SIMILAR",
       demo: "DEMO",
       github: "GITHUB",
+      viewDemo: "VER_DEMO",
+      demoClose: "Cerrar",
+      demoPrev: "Anterior",
+      demoNext: "Siguiente",
+      demoLabel: "Vista previa interactiva",
     },
     projectDetail: {
       notFoundTitle: "PROYECTO_NO_ENCONTRADO",
@@ -301,6 +306,11 @@ export const translations = {
       ctaSimilar: "REQUEST_SIMILAR",
       demo: "DEMO",
       github: "GITHUB",
+      viewDemo: "VIEW_DEMO",
+      demoClose: "Close",
+      demoPrev: "Previous",
+      demoNext: "Next",
+      demoLabel: "Interactive preview",
     },
     projectDetail: {
       notFoundTitle: "PROJECT_NOT_FOUND",

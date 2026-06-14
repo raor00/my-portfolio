@@ -3,6 +3,7 @@ import { motion, useMotionValue, useTransform, useSpring, useMotionTemplate } fr
 import { useState } from "react";
 import { Project } from "@/config/data";
 import { useLanguage } from "@/i18n/LanguageContext";
+import DemoModal from "./DemoModal";
 
 interface ProjectCardProps {
   project: Project;
@@ -21,6 +22,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
   const glareY = useTransform(mouseY, [-0.5, 0.5], ["30%", "70%"]);
   const glareBg = useMotionTemplate`radial-gradient(circle at ${glareX} ${glareY}, rgba(255,255,255,0.13) 0%, transparent 65%)`;
   const [hovering, setHovering] = useState(false);
+  const [demoOpen, setDemoOpen] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -227,6 +229,16 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
         {/* Links */}
         <div className="flex flex-wrap items-center gap-2.5 pt-3 border-t" style={{ borderColor: "rgba(0,0,0,0.07)" }}>
+          {project.demo && (
+            <button
+              type="button"
+              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDemoOpen(true); }}
+              className="glass-btn-amber flex items-center gap-1.5 text-xs px-4 py-2 rounded-lg text-white"
+              style={{ fontFamily: "var(--font-mono-display), monospace" }}
+            >
+              ▶ {t.card.viewDemo}
+            </button>
+          )}
           <Link
             href={`/proyectos/${project.slug}`}
             className="glass-btn-amber flex items-center gap-1.5 text-xs px-4 py-2 rounded-lg text-white"
@@ -307,6 +319,14 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
         </div>
       </div>
     </motion.article>
+    {project.demo && (
+      <DemoModal
+        open={demoOpen}
+        onClose={() => setDemoOpen(false)}
+        demo={project.demo}
+        title={project.title}
+      />
+    )}
     </div>
   );
 }

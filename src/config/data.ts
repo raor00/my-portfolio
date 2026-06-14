@@ -31,6 +31,11 @@ export interface Project {
   tags: string[];
   featured: boolean;
   image?: string;
+  demo?: {
+    frame?: "browser" | "phone";
+    url?: string;
+    shots: { src: string; alt?: string; caption: string; captionEn: string }[];
+  };
   liveUrl?: string;
   primaryCta?: {
     label: string;
@@ -129,6 +134,30 @@ const baseProjects: Project[] = [
     resultHighlightEn: "#1 Venezuela · Top 9 LATAM · Top 28 worldwide at Dev3pack 2026",
     tags: ["Solana", "Blockchain", "AI Agent", "Next.js", "TypeScript"],
     featured: true,
+    demo: {
+      frame: "browser",
+      url: "tropico.vercel.app",
+      shots: [
+        {
+          src: "/projects/tropico-wallet/01.webp",
+          alt: "Tropico Wallet — wallet and balance screen",
+          caption: "Wallet y saldo en tiempo real",
+          captionEn: "Real-time wallet and balance",
+        },
+        {
+          src: "/projects/tropico-wallet/02.webp",
+          alt: "Tropico Wallet — Pago Móvil transfer flow",
+          caption: "Envío a Pago Móvil venezolano",
+          captionEn: "Send to Venezuelan Pago Móvil",
+        },
+        {
+          src: "/projects/tropico-wallet/03.webp",
+          alt: "Tropico Wallet — Guacama AI autonomous financial agent",
+          caption: "Guacama AI — agente financiero autónomo",
+          captionEn: "Guacama AI — autonomous financial agent",
+        },
+      ],
+    },
     liveUrl: "https://tropico.vercel.app",
     primaryCta: {
       label: "Ver proyecto en vivo",
@@ -237,6 +266,7 @@ const baseProjects: Project[] = [
     resultHighlightEn: "Centralized support operation with clear traceability by ticket and case.",
     tags: ["Next.js", "TypeScript", "Tailwind CSS", "Workflow"],
     featured: true,
+    // demo: pending real screenshots (requires COPS login). Restore block once assets land in public/projects/cops-platform/.
     primaryCta: {
       label: "Solicitar plataforma similar",
       labelEn: "Request a similar platform",
@@ -347,6 +377,36 @@ const baseProjects: Project[] = [
     resultHighlightEn: "Unified store operations with a real-time backend.",
     tags: ["Next.js", "Convex", "TypeScript", "Tailwind CSS"],
     featured: true,
+    demo: {
+      frame: "browser",
+      url: "invictusphone.com",
+      shots: [
+        {
+          src: "/projects/invictus-erp/01.webp",
+          alt: "Invictus ERP — inventory and sales dashboard",
+          caption: "Inventario y ventas",
+          captionEn: "Inventory and sales",
+        },
+        {
+          src: "/projects/invictus-erp/02.webp",
+          alt: "Invictus ERP — product catalog with stock levels",
+          caption: "Catálogo de productos con stock en tiempo real",
+          captionEn: "Product catalog with real-time stock",
+        },
+        {
+          src: "/projects/invictus-erp/03.webp",
+          alt: "Invictus ERP — invoicing module",
+          caption: "Módulo de facturación",
+          captionEn: "Invoicing module",
+        },
+        {
+          src: "/projects/invictus-erp/04.webp",
+          alt: "Invictus ERP — store operations report",
+          caption: "Reporte de operaciones de tienda",
+          captionEn: "Store operations report",
+        },
+      ],
+    },
     primaryCta: {
       label: "Quiero un ERP para mi negocio",
       labelEn: "I want an ERP for my business",
