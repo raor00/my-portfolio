@@ -161,7 +161,7 @@ export default function Navbar() {
 
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-1.5 rounded-lg transition-colors"
+                className="flex items-center justify-center min-h-[44px] min-w-[44px] rounded-lg transition-colors"
                 style={{ color: "rgba(0,0,0,0.5)" }}
                 aria-label="Toggle menu"
               >

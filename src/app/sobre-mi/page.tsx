@@ -149,7 +149,7 @@ export default function SobreMiPage() {
                   </p>
                   {ach.project && (
                     <a href={`/proyectos/${ach.project}`}
-                      className="inline-flex items-center gap-1 text-[10px] mt-2 font-medium"
+                      className="inline-flex items-center gap-1 text-[10px] mt-2 font-medium min-h-[44px] py-2.5"
                       style={{ fontFamily: "var(--font-mono-display), monospace", color: "#b45309" }}>
                       {t.achievements.viewProject}
                       <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
