@@ -132,6 +132,8 @@ export async function readCodexFile(path: string, onRow: (row: RawUsage) => void
   const state = createCodexState();
   await streamJsonLines(path, (line) => {
     const row = mapCodexLine(line, state);
-    if (row) onRow(row);
+    if (!row) return;
+    row.sessionId = state.sessionId ?? "";
+    onRow(row);
   });
 }

@@ -1,4 +1,4 @@
-import { streamJsonLines } from "../lines";
+import { baseName, streamJsonLines } from "../lines";
 import { normalizeModel, normalizeProvider } from "../config";
 import { parseJsonObject, record, num, str } from "./types";
 import type { RawUsage } from "./types";
@@ -45,8 +45,11 @@ export function mapClaudeLine(line: string): RawUsage | null {
 
 /** Streams one Claude transcript file. The caller owns dedupe and persistence. */
 export async function readClaudeFile(path: string, onRow: (row: RawUsage) => void): Promise<void> {
+  const sessionId = baseName(path).replace(/\.jsonl$/, "");
   await streamJsonLines(path, (line) => {
     const row = mapClaudeLine(line);
-    if (row) onRow(row);
+    if (!row) return;
+    row.sessionId = sessionId;
+    onRow(row);
   });
 }

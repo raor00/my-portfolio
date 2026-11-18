@@ -12,6 +12,8 @@ export interface RawUsage {
   reasoningTokens: number;
   reportedCostUsd: number;
   occurredAt: string;
+  /** Source session identity, used only for the public `sessions` count. */
+  sessionId?: string;
 }
 
 export interface LedgerRow extends RawUsage {

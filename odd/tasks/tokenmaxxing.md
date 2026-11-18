@@ -79,9 +79,12 @@ Follow `CLAUDE.md` in the repo: light theme, amber accent, IBM Plex Mono labels 
 - Keep this doc as `odd/tasks/tokenmaxxing.md` in the worktree; check off tasks as they land, recording the commit hash.
 
 ## Tasks
-- [ ] T1 Collector: parsers + ledger + `bun test` (scripts/tokenmaxxing/*.test.ts). Commit.
-- [ ] T2 Aggregation + pricing + quotas + JSON writer + sanitization test; run it for real, commit the generated JSON. Commit.
+- [x] T1 Collector: parsers + ledger + `bun test` (scripts/tokenmaxxing/*.test.ts). Commit `f42aaf9`.
+- [x] T2 Aggregation + pricing + quotas + JSON writer + sanitization test; run it for real, commit the generated JSON.
 - [ ] T3 Page + navbar + i18n. `pnpm build` green. Commit.
+
+## Commits
+- T1 `f42aaf9` feat(collector): add incremental token usage ledger and transcript parsers
 
 ## Observable acceptance (report each as `<command>: <observed result>`)
 1. `bun test scripts/tokenmaxxing` green, covering: Claude dedupe by message.id keeping max output + skip `<synthetic>`; Codex cached subtraction, duplicate-event drop, mid-session model switch, fork file keyed by first session_meta, `token_usage_record` ignored; Pi mapping + responseId dedupe across files; opencode mapping; reset normalizer (s/ms/ISO); local `usage_date` across UTC midnight; JSON sanitization scan.

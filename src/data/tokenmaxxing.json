@@ -1,0 +1,2144 @@
+{
+  "generatedAt": "2026-11-18T22:48:28.309Z",
+  "timezone": "America/Caracas",
+  "totals": {
+    "processedTokens": 49297781036,
+    "costUsd": 8355.96,
+    "cacheSavingsUsd": 44678.41,
+    "sessions": 3156
+  },
+  "days": [
+    {
+      "date": "2026-03-18",
+      "providers": {
+        "openai": {
+          "tokens": 13827618,
+          "costUsd": 7.51
+        }
+      }
+    },
+    {
+      "date": "2026-03-19",
+      "providers": {
+        "openai": {
+          "tokens": 429568,
+          "costUsd": 0.35
+        }
+      }
+    },
+    {
+      "date": "2026-03-20",
+      "providers": {
+        "openai": {
+          "tokens": 745958,
+          "costUsd": 0.41
+        }
+      }
+    },
+    {
+      "date": "2026-03-22",
+      "providers": {
+        "openai": {
+          "tokens": 10704310,
+          "costUsd": 5.78
+        }
+      }
+    },
+    {
+      "date": "2026-03-24",
+      "providers": {
+        "openai": {
+          "tokens": 3035766,
+          "costUsd": 1.09
+        }
+      }
+    },
+    {
+      "date": "2026-03-29",
+      "providers": {
+        "openai": {
+          "tokens": 253359,
+          "costUsd": 0.2
+        }
+      }
+    },
+    {
+      "date": "2026-03-30",
+      "providers": {
+        "openai": {
+          "tokens": 1134789,
+          "costUsd": 1.69
+        }
+      }
+    },
+    {
+      "date": "2026-03-31",
+      "providers": {
+        "openai": {
+          "tokens": 70516621,
+          "costUsd": 25.45
+        }
+      }
+    },
+    {
+      "date": "2026-04-20",
+      "providers": {
+        "openai": {
+          "tokens": 709622,
+          "costUsd": 0.73
+        }
+      }
+    },
+    {
+      "date": "2026-05-04",
+      "providers": {
+        "openai": {
+          "tokens": 467602,
+          "costUsd": 0.39
+        }
+      }
+    },
+    {
+      "date": "2026-05-07",
+      "providers": {
+        "openai": {
+          "tokens": 665196,
+          "costUsd": 0.48
+        }
+      }
+    },
+    {
+      "date": "2026-05-13",
+      "providers": {
+        "openai": {
+          "tokens": 3315460,
+          "costUsd": 3.71
+        }
+      }
+    },
+    {
+      "date": "2026-05-14",
+      "providers": {
+        "openai": {
+          "tokens": 4835346,
+          "costUsd": 4.61
+        }
+      }
+    },
+    {
+      "date": "2026-05-21",
+      "providers": {
+        "openai": {
+          "tokens": 6664048,
+          "costUsd": 5.93
+        }
+      }
+    },
+    {
+      "date": "2026-05-26",
+      "providers": {
+        "openai": {
+          "tokens": 32263593,
+          "costUsd": 21.98
+        }
+      }
+    },
+    {
+      "date": "2026-05-27",
+      "providers": {
+        "openai": {
+          "tokens": 18231076,
+          "costUsd": 6.31
+        }
+      }
+    },
+    {
+      "date": "2026-05-28",
+      "providers": {
+        "openai": {
+          "tokens": 8567489,
+          "costUsd": 3.02
+        }
+      }
+    },
+    {
+      "date": "2026-05-29",
+      "providers": {
+        "openai": {
+          "tokens": 26729828,
+          "costUsd": 11.55
+        }
+      }
+    },
+    {
+      "date": "2026-06-01",
+      "providers": {
+        "openai": {
+          "tokens": 9871329,
+          "costUsd": 3.44
+        }
+      }
+    },
+    {
+      "date": "2026-06-02",
+      "providers": {
+        "openai": {
+          "tokens": 16368631,
+          "costUsd": 10.35
+        }
+      }
+    },
+    {
+      "date": "2026-06-03",
+      "providers": {
+        "openai": {
+          "tokens": 25660248,
+          "costUsd": 20.65
+        }
+      }
+    },
+    {
+      "date": "2026-06-04",
+      "providers": {
+        "openai": {
+          "tokens": 31174632,
+          "costUsd": 24.06
+        }
+      }
+    },
+    {
+      "date": "2026-06-05",
+      "providers": {
+        "openai": {
+          "tokens": 23258006,
+          "costUsd": 17.54
+        }
+      }
+    },
+    {
+      "date": "2026-06-06",
+      "providers": {
+        "openai": {
+          "tokens": 2720614,
+          "costUsd": 2.98
+        }
+      }
+    },
+    {
+      "date": "2026-06-08",
+      "providers": {
+        "openai": {
+          "tokens": 14638704,
+          "costUsd": 12.15
+        }
+      }
+    },
+    {
+      "date": "2026-06-09",
+      "providers": {
+        "openai": {
+          "tokens": 42276099,
+          "costUsd": 23.93
+        }
+      }
+    },
+    {
+      "date": "2026-06-10",
+      "providers": {
+        "openai": {
+          "tokens": 27140620,
+          "costUsd": 20.57
+        }
+      }
+    },
+    {
+      "date": "2026-06-11",
+      "providers": {
+        "openai": {
+          "tokens": 53364633,
+          "costUsd": 33.32
+        }
+      }
+    },
+    {
+      "date": "2026-06-12",
+      "providers": {
+        "openai": {
+          "tokens": 25014640,
+          "costUsd": 17.74
+        }
+      }
+    },
+    {
+      "date": "2026-06-14",
+      "providers": {
+        "openai": {
+          "tokens": 1956428,
+          "costUsd": 4.13
+        }
+      }
+    },
+    {
+      "date": "2026-06-15",
+      "providers": {
+        "openai": {
+          "tokens": 40952228,
+          "costUsd": 27.23
+        }
+      }
+    },
+    {
+      "date": "2026-06-17",
+      "providers": {
+        "openai": {
+          "tokens": 8755832,
+          "costUsd": 4.11
+        }
+      }
+    },
+    {
+      "date": "2026-06-18",
+      "providers": {
+        "openai": {
+          "tokens": 5259377,
+          "costUsd": 4.89
+        }
+      }
+    },
+    {
+      "date": "2026-06-19",
+      "providers": {
+        "openai": {
+          "tokens": 1748447,
+          "costUsd": 1.15
+        }
+      }
+    },
+    {
+      "date": "2026-06-22",
+      "providers": {
+        "openai": {
+          "tokens": 1848214,
+          "costUsd": 2.36
+        }
+      }
+    },
+    {
+      "date": "2026-07-02",
+      "providers": {
+        "openai": {
+          "tokens": 56914,
+          "costUsd": 0.22
+        }
+      }
+    },
+    {
+      "date": "2026-07-03",
+      "providers": {
+        "openai": {
+          "tokens": 57168774,
+          "costUsd": 43.61
+        }
+      }
+    },
+    {
+      "date": "2026-07-06",
+      "providers": {
+        "openai": {
+          "tokens": 65069986,
+          "costUsd": 42.26
+        }
+      }
+    },
+    {
+      "date": "2026-07-07",
+      "providers": {
+        "openai": {
+          "tokens": 29273255,
+          "costUsd": 10.91
+        }
+      }
+    },
+    {
+      "date": "2026-07-09",
+      "providers": {
+        "openai": {
+          "tokens": 20165244,
+          "costUsd": 7.54
+        }
+      }
+    },
+    {
+      "date": "2026-07-10",
+      "providers": {
+        "openai": {
+          "tokens": 525556,
+          "costUsd": 0.4
+        }
+      }
+    },
+    {
+      "date": "2026-07-11",
+      "providers": {
+        "openai": {
+          "tokens": 2471184,
+          "costUsd": 0.12
+        }
+      }
+    },
+    {
+      "date": "2026-07-12",
+      "providers": {
+        "openai": {
+          "tokens": 1678672,
+          "costUsd": 0.07
+        }
+      }
+    },
+    {
+      "date": "2026-07-13",
+      "providers": {
+        "openai": {
+          "tokens": 365589,
+          "costUsd": 0.02
+        }
+      }
+    },
+    {
+      "date": "2026-07-14",
+      "providers": {
+        "openai": {
+          "tokens": 1228946,
+          "costUsd": 0.08
+        }
+      }
+    },
+    {
+      "date": "2026-07-15",
+      "providers": {
+        "openai": {
+          "tokens": 3368585,
+          "costUsd": 0.3
+        }
+      }
+    },
+    {
+      "date": "2026-07-16",
+      "providers": {
+        "openai": {
+          "tokens": 35838760,
+          "costUsd": 24.4
+        }
+      }
+    },
+    {
+      "date": "2026-07-17",
+      "providers": {
+        "openai": {
+          "tokens": 9036879,
+          "costUsd": 5.78
+        }
+      }
+    },
+    {
+      "date": "2026-07-21",
+      "providers": {
+        "openai": {
+          "tokens": 10807102,
+          "costUsd": 7.47
+        }
+      }
+    },
+    {
+      "date": "2026-07-22",
+      "providers": {
+        "openai": {
+          "tokens": 52209729,
+          "costUsd": 27.76
+        }
+      }
+    },
+    {
+      "date": "2026-07-23",
+      "providers": {
+        "openai": {
+          "tokens": 52738495,
+          "costUsd": 29.41
+        }
+      }
+    },
+    {
+      "date": "2026-07-24",
+      "providers": {
+        "openai": {
+          "tokens": 6271566,
+          "costUsd": 5.29
+        }
+      }
+    },
+    {
+      "date": "2026-07-27",
+      "providers": {
+        "openai": {
+          "tokens": 35651275,
+          "costUsd": 19.82
+        }
+      }
+    },
+    {
+      "date": "2026-07-28",
+      "providers": {
+        "openai": {
+          "tokens": 317228058,
+          "costUsd": 176.67
+        }
+      }
+    },
+    {
+      "date": "2026-07-29",
+      "providers": {
+        "openai": {
+          "tokens": 26300455,
+          "costUsd": 12.27
+        }
+      }
+    },
+    {
+      "date": "2026-07-30",
+      "providers": {
+        "openai": {
+          "tokens": 51849711,
+          "costUsd": 19.26
+        }
+      }
+    },
+    {
+      "date": "2026-08-05",
+      "providers": {
+        "openai": {
+          "tokens": 111128417,
+          "costUsd": 47.79
+        }
+      }
+    },
+    {
+      "date": "2026-08-10",
+      "providers": {
+        "openai": {
+          "tokens": 294661,
+          "costUsd": 0.32
+        }
+      }
+    },
+    {
+      "date": "2026-08-11",
+      "providers": {
+        "openai": {
+          "tokens": 895031,
+          "costUsd": 0.85
+        }
+      }
+    },
+    {
+      "date": "2026-08-14",
+      "providers": {
+        "openai": {
+          "tokens": 165031,
+          "costUsd": 0.22
+        }
+      }
+    },
+    {
+      "date": "2026-08-20",
+      "providers": {
+        "xai": {
+          "tokens": 320821,
+          "costUsd": 0.29
+        }
+      }
+    },
+    {
+      "date": "2026-08-21",
+      "providers": {
+        "anthropic": {
+          "tokens": 1355787,
+          "costUsd": 3.14
+        },
+        "openai": {
+          "tokens": 2552,
+          "costUsd": 0.01
+        }
+      }
+    },
+    {
+      "date": "2026-08-25",
+      "providers": {
+        "opencode-go": {
+          "tokens": 49215074,
+          "costUsd": 0.6
+        },
+        "xai": {
+          "tokens": 160036,
+          "costUsd": 0.14
+        }
+      }
+    },
+    {
+      "date": "2026-08-26",
+      "providers": {
+        "anthropic": {
+          "tokens": 17879056,
+          "costUsd": 47.55
+        },
+        "opencode-go": {
+          "tokens": 156746093,
+          "costUsd": 1.31
+        },
+        "xai": {
+          "tokens": 136182,
+          "costUsd": 0.17
+        }
+      }
+    },
+    {
+      "date": "2026-08-27",
+      "providers": {
+        "anthropic": {
+          "tokens": 1195100,
+          "costUsd": 3.69
+        },
+        "b-ai": {
+          "tokens": 59873,
+          "costUsd": 0.01
+        },
+        "opencode-go": {
+          "tokens": 206171261,
+          "costUsd": 2.88
+        }
+      }
+    },
+    {
+      "date": "2026-08-30",
+      "providers": {
+        "openai": {
+          "tokens": 11853108,
+          "costUsd": 0.35
+        }
+      }
+    },
+    {
+      "date": "2026-09-02",
+      "providers": {
+        "deepseek": {
+          "tokens": 95842819,
+          "costUsd": 1.44
+        },
+        "google": {
+          "tokens": 277252,
+          "costUsd": 0.09
+        },
+        "opencode-go": {
+          "tokens": 394028166,
+          "costUsd": 4.16
+        }
+      }
+    },
+    {
+      "date": "2026-09-03",
+      "providers": {
+        "deepseek": {
+          "tokens": 464840742,
+          "costUsd": 4.05
+        }
+      }
+    },
+    {
+      "date": "2026-09-05",
+      "providers": {
+        "deepseek": {
+          "tokens": 195637691,
+          "costUsd": 1.8
+        }
+      }
+    },
+    {
+      "date": "2026-09-07",
+      "providers": {
+        "deepseek": {
+          "tokens": 114292910,
+          "costUsd": 1.17
+        }
+      }
+    },
+    {
+      "date": "2026-09-08",
+      "providers": {
+        "deepseek": {
+          "tokens": 136352853,
+          "costUsd": 1.27
+        },
+        "opencode-go": {
+          "tokens": 159644269,
+          "costUsd": 3.4
+        }
+      }
+    },
+    {
+      "date": "2026-09-09",
+      "providers": {
+        "opencode-go": {
+          "tokens": 310720626,
+          "costUsd": 2.44
+        }
+      }
+    },
+    {
+      "date": "2026-09-10",
+      "providers": {
+        "opencode-go": {
+          "tokens": 787542,
+          "costUsd": 0.24
+        }
+      }
+    },
+    {
+      "date": "2026-09-11",
+      "providers": {
+        "xai": {
+          "tokens": 27743772,
+          "costUsd": 16.88
+        }
+      }
+    },
+    {
+      "date": "2026-09-12",
+      "providers": {
+        "xai": {
+          "tokens": 6501743,
+          "costUsd": 4.96
+        }
+      }
+    },
+    {
+      "date": "2026-09-13",
+      "providers": {
+        "xai": {
+          "tokens": 18692865,
+          "costUsd": 11.47
+        }
+      }
+    },
+    {
+      "date": "2026-09-14",
+      "providers": {
+        "xai": {
+          "tokens": 130041802,
+          "costUsd": 71.19
+        }
+      }
+    },
+    {
+      "date": "2026-09-15",
+      "providers": {
+        "xai": {
+          "tokens": 36378275,
+          "costUsd": 19.72
+        }
+      }
+    },
+    {
+      "date": "2026-09-16",
+      "providers": {
+        "opencode-zen": {
+          "tokens": 79560592,
+          "costUsd": 0
+        },
+        "xai": {
+          "tokens": 41192653,
+          "costUsd": 26.63
+        }
+      }
+    },
+    {
+      "date": "2026-09-17",
+      "providers": {
+        "openai": {
+          "tokens": 3277811,
+          "costUsd": 0.12
+        },
+        "opencode-zen": {
+          "tokens": 41875860,
+          "costUsd": 0
+        },
+        "xai": {
+          "tokens": 109307436,
+          "costUsd": 65.42
+        }
+      }
+    },
+    {
+      "date": "2026-09-18",
+      "providers": {
+        "opencode-zen": {
+          "tokens": 125956,
+          "costUsd": 0
+        },
+        "xai": {
+          "tokens": 226198017,
+          "costUsd": 135.31
+        }
+      }
+    },
+    {
+      "date": "2026-09-19",
+      "providers": {
+        "xai": {
+          "tokens": 109235313,
+          "costUsd": 62.13
+        }
+      }
+    },
+    {
+      "date": "2026-09-21",
+      "providers": {
+        "openai": {
+          "tokens": 2975122,
+          "costUsd": 4.27
+        },
+        "opencode-zen": {
+          "tokens": 126890,
+          "costUsd": 0
+        },
+        "xai": {
+          "tokens": 289227669,
+          "costUsd": 171.32
+        }
+      }
+    },
+    {
+      "date": "2026-09-22",
+      "providers": {
+        "anthropic": {
+          "tokens": 34907818,
+          "costUsd": 21.79
+        },
+        "openai": {
+          "tokens": 11372624,
+          "costUsd": 2.4
+        },
+        "xai": {
+          "tokens": 243222486,
+          "costUsd": 153.96
+        }
+      }
+    },
+    {
+      "date": "2026-09-23",
+      "providers": {
+        "anthropic": {
+          "tokens": 64400371,
+          "costUsd": 39.42
+        },
+        "opencode-zen": {
+          "tokens": 81404285,
+          "costUsd": 0
+        },
+        "xai": {
+          "tokens": 96419355,
+          "costUsd": 57.71
+        }
+      }
+    },
+    {
+      "date": "2026-09-24",
+      "providers": {
+        "anthropic": {
+          "tokens": 167761983,
+          "costUsd": 78.03
+        },
+        "nan": {
+          "tokens": 785067486,
+          "costUsd": 6.83
+        },
+        "opencode-zen": {
+          "tokens": 6908888,
+          "costUsd": 0
+        },
+        "xai": {
+          "tokens": 155410499,
+          "costUsd": 88.5
+        }
+      }
+    },
+    {
+      "date": "2026-09-25",
+      "providers": {
+        "anthropic": {
+          "tokens": 112848590,
+          "costUsd": 49.52
+        },
+        "nan": {
+          "tokens": 524190296,
+          "costUsd": 4.99
+        },
+        "xai": {
+          "tokens": 229222204,
+          "costUsd": 133.04
+        }
+      }
+    },
+    {
+      "date": "2026-09-26",
+      "providers": {
+        "anthropic": {
+          "tokens": 31170344,
+          "costUsd": 14.13
+        },
+        "nan": {
+          "tokens": 223059406,
+          "costUsd": 1.43
+        },
+        "xai": {
+          "tokens": 15605133,
+          "costUsd": 9.87
+        }
+      }
+    },
+    {
+      "date": "2026-09-27",
+      "providers": {
+        "anthropic": {
+          "tokens": 44250198,
+          "costUsd": 21.28
+        },
+        "nan": {
+          "tokens": 260977185,
+          "costUsd": 4.33
+        },
+        "xai": {
+          "tokens": 55383634,
+          "costUsd": 33.54
+        }
+      }
+    },
+    {
+      "date": "2026-09-28",
+      "providers": {
+        "anthropic": {
+          "tokens": 82670338,
+          "costUsd": 37.93
+        },
+        "nan": {
+          "tokens": 609718618,
+          "costUsd": 16.23
+        },
+        "xai": {
+          "tokens": 173845613,
+          "costUsd": 98.24
+        }
+      }
+    },
+    {
+      "date": "2026-09-29",
+      "providers": {
+        "anthropic": {
+          "tokens": 138892833,
+          "costUsd": 63.38
+        },
+        "nan": {
+          "tokens": 570053398,
+          "costUsd": 19.25
+        },
+        "xai": {
+          "tokens": 321586799,
+          "costUsd": 182.34
+        }
+      }
+    },
+    {
+      "date": "2026-09-30",
+      "providers": {
+        "anthropic": {
+          "tokens": 87526692,
+          "costUsd": 38.42
+        },
+        "nan": {
+          "tokens": 374623250,
+          "costUsd": 11.95
+        },
+        "xai": {
+          "tokens": 276278592,
+          "costUsd": 159.46
+        }
+      }
+    },
+    {
+      "date": "2026-10-01",
+      "providers": {
+        "anthropic": {
+          "tokens": 80936132,
+          "costUsd": 40.23
+        },
+        "nan": {
+          "tokens": 798012659,
+          "costUsd": 16.39
+        },
+        "xai": {
+          "tokens": 181795845,
+          "costUsd": 106.1
+        }
+      }
+    },
+    {
+      "date": "2026-10-02",
+      "providers": {
+        "anthropic": {
+          "tokens": 103912087,
+          "costUsd": 48.07
+        },
+        "nan": {
+          "tokens": 422213949,
+          "costUsd": 7.83
+        },
+        "xai": {
+          "tokens": 271925013,
+          "costUsd": 157.75
+        }
+      }
+    },
+    {
+      "date": "2026-10-03",
+      "providers": {
+        "anthropic": {
+          "tokens": 20239725,
+          "costUsd": 12.81
+        },
+        "nan": {
+          "tokens": 36089712,
+          "costUsd": 0.43
+        },
+        "xai": {
+          "tokens": 99419604,
+          "costUsd": 59.09
+        }
+      }
+    },
+    {
+      "date": "2026-10-04",
+      "providers": {
+        "anthropic": {
+          "tokens": 81585309,
+          "costUsd": 43.55
+        },
+        "nan": {
+          "tokens": 510092010,
+          "costUsd": 6.03
+        },
+        "xai": {
+          "tokens": 200501612,
+          "costUsd": 123.82
+        }
+      }
+    },
+    {
+      "date": "2026-10-05",
+      "providers": {
+        "anthropic": {
+          "tokens": 136858057,
+          "costUsd": 60.27
+        },
+        "nan": {
+          "tokens": 387702188,
+          "costUsd": 4.31
+        },
+        "opencode-go": {
+          "tokens": 166890971,
+          "costUsd": 11.83
+        },
+        "xai": {
+          "tokens": 140648198,
+          "costUsd": 84.73
+        }
+      }
+    },
+    {
+      "date": "2026-10-06",
+      "providers": {
+        "anthropic": {
+          "tokens": 60931433,
+          "costUsd": 38.08
+        },
+        "nan": {
+          "tokens": 228498883,
+          "costUsd": 1.18
+        },
+        "opencode-go": {
+          "tokens": 126316,
+          "costUsd": 0.14
+        },
+        "xai": {
+          "tokens": 11115310,
+          "costUsd": 8.29
+        }
+      }
+    },
+    {
+      "date": "2026-10-07",
+      "providers": {
+        "anthropic": {
+          "tokens": 72246842,
+          "costUsd": 43.95
+        },
+        "nan": {
+          "tokens": 321693510,
+          "costUsd": 1.61
+        },
+        "xai": {
+          "tokens": 13865518,
+          "costUsd": 8.32
+        }
+      }
+    },
+    {
+      "date": "2026-10-08",
+      "providers": {
+        "anthropic": {
+          "tokens": 49970146,
+          "costUsd": 23.02
+        },
+        "nan": {
+          "tokens": 76378297,
+          "costUsd": 0.18
+        }
+      }
+    },
+    {
+      "date": "2026-10-09",
+      "providers": {
+        "anthropic": {
+          "tokens": 39895220,
+          "costUsd": 16.91
+        },
+        "nan": {
+          "tokens": 271529474,
+          "costUsd": 0.03
+        }
+      }
+    },
+    {
+      "date": "2026-10-12",
+      "providers": {
+        "anthropic": {
+          "tokens": 77768258,
+          "costUsd": 40.43
+        },
+        "nan": {
+          "tokens": 221051112,
+          "costUsd": 0.73
+        },
+        "opencode-go": {
+          "tokens": 20052764,
+          "costUsd": 0.25
+        }
+      }
+    },
+    {
+      "date": "2026-10-13",
+      "providers": {
+        "anthropic": {
+          "tokens": 53986247,
+          "costUsd": 30.63
+        },
+        "nan": {
+          "tokens": 361065829,
+          "costUsd": 1.14
+        }
+      }
+    },
+    {
+      "date": "2026-10-14",
+      "providers": {
+        "anthropic": {
+          "tokens": 119114821,
+          "costUsd": 54.51
+        },
+        "nan": {
+          "tokens": 1054974640,
+          "costUsd": 1.06
+        },
+        "opencode-go": {
+          "tokens": 66744731,
+          "costUsd": 2.25
+        }
+      }
+    },
+    {
+      "date": "2026-10-15",
+      "providers": {
+        "anthropic": {
+          "tokens": 109444978,
+          "costUsd": 65.55
+        },
+        "nan": {
+          "tokens": 1117858842,
+          "costUsd": 0
+        },
+        "opencode-go": {
+          "tokens": 9562341,
+          "costUsd": 0.21
+        },
+        "xai": {
+          "tokens": 43638550,
+          "costUsd": 27.2
+        }
+      }
+    },
+    {
+      "date": "2026-10-16",
+      "providers": {
+        "anthropic": {
+          "tokens": 109587875,
+          "costUsd": 47.59
+        },
+        "nan": {
+          "tokens": 1047682043,
+          "costUsd": 0
+        },
+        "opencode-go": {
+          "tokens": 13373049,
+          "costUsd": 0.67
+        },
+        "xai": {
+          "tokens": 174171146,
+          "costUsd": 94.7
+        }
+      }
+    },
+    {
+      "date": "2026-10-17",
+      "providers": {
+        "anthropic": {
+          "tokens": 33216474,
+          "costUsd": 18.06
+        },
+        "nan": {
+          "tokens": 20237874,
+          "costUsd": 0
+        },
+        "opencode-go": {
+          "tokens": 17022248,
+          "costUsd": 0.47
+        },
+        "xai": {
+          "tokens": 16017669,
+          "costUsd": 9.21
+        }
+      }
+    },
+    {
+      "date": "2026-10-18",
+      "providers": {
+        "anthropic": {
+          "tokens": 28989630,
+          "costUsd": 18.98
+        },
+        "nan": {
+          "tokens": 487727,
+          "costUsd": 0
+        },
+        "xai": {
+          "tokens": 21219488,
+          "costUsd": 13.03
+        }
+      }
+    },
+    {
+      "date": "2026-10-19",
+      "providers": {
+        "anthropic": {
+          "tokens": 113682704,
+          "costUsd": 53.05
+        },
+        "nan": {
+          "tokens": 185202257,
+          "costUsd": 0
+        },
+        "xai": {
+          "tokens": 148114238,
+          "costUsd": 87.68
+        }
+      }
+    },
+    {
+      "date": "2026-10-20",
+      "providers": {
+        "anthropic": {
+          "tokens": 154125540,
+          "costUsd": 70.56
+        },
+        "nan": {
+          "tokens": 527686658,
+          "costUsd": 0
+        },
+        "xai": {
+          "tokens": 60030529,
+          "costUsd": 34.2
+        }
+      }
+    },
+    {
+      "date": "2026-10-21",
+      "providers": {
+        "anthropic": {
+          "tokens": 101746245,
+          "costUsd": 48.75
+        },
+        "nan": {
+          "tokens": 238912103,
+          "costUsd": 0
+        },
+        "xai": {
+          "tokens": 69435988,
+          "costUsd": 42.99
+        }
+      }
+    },
+    {
+      "date": "2026-10-22",
+      "providers": {
+        "anthropic": {
+          "tokens": 144245518,
+          "costUsd": 71.75
+        },
+        "nan": {
+          "tokens": 435918565,
+          "costUsd": 0
+        },
+        "opencode-go": {
+          "tokens": 604479,
+          "costUsd": 0.05
+        },
+        "xai": {
+          "tokens": 58627296,
+          "costUsd": 38.56
+        }
+      }
+    },
+    {
+      "date": "2026-10-23",
+      "providers": {
+        "anthropic": {
+          "tokens": 29426851,
+          "costUsd": 15.22
+        },
+        "nan": {
+          "tokens": 32262413,
+          "costUsd": 0
+        },
+        "xai": {
+          "tokens": 26188845,
+          "costUsd": 16.91
+        }
+      }
+    },
+    {
+      "date": "2026-10-24",
+      "providers": {
+        "anthropic": {
+          "tokens": 29009658,
+          "costUsd": 12.13
+        },
+        "xai": {
+          "tokens": 6048713,
+          "costUsd": 3.38
+        }
+      }
+    },
+    {
+      "date": "2026-10-26",
+      "providers": {
+        "anthropic": {
+          "tokens": 75016656,
+          "costUsd": 34.04
+        },
+        "nan": {
+          "tokens": 191815141,
+          "costUsd": 0
+        },
+        "xai": {
+          "tokens": 30163392,
+          "costUsd": 17.52
+        }
+      }
+    },
+    {
+      "date": "2026-10-27",
+      "providers": {
+        "anthropic": {
+          "tokens": 196594525,
+          "costUsd": 89.89
+        },
+        "nan": {
+          "tokens": 152169820,
+          "costUsd": 0
+        },
+        "xai": {
+          "tokens": 102466933,
+          "costUsd": 57.02
+        }
+      }
+    },
+    {
+      "date": "2026-10-28",
+      "providers": {
+        "anthropic": {
+          "tokens": 132169932,
+          "costUsd": 62.04
+        },
+        "nan": {
+          "tokens": 416168514,
+          "costUsd": 0
+        },
+        "opencode-go": {
+          "tokens": 2055931,
+          "costUsd": 0.06
+        },
+        "xai": {
+          "tokens": 143089683,
+          "costUsd": 80.48
+        }
+      }
+    },
+    {
+      "date": "2026-10-29",
+      "providers": {
+        "anthropic": {
+          "tokens": 56085431,
+          "costUsd": 34.82
+        },
+        "nan": {
+          "tokens": 78799823,
+          "costUsd": 0
+        },
+        "xai": {
+          "tokens": 4834794,
+          "costUsd": 3.27
+        }
+      }
+    },
+    {
+      "date": "2026-10-30",
+      "providers": {
+        "anthropic": {
+          "tokens": 32150416,
+          "costUsd": 22.75
+        },
+        "nan": {
+          "tokens": 15661515,
+          "costUsd": 0
+        }
+      }
+    },
+    {
+      "date": "2026-10-31",
+      "providers": {
+        "anthropic": {
+          "tokens": 152325935,
+          "costUsd": 113.28
+        },
+        "nan": {
+          "tokens": 419815325,
+          "costUsd": 0.73
+        },
+        "xai": {
+          "tokens": 33650484,
+          "costUsd": 20.41
+        }
+      }
+    },
+    {
+      "date": "2026-11-01",
+      "providers": {
+        "anthropic": {
+          "tokens": 102791630,
+          "costUsd": 89.58
+        },
+        "nan": {
+          "tokens": 470830926,
+          "costUsd": 3.81
+        }
+      }
+    },
+    {
+      "date": "2026-11-02",
+      "providers": {
+        "anthropic": {
+          "tokens": 188433015,
+          "costUsd": 177.53
+        },
+        "nan": {
+          "tokens": 518332660,
+          "costUsd": 6.57
+        }
+      }
+    },
+    {
+      "date": "2026-11-03",
+      "providers": {
+        "anthropic": {
+          "tokens": 449315686,
+          "costUsd": 225.9
+        },
+        "nan": {
+          "tokens": 742762220,
+          "costUsd": 9.82
+        },
+        "xai": {
+          "tokens": 142097716,
+          "costUsd": 79.11
+        }
+      }
+    },
+    {
+      "date": "2026-11-04",
+      "providers": {
+        "anthropic": {
+          "tokens": 294586616,
+          "costUsd": 148.95
+        },
+        "nan": {
+          "tokens": 697078525,
+          "costUsd": 10
+        },
+        "xai": {
+          "tokens": 125067892,
+          "costUsd": 68.64
+        }
+      }
+    },
+    {
+      "date": "2026-11-05",
+      "providers": {
+        "anthropic": {
+          "tokens": 181588426,
+          "costUsd": 96.92
+        },
+        "nan": {
+          "tokens": 448746033,
+          "costUsd": 6.47
+        },
+        "xai": {
+          "tokens": 155470857,
+          "costUsd": 87.42
+        }
+      }
+    },
+    {
+      "date": "2026-11-06",
+      "providers": {
+        "anthropic": {
+          "tokens": 152895349,
+          "costUsd": 74.16
+        },
+        "nan": {
+          "tokens": 76246101,
+          "costUsd": 1.43
+        },
+        "xai": {
+          "tokens": 32988888,
+          "costUsd": 17.88
+        }
+      }
+    },
+    {
+      "date": "2026-11-07",
+      "providers": {
+        "anthropic": {
+          "tokens": 158149743,
+          "costUsd": 67.3
+        },
+        "nan": {
+          "tokens": 21802813,
+          "costUsd": 0.51
+        }
+      }
+    },
+    {
+      "date": "2026-11-08",
+      "providers": {
+        "anthropic": {
+          "tokens": 266842650,
+          "costUsd": 112.95
+        },
+        "nan": {
+          "tokens": 119598402,
+          "costUsd": 1.77
+        }
+      }
+    },
+    {
+      "date": "2026-11-09",
+      "providers": {
+        "anthropic": {
+          "tokens": 187125235,
+          "costUsd": 94.92
+        },
+        "lyber": {
+          "tokens": 150277411,
+          "costUsd": 0
+        },
+        "nan": {
+          "tokens": 319008030,
+          "costUsd": 3.66
+        },
+        "opencode-go": {
+          "tokens": 3323294,
+          "costUsd": 0.08
+        }
+      }
+    },
+    {
+      "date": "2026-11-10",
+      "providers": {
+        "anthropic": {
+          "tokens": 198564266,
+          "costUsd": 153.04
+        },
+        "lyber": {
+          "tokens": 158685804,
+          "costUsd": 0
+        },
+        "nan": {
+          "tokens": 513846523,
+          "costUsd": 5.32
+        },
+        "opencode-go": {
+          "tokens": 1499508634,
+          "costUsd": 15.7
+        }
+      }
+    },
+    {
+      "date": "2026-11-11",
+      "providers": {
+        "anthropic": {
+          "tokens": 276267581,
+          "costUsd": 137.29
+        },
+        "lyber": {
+          "tokens": 24927921,
+          "costUsd": 0
+        },
+        "nan": {
+          "tokens": 1517913241,
+          "costUsd": 26.28
+        },
+        "opencode-go": {
+          "tokens": 829743854,
+          "costUsd": 10.59
+        }
+      }
+    },
+    {
+      "date": "2026-11-12",
+      "providers": {
+        "anthropic": {
+          "tokens": 256243269,
+          "costUsd": 126.76
+        },
+        "lyber": {
+          "tokens": 7883964,
+          "costUsd": 0
+        },
+        "nan": {
+          "tokens": 1419133956,
+          "costUsd": 26.48
+        },
+        "opencode-go": {
+          "tokens": 1150103481,
+          "costUsd": 13.99
+        }
+      }
+    },
+    {
+      "date": "2026-11-13",
+      "providers": {
+        "anthropic": {
+          "tokens": 438847892,
+          "costUsd": 176.95
+        },
+        "nan": {
+          "tokens": 1390677663,
+          "costUsd": 29.34
+        },
+        "opencode-go": {
+          "tokens": 825628694,
+          "costUsd": 9.83
+        }
+      }
+    },
+    {
+      "date": "2026-11-14",
+      "providers": {
+        "anthropic": {
+          "tokens": 32350280,
+          "costUsd": 18.25
+        },
+        "nan": {
+          "tokens": 249343584,
+          "costUsd": 4.9
+        },
+        "xai": {
+          "tokens": 25489258,
+          "costUsd": 15.09
+        }
+      }
+    },
+    {
+      "date": "2026-11-15",
+      "providers": {
+        "anthropic": {
+          "tokens": 143873827,
+          "costUsd": 71.63
+        },
+        "nan": {
+          "tokens": 1169438221,
+          "costUsd": 19.77
+        },
+        "opencode-go": {
+          "tokens": 39781820,
+          "costUsd": 0.46
+        },
+        "xai": {
+          "tokens": 165635122,
+          "costUsd": 91.98
+        }
+      }
+    },
+    {
+      "date": "2026-11-16",
+      "providers": {
+        "anthropic": {
+          "tokens": 220177434,
+          "costUsd": 116.29
+        },
+        "lyber": {
+          "tokens": 7664879,
+          "costUsd": 0
+        },
+        "nan": {
+          "tokens": 1488965372,
+          "costUsd": 27.2
+        },
+        "opencode-go": {
+          "tokens": 399456051,
+          "costUsd": 3.8
+        }
+      }
+    },
+    {
+      "date": "2026-11-17",
+      "providers": {
+        "anthropic": {
+          "tokens": 274858416,
+          "costUsd": 136.17
+        },
+        "nan": {
+          "tokens": 1261175834,
+          "costUsd": 19.16
+        },
+        "opencode-go": {
+          "tokens": 642589746,
+          "costUsd": 47.19
+        },
+        "xai": {
+          "tokens": 28446789,
+          "costUsd": 16.47
+        }
+      }
+    },
+    {
+      "date": "2026-11-18",
+      "providers": {
+        "anthropic": {
+          "tokens": 519821707,
+          "costUsd": 226.21
+        },
+        "lyber": {
+          "tokens": 788248,
+          "costUsd": 0
+        },
+        "nan": {
+          "tokens": 428054718,
+          "costUsd": 11.88
+        },
+        "openai": {
+          "tokens": 2917304,
+          "costUsd": 0.38
+        },
+        "opencode-go": {
+          "tokens": 671540943,
+          "costUsd": 63.3
+        },
+        "xai": {
+          "tokens": 247775103,
+          "costUsd": 133.48
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "provider": "nan",
+      "model": "deepseek-v4-flash",
+      "tokens": 15001248750,
+      "costUsd": 212.95,
+      "lastUsed": "2026-11-18"
+    },
+    {
+      "provider": "nan",
+      "model": "qwen3.6",
+      "tokens": 7184023391,
+      "costUsd": 0,
+      "lastUsed": "2026-11-18"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-opus-5-5",
+      "tokens": 6403934503,
+      "costUsd": 3433.44,
+      "lastUsed": "2026-11-18"
+    },
+    {
+      "provider": "opencode-go",
+      "model": "deepseek-v4.1-flash",
+      "tokens": 5851440314,
+      "costUsd": 71.52,
+      "lastUsed": "2026-11-18"
+    },
+    {
+      "provider": "xai",
+      "model": "grok-4.6",
+      "tokens": 2745542388,
+      "costUsd": 1603.17,
+      "lastUsed": "2026-10-20"
+    },
+    {
+      "provider": "xai",
+      "model": "grok-4.7",
+      "tokens": 2596188163,
+      "costUsd": 1503.59,
+      "lastUsed": "2026-11-18"
+    },
+    {
+      "provider": "nan",
+      "model": "glm5.3-flash",
+      "tokens": 1525918318,
+      "costUsd": 51.62,
+      "lastUsed": "2026-10-02"
+    },
+    {
+      "provider": "nan",
+      "model": "mimo-v2.6-flash",
+      "tokens": 1111766410,
+      "costUsd": 0,
+      "lastUsed": "2026-11-12"
+    },
+    {
+      "provider": "opencode-go",
+      "model": "deepseek-v4-flash-vision-exp",
+      "tokens": 1020450214,
+      "costUsd": 10.71,
+      "lastUsed": "2026-09-10"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-sonnet-5-5",
+      "tokens": 953757676,
+      "costUsd": 289.22,
+      "lastUsed": "2026-11-18"
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash",
+      "tokens": 808932576,
+      "costUsd": 7.64,
+      "lastUsed": "2026-09-08"
+    },
+    {
+      "provider": "nan",
+      "model": "qwen3.8-flash",
+      "tokens": 553825623,
+      "costUsd": 0,
+      "lastUsed": "2026-10-07"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.6-sol",
+      "tokens": 508923008,
+      "costUsd": 314.41,
+      "lastUsed": "2026-08-14"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.5",
+      "tokens": 351514572,
+      "costUsd": 285.53,
+      "lastUsed": "2026-08-21"
+    },
+    {
+      "provider": "lyber",
+      "model": "deepseek-v4.1-flash-1017-abliterated",
+      "tokens": 337627925,
+      "costUsd": 0,
+      "lastUsed": "2026-11-12"
+    },
+    {
+      "provider": "opencode-go",
+      "model": "glm-5.3",
+      "tokens": 324438450,
+      "costUsd": 97.05,
+      "lastUsed": "2026-11-18"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4",
+      "tokens": 299832202,
+      "costUsd": 133.67,
+      "lastUsed": "2026-07-09"
+    },
+    {
+      "provider": "nan",
+      "model": "mimo-v2.5",
+      "tokens": 239366420,
+      "costUsd": 0,
+      "lastUsed": "2026-09-26"
+    },
+    {
+      "provider": "opencode-go",
+      "model": "deepseek-v4-flash",
+      "tokens": 229972134,
+      "costUsd": 3.09,
+      "lastUsed": "2026-09-09"
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-v4-flash-vision-exp",
+      "tokens": 198034439,
+      "costUsd": 2.1,
+      "lastUsed": "2026-09-08"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.6-terra",
+      "tokens": 193874510,
+      "costUsd": 63.43,
+      "lastUsed": "2026-08-05"
+    },
+    {
+      "provider": "opencode-go",
+      "model": "deepseek-v4-pro",
+      "tokens": 165228479,
+      "costUsd": 11.99,
+      "lastUsed": "2026-10-12"
+    },
+    {
+      "provider": "nan",
+      "model": "glm5.3",
+      "tokens": 154476432,
+      "costUsd": 56.48,
+      "lastUsed": "2026-11-18"
+    },
+    {
+      "provider": "opencode-zen",
+      "model": "muse-spark-1.3-contributor-free",
+      "tokens": 119790506,
+      "costUsd": 0,
+      "lastUsed": "2026-09-21"
+    },
+    {
+      "provider": "opencode-zen",
+      "model": "mimo-v2.6-flash-free",
+      "tokens": 88313173,
+      "costUsd": 0,
+      "lastUsed": "2026-09-24"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.3-codex",
+      "tokens": 54603449,
+      "costUsd": 16.92,
+      "lastUsed": "2026-06-01"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-fable-5-2",
+      "tokens": 50940167,
+      "costUsd": 80.53,
+      "lastUsed": "2026-11-10"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-sonnet-5",
+      "tokens": 44632135,
+      "costUsd": 20.07,
+      "lastUsed": "2026-10-18"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-haiku-5-5",
+      "tokens": 37442466,
+      "costUsd": 1.2,
+      "lastUsed": "2026-11-18"
+    },
+    {
+      "provider": "opencode-go",
+      "model": "glm-5.3-flash",
+      "tokens": 26890683,
+      "costUsd": 1.21,
+      "lastUsed": "2026-08-27"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "tokens": 24154029,
+      "costUsd": 0.91,
+      "lastUsed": "2026-09-17"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-opus-5",
+      "tokens": 20429795,
+      "costUsd": 54.39,
+      "lastUsed": "2026-08-27"
+    },
+    {
+      "provider": "opencode-go",
+      "model": "qwen3.6-plus",
+      "tokens": 16769490,
+      "costUsd": 0,
+      "lastUsed": "2026-10-12"
+    },
+    {
+      "provider": "lyber",
+      "model": "kimi-k31-pro-abliterated",
+      "tokens": 12600302,
+      "costUsd": 0,
+      "lastUsed": "2026-11-18"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-6-luna",
+      "tokens": 10267964,
+      "costUsd": 0.18,
+      "lastUsed": "2026-09-22"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-opus-4-7",
+      "tokens": 8383371,
+      "costUsd": 16.99,
+      "lastUsed": "2026-11-08"
+    },
+    {
+      "provider": "openai",
+      "model": "unknown",
+      "tokens": 8233074,
+      "costUsd": 0,
+      "lastUsed": "2026-08-05"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-6-astra",
+      "tokens": 4079782,
+      "costUsd": 6.5,
+      "lastUsed": "2026-09-22"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-opus-4-8",
+      "tokens": 3334590,
+      "costUsd": 4.17,
+      "lastUsed": "2026-10-31"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-6.1-terra",
+      "tokens": 2917304,
+      "costUsd": 0.38,
+      "lastUsed": "2026-11-18"
+    },
+    {
+      "provider": "opencode-zen",
+      "model": "union-alpha",
+      "tokens": 1898792,
+      "costUsd": 0,
+      "lastUsed": "2026-09-16"
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-5.4-mini",
+      "tokens": 892433,
+      "costUsd": 0.23,
+      "lastUsed": "2026-06-15"
+    },
+    {
+      "provider": "xai",
+      "model": "grok-4.5",
+      "tokens": 320821,
+      "costUsd": 0.29,
+      "lastUsed": "2026-08-20"
+    },
+    {
+      "provider": "google",
+      "model": "gemini-flash-latest",
+      "tokens": 277252,
+      "costUsd": 0.09,
+      "lastUsed": "2026-09-02"
+    },
+    {
+      "provider": "opencode-go",
+      "model": "grok-4.7",
+      "tokens": 232614,
+      "costUsd": 0.3,
+      "lastUsed": "2026-11-18"
+    },
+    {
+      "provider": "b-ai",
+      "model": "deepseek-v4-flash",
+      "tokens": 31479,
+      "costUsd": 0.01,
+      "lastUsed": "2026-08-27"
+    },
+    {
+      "provider": "b-ai",
+      "model": "glm-5.3-flash",
+      "tokens": 28394,
+      "costUsd": 0,
+      "lastUsed": "2026-08-27"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-opus-4-5-20251101/claude-opus-5",
+      "tokens": 74,
+      "costUsd": 0,
+      "lastUsed": "2026-08-26"
+    }
+  ],
+  "quotas": [],
+  "unpricedModels": [
+    "claude-opus-4-5-20251101/claude-opus-5",
+    "deepseek-v4.1-flash-1017-abliterated",
+    "glm-5.3-flash",
+    "kimi-k31-pro-abliterated",
+    "mimo-v2.5",
+    "mimo-v2.6-flash",
+    "mimo-v2.6-flash-free",
+    "muse-spark-1.3-contributor-free",
+    "qwen3.6",
+    "qwen3.6-plus",
+    "qwen3.8-flash",
+    "union-alpha",
+    "unknown"
+  ]
+}

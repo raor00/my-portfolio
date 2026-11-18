@@ -29,6 +29,7 @@ export function mapOpencodeRow(id: string, data: string): RawUsage | null {
   if (!model) return null;
 
   const cost = num(obj.cost);
+  const sessionId = str(obj.sessionID) || id;
 
   return {
     agent: "opencode",
@@ -42,6 +43,7 @@ export function mapOpencodeRow(id: string, data: string): RawUsage | null {
     reasoningTokens: num(tokens.reasoning),
     reportedCostUsd: cost > 0 ? cost : 0,
     occurredAt: new Date(timeMs).toISOString(),
+    sessionId,
   };
 }
 

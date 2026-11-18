@@ -54,6 +54,8 @@ export function mapPiLine(line: string, fallbackKey: string): RawUsage | null {
 export async function readPiFile(path: string, fallbackKey: string, onRow: (row: RawUsage) => void): Promise<void> {
   await streamJsonLines(path, (line) => {
     const row = mapPiLine(line, fallbackKey);
-    if (row) onRow(row);
+    if (!row) return;
+    row.sessionId = fallbackKey;
+    onRow(row);
   });
 }

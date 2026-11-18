@@ -19,6 +19,7 @@ CREATE TABLE IF NOT EXISTS usage (
   reported_cost_usd REAL NOT NULL DEFAULT 0,
   occurred_at TEXT NOT NULL,
   usage_date TEXT NOT NULL,
+  session_id TEXT NOT NULL DEFAULT '',
   UNIQUE(agent, external_id)
 );
 CREATE TABLE IF NOT EXISTS source_file (
@@ -40,7 +41,17 @@ export function openLedger(path: string = LEDGER_PATH): Database {
   db.exec("PRAGMA journal_mode = WAL;");
   db.exec("PRAGMA busy_timeout = 5000;");
   db.exec(SCHEMA);
+  migrate(db);
   return db;
+}
+
+/** Adds columns introduced after the first ledger version. */
+function migrate(db: Database): void {
+  const columns = db.prepare("PRAGMA table_info(usage)").all() as { name: string }[];
+  const names = new Set(columns.map((column) => column.name));
+  if (!names.has("session_id")) {
+    db.exec("ALTER TABLE usage ADD COLUMN session_id TEXT NOT NULL DEFAULT ''");
+  }
 }
 
 export function isAllZeroTokens(row: RawUsage): boolean {
@@ -65,8 +76,8 @@ const UPSERT_REPLACE = `
 INSERT INTO usage (
   agent, provider, model, external_id, input_tokens, cache_read_tokens,
   cache_write_tokens, output_tokens, reasoning_tokens, reported_cost_usd,
-  occurred_at, usage_date
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  occurred_at, usage_date, session_id
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ON CONFLICT(agent, external_id) DO UPDATE SET
   provider = excluded.provider,
   model = excluded.model,
@@ -77,7 +88,8 @@ ON CONFLICT(agent, external_id) DO UPDATE SET
   reasoning_tokens = excluded.reasoning_tokens,
   reported_cost_usd = excluded.reported_cost_usd,
   occurred_at = excluded.occurred_at,
-  usage_date = excluded.usage_date
+  usage_date = excluded.usage_date,
+  session_id = excluded.session_id
 `;
 
 /**
@@ -112,6 +124,7 @@ export function upsertUsage(db: Database, raw: RawUsage, mode: LedgerRow["upsert
       row.reportedCostUsd,
       row.occurredAt,
       row.usageDate,
+      row.sessionId ?? "",
     );
   return result.changes > 0;
 }
