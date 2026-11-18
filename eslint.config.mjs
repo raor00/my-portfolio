@@ -11,4 +11,9 @@ const compat = new FlatCompat({
 
 const eslintConfig = [...compat.extends("next/core-web-vitals", "next/typescript")];
 
-export default eslintConfig;
+
+
+// The local collector runs under Bun and is excluded from the Next build.
+const eslintConfigWithIgnores = [...eslintConfig, { ignores: ["scripts/**"] }];
+
+export default eslintConfigWithIgnores;
