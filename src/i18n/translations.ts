@@ -79,6 +79,25 @@ export const translations = {
       cta: "VER PERFIL",
       note: "Sin contribuciones, sin repos privados y sin nombres de clientes.",
     },
+    homeTokens: {
+      label: "// CONSUMO_IA",
+      title: "TOKENS_EN_USO_REAL",
+      subtitle:
+        "Todo lo que construyo pasa por agentes de IA. Este es el consumo real hasta hoy, sin estimaciones de marketing.",
+      paragraph:
+        "Trabajo a diario con varios agentes en paralelo sobre código en producción: arquitectura, migraciones, pruebas y deploy. Ese volumen es la evidencia de una entrega asistida por IA, no una demo: ciclos más cortos, menos trabajo repetitivo y más tiempo en decisiones de producto.",
+      tileTokens: "Tokens procesados",
+      tileTokensHelp: "Entrada y salida acumuladas desde el primer registro.",
+      tileSessions: "Sesiones",
+      tileSessionsHelp: "Conversaciones con al menos un mensaje contabilizado.",
+      tileModels: "Modelos usados",
+      tileModelsHelp: "Modelos distintos en el trabajo diario.",
+      tileDays: "Días activos",
+      tileDaysHelp: "Desde el",
+      cta: "Ver el detalle",
+      updated: "Actualizado el",
+      note: "Datos generados localmente desde mis transcripts. Sin credenciales, cuentas ni prompts.",
+    },
     achievements: {
       label: "// LOGROS",
       title: "RECONOCIMIENTOS_",
@@ -420,6 +439,25 @@ export const translations = {
       languages: "Main languages",
       cta: "VIEW PROFILE",
       note: "No contribution graph, no private repos and no client names.",
+    },
+    homeTokens: {
+      label: "// AI_USAGE",
+      title: "TOKENS_IN_REAL_WORK",
+      subtitle:
+        "Everything I build goes through AI agents. This is the real consumption so far, not a marketing estimate.",
+      paragraph:
+        "I work every day with several agents in parallel on production code: architecture, migrations, tests and deploy. That volume is evidence of AI-assisted delivery, not a demo: shorter cycles, less repetitive work and more time on product decisions.",
+      tileTokens: "Processed tokens",
+      tileTokensHelp: "Input and output accumulated since the first record.",
+      tileSessions: "Sessions",
+      tileSessionsHelp: "Conversations with at least one counted message.",
+      tileModels: "Models used",
+      tileModelsHelp: "Distinct models in daily work.",
+      tileDays: "Active days",
+      tileDaysHelp: "Since",
+      cta: "See the breakdown",
+      updated: "Updated on",
+      note: "Generated locally from my own transcripts. No credentials, accounts or prompts.",
     },
     achievements: {
       label: "// ACHIEVEMENTS",
