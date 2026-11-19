@@ -4,7 +4,7 @@ import { SITE, SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Proyectos — web, SaaS y sistemas a medida",
   description:
-    "Casos reales de Rafael Oviedo: ERPs, plataformas SaaS, wallets blockchain, e-commerce y agentes de IA. Sistemas en producción, no solo demos.",
+    "Casos de Rafael Oviedo con contexto, stack y resultado: ERPs en operación diaria, comercio a alto volumen, wallets en Solana, SaaS y agentes IA. Sistemas en producción, no demos.",
   alternates: { canonical: `${SITE_URL}/proyectos` },
   openGraph: {
     title: "Proyectos — Rafael Oviedo",

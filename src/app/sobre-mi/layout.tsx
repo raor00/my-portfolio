@@ -4,11 +4,11 @@ import { SITE, SITE_URL } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Sobre mí — Full Stack Developer en Venezuela",
   description:
-    "Rafael Oviedo, ingeniero en informática. Full stack, agentes IA, Solana y Meta Ads. Ganador Dev3pack 2026 (#1 Venezuela · #28 global). Trabajo remoto en español e inglés.",
+    "Rafael Oviedo es un ingeniero en informática venezolano: full stack developer y AI agent engineer. Trayectoria, stack (Next.js, TypeScript, Supabase, PostgreSQL), logros verificables y disponibilidad para proyectos remotos en español e inglés.",
   alternates: { canonical: `${SITE_URL}/sobre-mi` },
   openGraph: {
     title: "Sobre Rafael Oviedo",
-    description: "Ingeniero en informática. Full stack, IA, blockchain y performance marketing.",
+    description: "Trayectoria, stack, logros y disponibilidad de Rafael Oviedo.",
     url: `${SITE_URL}/sobre-mi`,
     siteName: SITE.brand,
   },
