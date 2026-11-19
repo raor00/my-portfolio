@@ -5,6 +5,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GlassFilters from "@/components/GlassFilters";
 import Providers from "@/components/Providers";
+import JsonLd from "@/components/JsonLd";
+import ScrollProgress from "@/components/ScrollProgress";
+import { SITE, SITE_URL, CONTACT_EMAIL } from "@/lib/site";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 const mono = IBM_Plex_Mono({
@@ -14,12 +17,56 @@ const mono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Rafael Oviedo — Full Stack Developer · AI Agent · Blockchain",
-  description:
-    "Portfolio de Rafael Oviedo — Full Stack Developer, AI Agent Engineer y Meta Ads Specialist. 🏆 Dev3pack 2026 #28 Global.",
+  metadataBase: new URL(SITE_URL),
+  title: {
+    default: SITE.title,
+    template: "%s · roviedo.dev",
+  },
+  description: SITE.description,
+  keywords: [
+    "Rafael Oviedo",
+    "desarrollador full stack",
+    "páginas web a medida",
+    "SaaS",
+    "ERP",
+    "código personalizado",
+    "agentes IA",
+    "Next.js",
+    "desarrollador Venezuela",
+    "Meta Ads",
+  ],
+  authors: [{ name: SITE.name, url: SITE_URL }],
+  creator: SITE.name,
+  publisher: SITE.brand,
+  alternates: { canonical: SITE_URL },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
+  },
+  openGraph: {
+    type: "website",
+    locale: SITE.locale,
+    alternateLocale: "en_US",
+    url: SITE_URL,
+    siteName: SITE.brand,
+    title: SITE.title,
+    description: SITE.description,
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: SITE.twitter,
+    creator: SITE.twitter,
+    title: SITE.title,
+    description: SITE.description,
+  },
   icons: {
     icon: "/icon.png",
     apple: "/logo.png",
+  },
+  category: "technology",
+  other: {
+    "contact:email": CONTACT_EMAIL,
   },
 };
 
@@ -31,7 +78,9 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${inter.variable} ${mono.variable} font-sans antialiased`}>
+        <JsonLd />
         <Providers>
+          <ScrollProgress />
           <GlassFilters />
           <Navbar />
           <main className="pt-16 md:pt-20">{children}</main>

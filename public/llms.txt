@@ -1,0 +1,37 @@
+# Rafael Oviedo — roviedo.dev
+
+> Full Stack Developer and AI Agent Engineer based in Venezuela. Builds production websites, custom SaaS, ERPs, and AI agents. Dev3pack Global Hackathon 2026 winner (#1 Venezuela, #28 worldwide of 386). Contact: devraor00@gmail.com
+
+## Who
+
+Rafael Oviedo (roviedo.dev) is a software engineer who designs and ships custom software: commercial websites, landing pages, SaaS platforms, internal ERPs, AI agents, and Meta Ads campaigns. He works remotely in Spanish and English.
+
+## Hire him for
+
+- Custom websites and conversion-focused landing pages (Next.js, SEO, Vercel)
+- SaaS and web apps (auth, dashboards, databases, production deploy)
+- Custom ERPs and internal systems (inventory, invoicing, tickets, RBAC)
+- AI agents and automation (Claude API, Codex, operational bots)
+- Meta Ads / performance marketing (budgets up to $3,000/month)
+
+## Proof
+
+- Tropico Wallet — Solana USDC ↔ Venezuelan Pago Móvil rail with AI agent. #1 Venezuela, Top 9 LATAM, #28 global at Dev3pack 2026.
+- Llave — rental marketplace with Claude-powered AI agent. Platanus · Anthropic Hackathon 2026.
+- COPS Platform — enterprise ticketing ERP, university thesis now used in production.
+- iParts Platform — operations ERP for an iPhone repair shop: lot → workshop → QA → sale → warranty. Live at https://app.ipartsve.com. Next.js + NestJS + Prisma + PostgreSQL.
+- Churupitos — live personal-finance PWA for Venezuela (USD / Bs / USDT) at app.churupitos.com.
+- Invictus ERP and iPhone-store ERPs — inventory, sales, invoicing in production.
+- Meta Ads operator for tech, repair, and retail clients.
+
+## How to start a project
+
+Email devraor00@gmail.com or use https://roviedo.dev/contacto. Describe the idea (website, SaaS, ERP, AI, or ads). Response time is under 24 hours.
+
+## Site map
+
+- [Home](https://roviedo.dev/): positioning, metrics, featured work, services, FAQ
+- [Projects](https://roviedo.dev/proyectos): curated case studies
+- [About](https://roviedo.dev/sobre-mi): bio, experience, stack
+- [Contact](https://roviedo.dev/contacto): form + email
+- [llms-full.txt](https://roviedo.dev/llms-full.txt): longer source for assistants
