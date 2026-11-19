@@ -3,7 +3,15 @@
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
-import { skills, featuredProjects, secondaryProjects, services } from "@/config/data";
+import {
+  skills,
+  featuredProjects,
+  secondaryProjects,
+  services,
+  achievements,
+  enterprisePlatforms,
+  githubPresence,
+} from "@/config/data";
 import ProjectCard from "@/components/ProjectCard";
 import { useLanguage } from "@/i18n/LanguageContext";
 import { trackEvent } from "@/lib/analytics";
@@ -175,12 +183,12 @@ export default function Home() {
             </motion.div>
 
             <motion.p variants={fadeUp} custom={2} className="text-sm mb-3"
-              style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.35)", letterSpacing: "0.04em" }}>
+              style={{ fontFamily: "var(--font-mono-display), monospace", color: "var(--ink-muted)", letterSpacing: "0.04em" }}>
               {t.hero.comment}
             </motion.p>
 
             <motion.p variants={fadeUp} custom={3} className="text-base md:text-lg max-w-xl mb-12 leading-relaxed"
-              style={{ color: "rgba(0,0,0,0.55)" }}>
+              style={{ color: "var(--ink-soft)" }}>
               {t.hero.description}
             </motion.p>
 
@@ -208,7 +216,7 @@ export default function Home() {
                       fontFamily: "var(--font-mono-display), monospace",
                       background: "rgba(255,255,255,0.72)",
                       border: "1px solid rgba(0,0,0,0.08)",
-                      color: "rgba(0,0,0,0.62)",
+                      color: "var(--ink-soft)",
                       backdropFilter: "blur(8px)",
                     }}
                   >
@@ -254,10 +262,152 @@ export default function Home() {
                   {item.value === "∞" ? "∞" : <Counter value={item.value} suffix={item.suffix} />}
                 </div>
                 <div className="tech-label">{item.label}</div>
-                <div className="text-xs mt-1" style={{ color: "rgba(0,0,0,0.35)" }}>{item.desc}</div>
+                <div className="text-xs mt-1" style={{ color: "var(--ink-muted)" }}>{item.desc}</div>
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      {/* ═══ ACHIEVEMENTS ═══ */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 border-t" style={{ borderColor: "var(--hairline)" }}>
+        <div className="max-w-6xl mx-auto">
+          <SectionHeading label={t.achievements.label} title={t.achievements.title} />
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
+          >
+            {achievements.map((achievement) => {
+              const card = (
+                <motion.div
+                  variants={fadeScale}
+                  whileHover={{ y: -2 }}
+                  className="h-full p-5 rounded-2xl flex flex-col"
+                  style={{
+                    background: "var(--surface-soft)",
+                    border: "1px solid var(--hairline)",
+                    boxShadow: "0 2px 16px rgba(10,10,15,0.04)",
+                  }}
+                >
+                  <span className="text-xl leading-none" aria-hidden="true">{achievement.icon}</span>
+                  <h3 className="mt-2 text-sm font-bold leading-snug" style={{ color: "var(--ink)" }}>
+                    {lang === "en" ? achievement.titleEn : achievement.title}
+                  </h3>
+                  <p className="mt-1.5 text-sm leading-relaxed flex-1" style={{ color: "var(--ink-muted)" }}>
+                    {lang === "en" ? achievement.detailEn : achievement.detail}
+                  </p>
+                  {achievement.project && (
+                    <span className="mt-3 text-[11px] tracking-[0.12em]" style={{ color: "#b45309", fontFamily: "var(--font-mono-display), monospace" }}>
+                      {t.achievements.viewProject} →
+                    </span>
+                  )}
+                </motion.div>
+              );
+              return achievement.project ? (
+                <Link key={achievement.title} href={`/proyectos/${achievement.project}`} className="block h-full">
+                  {card}
+                </Link>
+              ) : (
+                <div key={achievement.title} className="h-full">{card}</div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══ ENTERPRISE PLATFORMS ═══ */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 border-t" style={{ borderColor: "var(--hairline)" }}>
+        <div className="max-w-6xl mx-auto">
+          <SectionHeading label={t.platforms.label} title={t.platforms.title} />
+          <motion.p
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="max-w-2xl -mt-6 mb-8 text-sm leading-relaxed"
+            style={{ color: "var(--ink-muted)" }}
+          >
+            {t.platforms.subtitle}
+          </motion.p>
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid grid-cols-1 lg:grid-cols-3 gap-4"
+          >
+            {enterprisePlatforms.map((platform) => (
+              <motion.div
+                key={platform.id}
+                variants={fadeScale}
+                whileHover={{ y: -2 }}
+                className="p-5 rounded-2xl flex flex-col"
+                style={{
+                  background: "var(--surface-soft)",
+                  border: "1px solid var(--hairline)",
+                  boxShadow: "0 2px 16px rgba(10,10,15,0.04)",
+                }}
+              >
+                <div className="flex items-center justify-between gap-2">
+                  <h3 className="text-sm font-bold leading-snug" style={{ color: "var(--ink)" }}>
+                    {lang === "en" ? platform.nameEn : platform.name}
+                  </h3>
+                  <span
+                    className="text-[10px] px-2 py-0.5 rounded-md shrink-0"
+                    style={{
+                      fontFamily: "var(--font-mono-display), monospace",
+                      background: platform.anonymous ? "rgba(10,10,15,0.04)" : "rgba(217,119,6,0.1)",
+                      border: `1px solid ${platform.anonymous ? "var(--hairline)" : "rgba(217,119,6,0.24)"}`,
+                      color: platform.anonymous ? "var(--ink-muted)" : "#b45309",
+                    }}
+                  >
+                    {platform.nda ? t.platforms.ndaBadge : platform.anonymous ? t.platforms.anonymousBadge : t.platforms.namedBadge}
+                  </span>
+                </div>
+                <p className="mt-2 text-sm leading-relaxed flex-1" style={{ color: "var(--ink-muted)" }}>
+                  {lang === "en" ? platform.summaryEn : platform.summary}
+                </p>
+                <dl className="mt-3 flex flex-wrap gap-x-5 gap-y-1.5">
+                  {platform.metrics.map((metric) => (
+                    <div key={metric.labelEn}>
+                      <dt className="text-[10px] tracking-[0.12em]" style={{ color: "var(--ink-muted)", fontFamily: "var(--font-mono-display), monospace" }}>
+                        {lang === "en" ? metric.labelEn : metric.label}
+                      </dt>
+                      <dd className="text-sm font-semibold" style={{ color: "var(--ink)" }}>
+                        {metric.value}
+                      </dd>
+                    </div>
+                  ))}
+                </dl>
+                <div className="mt-3 flex flex-wrap gap-1.5">
+                  {platform.scope.map((item) => (
+                    <span
+                      key={item}
+                      className="text-[11px] px-2 py-0.5 rounded-md"
+                      style={{ background: "rgba(10,10,15,0.04)", color: "var(--ink-muted)" }}
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                {platform.href && (
+                  <Link
+                    href={platform.href}
+                    className="mt-3 text-[11px] tracking-[0.12em]"
+                    style={{ color: "#b45309", fontFamily: "var(--font-mono-display), monospace" }}
+                  >
+                    {t.platforms.viewCase} →
+                  </Link>
+                )}
+              </motion.div>
+            ))}
+          </motion.div>
+          <p className="mt-4 text-xs" style={{ color: "var(--ink-muted)" }}>
+            {t.platforms.confidentialityNote}
+          </p>
         </div>
       </section>
 
@@ -301,13 +451,13 @@ export default function Home() {
               </motion.h2>
               <motion.div variants={lineReveal} className="mt-3 h-px w-16"
                 style={{ background: "linear-gradient(90deg, #d97706, transparent)" }} />
-              <motion.p variants={fadeUp} className="text-sm mt-4 max-w-2xl" style={{ color: "rgba(0,0,0,0.48)" }}>
+              <motion.p variants={fadeUp} className="text-sm mt-4 max-w-2xl" style={{ color: "var(--ink-muted)" }}>
                 {t.featuredProjects.subtitle}
               </motion.p>
             </div>
             <motion.div variants={fadeUp} className="flex gap-3">
               <Link href="/proyectos" className="group flex items-center gap-1.5 text-sm font-medium shrink-0 transition-colors"
-                style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.35)" }}>
+                style={{ fontFamily: "var(--font-mono-display), monospace", color: "var(--ink-muted)" }}>
                 {t.featuredProjects.viewAll}
                 <svg className="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -373,7 +523,7 @@ export default function Home() {
                     fontFamily: "var(--font-mono-display), monospace",
                     background: "rgba(0,0,0,0.03)",
                     border: "1px solid rgba(0,0,0,0.07)",
-                    color: "rgba(0,0,0,0.62)",
+                    color: "var(--ink-soft)",
                   }}
                 >
                   {project.title}
@@ -382,7 +532,7 @@ export default function Home() {
             </div>
 
             <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
-              <p className="text-xs" style={{ color: "rgba(0,0,0,0.45)" }}>
+              <p className="text-xs" style={{ color: "var(--ink-muted)" }}>
                 {t.featuredProjects.secondaryCtaText}
               </p>
               <Link
@@ -408,7 +558,7 @@ export default function Home() {
             viewport={{ once: true }}
             transition={{ duration: 0.45 }}
             className="text-sm mb-12 max-w-xl -mt-6"
-            style={{ color: "rgba(0,0,0,0.45)" }}
+            style={{ color: "var(--ink-muted)" }}
           >
             {t.services.subtitle}
           </motion.p>
@@ -437,7 +587,7 @@ export default function Home() {
                 <h3 className="font-bold text-sm mb-2" style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}>
                   {lang === "en" ? svc.titleEn : svc.title}
                 </h3>
-                <p className="text-xs leading-relaxed mb-4 flex-1" style={{ color: "rgba(0,0,0,0.48)" }}>
+                <p className="text-xs leading-relaxed mb-4 flex-1" style={{ color: "var(--ink-muted)" }}>
                   {lang === "en" ? svc.descriptionEn : svc.description}
                 </p>
                 <div className="flex flex-wrap gap-1.5 mb-4">
@@ -487,7 +637,7 @@ export default function Home() {
                 >
                   {step.title}
                 </h3>
-                <p className="text-xs leading-relaxed" style={{ color: "rgba(0,0,0,0.48)" }}>
+                <p className="text-xs leading-relaxed" style={{ color: "var(--ink-muted)" }}>
                   {step.desc}
                 </p>
               </motion.div>
@@ -521,12 +671,78 @@ export default function Home() {
                 >
                   {item.q}
                 </h3>
-                <p className="text-sm leading-relaxed" style={{ color: "rgba(0,0,0,0.52)" }}>
+                <p className="text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
                   {item.a}
                 </p>
               </motion.article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ═══ GITHUB ═══ */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 border-t" style={{ borderColor: "var(--hairline)" }}>
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            variants={fadeScale}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="p-6 sm:p-8 rounded-3xl flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-10"
+            style={{ background: "var(--surface-soft)", border: "1px solid var(--hairline)" }}
+          >
+            <div className="flex-1">
+              <span className="tech-label">{t.github.label}</span>
+              <h2 className="mt-2 text-xl sm:text-2xl font-bold" style={{ fontFamily: "var(--font-mono-display), monospace", color: "var(--ink)" }}>
+                {t.github.title}
+              </h2>
+              <p className="mt-2 text-sm leading-relaxed max-w-xl" style={{ color: "var(--ink-muted)" }}>
+                {t.github.subtitle}
+              </p>
+              <p className="mt-3 text-xs" style={{ color: "var(--ink-muted)" }}>
+                {t.github.note}
+              </p>
+            </div>
+            <dl className="grid grid-cols-2 gap-x-8 gap-y-3">
+              <div>
+                <dt className="text-[10px] tracking-[0.12em]" style={{ color: "var(--ink-muted)", fontFamily: "var(--font-mono-display), monospace" }}>
+                  {t.github.repositories}
+                </dt>
+                <dd className="text-2xl font-bold" style={{ color: "var(--ink)", fontVariantNumeric: "tabular-nums" }}>
+                  {githubPresence.publicRepositories}
+                </dd>
+              </div>
+              <div>
+                <dt className="text-[10px] tracking-[0.12em]" style={{ color: "var(--ink-muted)", fontFamily: "var(--font-mono-display), monospace" }}>
+                  {t.github.since}
+                </dt>
+                <dd className="text-2xl font-bold" style={{ color: "var(--ink)", fontVariantNumeric: "tabular-nums" }}>
+                  {githubPresence.since}
+                </dd>
+              </div>
+              <div className="col-span-2">
+                <dt className="text-[10px] tracking-[0.12em]" style={{ color: "var(--ink-muted)", fontFamily: "var(--font-mono-display), monospace" }}>
+                  {t.github.languages}
+                </dt>
+                <dd className="mt-1 flex flex-wrap gap-1.5">
+                  {githubPresence.languages.map((language) => (
+                    <span key={language} className="text-[11px] px-2 py-0.5 rounded-md" style={{ background: "rgba(217,119,6,0.08)", color: "#b45309" }}>
+                      {language}
+                    </span>
+                  ))}
+                </dd>
+              </div>
+            </dl>
+            <a
+              href={githubPresence.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-semibold transition-all hover:scale-[1.02] shrink-0"
+              style={{ background: "rgba(255,255,255,0.9)", border: "1px solid var(--hairline)", color: "var(--ink)" }}
+            >
+              {t.github.cta} ↗
+            </a>
+          </motion.div>
         </div>
       </section>
 

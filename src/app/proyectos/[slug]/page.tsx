@@ -59,7 +59,7 @@ export default function ProjectDetailPage() {
                 fontFamily: "var(--font-mono-display), monospace",
                 background: "rgba(0,0,0,0.04)",
                 border: "1px solid rgba(0,0,0,0.08)",
-                color: "rgba(0,0,0,0.62)",
+                color: "var(--ink-soft)",
               }}
             >
               {t.projectDetail.backToProjects}
@@ -101,7 +101,7 @@ export default function ProjectDetailPage() {
             <Link
               href="/proyectos"
               className="tech-label"
-              style={{ color: "rgba(0,0,0,0.45)" }}
+              style={{ color: "var(--ink-muted)" }}
             >
               ← {t.projectDetail.backToProjects}
             </Link>
@@ -123,7 +123,7 @@ export default function ProjectDetailPage() {
                 style={{
                   background: "rgba(0,0,0,0.04)",
                   border: "1px solid rgba(0,0,0,0.09)",
-                  color: "rgba(0,0,0,0.52)",
+                  color: "var(--ink-soft)",
                   fontFamily: "var(--font-mono-display), monospace",
                 }}
               >
@@ -153,7 +153,7 @@ export default function ProjectDetailPage() {
             <h2 className="text-lg mt-3" style={{ color: "#b45309" }}>
               {headline}
             </h2>
-            <p className="text-sm sm:text-base mt-3 max-w-3xl" style={{ color: "rgba(0,0,0,0.52)" }}>
+            <p className="text-sm sm:text-base mt-3 max-w-3xl" style={{ color: "var(--ink-soft)" }}>
               {subtitle}
             </p>
           </motion.div>
@@ -169,7 +169,7 @@ export default function ProjectDetailPage() {
                 }}
               >
                 <p className="tech-label">{item.label}</p>
-                <p className="text-sm mt-3" style={{ color: "rgba(0,0,0,0.55)" }}>
+                <p className="text-sm mt-3" style={{ color: "var(--ink-soft)" }}>
                   {item.value}
                 </p>
               </div>
@@ -183,7 +183,7 @@ export default function ProjectDetailPage() {
               style={{ background: "rgba(217,119,6,0.07)", border: "1px solid rgba(217,119,6,0.2)" }}
             >
               <p className="tech-label">{t.card.result}</p>
-              <p className="text-sm mt-2" style={{ color: "rgba(0,0,0,0.58)" }}>
+              <p className="text-sm mt-2" style={{ color: "var(--ink-soft)" }}>
                 {resultHighlight}
               </p>
             </motion.div>
@@ -195,7 +195,7 @@ export default function ProjectDetailPage() {
             style={{ background: "rgba(255,255,255,0.68)", border: "1px solid rgba(0,0,0,0.08)" }}
           >
             <p className="tech-label">{t.projectDetail.summary}</p>
-            <p className="text-sm mt-3" style={{ color: "rgba(0,0,0,0.55)" }}>
+            <p className="text-sm mt-3" style={{ color: "var(--ink-soft)" }}>
               {description}
             </p>
           </motion.div>
@@ -206,7 +206,7 @@ export default function ProjectDetailPage() {
               style={{ background: "rgba(255,255,255,0.68)", border: "1px solid rgba(0,0,0,0.08)" }}
             >
               <p className="tech-label">{t.projectDetail.problem}</p>
-              <p className="text-sm mt-3" style={{ color: "rgba(0,0,0,0.55)" }}>
+              <p className="text-sm mt-3" style={{ color: "var(--ink-soft)" }}>
                 {problem}
               </p>
             </div>
@@ -215,7 +215,7 @@ export default function ProjectDetailPage() {
               style={{ background: "rgba(255,255,255,0.68)", border: "1px solid rgba(0,0,0,0.08)" }}
             >
               <p className="tech-label">{t.projectDetail.solution}</p>
-              <p className="text-sm mt-3" style={{ color: "rgba(0,0,0,0.55)" }}>
+              <p className="text-sm mt-3" style={{ color: "var(--ink-soft)" }}>
                 {solution}
               </p>
             </div>
@@ -229,7 +229,7 @@ export default function ProjectDetailPage() {
             <p className="tech-label">{t.projectDetail.results}</p>
             <ul className="mt-4 space-y-2">
               {results.map((result) => (
-                <li key={result} className="text-sm" style={{ color: "rgba(0,0,0,0.55)" }}>
+                <li key={result} className="text-sm" style={{ color: "var(--ink-soft)" }}>
                   • {result}
                 </li>
               ))}
@@ -242,7 +242,7 @@ export default function ProjectDetailPage() {
             style={{ background: "rgba(255,255,255,0.72)", border: "1px solid rgba(0,0,0,0.08)" }}
           >
             <p className="tech-label">{t.projectDetail.ctaLabel}</p>
-            <p className="text-sm mt-3" style={{ color: "rgba(0,0,0,0.52)" }}>
+            <p className="text-sm mt-3" style={{ color: "var(--ink-soft)" }}>
               {t.projectDetail.ctaDescription}
             </p>
             <div className="flex flex-wrap gap-3 mt-5">
@@ -274,7 +274,7 @@ export default function ProjectDetailPage() {
                   fontFamily: "var(--font-mono-display), monospace",
                   background: "rgba(0,0,0,0.04)",
                   border: "1px solid rgba(0,0,0,0.08)",
-                  color: "rgba(0,0,0,0.58)",
+                  color: "var(--ink-soft)",
                 }}
               >
                 {conversionCta || t.card.ctaSolve}
