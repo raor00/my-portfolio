@@ -46,3 +46,7 @@ Next.js, React, TypeScript, Tailwind, Node.js, Supabase, PostgreSQL, Prisma, Con
 ## How to contact
 
 Use https://roviedo.dev/contacto or email devraor00@gmail.com. He responds in under 24 hours. Available for freelance and remote collaborations.
+
+## Tokenmaxxing
+
+https://roviedo.dev/tokenmaxxing shows Rafael's own daily AI token usage: processed tokens split into cached input, uncached input and output, estimated cost from public LiteLLM prices, cache savings, session counts, per-provider and per-model breakdowns, plus an opt-in snapshot of provider quotas. The page is static and is generated locally by a collector that reads transcripts read-only; the published JSON contains aggregates only, never credentials, accounts, prompts or file paths.

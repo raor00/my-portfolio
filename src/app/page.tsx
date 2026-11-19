@@ -6,6 +6,7 @@ import { useRef, useEffect, useState } from "react";
 import { skills, featuredProjects, secondaryProjects, services } from "@/config/data";
 import ProjectCard from "@/components/ProjectCard";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { trackEvent } from "@/lib/analytics";
 
 /* ── Animation variants ─────────────────────────────────── */
 const fadeUp = {
@@ -190,7 +191,7 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
-              <Link href="/contacto" className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-sm font-semibold transition-all hover:scale-[1.02]"
+              <Link href="/contacto" onClick={() => trackEvent("cta_contact_click", { placement: "hero" })} className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-sm font-semibold transition-all hover:scale-[1.02]"
                 style={{ background: "rgba(255,255,255,0.75)", border: "1px solid rgba(0,0,0,0.1)", color: "rgba(0,0,0,0.7)", backdropFilter: "blur(8px)", boxShadow: "0 2px 12px rgba(0,0,0,0.07)" }}>
                 {t.hero.ctaSecondary}
               </Link>
@@ -312,7 +313,12 @@ export default function Home() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
-              <Link href="/contacto" className="glass-btn-amber inline-flex items-center px-4 py-2 rounded-lg text-xs text-white" style={{ fontFamily: "var(--font-mono-display), monospace" }}>
+              <Link
+                href="/contacto"
+                onClick={() => trackEvent("cta_hire_click", { placement: "featured_projects" })}
+                className="glass-btn-amber inline-flex items-center px-4 py-2 rounded-lg text-xs text-white"
+                style={{ fontFamily: "var(--font-mono-display), monospace" }}
+              >
                 {t.featuredProjects.contactCta}
               </Link>
             </motion.div>
@@ -379,7 +385,12 @@ export default function Home() {
               <p className="text-xs" style={{ color: "rgba(0,0,0,0.45)" }}>
                 {t.featuredProjects.secondaryCtaText}
               </p>
-              <Link href="/contacto" className="glass-btn-amber inline-flex items-center px-4 py-2 rounded-lg text-xs text-white" style={{ fontFamily: "var(--font-mono-display), monospace" }}>
+              <Link
+                href="/contacto"
+                onClick={() => trackEvent("cta_hire_click", { placement: "featured_projects" })}
+                className="glass-btn-amber inline-flex items-center px-4 py-2 rounded-lg text-xs text-white"
+                style={{ fontFamily: "var(--font-mono-display), monospace" }}
+              >
                 {t.featuredProjects.contactCta}
               </Link>
             </div>
@@ -537,7 +548,11 @@ export default function Home() {
             <p className="mb-10 max-w-md mx-auto relative" style={{ color: "rgba(0,0,0,0.5)" }}>
               {t.cta.description}
             </p>
-            <Link href="/contacto" className="glass-btn-amber inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-sm text-white">
+            <Link
+              href="/contacto"
+              onClick={() => trackEvent("cta_hire_click", { placement: "home_final_cta" })}
+              className="glass-btn-amber inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-sm text-white"
+            >
               {t.cta.button}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

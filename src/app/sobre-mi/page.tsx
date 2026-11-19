@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { personalInfo, experience, skills, achievements } from "@/config/data";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { trackEvent } from "@/lib/analytics";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -300,7 +301,11 @@ export default function SobreMiPage() {
           <p className="text-sm mb-6 max-w-md mx-auto" style={{ color: "rgba(0,0,0,0.5)" }}>
             {t.cta.description}
           </p>
-          <Link href="/contacto" className="glass-btn-amber inline-flex items-center px-6 py-3 rounded-xl text-sm text-white">
+          <Link
+            href="/contacto"
+            onClick={() => trackEvent("cta_hire_click", { placement: "about" })}
+            className="glass-btn-amber inline-flex items-center px-6 py-3 rounded-xl text-sm text-white"
+          >
             {t.cta.button}
           </Link>
         </motion.div>

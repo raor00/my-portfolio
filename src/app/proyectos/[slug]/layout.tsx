@@ -32,6 +32,40 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default function ProjectSlugLayout({ children }: { children: React.ReactNode }) {
-  return children;
+export default async function ProjectSlugLayout({
+  children,
+  params,
+}: {
+  children: React.ReactNode;
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const project = getProjectBySlug(slug);
+
+  // Per-project structured data so assistants and search engines can quote it.
+  const jsonLd = project
+    ? {
+        "@context": "https://schema.org",
+        "@type": "CreativeWork",
+        name: project.title,
+        headline: project.headline,
+        description: project.description,
+        url: `${SITE_URL}/proyectos/${project.slug}`,
+        creator: { "@type": "Person", name: SITE.name, url: SITE_URL },
+        author: { "@type": "Person", name: SITE.name, url: SITE_URL },
+        about: project.tags,
+        keywords: project.tags.join(", "),
+        ...(project.liveUrl ? { sameAs: [project.liveUrl] } : {}),
+        ...(project.image ? { image: `${SITE_URL}${project.image}` } : {}),
+      }
+    : null;
+
+  return (
+    <>
+      {jsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      )}
+      {children}
+    </>
+  );
 }

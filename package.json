@@ -10,6 +10,8 @@
     "tokenmaxxing": "bun scripts/tokenmaxxing/index.ts"
   },
   "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "@vercel/speed-insights": "^2.1.0",
     "framer-motion": "^12.34.0",
     "next": "^15.1.0",
     "react": "^19.0.0",

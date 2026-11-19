@@ -6,6 +6,7 @@ import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { getProjectBySlug } from "@/config/data";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { trackEvent } from "@/lib/analytics";
 import DemoModal from "@/components/DemoModal";
 
 const fadeUp = {
@@ -267,6 +268,7 @@ export default function ProjectDetailPage() {
 
               <Link
                 href={`/contacto?proyecto=${project.slug}`}
+                onClick={() => trackEvent("cta_contact_click", { placement: "project_detail", slug: project.slug })}
                 className="inline-flex items-center px-4 py-2 rounded-lg text-xs"
                 style={{
                   fontFamily: "var(--font-mono-display), monospace",

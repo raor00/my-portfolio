@@ -5,6 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import GlassFilters from "@/components/GlassFilters";
 import Providers from "@/components/Providers";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import JsonLd from "@/components/JsonLd";
 import ScrollProgress from "@/components/ScrollProgress";
 import { SITE, SITE_URL, CONTACT_EMAIL } from "@/lib/site";
@@ -64,6 +66,9 @@ export const metadata: Metadata = {
     icon: "/icon.png",
     apple: "/logo.png",
   },
+  ...(process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } }
+    : {}),
   category: "technology",
   other: {
     "contact:email": CONTACT_EMAIL,
@@ -86,6 +91,8 @@ export default function RootLayout({
           <main className="pt-16 md:pt-20">{children}</main>
           <Footer />
         </Providers>
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

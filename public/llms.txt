@@ -33,5 +33,6 @@ Email devraor00@gmail.com or use https://roviedo.dev/contacto. Describe the idea
 - [Home](https://roviedo.dev/): positioning, metrics, featured work, services, FAQ
 - [Projects](https://roviedo.dev/proyectos): curated case studies
 - [About](https://roviedo.dev/sobre-mi): bio, experience, stack
+- [Tokenmaxxing](https://roviedo.dev/tokenmaxxing): personal daily AI token usage, cost estimates and provider quotas
 - [Contact](https://roviedo.dev/contacto): form + email
 - [llms-full.txt](https://roviedo.dev/llms-full.txt): longer source for assistants

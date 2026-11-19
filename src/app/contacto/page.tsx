@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { personalInfo, services, getProjectBySlug } from "@/config/data";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { trackEvent } from "@/lib/analytics";
 import { isServiceId, type ServiceId } from "@/lib/site";
 
 const fadeUp = {
@@ -132,12 +133,15 @@ function ContactoContent() {
       });
       if (!res.ok) {
         setStatus("error");
+        trackEvent("contact_submit_error", { servicio: form.servicio || "sin_servicio" });
         return;
       }
       setStatus("success");
+      trackEvent("contact_submit_success", { servicio: form.servicio || "sin_servicio" });
       setForm(emptyForm);
     } catch {
       setStatus("error");
+      trackEvent("contact_submit_error", { servicio: form.servicio || "sin_servicio" });
     }
   };
 
