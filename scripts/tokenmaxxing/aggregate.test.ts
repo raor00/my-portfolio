@@ -104,6 +104,7 @@ describe("aggregate", () => {
     const dates = output.days.map((day) => day.date);
     expect(dates).toEqual(["2026-01-01", "2026-01-02"]);
     expect(Object.keys(output.days[1].providers).sort()).toEqual(["anthropic", "opencode-go"]);
+    expect(output.days[1].models.length).toBe(2);
     expect(output.models.length).toBe(2);
     expect(output.models[0].tokens).toBe(330);
     expect(output.models[0].lastUsed).toBe("2026-01-02");

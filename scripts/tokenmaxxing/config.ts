@@ -28,6 +28,17 @@ export const SOURCES = {
  */
 const SAFE_ID = /^[A-Za-z0-9._:\[\]-][A-Za-z0-9._:/\[\]-]*$/;
 
+/**
+ * Providers that must never reach the public file. Their ledger rows are
+ * dropped before aggregation, so they cannot contribute to totals, days,
+ * models, sessions or the unpriced list.
+ */
+export const EXCLUDED_PROVIDERS: readonly string[] = ["lyber"];
+
+export function isExcludedProvider(provider: string): boolean {
+  return EXCLUDED_PROVIDERS.includes(provider);
+}
+
 export function isSafeId(value: string): boolean {
   return SAFE_ID.test(value);
 }

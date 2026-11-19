@@ -140,7 +140,13 @@ function baseOutput() {
     generatedAt: "2026-01-01T00:00:00.000Z",
     timezone: "America/Caracas",
     totals: { processedTokens: 1, costUsd: 0, cacheSavingsUsd: 0, sessions: 1 },
-    days: [{ date: "2026-01-01", providers: { anthropic: { tokens: 1, costUsd: 0 } } }],
+    days: [
+      {
+        date: "2026-01-01",
+        providers: { anthropic: { tokens: 1, costUsd: 0 } },
+        models: [{ provider: "anthropic", model: "claude-opus-5-5", tokens: 1, costUsd: 0 }],
+      },
+    ],
     models: [{ provider: "anthropic", model: "claude-opus-5-5", tokens: 1, costUsd: 0, lastUsed: "2026-01-01" }],
     quotas: [],
     unpricedModels: [],

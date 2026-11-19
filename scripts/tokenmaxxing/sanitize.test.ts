@@ -9,7 +9,13 @@ function valid() {
     generatedAt: "2026-01-02T00:00:00.000Z",
     timezone: "America/Caracas",
     totals: { processedTokens: 1000, costUsd: 1.23, cacheSavingsUsd: 0.45, sessions: 7 },
-    days: [{ date: "2026-01-01", providers: { anthropic: { tokens: 1000, costUsd: 1.23 } } }],
+    days: [
+      {
+        date: "2026-01-01",
+        providers: { anthropic: { tokens: 1000, costUsd: 1.23 } },
+        models: [{ provider: "anthropic", model: "claude-opus-5-5", tokens: 1000, costUsd: 1.23 }],
+      },
+    ],
     models: [{ provider: "anthropic", model: "claude-opus-5-5", tokens: 1000, costUsd: 1.23, lastUsed: "2026-01-01" }],
     quotas: [
       {
@@ -43,6 +49,16 @@ describe("output sanitization", () => {
     const model = valid();
     (model.models[0] as Record<string, unknown>).path = "/Users/oviedo";
     expect(validateOutput(model).some((violation) => violation.includes("model keys"))).toBe(true);
+  });
+
+  test("rejects day model entries with extra keys or unsafe ids", () => {
+    const extraKey = valid();
+    (extraKey.days[0].models[0] as Record<string, unknown>).sessionId = "abc";
+    expect(validateOutput(extraKey).some((violation) => violation.includes("day model keys"))).toBe(true);
+
+    const unsafe = valid();
+    unsafe.days[0].models[0].model = "~/private/model";
+    expect(validateOutput(unsafe).some((violation) => violation.includes("unsafe day model"))).toBe(true);
   });
 
   test("rejects provider and model ids outside the allowlist", () => {

@@ -1,11 +1,11 @@
 {
-  "generatedAt": "2026-11-18T22:48:28.309Z",
+  "generatedAt": "2026-11-19T12:04:56.440Z",
   "timezone": "America/Caracas",
   "totals": {
-    "processedTokens": 49297781036,
-    "costUsd": 8355.96,
-    "cacheSavingsUsd": 44678.41,
-    "sessions": 3156
+    "processedTokens": 49175900492,
+    "costUsd": 8412.13,
+    "cacheSavingsUsd": 44990.34,
+    "sessions": 3163
   },
   "days": [
     {
@@ -15,7 +15,15 @@
           "tokens": 13827618,
           "costUsd": 7.51
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 13827618,
+          "costUsd": 7.51
+        }
+      ]
     },
     {
       "date": "2026-03-19",
@@ -24,7 +32,15 @@
           "tokens": 429568,
           "costUsd": 0.35
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 429568,
+          "costUsd": 0.35
+        }
+      ]
     },
     {
       "date": "2026-03-20",
@@ -33,7 +49,15 @@
           "tokens": 745958,
           "costUsd": 0.41
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 745958,
+          "costUsd": 0.41
+        }
+      ]
     },
     {
       "date": "2026-03-22",
@@ -42,7 +66,15 @@
           "tokens": 10704310,
           "costUsd": 5.78
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 10704310,
+          "costUsd": 5.78
+        }
+      ]
     },
     {
       "date": "2026-03-24",
@@ -51,7 +83,15 @@
           "tokens": 3035766,
           "costUsd": 1.09
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 3035766,
+          "costUsd": 1.09
+        }
+      ]
     },
     {
       "date": "2026-03-29",
@@ -60,7 +100,15 @@
           "tokens": 253359,
           "costUsd": 0.2
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 253359,
+          "costUsd": 0.2
+        }
+      ]
     },
     {
       "date": "2026-03-30",
@@ -69,7 +117,15 @@
           "tokens": 1134789,
           "costUsd": 1.69
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 1134789,
+          "costUsd": 1.69
+        }
+      ]
     },
     {
       "date": "2026-03-31",
@@ -78,7 +134,15 @@
           "tokens": 70516621,
           "costUsd": 25.45
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 70516621,
+          "costUsd": 25.45
+        }
+      ]
     },
     {
       "date": "2026-04-20",
@@ -87,7 +151,15 @@
           "tokens": 709622,
           "costUsd": 0.73
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 709622,
+          "costUsd": 0.73
+        }
+      ]
     },
     {
       "date": "2026-05-04",
@@ -96,7 +168,15 @@
           "tokens": 467602,
           "costUsd": 0.39
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 467602,
+          "costUsd": 0.39
+        }
+      ]
     },
     {
       "date": "2026-05-07",
@@ -105,7 +185,15 @@
           "tokens": 665196,
           "costUsd": 0.48
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 665196,
+          "costUsd": 0.48
+        }
+      ]
     },
     {
       "date": "2026-05-13",
@@ -114,7 +202,15 @@
           "tokens": 3315460,
           "costUsd": 3.71
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 3315460,
+          "costUsd": 3.71
+        }
+      ]
     },
     {
       "date": "2026-05-14",
@@ -123,7 +219,15 @@
           "tokens": 4835346,
           "costUsd": 4.61
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 4835346,
+          "costUsd": 4.61
+        }
+      ]
     },
     {
       "date": "2026-05-21",
@@ -132,7 +236,15 @@
           "tokens": 6664048,
           "costUsd": 5.93
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 6664048,
+          "costUsd": 5.93
+        }
+      ]
     },
     {
       "date": "2026-05-26",
@@ -141,7 +253,15 @@
           "tokens": 32263593,
           "costUsd": 21.98
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 32263593,
+          "costUsd": 21.98
+        }
+      ]
     },
     {
       "date": "2026-05-27",
@@ -150,7 +270,15 @@
           "tokens": 18231076,
           "costUsd": 6.31
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 18231076,
+          "costUsd": 6.31
+        }
+      ]
     },
     {
       "date": "2026-05-28",
@@ -159,7 +287,15 @@
           "tokens": 8567489,
           "costUsd": 3.02
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 8567489,
+          "costUsd": 3.02
+        }
+      ]
     },
     {
       "date": "2026-05-29",
@@ -168,7 +304,15 @@
           "tokens": 26729828,
           "costUsd": 11.55
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 26729828,
+          "costUsd": 11.55
+        }
+      ]
     },
     {
       "date": "2026-06-01",
@@ -177,7 +321,15 @@
           "tokens": 9871329,
           "costUsd": 3.44
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 9871329,
+          "costUsd": 3.44
+        }
+      ]
     },
     {
       "date": "2026-06-02",
@@ -186,7 +338,15 @@
           "tokens": 16368631,
           "costUsd": 10.35
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 16368631,
+          "costUsd": 10.35
+        }
+      ]
     },
     {
       "date": "2026-06-03",
@@ -195,7 +355,15 @@
           "tokens": 25660248,
           "costUsd": 20.65
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 25660248,
+          "costUsd": 20.65
+        }
+      ]
     },
     {
       "date": "2026-06-04",
@@ -204,7 +372,15 @@
           "tokens": 31174632,
           "costUsd": 24.06
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 31174632,
+          "costUsd": 24.06
+        }
+      ]
     },
     {
       "date": "2026-06-05",
@@ -213,7 +389,15 @@
           "tokens": 23258006,
           "costUsd": 17.54
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 23258006,
+          "costUsd": 17.54
+        }
+      ]
     },
     {
       "date": "2026-06-06",
@@ -222,7 +406,15 @@
           "tokens": 2720614,
           "costUsd": 2.98
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 2720614,
+          "costUsd": 2.98
+        }
+      ]
     },
     {
       "date": "2026-06-08",
@@ -231,7 +423,15 @@
           "tokens": 14638704,
           "costUsd": 12.15
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 14638704,
+          "costUsd": 12.15
+        }
+      ]
     },
     {
       "date": "2026-06-09",
@@ -240,7 +440,15 @@
           "tokens": 42276099,
           "costUsd": 23.93
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 42276099,
+          "costUsd": 23.93
+        }
+      ]
     },
     {
       "date": "2026-06-10",
@@ -249,7 +457,15 @@
           "tokens": 27140620,
           "costUsd": 20.57
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 27140620,
+          "costUsd": 20.57
+        }
+      ]
     },
     {
       "date": "2026-06-11",
@@ -258,7 +474,15 @@
           "tokens": 53364633,
           "costUsd": 33.32
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 53364633,
+          "costUsd": 33.32
+        }
+      ]
     },
     {
       "date": "2026-06-12",
@@ -267,7 +491,15 @@
           "tokens": 25014640,
           "costUsd": 17.74
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 25014640,
+          "costUsd": 17.74
+        }
+      ]
     },
     {
       "date": "2026-06-14",
@@ -276,7 +508,15 @@
           "tokens": 1956428,
           "costUsd": 4.13
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 1956428,
+          "costUsd": 4.13
+        }
+      ]
     },
     {
       "date": "2026-06-15",
@@ -285,7 +525,15 @@
           "tokens": 40952228,
           "costUsd": 27.23
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 40952228,
+          "costUsd": 27.23
+        }
+      ]
     },
     {
       "date": "2026-06-17",
@@ -294,7 +542,15 @@
           "tokens": 8755832,
           "costUsd": 4.11
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 8755832,
+          "costUsd": 4.11
+        }
+      ]
     },
     {
       "date": "2026-06-18",
@@ -303,7 +559,15 @@
           "tokens": 5259377,
           "costUsd": 4.89
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 5259377,
+          "costUsd": 4.89
+        }
+      ]
     },
     {
       "date": "2026-06-19",
@@ -312,7 +576,15 @@
           "tokens": 1748447,
           "costUsd": 1.15
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 1748447,
+          "costUsd": 1.15
+        }
+      ]
     },
     {
       "date": "2026-06-22",
@@ -321,7 +593,15 @@
           "tokens": 1848214,
           "costUsd": 2.36
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 1848214,
+          "costUsd": 2.36
+        }
+      ]
     },
     {
       "date": "2026-07-02",
@@ -330,7 +610,15 @@
           "tokens": 56914,
           "costUsd": 0.22
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 56914,
+          "costUsd": 0.22
+        }
+      ]
     },
     {
       "date": "2026-07-03",
@@ -339,7 +627,15 @@
           "tokens": 57168774,
           "costUsd": 43.61
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 57168774,
+          "costUsd": 43.61
+        }
+      ]
     },
     {
       "date": "2026-07-06",
@@ -348,7 +644,15 @@
           "tokens": 65069986,
           "costUsd": 42.26
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 65069986,
+          "costUsd": 42.26
+        }
+      ]
     },
     {
       "date": "2026-07-07",
@@ -357,7 +661,15 @@
           "tokens": 29273255,
           "costUsd": 10.91
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 29273255,
+          "costUsd": 10.91
+        }
+      ]
     },
     {
       "date": "2026-07-09",
@@ -366,7 +678,15 @@
           "tokens": 20165244,
           "costUsd": 7.54
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 20165244,
+          "costUsd": 7.54
+        }
+      ]
     },
     {
       "date": "2026-07-10",
@@ -375,7 +695,15 @@
           "tokens": 525556,
           "costUsd": 0.4
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 525556,
+          "costUsd": 0.4
+        }
+      ]
     },
     {
       "date": "2026-07-11",
@@ -384,7 +712,15 @@
           "tokens": 2471184,
           "costUsd": 0.12
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 2471184,
+          "costUsd": 0.12
+        }
+      ]
     },
     {
       "date": "2026-07-12",
@@ -393,7 +729,15 @@
           "tokens": 1678672,
           "costUsd": 0.07
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 1678672,
+          "costUsd": 0.07
+        }
+      ]
     },
     {
       "date": "2026-07-13",
@@ -402,7 +746,15 @@
           "tokens": 365589,
           "costUsd": 0.02
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 365589,
+          "costUsd": 0.02
+        }
+      ]
     },
     {
       "date": "2026-07-14",
@@ -411,7 +763,15 @@
           "tokens": 1228946,
           "costUsd": 0.08
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 1228946,
+          "costUsd": 0.08
+        }
+      ]
     },
     {
       "date": "2026-07-15",
@@ -420,7 +780,15 @@
           "tokens": 3368585,
           "costUsd": 0.3
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 3368585,
+          "costUsd": 0.3
+        }
+      ]
     },
     {
       "date": "2026-07-16",
@@ -429,7 +797,15 @@
           "tokens": 35838760,
           "costUsd": 24.4
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 35838760,
+          "costUsd": 24.4
+        }
+      ]
     },
     {
       "date": "2026-07-17",
@@ -438,7 +814,15 @@
           "tokens": 9036879,
           "costUsd": 5.78
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 9036879,
+          "costUsd": 5.78
+        }
+      ]
     },
     {
       "date": "2026-07-21",
@@ -447,7 +831,15 @@
           "tokens": 10807102,
           "costUsd": 7.47
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 10807102,
+          "costUsd": 7.47
+        }
+      ]
     },
     {
       "date": "2026-07-22",
@@ -456,7 +848,15 @@
           "tokens": 52209729,
           "costUsd": 27.76
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 52209729,
+          "costUsd": 27.76
+        }
+      ]
     },
     {
       "date": "2026-07-23",
@@ -465,7 +865,15 @@
           "tokens": 52738495,
           "costUsd": 29.41
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 52738495,
+          "costUsd": 29.41
+        }
+      ]
     },
     {
       "date": "2026-07-24",
@@ -474,7 +882,15 @@
           "tokens": 6271566,
           "costUsd": 5.29
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 6271566,
+          "costUsd": 5.29
+        }
+      ]
     },
     {
       "date": "2026-07-27",
@@ -483,7 +899,15 @@
           "tokens": 35651275,
           "costUsd": 19.82
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 35651275,
+          "costUsd": 19.82
+        }
+      ]
     },
     {
       "date": "2026-07-28",
@@ -492,7 +916,15 @@
           "tokens": 317228058,
           "costUsd": 176.67
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 317228058,
+          "costUsd": 176.67
+        }
+      ]
     },
     {
       "date": "2026-07-29",
@@ -501,7 +933,15 @@
           "tokens": 26300455,
           "costUsd": 12.27
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 26300455,
+          "costUsd": 12.27
+        }
+      ]
     },
     {
       "date": "2026-07-30",
@@ -510,7 +950,15 @@
           "tokens": 51849711,
           "costUsd": 19.26
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 51849711,
+          "costUsd": 19.26
+        }
+      ]
     },
     {
       "date": "2026-08-05",
@@ -519,7 +967,15 @@
           "tokens": 111128417,
           "costUsd": 47.79
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 111128417,
+          "costUsd": 47.79
+        }
+      ]
     },
     {
       "date": "2026-08-10",
@@ -528,7 +984,15 @@
           "tokens": 294661,
           "costUsd": 0.32
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 294661,
+          "costUsd": 0.32
+        }
+      ]
     },
     {
       "date": "2026-08-11",
@@ -537,7 +1001,15 @@
           "tokens": 895031,
           "costUsd": 0.85
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 895031,
+          "costUsd": 0.85
+        }
+      ]
     },
     {
       "date": "2026-08-14",
@@ -546,7 +1018,15 @@
           "tokens": 165031,
           "costUsd": 0.22
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 165031,
+          "costUsd": 0.22
+        }
+      ]
     },
     {
       "date": "2026-08-20",
@@ -555,7 +1035,15 @@
           "tokens": 320821,
           "costUsd": 0.29
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 320821,
+          "costUsd": 0.29
+        }
+      ]
     },
     {
       "date": "2026-08-21",
@@ -568,7 +1056,15 @@
           "tokens": 2552,
           "costUsd": 0.01
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 1358339,
+          "costUsd": 3.16
+        }
+      ]
     },
     {
       "date": "2026-08-25",
@@ -581,7 +1077,21 @@
           "tokens": 160036,
           "costUsd": 0.14
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 160036,
+          "costUsd": 0.14
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 49215074,
+          "costUsd": 0.6
+        }
+      ]
     },
     {
       "date": "2026-08-26",
@@ -598,7 +1108,21 @@
           "tokens": 136182,
           "costUsd": 0.17
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 136182,
+          "costUsd": 0.17
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 174625149,
+          "costUsd": 48.86
+        }
+      ]
     },
     {
       "date": "2026-08-27",
@@ -615,7 +1139,15 @@
           "tokens": 206171261,
           "costUsd": 2.88
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 207426234,
+          "costUsd": 6.58
+        }
+      ]
     },
     {
       "date": "2026-08-30",
@@ -624,7 +1156,15 @@
           "tokens": 11853108,
           "costUsd": 0.35
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 11853108,
+          "costUsd": 0.35
+        }
+      ]
     },
     {
       "date": "2026-09-02",
@@ -641,7 +1181,15 @@
           "tokens": 394028166,
           "costUsd": 4.16
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 490148237,
+          "costUsd": 5.69
+        }
+      ]
     },
     {
       "date": "2026-09-03",
@@ -650,7 +1198,15 @@
           "tokens": 464840742,
           "costUsd": 4.05
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 464840742,
+          "costUsd": 4.05
+        }
+      ]
     },
     {
       "date": "2026-09-05",
@@ -659,7 +1215,15 @@
           "tokens": 195637691,
           "costUsd": 1.8
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 195637691,
+          "costUsd": 1.8
+        }
+      ]
     },
     {
       "date": "2026-09-07",
@@ -668,7 +1232,15 @@
           "tokens": 114292910,
           "costUsd": 1.17
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 114292910,
+          "costUsd": 1.17
+        }
+      ]
     },
     {
       "date": "2026-09-08",
@@ -681,7 +1253,15 @@
           "tokens": 159644269,
           "costUsd": 3.4
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 295997122,
+          "costUsd": 4.67
+        }
+      ]
     },
     {
       "date": "2026-09-09",
@@ -690,7 +1270,15 @@
           "tokens": 310720626,
           "costUsd": 2.44
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 310720626,
+          "costUsd": 2.44
+        }
+      ]
     },
     {
       "date": "2026-09-10",
@@ -699,7 +1287,15 @@
           "tokens": 787542,
           "costUsd": 0.24
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 787542,
+          "costUsd": 0.24
+        }
+      ]
     },
     {
       "date": "2026-09-11",
@@ -708,7 +1304,15 @@
           "tokens": 27743772,
           "costUsd": 16.88
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 27743772,
+          "costUsd": 16.88
+        }
+      ]
     },
     {
       "date": "2026-09-12",
@@ -717,7 +1321,15 @@
           "tokens": 6501743,
           "costUsd": 4.96
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 6501743,
+          "costUsd": 4.96
+        }
+      ]
     },
     {
       "date": "2026-09-13",
@@ -726,7 +1338,15 @@
           "tokens": 18692865,
           "costUsd": 11.47
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 18692865,
+          "costUsd": 11.47
+        }
+      ]
     },
     {
       "date": "2026-09-14",
@@ -735,7 +1355,15 @@
           "tokens": 130041802,
           "costUsd": 71.19
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 130041802,
+          "costUsd": 71.19
+        }
+      ]
     },
     {
       "date": "2026-09-15",
@@ -744,7 +1372,15 @@
           "tokens": 36378275,
           "costUsd": 19.72
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 36378275,
+          "costUsd": 19.72
+        }
+      ]
     },
     {
       "date": "2026-09-16",
@@ -757,7 +1393,21 @@
           "tokens": 41192653,
           "costUsd": 26.63
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 41192653,
+          "costUsd": 26.63
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 79560592,
+          "costUsd": 0
+        }
+      ]
     },
     {
       "date": "2026-09-17",
@@ -774,7 +1424,21 @@
           "tokens": 109307436,
           "costUsd": 65.42
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 109307436,
+          "costUsd": 65.42
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 45153671,
+          "costUsd": 0.12
+        }
+      ]
     },
     {
       "date": "2026-09-18",
@@ -787,7 +1451,21 @@
           "tokens": 226198017,
           "costUsd": 135.31
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 226198017,
+          "costUsd": 135.31
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 125956,
+          "costUsd": 0
+        }
+      ]
     },
     {
       "date": "2026-09-19",
@@ -796,7 +1474,15 @@
           "tokens": 109235313,
           "costUsd": 62.13
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 109235313,
+          "costUsd": 62.13
+        }
+      ]
     },
     {
       "date": "2026-09-21",
@@ -813,7 +1499,21 @@
           "tokens": 289227669,
           "costUsd": 171.32
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 289227669,
+          "costUsd": 171.32
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 3102012,
+          "costUsd": 4.27
+        }
+      ]
     },
     {
       "date": "2026-09-22",
@@ -830,7 +1530,33 @@
           "tokens": 243222486,
           "costUsd": 153.96
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 27573479,
+          "costUsd": 18.75
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 61135203,
+          "costUsd": 39.65
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 182087283,
+          "costUsd": 114.31
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 18706963,
+          "costUsd": 5.45
+        }
+      ]
     },
     {
       "date": "2026-09-23",
@@ -847,7 +1573,33 @@
           "tokens": 96419355,
           "costUsd": 57.71
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 56828298,
+          "costUsd": 35.08
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 82272880,
+          "costUsd": 47.28
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 14146475,
+          "costUsd": 10.43
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 88976358,
+          "costUsd": 4.35
+        }
+      ]
     },
     {
       "date": "2026-09-24",
@@ -868,7 +1620,39 @@
           "tokens": 155410499,
           "costUsd": 88.5
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 661489289,
+          "costUsd": 6.83
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 165286234,
+          "costUsd": 76.87
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 154375435,
+          "costUsd": 87.66
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 1035064,
+          "costUsd": 0.84
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 132962834,
+          "costUsd": 1.16
+        }
+      ]
     },
     {
       "date": "2026-09-25",
@@ -885,7 +1669,39 @@
           "tokens": 229222204,
           "costUsd": 133.04
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 459909828,
+          "costUsd": 4.99
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 112501366,
+          "costUsd": 49.27
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 165555436,
+          "costUsd": 91
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 63666768,
+          "costUsd": 42.04
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 64627692,
+          "costUsd": 0.25
+        }
+      ]
     },
     {
       "date": "2026-09-26",
@@ -902,7 +1718,33 @@
           "tokens": 15605133,
           "costUsd": 9.87
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 171551651,
+          "costUsd": 1.43
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 31170344,
+          "costUsd": 14.13
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 15605133,
+          "costUsd": 9.87
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 51507755,
+          "costUsd": 0
+        }
+      ]
     },
     {
       "date": "2026-09-27",
@@ -919,7 +1761,27 @@
           "tokens": 55383634,
           "costUsd": 33.54
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 260977185,
+          "costUsd": 4.33
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 44250198,
+          "costUsd": 21.28
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 55383634,
+          "costUsd": 33.54
+        }
+      ]
     },
     {
       "date": "2026-09-28",
@@ -936,7 +1798,39 @@
           "tokens": 173845613,
           "costUsd": 98.24
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 438771749,
+          "costUsd": 9.31
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 82670338,
+          "costUsd": 37.93
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 81216803,
+          "costUsd": 45.52
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 92628810,
+          "costUsd": 52.71
+        },
+        {
+          "provider": "nan",
+          "model": "glm5.3-flash",
+          "tokens": 170946869,
+          "costUsd": 6.92
+        }
+      ]
     },
     {
       "date": "2026-09-29",
@@ -953,7 +1847,45 @@
           "tokens": 321586799,
           "costUsd": 182.34
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 5209095,
+          "costUsd": 0.29
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 133644657,
+          "costUsd": 61.24
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 171370673,
+          "costUsd": 93.9
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 150216126,
+          "costUsd": 88.45
+        },
+        {
+          "provider": "nan",
+          "model": "glm5.3-flash",
+          "tokens": 564844303,
+          "costUsd": 18.96
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 5248176,
+          "costUsd": 2.14
+        }
+      ]
     },
     {
       "date": "2026-09-30",
@@ -970,7 +1902,39 @@
           "tokens": 276278592,
           "costUsd": 159.46
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 109386309,
+          "costUsd": 2.7
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 87526692,
+          "costUsd": 38.42
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 105196921,
+          "costUsd": 56.4
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 171081671,
+          "costUsd": 103.06
+        },
+        {
+          "provider": "nan",
+          "model": "glm5.3-flash",
+          "tokens": 265236941,
+          "costUsd": 9.25
+        }
+      ]
     },
     {
       "date": "2026-10-01",
@@ -987,7 +1951,45 @@
           "tokens": 181795845,
           "costUsd": 106.1
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 484876859,
+          "costUsd": 7.03
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 80936132,
+          "costUsd": 40.23
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 60670851,
+          "costUsd": 35.66
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 121124994,
+          "costUsd": 70.44
+        },
+        {
+          "provider": "nan",
+          "model": "glm5.3-flash",
+          "tokens": 292533064,
+          "costUsd": 9.36
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 20602736,
+          "costUsd": 0
+        }
+      ]
     },
     {
       "date": "2026-10-02",
@@ -1004,7 +2006,45 @@
           "tokens": 271925013,
           "costUsd": 157.75
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 63118944,
+          "costUsd": 0.7
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 103912087,
+          "costUsd": 48.07
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 164932311,
+          "costUsd": 96.46
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 106992702,
+          "costUsd": 61.29
+        },
+        {
+          "provider": "nan",
+          "model": "glm5.3-flash",
+          "tokens": 232357141,
+          "costUsd": 7.13
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 126737864,
+          "costUsd": 0
+        }
+      ]
     },
     {
       "date": "2026-10-03",
@@ -1021,7 +2061,33 @@
           "tokens": 99419604,
           "costUsd": 59.09
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 18492960,
+          "costUsd": 0.43
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 20239725,
+          "costUsd": 12.81
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 99419604,
+          "costUsd": 59.09
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 17596752,
+          "costUsd": 0
+        }
+      ]
     },
     {
       "date": "2026-10-04",
@@ -1038,7 +2104,39 @@
           "tokens": 200501612,
           "costUsd": 123.82
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 376639469,
+          "costUsd": 6.03
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 81585309,
+          "costUsd": 43.55
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 173352702,
+          "costUsd": 105.24
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 27148910,
+          "costUsd": 18.57
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 133452541,
+          "costUsd": 0
+        }
+      ]
     },
     {
       "date": "2026-10-05",
@@ -1059,7 +2157,45 @@
           "tokens": 140648198,
           "costUsd": 84.73
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 305919580,
+          "costUsd": 4.31
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 116885458,
+          "costUsd": 56.59
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 2529205,
+          "costUsd": 0.13
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 106238879,
+          "costUsd": 62.75
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 34409319,
+          "costUsd": 21.98
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 266116973,
+          "costUsd": 15.38
+        }
+      ]
     },
     {
       "date": "2026-10-06",
@@ -1080,7 +2216,33 @@
           "tokens": 11115310,
           "costUsd": 8.29
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 71649231,
+          "costUsd": 1.18
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 60931433,
+          "costUsd": 38.08
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 11115310,
+          "costUsd": 8.29
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 156975968,
+          "costUsd": 0.14
+        }
+      ]
     },
     {
       "date": "2026-10-07",
@@ -1097,7 +2259,39 @@
           "tokens": 13865518,
           "costUsd": 8.32
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 72108977,
+          "costUsd": 1.61
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 69994337,
+          "costUsd": 43.34
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 13865518,
+          "costUsd": 8.32
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 232781063,
+          "costUsd": 0
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 19055975,
+          "costUsd": 0.61
+        }
+      ]
     },
     {
       "date": "2026-10-08",
@@ -1110,7 +2304,39 @@
           "tokens": 76378297,
           "costUsd": 0.18
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 10649773,
+          "costUsd": 0.18
+        },
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 65623414,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 27683199,
+          "costUsd": 16.17
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 105110,
+          "costUsd": 0
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 22286947,
+          "costUsd": 6.86
+        }
+      ]
     },
     {
       "date": "2026-10-09",
@@ -1123,7 +2349,39 @@
           "tokens": 271529474,
           "costUsd": 0.03
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 530334,
+          "costUsd": 0.03
+        },
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 270839742,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 24901504,
+          "costUsd": 11.89
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 159398,
+          "costUsd": 0
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 14993716,
+          "costUsd": 5.02
+        }
+      ]
     },
     {
       "date": "2026-10-12",
@@ -1140,7 +2398,45 @@
           "tokens": 20052764,
           "costUsd": 0.25
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 34530254,
+          "costUsd": 0.73
+        },
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 184422799,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 77768258,
+          "costUsd": 40.43
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 2542877,
+          "costUsd": 0.11
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 2098059,
+          "costUsd": 0
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 17509887,
+          "costUsd": 0.14
+        }
+      ]
     },
     {
       "date": "2026-10-13",
@@ -1153,7 +2449,33 @@
           "tokens": 361065829,
           "costUsd": 1.14
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 38881823,
+          "costUsd": 1.14
+        },
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 283840567,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 53986247,
+          "costUsd": 30.63
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 38343439,
+          "costUsd": 0
+        }
+      ]
     },
     {
       "date": "2026-10-14",
@@ -1170,7 +2492,39 @@
           "tokens": 66744731,
           "costUsd": 2.25
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 31412305,
+          "costUsd": 1.06
+        },
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 1023562335,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 118702828,
+          "costUsd": 54.03
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 66744731,
+          "costUsd": 2.25
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 411993,
+          "costUsd": 0.48
+        }
+      ]
     },
     {
       "date": "2026-10-15",
@@ -1191,7 +2545,39 @@
           "tokens": 43638550,
           "costUsd": 27.2
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 1117858842,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 109318239,
+          "costUsd": 65.24
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 9562341,
+          "costUsd": 0.21
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 43638550,
+          "costUsd": 27.2
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 126739,
+          "costUsd": 0.32
+        }
+      ]
     },
     {
       "date": "2026-10-16",
@@ -1212,7 +2598,39 @@
           "tokens": 174171146,
           "costUsd": 94.7
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 1047682043,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 108466021,
+          "costUsd": 47.02
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 13373049,
+          "costUsd": 0.67
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 174171146,
+          "costUsd": 94.7
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 1121854,
+          "costUsd": 0.57
+        }
+      ]
     },
     {
       "date": "2026-10-17",
@@ -1233,7 +2651,33 @@
           "tokens": 16017669,
           "costUsd": 9.21
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 33216474,
+          "costUsd": 18.06
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 17022248,
+          "costUsd": 0.47
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 16017669,
+          "costUsd": 9.21
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 20237874,
+          "costUsd": 0
+        }
+      ]
     },
     {
       "date": "2026-10-18",
@@ -1250,7 +2694,33 @@
           "tokens": 21219488,
           "costUsd": 13.03
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 487727,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 24922694,
+          "costUsd": 17.31
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 21219488,
+          "costUsd": 13.03
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 4066936,
+          "costUsd": 1.67
+        }
+      ]
     },
     {
       "date": "2026-10-19",
@@ -1267,7 +2737,33 @@
           "tokens": 148114238,
           "costUsd": 87.68
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 45235638,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 113682704,
+          "costUsd": 53.05
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 148114238,
+          "costUsd": 87.68
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 139966619,
+          "costUsd": 0
+        }
+      ]
     },
     {
       "date": "2026-10-20",
@@ -1284,7 +2780,45 @@
           "tokens": 60030529,
           "costUsd": 34.2
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 485900475,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 150319908,
+          "costUsd": 66.79
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.6",
+          "tokens": 29387,
+          "costUsd": 0.06
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 60001142,
+          "costUsd": 34.14
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 41786183,
+          "costUsd": 0
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 3805632,
+          "costUsd": 3.76
+        }
+      ]
     },
     {
       "date": "2026-10-21",
@@ -1301,7 +2835,33 @@
           "tokens": 69435988,
           "costUsd": 42.99
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 238912103,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 101622925,
+          "costUsd": 48.39
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 69435988,
+          "costUsd": 42.99
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 123320,
+          "costUsd": 0.36
+        }
+      ]
     },
     {
       "date": "2026-10-22",
@@ -1322,7 +2882,39 @@
           "tokens": 58627296,
           "costUsd": 38.56
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 435918565,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 138466899,
+          "costUsd": 67.22
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 604479,
+          "costUsd": 0.05
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 58627296,
+          "costUsd": 38.56
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 5778619,
+          "costUsd": 4.53
+        }
+      ]
     },
     {
       "date": "2026-10-23",
@@ -1339,7 +2931,27 @@
           "tokens": 26188845,
           "costUsd": 16.91
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 32262413,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 29426851,
+          "costUsd": 15.22
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 26188845,
+          "costUsd": 16.91
+        }
+      ]
     },
     {
       "date": "2026-10-24",
@@ -1352,7 +2964,21 @@
           "tokens": 6048713,
           "costUsd": 3.38
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 29009658,
+          "costUsd": 12.13
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 6048713,
+          "costUsd": 3.38
+        }
+      ]
     },
     {
       "date": "2026-10-26",
@@ -1369,7 +2995,33 @@
           "tokens": 30163392,
           "costUsd": 17.52
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 191815141,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 74846382,
+          "costUsd": 33.84
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 30163392,
+          "costUsd": 17.52
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 170274,
+          "costUsd": 0.19
+        }
+      ]
     },
     {
       "date": "2026-10-27",
@@ -1386,7 +3038,27 @@
           "tokens": 102466933,
           "costUsd": 57.02
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 152169820,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 196594525,
+          "costUsd": 89.89
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 102466933,
+          "costUsd": 57.02
+        }
+      ]
     },
     {
       "date": "2026-10-28",
@@ -1407,7 +3079,45 @@
           "tokens": 143089683,
           "costUsd": 80.48
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 413259120,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 131907465,
+          "costUsd": 61.84
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 2055931,
+          "costUsd": 0.06
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 143089683,
+          "costUsd": 80.48
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 2909394,
+          "costUsd": 0
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 262467,
+          "costUsd": 0.2
+        }
+      ]
     },
     {
       "date": "2026-10-29",
@@ -1424,7 +3134,39 @@
           "tokens": 4834794,
           "costUsd": 3.27
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 76508858,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 55663016,
+          "costUsd": 34.59
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 4834794,
+          "costUsd": 3.27
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 2290965,
+          "costUsd": 0
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 422415,
+          "costUsd": 0.23
+        }
+      ]
     },
     {
       "date": "2026-10-30",
@@ -1437,7 +3179,27 @@
           "tokens": 15661515,
           "costUsd": 0
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 65698,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 32150416,
+          "costUsd": 22.75
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 15595817,
+          "costUsd": 0
+        }
+      ]
     },
     {
       "date": "2026-10-31",
@@ -1454,7 +3216,45 @@
           "tokens": 33650484,
           "costUsd": 20.41
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 63328173,
+          "costUsd": 0.73
+        },
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 115111592,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 116917520,
+          "costUsd": 92.32
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 33650484,
+          "costUsd": 20.41
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 241375560,
+          "costUsd": 0
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 35408415,
+          "costUsd": 20.96
+        }
+      ]
     },
     {
       "date": "2026-11-01",
@@ -1467,7 +3267,39 @@
           "tokens": 470830926,
           "costUsd": 3.81
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 331463503,
+          "costUsd": 3.81
+        },
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 1895717,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 101217090,
+          "costUsd": 86.46
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 137471706,
+          "costUsd": 0
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 1574540,
+          "costUsd": 3.12
+        }
+      ]
     },
     {
       "date": "2026-11-02",
@@ -1480,7 +3312,33 @@
           "tokens": 518332660,
           "costUsd": 6.57
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 358600038,
+          "costUsd": 6.57
+        },
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 159732622,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 178529780,
+          "costUsd": 174.06
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 9903235,
+          "costUsd": 3.47
+        }
+      ]
     },
     {
       "date": "2026-11-03",
@@ -1497,7 +3355,39 @@
           "tokens": 142097716,
           "costUsd": 79.11
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 564175485,
+          "costUsd": 9.82
+        },
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 178586735,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 399372179,
+          "costUsd": 207.81
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 142097716,
+          "costUsd": 79.11
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 49943507,
+          "costUsd": 18.09
+        }
+      ]
     },
     {
       "date": "2026-11-04",
@@ -1514,7 +3404,33 @@
           "tokens": 125067892,
           "costUsd": 68.64
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 697078525,
+          "costUsd": 10
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 245072675,
+          "costUsd": 131.16
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 125067892,
+          "costUsd": 68.64
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 49513941,
+          "costUsd": 17.79
+        }
+      ]
     },
     {
       "date": "2026-11-05",
@@ -1531,7 +3447,33 @@
           "tokens": 155470857,
           "costUsd": 87.42
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 448746033,
+          "costUsd": 6.47
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 164253061,
+          "costUsd": 89.27
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 155470857,
+          "costUsd": 87.42
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 17335365,
+          "costUsd": 7.66
+        }
+      ]
     },
     {
       "date": "2026-11-06",
@@ -1548,7 +3490,33 @@
           "tokens": 32988888,
           "costUsd": 17.88
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 76246101,
+          "costUsd": 1.43
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 125059279,
+          "costUsd": 64.21
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 32988888,
+          "costUsd": 17.88
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 27836070,
+          "costUsd": 9.95
+        }
+      ]
     },
     {
       "date": "2026-11-07",
@@ -1561,7 +3529,27 @@
           "tokens": 21802813,
           "costUsd": 0.51
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 21802813,
+          "costUsd": 0.51
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 78229848,
+          "costUsd": 39.96
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 79919895,
+          "costUsd": 27.34
+        }
+      ]
     },
     {
       "date": "2026-11-08",
@@ -1574,7 +3562,27 @@
           "tokens": 119598402,
           "costUsd": 1.77
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 119598402,
+          "costUsd": 1.77
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 140542660,
+          "costUsd": 71.27
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 126299990,
+          "costUsd": 41.68
+        }
+      ]
     },
     {
       "date": "2026-11-09",
@@ -1582,10 +3590,6 @@
         "anthropic": {
           "tokens": 187125235,
           "costUsd": 94.92
-        },
-        "lyber": {
-          "tokens": 150277411,
-          "costUsd": 0
         },
         "nan": {
           "tokens": 319008030,
@@ -1595,7 +3599,45 @@
           "tokens": 3323294,
           "costUsd": 0.08
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 212382444,
+          "costUsd": 3.66
+        },
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 64984715,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 146943466,
+          "costUsd": 79.84
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 3323294,
+          "costUsd": 0.08
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 41640871,
+          "costUsd": 0
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 40181769,
+          "costUsd": 15.08
+        }
+      ]
     },
     {
       "date": "2026-11-10",
@@ -1603,10 +3645,6 @@
         "anthropic": {
           "tokens": 198564266,
           "costUsd": 153.04
-        },
-        "lyber": {
-          "tokens": 158685804,
-          "costUsd": 0
         },
         "nan": {
           "tokens": 513846523,
@@ -1616,7 +3654,45 @@
           "tokens": 1499508634,
           "costUsd": 15.7
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 80269827,
+          "costUsd": 0.99
+        },
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 328151162,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 105751736,
+          "costUsd": 61.1
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 1499508634,
+          "costUsd": 15.7
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 93211046,
+          "costUsd": 0
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 105027018,
+          "costUsd": 96.27
+        }
+      ]
     },
     {
       "date": "2026-11-11",
@@ -1624,10 +3700,6 @@
         "anthropic": {
           "tokens": 276267581,
           "costUsd": 137.29
-        },
-        "lyber": {
-          "tokens": 24927921,
-          "costUsd": 0
         },
         "nan": {
           "tokens": 1517913241,
@@ -1637,7 +3709,45 @@
           "tokens": 829743854,
           "costUsd": 10.59
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 1359571826,
+          "costUsd": 18.66
+        },
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 43431510,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 258909728,
+          "costUsd": 132.02
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 829743854,
+          "costUsd": 10.59
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 100523425,
+          "costUsd": 0
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 31744333,
+          "costUsd": 12.88
+        }
+      ]
     },
     {
       "date": "2026-11-12",
@@ -1645,10 +3755,6 @@
         "anthropic": {
           "tokens": 256243269,
           "costUsd": 126.76
-        },
-        "lyber": {
-          "tokens": 7883964,
-          "costUsd": 0
         },
         "nan": {
           "tokens": 1419133956,
@@ -1658,7 +3764,39 @@
           "tokens": 1150103481,
           "costUsd": 13.99
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 1404033825,
+          "costUsd": 21.5
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 207054185,
+          "costUsd": 115.68
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 1150103481,
+          "costUsd": 13.99
+        },
+        {
+          "provider": "nan",
+          "model": "mimo-v2.6-flash",
+          "tokens": 1269881,
+          "costUsd": 0
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 63019334,
+          "costUsd": 16.05
+        }
+      ]
     },
     {
       "date": "2026-11-13",
@@ -1675,7 +3813,33 @@
           "tokens": 825628694,
           "costUsd": 9.83
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 1356673581,
+          "costUsd": 17.54
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 256544104,
+          "costUsd": 134.27
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 825628694,
+          "costUsd": 9.83
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 216307870,
+          "costUsd": 54.47
+        }
+      ]
     },
     {
       "date": "2026-11-14",
@@ -1692,7 +3856,33 @@
           "tokens": 25489258,
           "costUsd": 15.09
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 246121051,
+          "costUsd": 3.19
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 32350280,
+          "costUsd": 18.25
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 25489258,
+          "costUsd": 15.09
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 3222533,
+          "costUsd": 1.71
+        }
+      ]
     },
     {
       "date": "2026-11-15",
@@ -1713,7 +3903,39 @@
           "tokens": 165635122,
           "costUsd": 91.98
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 1153498583,
+          "costUsd": 13.24
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 141547260,
+          "costUsd": 70.48
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 39781820,
+          "costUsd": 0.46
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 165635122,
+          "costUsd": 91.98
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 18266205,
+          "costUsd": 7.68
+        }
+      ]
     },
     {
       "date": "2026-11-16",
@@ -1721,10 +3943,6 @@
         "anthropic": {
           "tokens": 220177434,
           "costUsd": 116.29
-        },
-        "lyber": {
-          "tokens": 7664879,
-          "costUsd": 0
         },
         "nan": {
           "tokens": 1488965372,
@@ -1734,7 +3952,33 @@
           "tokens": 399456051,
           "costUsd": 3.8
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 1470374156,
+          "costUsd": 17.7
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 218183733,
+          "costUsd": 116.23
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 399456051,
+          "costUsd": 3.8
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 20584917,
+          "costUsd": 9.56
+        }
+      ]
     },
     {
       "date": "2026-11-17",
@@ -1755,18 +3999,46 @@
           "tokens": 28446789,
           "costUsd": 16.47
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 1261175834,
+          "costUsd": 19.16
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 269002263,
+          "costUsd": 136.03
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 499131869,
+          "costUsd": 5.44
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 28446789,
+          "costUsd": 16.47
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 149314030,
+          "costUsd": 41.89
+        }
+      ]
     },
     {
       "date": "2026-11-18",
       "providers": {
         "anthropic": {
-          "tokens": 519821707,
-          "costUsd": 226.21
-        },
-        "lyber": {
-          "tokens": 788248,
-          "costUsd": 0
+          "tokens": 607689218,
+          "costUsd": 275.43
         },
         "nan": {
           "tokens": 428054718,
@@ -1777,14 +4049,85 @@
           "costUsd": 0.38
         },
         "opencode-go": {
-          "tokens": 671540943,
-          "costUsd": 63.3
+          "tokens": 792843720,
+          "costUsd": 64.52
         },
         "xai": {
           "tokens": 247775103,
           "costUsd": 133.48
         }
-      }
+      },
+      "models": [
+        {
+          "provider": "nan",
+          "model": "deepseek-v4-flash",
+          "tokens": 160002935,
+          "costUsd": 1.87
+        },
+        {
+          "provider": "nan",
+          "model": "qwen3.6",
+          "tokens": 225764038,
+          "costUsd": 0
+        },
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 366602155,
+          "costUsd": 211.66
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 611630533,
+          "costUsd": 8.92
+        },
+        {
+          "provider": "xai",
+          "model": "grok-4.7",
+          "tokens": 247775103,
+          "costUsd": 133.48
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 467505299,
+          "costUsd": 129.76
+        }
+      ]
+    },
+    {
+      "date": "2026-11-19",
+      "providers": {
+        "anthropic": {
+          "tokens": 7078240,
+          "costUsd": 5.35
+        },
+        "opencode-go": {
+          "tokens": 12099155,
+          "costUsd": 0.38
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-opus-5-5",
+          "tokens": 6380428,
+          "costUsd": 5.06
+        },
+        {
+          "provider": "opencode-go",
+          "model": "deepseek-v4.1-flash",
+          "tokens": 12099155,
+          "costUsd": 0.38
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 697812,
+          "costUsd": 0.29
+        }
+      ]
     }
   ],
   "models": [
@@ -1805,16 +4148,16 @@
     {
       "provider": "anthropic",
       "model": "claude-opus-5-5",
-      "tokens": 6403934503,
-      "costUsd": 3433.44,
-      "lastUsed": "2026-11-18"
+      "tokens": 6467055730,
+      "costUsd": 3479.25,
+      "lastUsed": "2026-11-19"
     },
     {
       "provider": "opencode-go",
       "model": "deepseek-v4.1-flash",
-      "tokens": 5851440314,
-      "costUsd": 71.52,
-      "lastUsed": "2026-11-18"
+      "tokens": 5984842246,
+      "costUsd": 73.13,
+      "lastUsed": "2026-11-19"
     },
     {
       "provider": "xai",
@@ -1854,9 +4197,9 @@
     {
       "provider": "anthropic",
       "model": "claude-sonnet-5-5",
-      "tokens": 953757676,
-      "costUsd": 289.22,
-      "lastUsed": "2026-11-18"
+      "tokens": 985582200,
+      "costUsd": 297.97,
+      "lastUsed": "2026-11-19"
     },
     {
       "provider": "deepseek",
@@ -1885,13 +4228,6 @@
       "tokens": 351514572,
       "costUsd": 285.53,
       "lastUsed": "2026-08-21"
-    },
-    {
-      "provider": "lyber",
-      "model": "deepseek-v4.1-flash-1017-abliterated",
-      "tokens": 337627925,
-      "costUsd": 0,
-      "lastUsed": "2026-11-12"
     },
     {
       "provider": "opencode-go",
@@ -2020,13 +4356,6 @@
       "lastUsed": "2026-10-12"
     },
     {
-      "provider": "lyber",
-      "model": "kimi-k31-pro-abliterated",
-      "tokens": 12600302,
-      "costUsd": 0,
-      "lastUsed": "2026-11-18"
-    },
-    {
       "provider": "openai",
       "model": "gpt-6-luna",
       "tokens": 10267964,
@@ -2128,9 +4457,7 @@
   "quotas": [],
   "unpricedModels": [
     "claude-opus-4-5-20251101/claude-opus-5",
-    "deepseek-v4.1-flash-1017-abliterated",
     "glm-5.3-flash",
-    "kimi-k31-pro-abliterated",
     "mimo-v2.5",
     "mimo-v2.6-flash",
     "mimo-v2.6-flash-free",

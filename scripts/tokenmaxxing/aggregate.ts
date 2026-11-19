@@ -1,4 +1,5 @@
 import type { Database } from "bun:sqlite";
+import { EXCLUDED_PROVIDERS, isExcludedProvider } from "./config";
 import { cacheSavingsOf, costOf, findPrice, type ModelPrice, type PriceTable } from "./pricing";
 import type { QuotaProvider, TokenmaxxingDay, TokenmaxxingModel, TokenmaxxingOutput } from "./sanitize";
 import { toUsageDate } from "./time";
@@ -19,6 +20,9 @@ export interface UsageRow {
 
 const WINDOW_DAYS = 365;
 
+/** Models kept per day; everything else is folded into a single "other" row. */
+export const TOP_MODELS_PER_DAY = 8;
+
 function round(value: number): number {
   return Math.round(value * 100) / 100;
 }
@@ -32,13 +36,15 @@ function shiftDate(date: string, days: number): string {
 /** Reads the window's ledger rows (local usage day, newest last). */
 export function readUsageRows(db: Database, today: string = toUsageDate(new Date())): UsageRow[] {
   const from = shiftDate(today, -(WINDOW_DAYS - 1));
+  const placeholders = EXCLUDED_PROVIDERS.map(() => "?").join(",");
+  const notIn = placeholders ? ` AND provider NOT IN (${placeholders})` : "";
   const rows = db
     .prepare(
       `SELECT agent, provider, model, session_id, input_tokens, cache_read_tokens,
               cache_write_tokens, output_tokens, reported_cost_usd, occurred_at, usage_date
-       FROM usage WHERE usage_date >= ? AND usage_date <= ? ORDER BY usage_date`,
+       FROM usage WHERE usage_date >= ? AND usage_date <= ?${notIn} ORDER BY usage_date`,
     )
-    .all(from, today) as {
+    .all(from, today, ...EXCLUDED_PROVIDERS) as {
     agent: string;
     provider: string;
     model: string;
@@ -83,14 +89,27 @@ interface ModelAccumulator {
   lastUsed: string;
 }
 
+interface DayModelAccumulator {
+  provider: string;
+  model: string;
+  tokens: number;
+  costUsd: number;
+}
+
+function modelKey(provider: string, model: string): string {
+  return `${provider}\u0000${model}`;
+}
+
 /**
  * Builds the public aggregate. Reported costs win; everything else is priced
- * through LiteLLM or listed as unpriced (never invented).
+ * through LiteLLM or listed as unpriced (never invented). Excluded providers
+ * are dropped before any accumulator sees them.
  */
 export function aggregate(options: AggregateOptions): TokenmaxxingOutput {
   const { rows, prices, quotas, generatedAt, timezone } = options;
 
   const days = new Map<string, Map<string, { tokens: number; costUsd: number }>>();
+  const dayModels = new Map<string, Map<string, DayModelAccumulator>>();
   const models = new Map<string, ModelAccumulator>();
   const unpriced = new Set<string>();
   const sessions = new Set<string>();
@@ -100,8 +119,9 @@ export function aggregate(options: AggregateOptions): TokenmaxxingOutput {
   let cacheSavingsUsd = 0;
 
   for (const row of rows) {
-    const tokens =
-      row.inputTokens + row.cacheReadTokens + row.cacheWriteTokens + row.outputTokens;
+    if (isExcludedProvider(row.provider)) continue;
+
+    const tokens = row.inputTokens + row.cacheReadTokens + row.cacheWriteTokens + row.outputTokens;
     if (tokens <= 0) continue;
 
     const buckets = {
@@ -135,8 +155,8 @@ export function aggregate(options: AggregateOptions): TokenmaxxingOutput {
     dayProviders.set(row.provider, dayEntry);
     days.set(row.usageDate, dayProviders);
 
-    const modelKey = `${row.provider}\u0000${row.model}`;
-    const modelEntry = models.get(modelKey) ?? {
+    const key = modelKey(row.provider, row.model);
+    const modelEntry = models.get(key) ?? {
       provider: row.provider,
       model: row.model,
       tokens: 0,
@@ -146,28 +166,66 @@ export function aggregate(options: AggregateOptions): TokenmaxxingOutput {
     modelEntry.tokens += tokens;
     modelEntry.costUsd += cost;
     if (row.usageDate > modelEntry.lastUsed) modelEntry.lastUsed = row.usageDate;
-    models.set(modelKey, modelEntry);
+    models.set(key, modelEntry);
+
+    const modelsOfDay = dayModels.get(row.usageDate) ?? new Map<string, DayModelAccumulator>();
+    const dayModel = modelsOfDay.get(key) ?? { provider: row.provider, model: row.model, tokens: 0, costUsd: 0 };
+    dayModel.tokens += tokens;
+    dayModel.costUsd += cost;
+    modelsOfDay.set(key, dayModel);
+    dayModels.set(row.usageDate, modelsOfDay);
   }
+
+  const rankedModels = [...models.entries()].sort((a, b) => b[1].tokens - a[1].tokens);
+  const topModelKeys = rankedModels.slice(0, TOP_MODELS_PER_DAY).map(([key]) => key);
+  const topModelSet = new Set(topModelKeys);
 
   const outputDays: TokenmaxxingDay[] = [...days.entries()]
     .sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0))
     .map(([date, providers]) => {
-      const entries: Record<string, { tokens: number; costUsd: number }> = {};
+      const providerEntries: Record<string, { tokens: number; costUsd: number }> = {};
       for (const [provider, value] of [...providers.entries()].sort(([a], [b]) => (a < b ? -1 : 1))) {
-        entries[provider] = { tokens: value.tokens, costUsd: round(value.costUsd) };
+        providerEntries[provider] = { tokens: value.tokens, costUsd: round(value.costUsd) };
       }
-      return { date, providers: entries };
+
+      const perModel = dayModels.get(date) ?? new Map<string, DayModelAccumulator>();
+      const other = { provider: "other", model: "other", tokens: 0, costUsd: 0 };
+      for (const [key, entry] of perModel) {
+        if (topModelSet.has(key)) continue;
+        other.tokens += entry.tokens;
+        other.costUsd += entry.costUsd;
+      }
+
+      const modelEntries: TokenmaxxingDay["models"] = [];
+      for (const key of topModelKeys) {
+        const entry = perModel.get(key);
+        if (!entry || entry.tokens <= 0) continue;
+        modelEntries.push({
+          provider: entry.provider,
+          model: entry.model,
+          tokens: entry.tokens,
+          costUsd: round(entry.costUsd),
+        });
+      }
+      if (other.tokens > 0) {
+        modelEntries.push({
+          provider: other.provider,
+          model: other.model,
+          tokens: other.tokens,
+          costUsd: round(other.costUsd),
+        });
+      }
+
+      return { date, providers: providerEntries, models: modelEntries };
     });
 
-  const outputModels: TokenmaxxingModel[] = [...models.values()]
-    .sort((a, b) => b.tokens - a.tokens)
-    .map((entry) => ({
-      provider: entry.provider,
-      model: entry.model,
-      tokens: entry.tokens,
-      costUsd: round(entry.costUsd),
-      lastUsed: entry.lastUsed,
-    }));
+  const outputModels: TokenmaxxingModel[] = rankedModels.map(([, entry]) => ({
+    provider: entry.provider,
+    model: entry.model,
+    tokens: entry.tokens,
+    costUsd: round(entry.costUsd),
+    lastUsed: entry.lastUsed,
+  }));
 
   return {
     generatedAt,

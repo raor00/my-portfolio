@@ -28,9 +28,18 @@ export interface TokenmaxxingModel {
   lastUsed: string;
 }
 
+export interface TokenmaxxingDayModel {
+  provider: string;
+  model: string;
+  tokens: number;
+  costUsd: number;
+}
+
 export interface TokenmaxxingDay {
   date: string;
   providers: Record<string, { tokens: number; costUsd: number }>;
+  /** Top models for the whole window, plus a single "other" bucket. */
+  models: TokenmaxxingDayModel[];
 }
 
 export interface TokenmaxxingTotals {
@@ -61,8 +70,9 @@ export const OUTPUT_KEYS = [
 ] as const;
 
 export const TOTALS_KEYS = ["processedTokens", "costUsd", "cacheSavingsUsd", "sessions"] as const;
-export const DAY_KEYS = ["date", "providers"] as const;
+export const DAY_KEYS = ["date", "providers", "models"] as const;
 export const DAY_PROVIDER_KEYS = ["tokens", "costUsd"] as const;
+export const DAY_MODEL_KEYS = ["provider", "model", "tokens", "costUsd"] as const;
 export const MODEL_KEYS = ["provider", "model", "tokens", "costUsd", "lastUsed"] as const;
 export const QUOTA_KEYS = ["id", "plan", "status", "windows", "error"] as const;
 export const QUOTA_WINDOW_KEYS = ["label", "usedPercent", "resetsAt", "windowSeconds"] as const;
@@ -132,6 +142,27 @@ export function validateOutput(value: unknown): string[] {
         }
         if (typeof entry.tokens !== "number" || typeof entry.costUsd !== "number") {
           violations.push(`bad day provider numbers for ${provider}`);
+        }
+      }
+
+      const dayModels = day.models;
+      if (!Array.isArray(dayModels)) {
+        violations.push("day.models is not an array");
+        continue;
+      }
+      for (const dayModel of dayModels) {
+        if (!isRecord(dayModel) || !keysAre(dayModel, DAY_MODEL_KEYS)) {
+          violations.push("day model keys mismatch");
+          continue;
+        }
+        if (typeof dayModel.provider !== "string" || !isSafeId(dayModel.provider)) {
+          violations.push(`unsafe day model provider: ${String(dayModel.provider)}`);
+        }
+        if (typeof dayModel.model !== "string" || !isSafeId(dayModel.model)) {
+          violations.push(`unsafe day model id: ${String(dayModel.model)}`);
+        }
+        if (typeof dayModel.tokens !== "number" || typeof dayModel.costUsd !== "number") {
+          violations.push("bad day model numbers");
         }
       }
     }
