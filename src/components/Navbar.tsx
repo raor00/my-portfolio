@@ -19,6 +19,7 @@ export default function Navbar() {
     { href: "/",          label: t.nav.home },
     { href: "/proyectos", label: t.nav.projects },
     { href: "/sobre-mi",  label: t.nav.about },
+    { href: "/tokenmaxxing", label: t.nav.tokenmaxxing },
     { href: "/contacto",  label: t.nav.contact },
   ];
 

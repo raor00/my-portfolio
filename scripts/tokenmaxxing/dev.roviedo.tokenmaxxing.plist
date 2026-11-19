@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+  launchd template for the daily tokenmaxxing refresh (09:00 local time).
+
+  This file is a TEMPLATE and is intentionally not a user agent. To enable it
+  the owner must, at their own discretion:
+
+    cp scripts/tokenmaxxing/dev.roviedo.tokenmaxxing.plist ~/Library/LaunchAgents/
+    launchctl load ~/Library/LaunchAgents/dev.roviedo.tokenmaxxing.plist
+
+  The job runs scripts/tokenmaxxing/daily.sh, which appends output to
+  ~/.local/share/tokenmaxxing/daily.log and never commits, pushes or deploys.
+-->
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>dev.roviedo.tokenmaxxing</string>
+
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/bash</string>
+    <string>/Users/oviedo/orca/workspaces/my-portfolio/tokenmaxxing/scripts/tokenmaxxing/daily.sh</string>
+  </array>
+
+  <key>StartCalendarInterval</key>
+  <dict>
+    <key>Hour</key>
+    <integer>9</integer>
+    <key>Minute</key>
+    <integer>0</integer>
+  </dict>
+
+  <key>WorkingDirectory</key>
+  <string>/Users/oviedo/orca/workspaces/my-portfolio/tokenmaxxing</string>
+
+  <key>StandardOutPath</key>
+  <string>/Users/oviedo/.local/share/tokenmaxxing/daily.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/oviedo/.local/share/tokenmaxxing/daily.log</string>
+
+  <key>EnvironmentVariables</key>
+  <dict>
+    <key>PATH</key>
+    <string>/Users/oviedo/.bun/bin:/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+    <key>PNPM_CONFIG_VERIFY_DEPS_BEFORE_RUN</key>
+    <string>false</string>
+  </dict>
+
+  <key>RunAtLoad</key>
+  <false/>
+  <key>LowPriorityIO</key>
+  <true/>
+</dict>
+</plist>
