@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { personalInfo, experience, skills, achievements } from "@/config/data";
 import { useLanguage } from "@/i18n/LanguageContext";
@@ -93,13 +94,26 @@ export default function SobreMiPage() {
             <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
               {[
                 { icon: "◎", label: personalInfo.location },
-              ].map((item) => (
-                <div key={item.label} className="flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg"
-                  style={{ background: "rgba(255,255,255,0.75)", border: "1px solid rgba(0,0,0,0.08)", color: "rgba(0,0,0,0.5)", fontFamily: "var(--font-mono-display), monospace" }}>
-                  <span style={{ color: "#d97706" }}>{item.icon}</span>
-                  {item.label}
-                </div>
-              ))}
+                { icon: "@", label: personalInfo.email, href: `mailto:${personalInfo.email}` },
+              ].map((item) => {
+                const chipClass = "flex items-center gap-2 text-xs px-3 py-1.5 rounded-lg";
+                const chipStyle = { background: "rgba(255,255,255,0.75)", border: "1px solid rgba(0,0,0,0.08)", color: "rgba(0,0,0,0.5)", fontFamily: "var(--font-mono-display), monospace" } as const;
+                const inner = (
+                  <>
+                    <span style={{ color: "#d97706" }}>{item.icon}</span>
+                    {item.label}
+                  </>
+                );
+                return item.href ? (
+                  <a key={item.label} href={item.href} className={chipClass} style={chipStyle}>
+                    {inner}
+                  </a>
+                ) : (
+                  <div key={item.label} className={chipClass} style={chipStyle}>
+                    {inner}
+                  </div>
+                );
+              })}
             </motion.div>
             <motion.div variants={fadeUp} className="flex gap-3 pt-1">
               {[
@@ -263,6 +277,33 @@ export default function SobreMiPage() {
             ))}
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-60px" }}
+          className="mt-16 sm:mt-20 p-6 sm:p-8 rounded-3xl text-center"
+          style={{
+            background: "rgba(255,255,255,0.75)",
+            border: "1px solid rgba(0,0,0,0.08)",
+            backdropFilter: "blur(12px)",
+          }}
+        >
+          <p className="tech-label">{t.cta.label}</p>
+          <h2
+            className="text-2xl md:text-3xl font-bold mt-2 mb-3"
+            style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
+          >
+            {t.cta.title}{" "}
+            <span style={{ color: "#d97706" }}>{t.cta.highlight}</span>
+          </h2>
+          <p className="text-sm mb-6 max-w-md mx-auto" style={{ color: "rgba(0,0,0,0.5)" }}>
+            {t.cta.description}
+          </p>
+          <Link href="/contacto" className="glass-btn-amber inline-flex items-center px-6 py-3 rounded-xl text-sm text-white">
+            {t.cta.button}
+          </Link>
+        </motion.div>
 
       </div>
     </div>

@@ -447,6 +447,78 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══ PROCESS ═══ */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 border-t" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
+        <div className="max-w-6xl mx-auto">
+          <SectionHeading label={t.process.label} title={t.process.title} />
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4"
+          >
+            {t.process.steps.map((step) => (
+              <motion.div
+                key={step.n}
+                variants={fadeScale}
+                className="p-5 rounded-2xl"
+                style={{
+                  background: "rgba(255,255,255,0.75)",
+                  border: "1px solid rgba(0,0,0,0.07)",
+                  backdropFilter: "blur(8px)",
+                }}
+              >
+                <span className="tech-label" style={{ color: "#b45309" }}>{step.n}</span>
+                <h3
+                  className="font-bold text-sm mt-2 mb-2"
+                  style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
+                >
+                  {step.title}
+                </h3>
+                <p className="text-xs leading-relaxed" style={{ color: "rgba(0,0,0,0.48)" }}>
+                  {step.desc}
+                </p>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══ FAQ ═══ */}
+      <section className="py-16 sm:py-24 px-4 sm:px-6 border-t" style={{ borderColor: "rgba(0,0,0,0.06)" }}>
+        <div className="max-w-6xl mx-auto">
+          <SectionHeading label={t.faq.label} title={t.faq.title} />
+          <div className="grid md:grid-cols-2 gap-4">
+            {t.faq.items.map((item, i) => (
+              <motion.article
+                key={item.q}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.45, delay: i * 0.06 }}
+                className="p-5 sm:p-6 rounded-2xl"
+                style={{
+                  background: "rgba(255,255,255,0.75)",
+                  border: "1px solid rgba(0,0,0,0.07)",
+                  backdropFilter: "blur(8px)",
+                }}
+              >
+                <h3
+                  className="text-sm font-bold mb-2"
+                  style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
+                >
+                  {item.q}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: "rgba(0,0,0,0.52)" }}>
+                  {item.a}
+                </p>
+              </motion.article>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ═══ CTA ═══ */}
       <section className="py-16 sm:py-24 px-4 sm:px-6">
         <div className="max-w-4xl mx-auto">
