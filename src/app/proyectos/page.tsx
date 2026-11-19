@@ -112,7 +112,7 @@ export default function ProyectosPage() {
               fontFamily: "var(--font-mono-display), monospace",
               background: activeTag === null ? "rgba(217,119,6,0.12)" : "rgba(0,0,0,0.04)",
               border: activeTag === null ? "1px solid rgba(217,119,6,0.3)" : "1px solid rgba(0,0,0,0.08)",
-              color: activeTag === null ? "#b45309" : "rgba(0,0,0,0.45)",
+              color: activeTag === null ? "#b45309" : "var(--ink-muted)",
             }}
           >
             {t.projects.filterAll} [{projects.length}]
@@ -128,7 +128,7 @@ export default function ProyectosPage() {
                 fontFamily: "var(--font-mono-display), monospace",
                 background: activeTag === tag ? "rgba(217,119,6,0.12)" : "rgba(0,0,0,0.04)",
                 border: activeTag === tag ? "1px solid rgba(217,119,6,0.3)" : "1px solid rgba(0,0,0,0.08)",
-                color: activeTag === tag ? "#b45309" : "rgba(0,0,0,0.45)",
+                color: activeTag === tag ? "#b45309" : "var(--ink-muted)",
               }}
             >
               {tag}
@@ -163,7 +163,7 @@ export default function ProyectosPage() {
             </h2>
             <span className="tech-label">[{filteredFeatured.length}]</span>
           </div>
-          <p className="text-sm mb-4" style={{ color: "rgba(0,0,0,0.48)" }}>
+          <p className="text-sm mb-4" style={{ color: "var(--ink-muted)" }}>
             {t.projects.featuredDescription}
           </p>
           <AnimatePresence mode="wait">
@@ -198,7 +198,7 @@ export default function ProyectosPage() {
             </h2>
             <span className="tech-label">[{filteredSecondary.length}]</span>
           </div>
-          <p className="text-sm mb-4" style={{ color: "rgba(0,0,0,0.48)" }}>
+          <p className="text-sm mb-4" style={{ color: "var(--ink-muted)" }}>
             {t.projects.secondaryDescription}
           </p>
           <AnimatePresence mode="wait">

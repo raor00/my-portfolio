@@ -14,6 +14,15 @@ Rafael Oviedo (roviedo.dev) is a software engineer who designs and ships custom 
 - AI agents and automation (Claude API, Codex, operational bots)
 - Meta Ads / performance marketing (budgets up to $3,000/month)
 
+## Achievements
+
+- Dev3pack Global Hackathon 2026: #1 Venezuela, Top 9 LATAM, #28 of 386 projects (Tropico Wallet).
+- Platanus · Anthropic Hackathon 2026: Llave, rental marketplace with an AI agent on Claude API.
+- GitHub Copilot Dev Days: winner of GitHub's first competitive prompt engineering event.
+- University thesis: 5-level RBAC ticketing platform, in daily production use.
+- Commerce and operations platform processing over USD 800,000 per month (client under confidentiality).
+- Managed Meta Ads budgets up to USD 3,000 per month per client.
+
 ## Proof
 
 - Tropico Wallet — Solana USDC ↔ Venezuelan Pago Móvil rail with AI agent. #1 Venezuela, Top 9 LATAM, #28 global at Dev3pack 2026.
@@ -23,6 +32,16 @@ Rafael Oviedo (roviedo.dev) is a software engineer who designs and ships custom 
 - Churupitos — live personal-finance PWA for Venezuela (USD / Bs / USDT) at app.churupitos.com.
 - Invictus ERP and iPhone-store ERPs — inventory, sales, invoicing in production.
 - Meta Ads operator for tech, repair, and retail clients.
+
+## Enterprise platforms
+
+- COP'S Platform: ticketing and operations platform with 5-level RBAC, in production (named case).
+- Commerce and operations platform: catalog, orders, multi-location inventory, invoicing and RBAC; processes over USD 800,000 per month. Client under confidentiality: no name, no URL, no screenshots.
+- Confidential enterprise platform under NDA: operational workflows, role-based permissions, change auditing and dashboards. Scope only.
+
+## Public code
+
+- GitHub: https://github.com/raor00 — 9 public repositories, mostly TypeScript, on GitHub since 2023. Client work lives in private repositories.
 
 ## How to start a project
 

@@ -136,7 +136,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               style={{
                 background: "rgba(255,255,255,0.7)",
                 border: "1px solid rgba(0,0,0,0.1)",
-                color: "rgba(0,0,0,0.55)",
+                color: "var(--ink-soft)",
                 fontFamily: "var(--font-mono-display), monospace",
               }}
             >
@@ -188,25 +188,25 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           {project.title}
         </h3>
 
-        <p className="text-sm leading-relaxed mb-3" style={{ color: "rgba(0,0,0,0.52)" }}>
+        <p className="text-sm leading-relaxed mb-3" style={{ color: "var(--ink-soft)" }}>
           {subtitle}
         </p>
 
         <div className="space-y-2 mb-4">
-          <p className="text-xs" style={{ color: "rgba(0,0,0,0.46)" }}>
+          <p className="text-xs" style={{ color: "var(--ink-muted)" }}>
             <strong style={{ color: "#0a0a0f" }}>{t.card.role}:</strong> {role}
           </p>
-          <p className="text-xs leading-relaxed" style={{ color: "rgba(0,0,0,0.46)" }}>
+          <p className="text-xs leading-relaxed" style={{ color: "var(--ink-muted)" }}>
             <strong style={{ color: "#0a0a0f" }}>{t.card.impact}:</strong> {impact}
           </p>
           {resultHighlight && (
-            <p className="text-xs leading-relaxed" style={{ color: "rgba(0,0,0,0.46)" }}>
+            <p className="text-xs leading-relaxed" style={{ color: "var(--ink-muted)" }}>
               <strong style={{ color: "#0a0a0f" }}>{t.card.result}:</strong> {resultHighlight}
             </p>
           )}
         </div>
 
-        <p className="text-xs leading-relaxed flex-1 mb-4" style={{ color: "rgba(0,0,0,0.42)" }}>
+        <p className="text-xs leading-relaxed flex-1 mb-4" style={{ color: "var(--ink-muted)" }}>
           {isEn ? project.descriptionEn : project.description}
         </p>
 
@@ -314,7 +314,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
               style={{
                 background: "rgba(0,0,0,0.04)",
                 border: "1px solid rgba(0,0,0,0.09)",
-                color: "rgba(0,0,0,0.55)",
+                color: "var(--ink-soft)",
                 fontFamily: "var(--font-mono-display), monospace",
               }}
             >

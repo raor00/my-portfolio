@@ -233,7 +233,7 @@ function ContactoContent() {
                     fontFamily: "var(--font-mono-display), monospace",
                     background: "rgba(0,0,0,0.04)",
                     border: "1px solid rgba(0,0,0,0.08)",
-                    color: "rgba(0,0,0,0.55)",
+                    color: "var(--ink-soft)",
                   }}
                 >
                   {t.contact.writeDirectly}
@@ -363,7 +363,7 @@ function ContactoContent() {
                 >
                   {t.contact.successTitle}
                 </h3>
-                <p className="mb-6 text-sm" style={{ color: "rgba(0,0,0,0.45)" }}>{t.contact.successDesc}</p>
+                <p className="mb-6 text-sm" style={{ color: "var(--ink-muted)" }}>{t.contact.successDesc}</p>
                 <button
                   onClick={() => setStatus("idle")}
                   className="text-xs transition-colors hover:opacity-70"
@@ -398,7 +398,7 @@ function ContactoContent() {
                   <label
                     htmlFor="nombre"
                     className="block mb-2 text-xs"
-                    style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.45)", letterSpacing: "0.1em" }}
+                    style={{ fontFamily: "var(--font-mono-display), monospace", color: "var(--ink-muted)", letterSpacing: "0.1em" }}
                   >
                     {t.contact.nameLabel} <span style={{ color: "#d97706" }}>*</span>
                   </label>
@@ -421,7 +421,7 @@ function ContactoContent() {
                   <label
                     htmlFor="email"
                     className="block mb-2 text-xs"
-                    style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.45)", letterSpacing: "0.1em" }}
+                    style={{ fontFamily: "var(--font-mono-display), monospace", color: "var(--ink-muted)", letterSpacing: "0.1em" }}
                   >
                     {t.contact.emailLabel} <span style={{ color: "#d97706" }}>*</span>
                   </label>
@@ -445,7 +445,7 @@ function ContactoContent() {
                     <label
                       htmlFor="servicio"
                       className="block mb-2 text-xs"
-                      style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.45)", letterSpacing: "0.1em" }}
+                      style={{ fontFamily: "var(--font-mono-display), monospace", color: "var(--ink-muted)", letterSpacing: "0.1em" }}
                     >
                       {t.contact.serviceLabel}
                     </label>
@@ -466,7 +466,7 @@ function ContactoContent() {
                     <label
                       htmlFor="empresa"
                       className="block mb-2 text-xs"
-                      style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.45)", letterSpacing: "0.1em" }}
+                      style={{ fontFamily: "var(--font-mono-display), monospace", color: "var(--ink-muted)", letterSpacing: "0.1em" }}
                     >
                       {t.contact.companyLabel}
                     </label>
@@ -485,7 +485,7 @@ function ContactoContent() {
                   <label
                     htmlFor="mensaje"
                     className="block mb-2 text-xs"
-                    style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.45)", letterSpacing: "0.1em" }}
+                    style={{ fontFamily: "var(--font-mono-display), monospace", color: "var(--ink-muted)", letterSpacing: "0.1em" }}
                   >
                     {t.contact.messageLabel} <span style={{ color: "#d97706" }}>*</span>
                   </label>

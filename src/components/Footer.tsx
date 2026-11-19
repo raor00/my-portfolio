@@ -18,7 +18,7 @@ export default function Footer() {
             className="text-base font-bold"
             style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
           >
-            ovi<span style={{ color: "#d97706" }}>.</span>dev
+            roviedo<span style={{ color: "#d97706" }}>.</span>dev
           </Link>
 
           <div className="order-last sm:order-none text-center">

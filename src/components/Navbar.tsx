@@ -91,7 +91,7 @@ export default function Navbar() {
               className="text-sm font-bold tracking-tight mr-4 px-2 py-1"
               style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
             >
-              ovi<span style={{ color: "#d97706" }}>.</span>dev
+              roviedo<span style={{ color: "#d97706" }}>.</span>dev
             </Link>
 
 
@@ -158,7 +158,7 @@ export default function Navbar() {
               className="text-sm font-bold"
               style={{ fontFamily: "var(--font-mono-display), monospace", color: "#0a0a0f" }}
             >
-              ovi<span style={{ color: "#d97706" }}>.</span>dev
+              roviedo<span style={{ color: "#d97706" }}>.</span>dev
             </Link>
 
             <div className="flex items-center gap-2">

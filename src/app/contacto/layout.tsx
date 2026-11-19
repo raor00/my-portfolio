@@ -3,7 +3,7 @@ import { SITE, SITE_URL, CONTACT_EMAIL } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contacto — hablemos de tu proyecto",
-  description: `¿Tienes una página web, un SaaS o un sistema a medida en mente? Escríbeme a ${CONTACT_EMAIL}. Respondo en menos de 24 horas.`,
+  description: `Contratá a Rafael Oviedo para una página web, un SaaS o un sistema a medida. Formulario con tipo de proyecto o correo directo a ${CONTACT_EMAIL}. Respuesta en menos de 24 horas.`,
   alternates: { canonical: `${SITE_URL}/contacto` },
   openGraph: {
     title: "Hablemos de tu proyecto — Rafael Oviedo",

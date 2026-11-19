@@ -89,7 +89,7 @@ export default function SobreMiPage() {
                 {t.about.bioTitle}
               </p>
             </motion.div>
-            <motion.p variants={fadeUp} className="leading-relaxed" style={{ color: "rgba(0,0,0,0.55)" }}>
+            <motion.p variants={fadeUp} className="leading-relaxed" style={{ color: "var(--ink-soft)" }}>
               {bio}
             </motion.p>
             <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
@@ -124,7 +124,7 @@ export default function SobreMiPage() {
               ].map((s) => (
                 <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer"
                   className="flex items-center gap-2 text-xs font-medium px-4 py-2 rounded-lg transition-all hover:scale-[1.02]"
-                  style={{ background: "rgba(255,255,255,0.75)", border: "1px solid rgba(0,0,0,0.09)", color: "rgba(0,0,0,0.55)", fontFamily: "var(--font-mono-display), monospace" }}>
+                  style={{ background: "rgba(255,255,255,0.75)", border: "1px solid rgba(0,0,0,0.09)", color: "var(--ink-soft)", fontFamily: "var(--font-mono-display), monospace" }}>
                   {s.icon}{s.label}
                 </a>
               ))}
@@ -214,13 +214,21 @@ export default function SobreMiPage() {
                         </p>
                       </div>
                       <span className="text-[10px] px-2.5 py-1 rounded-lg"
-                        style={{ fontFamily: "var(--font-mono-display), monospace", background: "rgba(0,0,0,0.04)", border: "1px solid rgba(0,0,0,0.07)", color: "rgba(0,0,0,0.35)", letterSpacing: "0.08em" }}>
+                        style={{ fontFamily: "var(--font-mono-display), monospace", background: "rgba(0,0,0,0.04)", border: "1px solid rgba(0,0,0,0.07)", color: "var(--ink-muted)", letterSpacing: "0.08em" }}>
                         {exp.period}
                       </span>
                     </div>
-                    <p className="text-sm leading-relaxed mb-3" style={{ color: "rgba(0,0,0,0.5)" }}>
-                      {lang === "en" ? exp.descriptionEn : exp.description}
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--ink-muted)" }}>
+                      {lang === "en" ? exp.summaryEn : exp.summary}
                     </p>
+                    <ul className="mt-3 mb-3 space-y-1.5">
+                      {(lang === "en" ? exp.impactsEn : exp.impacts).map((impact) => (
+                        <li key={impact} className="flex gap-2 text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
+                          <span aria-hidden="true" className="mt-[7px] w-1 h-1 rounded-full shrink-0" style={{ background: "#d97706" }} />
+                          <span>{impact}</span>
+                        </li>
+                      ))}
+                    </ul>
                     <div className="flex flex-wrap gap-1.5">
                       {exp.technologies.map((tech) => (
                         <span key={tech} className="text-[11px] px-2 py-0.5 rounded-md"
@@ -274,6 +282,34 @@ export default function SobreMiPage() {
                     </div>
                   ))}
                 </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
+
+        {/* Preguntas frecuentes (respuesta primero, para buscadores y asistentes) */}
+        <div className="mt-20 sm:mt-24">
+          <motion.div variants={stagger} initial="hidden" whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }} className="mb-10 sm:mb-12">
+            <motion.span variants={fadeUp} className="tech-label">{t.about.faqLabel}</motion.span>
+            <motion.h2 variants={fadeUp} className="text-2xl md:text-3xl font-bold mt-1"
+              style={{ fontFamily: "var(--font-mono-display), monospace", color: "var(--ink)" }}>
+              {t.about.faqTitle}
+            </motion.h2>
+            <motion.div variants={lineReveal} className="mt-3 h-px w-16"
+              style={{ background: "linear-gradient(90deg, #d97706, transparent)" }} />
+            <motion.p variants={fadeUp} className="mt-4 text-sm max-w-xl" style={{ color: "var(--ink-muted)" }}>
+              {t.about.faqSubtitle}
+            </motion.p>
+          </motion.div>
+
+          <motion.div variants={stagger} initial="hidden" whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }} className="space-y-3">
+            {t.about.faq.map((item) => (
+              <motion.div key={item.q} variants={fadeScale} className="p-5 rounded-2xl"
+                style={{ background: "var(--surface-soft)", border: "1px solid var(--hairline)" }}>
+                <h3 className="text-sm font-bold" style={{ color: "var(--ink)" }}>{item.q}</h3>
+                <p className="mt-1.5 text-sm leading-relaxed" style={{ color: "var(--ink-muted)" }}>{item.a}</p>
               </motion.div>
             ))}
           </motion.div>
