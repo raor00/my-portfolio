@@ -4,3 +4,7 @@ node_modules
 .env.local
 .env*.local
 out
+.DS_Store
+src/.DS_Store
+0
+tsconfig.tsbuildinfo

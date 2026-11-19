@@ -1,69 +1,65 @@
-# ovi.dev — Rafael Oviedo's Portfolio
+# roviedo.dev — Rafael Oviedo's Portfolio
 
-Personal portfolio for **Rafael Oviedo** — Full Stack Developer · AI Agent Engineer · Meta Ads Specialist.
+Portfolio de **Rafael Oviedo** — Full Stack Developer · AI Agent Engineer · Meta Ads.
 
-**Live:** [ovi.dev](https://my-portfolio-raor00.vercel.app) &nbsp;|&nbsp; **Contact:** [rafa.oviedo2000@gmail.com](mailto:rafa.oviedo2000@gmail.com)
+**Live:** [roviedo.dev](https://roviedo.dev) &nbsp;|&nbsp; **Contacto:** [devraor00@gmail.com](mailto:devraor00@gmail.com)
 
 ---
 
-## Featured Projects
+## Proyectos destacados
 
-| Project | Description | Stack | Status |
+| Proyecto | Descripción | Stack | Estado |
 |---------|-------------|-------|--------|
-| 🏆 [Tropico Wallet](https://tropico.vercel.app) | Solana wallet with AI Agent — **#1 Venezuela · #28 Global** · Dev3pack 2026 (386 projects) | Solana · Anchor · Claude API · Next.js | Live |
-| 🤖 [Llave](https://github.com/raor00/llave) | AI Agent marketplace — Platanus · Anthropic Hackathon 2026 | Claude API · Next.js · TypeScript | Private |
-| ⚙️ [COPS Platform](https://github.com/raor00/cops-platform) | Internal ERP + ticketing system for COP'S Electronics — thesis in production | Next.js · Supabase · TypeScript · Hikvision | Live |
-| 📱 [ERP iPhone Store](https://github.com/raor00/v0-ip-hone-store-erp) | Full inventory + sales ERP for iPhone repair shop | Next.js · Supabase · PostgreSQL | Live |
-| 💱 [TasaVE / dolarYA](https://github.com/raor00/TasaVE) | Real-time USD/VES exchange rate tracker for Venezuela | Next.js · TypeScript | Live |
-| 🛍️ [Heavenly Store](https://github.com/raor00/heavenly-store) | E-commerce platform | Next.js · Tailwind | Live |
-| 💪 [Invictus Catálogo](https://github.com/raor00/invictus) | Digital product catalog for gym supplements brand | Next.js · TypeScript | Live |
+| 🏆 [Tropico Wallet](https://tropico.vercel.app) | Wallet Solana USDC ↔ Pago Móvil VE + agente IA — **#1 Venezuela · #28 Global** · Dev3pack 2026 | Solana · Anchor · Next.js | Live |
+| 🤖 [Llave](https://github.com/raor00/llave) | Marketplace de alquiler con agente IA — Platanus · Anthropic 2026 | Claude API · Next.js | Hackathon |
+| ⚙️ [COPS Platform](https://github.com/raor00/cops-platform) | Tickets y operación de soporte — tesis en producción | Next.js · Supabase | En uso |
+| 📱 [iParts Platform](https://app.ipartsve.com) | ERP de taller: lote → taller → QA → venta → garantía | Next.js · NestJS · Prisma · PostgreSQL | Live |
+| 🏬 [Invictus ERP](https://github.com/raor00/invictus-erp) | ERP de tienda en tiempo real | Next.js · Convex | Privado |
+| 💸 [Churupitos](https://app.churupitos.com) | Finanzas personales para Venezuela (USD / Bs / USDT) | React · NestJS · PWA | Live |
 
 ---
 
 ## Stack
 
-**Frontend:** Next.js 15 · React 19 · TypeScript · Tailwind CSS v4 · Framer Motion  
-**Backend:** Node.js · Supabase · PostgreSQL · REST APIs  
+**Frontend:** Next.js · React · TypeScript · Tailwind CSS v4 · Framer Motion  
+**Backend:** Node.js · NestJS · Supabase · PostgreSQL · Prisma  
 **Blockchain:** Solana · Anchor · Jupiter v6 · Privy MPC  
-**AI:** Claude API · Gemini API · AI Agent development · Prompt Engineering  
-**Marketing:** Meta Ads · Google Ads · Meta Pixel · GA4  
-**Tools:** GitHub · Vercel · VS Code · pnpm
+**AI:** Claude API · Codex · agentes IA · prompt engineering  
+**Marketing:** Meta Ads · Meta Pixel · GA4  
 
 ---
 
-## Tech Stack (this portfolio)
+## Este sitio
 
 ```
 Next.js 15 (App Router) + TypeScript
 Tailwind CSS v4 (@import "tailwindcss")
-Framer Motion (whileInView, layoutId, spring)
+Framer Motion
 IBM Plex Mono + Inter
-i18n: ES/EN with navigator.language autodetect
+i18n ES/EN
+Contacto: POST /api/contact → devraor00@gmail.com
+SEO: sitemap, robots, JSON-LD, Open Graph, llms.txt
 Deploy: Vercel (raor00/my-portfolio)
 ```
 
-## Pages
-
-| Route | Description |
-|-------|-------------|
-| `/` | Hero · metrics · skills · featured projects · services |
-| `/proyectos` | Full project grid with tag filters |
-| `/proyectos/[slug]` | Project detail: problem → solution → results → CTA |
-| `/sobre-mi` | Bio · achievements · experience timeline · skill bars |
-| `/contacto` | Social links + contact form with project prefill |
-
----
-
-## Run locally
+| Ruta | Qué hay |
+|------|---------|
+| `/` | Hero, métricas, stack, destacados, servicios, proceso, FAQ |
+| `/proyectos` | Grid con filtros |
+| `/proyectos/[slug]` | Caso: problema → solución → resultados → demo → CTA |
+| `/sobre-mi` | Bio, logros, experiencia, stack |
+| `/contacto` | Formulario real + email |
 
 ```bash
 pnpm install
 pnpm dev
 ```
 
-## Achievements
+Variables opcionales: `CONTACT_EMAIL`, `RESEND_API_KEY`, `NEXT_PUBLIC_SITE_URL`.
 
-- 🏆 **Dev3pack Global Hackathon 2026** — Tropico Wallet — #1 Venezuela · Top 9 LATAM · #28 Global of 386 projects
-- 🤖 **Platanus · Anthropic Hackathon 2026** — Llave — AI Agent marketplace
-- 🥈 **GitHub Copilot Dev Days** — First competitive prompt engineering event
-- 🎓 **Thesis in production** — COPS Platform deployed as internal tool at COP'S Electronics
+## Logros
+
+- 🏆 **Dev3pack Global Hackathon 2026** — Tropico Wallet — #1 Venezuela · Top 9 LATAM · #28 de 386
+- 🤖 **Platanus · Anthropic Hackathon 2026** — Llave
+- 🥈 **GitHub Copilot Dev Days**
+- 🎓 Tesis en producción — COPS Platform en COP'S Electronics
