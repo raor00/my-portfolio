@@ -76,9 +76,15 @@ export async function ingestAllSources(db: Database): Promise<IngestResult> {
   const claudeFiles = listFilesRecursive(SOURCES.claudeProjects, ".jsonl");
   await ingestJsonlFiles(db, claudeFiles, stats, (path, onRow) => readClaudeFile(path, onRow));
 
+  // Claude Desktop audit logs are their own agent id but still Anthropic usage.
   const desktopFiles = listFilesRecursive(SOURCES.claudeDesktopSessions, ".jsonl");
+  dropLegacyDesktopRows(db, desktopFiles);
   await ingestJsonlFiles(db, desktopFiles, stats, (path, onRow) =>
-    readClaudeFile(path, onRow, { sessionId: sessionKeyOf(path), source: "claude-desktop" }),
+    readClaudeFile(path, onRow, {
+      sessionId: sessionKeyOf(path),
+      source: "claude-desktop",
+      agent: "claude-desktop",
+    }),
   );
 
   const codexFiles = [
@@ -121,6 +127,23 @@ export async function ingestAllSources(db: Database): Promise<IngestResult> {
   return { stats, undatedRemainder, firstSessionDate: cache?.firstSessionDate ?? null };
 }
 
+/**
+ * Earlier runs stored Desktop rows under agent `claude`; that would now double
+ * count against the stats-cache backfill, so those legacy rows are removed and
+ * the desktop files are re-read into the new agent id.
+ */
+function dropLegacyDesktopRows(db: Database, files: FileStat[]): void {
+  const removed = db.prepare("DELETE FROM usage WHERE agent = 'claude' AND source = 'claude-desktop'").run();
+  const hasDesktopRows =
+    db.prepare("SELECT 1 AS present FROM usage WHERE agent = 'claude-desktop' LIMIT 1").get() !== null;
+  // Re-read the desktop files when legacy rows were dropped or when the new
+  // agent id has no rows yet (self-healing after the id migration).
+  if (removed.changes > 0 || !hasDesktopRows) {
+    const forget = db.prepare("DELETE FROM source_file WHERE path = ?");
+    for (const file of files) forget.run(file.path);
+  }
+}
+
 function sessionKeyOf(path: string): string {
   return baseName(path).replace(/\.jsonl$/, "");
 }
@@ -140,8 +163,12 @@ function loadStatsCache(): StatsCache | null {
   }
 }
 
-/** Local usage days that already have a Claude row from any transcript source. */
-function claudeDatesInLedger(db: Database): Set<string> {
+/**
+ * Local usage days that already have a Claude Code row (agent `claude`).
+ * Claude Desktop is a different agent id, so it no longer suppresses the
+ * stats-cache backfill.
+ */
+export function claudeDatesInLedger(db: Database): Set<string> {
   const rows = db
     .prepare("SELECT DISTINCT usage_date FROM usage WHERE agent = 'claude' AND source <> 'stats-cache'")
     .all() as { usage_date: string }[];

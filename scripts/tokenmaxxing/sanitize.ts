@@ -2,9 +2,11 @@ import { isSafeId } from "./config";
 
 /**
  * The public aggregate JSON. Every key below is part of a reviewed allowlist:
- * dates, provider ids, model names, token counts, USD estimates, quota
- * percentages and the generation timestamp. Nothing else may appear.
+ * dates, provider ids, provider labels, model names, token counts, USD
+ * estimates, quota percentages and the generation timestamp. Nothing else may
+ * appear.
  */
+
 export interface QuotaWindow {
   label: string;
   usedPercent: number;
@@ -20,6 +22,12 @@ export interface QuotaProvider {
   error: string | null;
 }
 
+export interface TokenSplit {
+  cachedInput: number;
+  uncachedInput: number;
+  output: number;
+}
+
 export interface TokenmaxxingModel {
   provider: string;
   model: string;
@@ -28,21 +36,26 @@ export interface TokenmaxxingModel {
   lastUsed: string;
 }
 
-export interface TokenmaxxingDayModel {
+export interface TokenmaxxingDayProvider extends TokenSplit {
+  tokens: number;
+  costUsd: number;
+}
+
+export interface TokenmaxxingDayModel extends TokenSplit {
   provider: string;
   model: string;
   tokens: number;
   costUsd: number;
 }
 
-export interface TokenmaxxingDay {
+export interface TokenmaxxingDay extends TokenSplit {
   date: string;
-  providers: Record<string, { tokens: number; costUsd: number }>;
+  providers: Record<string, TokenmaxxingDayProvider>;
   /** Top models for the whole window, plus a single "other" bucket. */
   models: TokenmaxxingDayModel[];
 }
 
-export interface TokenmaxxingTotals {
+export interface TokenmaxxingTotals extends TokenSplit {
   processedTokens: number;
   costUsd: number;
   cacheSavingsUsd: number;
@@ -52,6 +65,31 @@ export interface TokenmaxxingTotals {
   undatedCostUsd: number;
 }
 
+export interface BreakdownProvider extends TokenSplit {
+  provider: string;
+  label: string;
+  sessions: number;
+  tokens: number;
+  costUsd: number;
+}
+
+export interface BreakdownModel extends TokenSplit {
+  provider: string;
+  label: string;
+  model: string;
+  sessions: number;
+  tokens: number;
+  costUsd: number;
+  lastUsed: string;
+}
+
+export interface BreakdownWindow {
+  providers: BreakdownProvider[];
+  models: BreakdownModel[];
+}
+
+export type Breakdowns = Record<string, BreakdownWindow>;
+
 export interface TokenmaxxingOutput {
   generatedAt: string;
   timezone: string;
@@ -60,6 +98,7 @@ export interface TokenmaxxingOutput {
   totals: TokenmaxxingTotals;
   days: TokenmaxxingDay[];
   models: TokenmaxxingModel[];
+  breakdowns: Breakdowns;
   quotas: QuotaProvider[];
   unpricedModels: string[];
 }
@@ -71,30 +110,62 @@ export const OUTPUT_KEYS = [
   "totals",
   "days",
   "models",
+  "breakdowns",
   "quotas",
   "unpricedModels",
 ] as const;
 
 export const TOTALS_KEYS = [
   "processedTokens",
+  "cachedInput",
+  "uncachedInput",
+  "output",
   "costUsd",
   "cacheSavingsUsd",
   "sessions",
   "undatedTokens",
   "undatedCostUsd",
 ] as const;
-export const DAY_KEYS = ["date", "providers", "models"] as const;
-export const DAY_PROVIDER_KEYS = ["tokens", "costUsd"] as const;
-export const DAY_MODEL_KEYS = ["provider", "model", "tokens", "costUsd"] as const;
+
+export const DAY_KEYS = ["date", "cachedInput", "uncachedInput", "output", "providers", "models"] as const;
+export const DAY_PROVIDER_KEYS = ["tokens", "cachedInput", "uncachedInput", "output", "costUsd"] as const;
+export const DAY_MODEL_KEYS = ["provider", "model", "tokens", "cachedInput", "uncachedInput", "output", "costUsd"] as const;
 export const MODEL_KEYS = ["provider", "model", "tokens", "costUsd", "lastUsed"] as const;
 export const QUOTA_KEYS = ["id", "plan", "status", "windows", "error"] as const;
 export const QUOTA_WINDOW_KEYS = ["label", "usedPercent", "resetsAt", "windowSeconds"] as const;
+export const BREAKDOWN_WINDOW_KEYS = ["providers", "models"] as const;
+export const BREAKDOWN_PROVIDER_KEYS = [
+  "provider",
+  "label",
+  "sessions",
+  "tokens",
+  "cachedInput",
+  "uncachedInput",
+  "output",
+  "costUsd",
+] as const;
+export const BREAKDOWN_MODEL_KEYS = [
+  "provider",
+  "label",
+  "model",
+  "sessions",
+  "tokens",
+  "cachedInput",
+  "uncachedInput",
+  "output",
+  "costUsd",
+  "lastUsed",
+] as const;
+
+export const BREAKDOWN_WINDOW_NAMES = ["7", "30", "90", "365", "all"] as const;
 
 /** Substrings that must never appear anywhere in the public file. */
-export const FORBIDDEN_SUBSTRINGS = ["/Users/", "~/", "Bearer", "sk-", "eyJ"];
+export const FORBIDDEN_SUBSTRINGS = ["/Users/", "~/", "Bearer", "sk-", "eyJ", "@gmail", "@hotmail", "@outlook"];
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 const ISO_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{3})?Z$/;
+/** Display labels may contain spaces and dots but never path characters. */
+const LABEL_RE = /^[A-Za-z0-9][A-Za-z0-9 ._-]{0,31}$/;
 
 function keysAre(value: Record<string, unknown>, expected: readonly string[]): boolean {
   const actual = Object.keys(value).sort();
@@ -104,6 +175,36 @@ function keysAre(value: Record<string, unknown>, expected: readonly string[]): b
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function isNumber(value: unknown): value is number {
+  return typeof value === "number" && Number.isFinite(value);
+}
+
+function checkSplit(
+  entry: Record<string, unknown>,
+  violations: string[],
+  context: string,
+  tokensKey: string | null,
+): void {
+  const { cachedInput, uncachedInput, output } = entry;
+  if (!isNumber(cachedInput) || !isNumber(uncachedInput) || !isNumber(output)) {
+    violations.push(`${context} split is not numeric`);
+    return;
+  }
+  if (cachedInput < 0 || uncachedInput < 0 || output < 0) violations.push(`${context} split is negative`);
+  if (tokensKey) {
+    const tokens = entry[tokensKey];
+    if (isNumber(tokens) && cachedInput + uncachedInput + output !== tokens) {
+      violations.push(`${context} split does not sum to tokens`);
+    }
+  }
+}
+
+function checkLabel(entry: Record<string, unknown>, violations: string[], context: string): void {
+  if (typeof entry.label !== "string" || !LABEL_RE.test(entry.label)) {
+    violations.push(`${context} label is unsafe`);
+  }
 }
 
 /**
@@ -128,11 +229,10 @@ export function validateOutput(value: unknown): string[] {
     violations.push("totals keys mismatch");
   } else {
     for (const key of TOTALS_KEYS) {
-      if (typeof totals[key] !== "number" || !Number.isFinite(totals[key] as number)) {
-        violations.push(`totals.${key} is not a number`);
-      }
+      if (!isNumber(totals[key])) violations.push(`totals.${key} is not a number`);
     }
     if ((totals.sessions as number) < 0) violations.push("totals.sessions is negative");
+    checkSplit(totals, violations, "totals", "processedTokens");
   }
 
   const days = value.days;
@@ -145,19 +245,22 @@ export function validateOutput(value: unknown): string[] {
         continue;
       }
       if (typeof day.date !== "string" || !DATE_RE.test(day.date)) violations.push(`bad day date: ${String(day.date)}`);
+      checkSplit(day, violations, "day", null);
+
       const providers = day.providers;
       if (!isRecord(providers)) {
         violations.push("day.providers is not an object");
-        continue;
-      }
-      for (const [provider, entry] of Object.entries(providers)) {
-        if (!isSafeId(provider)) violations.push(`unsafe provider id: ${provider}`);
-        if (!isRecord(entry) || !keysAre(entry, DAY_PROVIDER_KEYS)) {
-          violations.push(`bad day provider entry for ${provider}`);
-          continue;
-        }
-        if (typeof entry.tokens !== "number" || typeof entry.costUsd !== "number") {
-          violations.push(`bad day provider numbers for ${provider}`);
+      } else {
+        for (const [provider, entry] of Object.entries(providers)) {
+          if (!isSafeId(provider)) violations.push(`unsafe provider id: ${provider}`);
+          if (!isRecord(entry) || !keysAre(entry, DAY_PROVIDER_KEYS)) {
+            violations.push(`bad day provider entry for ${provider}`);
+            continue;
+          }
+          if (!isNumber(entry.tokens) || !isNumber(entry.costUsd)) {
+            violations.push(`bad day provider numbers for ${provider}`);
+          }
+          checkSplit(entry, violations, `day provider ${provider}`, "tokens");
         }
       }
 
@@ -177,9 +280,8 @@ export function validateOutput(value: unknown): string[] {
         if (typeof dayModel.model !== "string" || !isSafeId(dayModel.model)) {
           violations.push(`unsafe day model id: ${String(dayModel.model)}`);
         }
-        if (typeof dayModel.tokens !== "number" || typeof dayModel.costUsd !== "number") {
-          violations.push("bad day model numbers");
-        }
+        if (!isNumber(dayModel.tokens) || !isNumber(dayModel.costUsd)) violations.push("bad day model numbers");
+        checkSplit(dayModel, violations, "day model", "tokens");
       }
     }
   }
@@ -199,11 +301,64 @@ export function validateOutput(value: unknown): string[] {
       if (typeof model.model !== "string" || !isSafeId(model.model)) {
         violations.push(`unsafe model id: ${String(model.model)}`);
       }
-      if (typeof model.tokens !== "number" || typeof model.costUsd !== "number") {
-        violations.push("bad model numbers");
-      }
+      if (!isNumber(model.tokens) || !isNumber(model.costUsd)) violations.push("bad model numbers");
       if (typeof model.lastUsed !== "string" || !DATE_RE.test(model.lastUsed)) {
         violations.push(`bad model lastUsed: ${String(model.lastUsed)}`);
+      }
+    }
+  }
+
+  const breakdowns = value.breakdowns;
+  if (!isRecord(breakdowns)) {
+    violations.push("breakdowns is not an object");
+  } else {
+    if (!keysAre(breakdowns, BREAKDOWN_WINDOW_NAMES)) {
+      violations.push(`breakdown windows mismatch: ${Object.keys(breakdowns).join(",")}`);
+    }
+    for (const [windowName, window] of Object.entries(breakdowns)) {
+      if (!isRecord(window) || !keysAre(window, BREAKDOWN_WINDOW_KEYS)) {
+        violations.push(`breakdown ${windowName} keys mismatch`);
+        continue;
+      }
+      const providers = window.providers;
+      const windowModels = window.models;
+      if (!Array.isArray(providers) || !Array.isArray(windowModels)) {
+        violations.push(`breakdown ${windowName} arrays missing`);
+        continue;
+      }
+      for (const entry of providers) {
+        if (!isRecord(entry) || !keysAre(entry, BREAKDOWN_PROVIDER_KEYS)) {
+          violations.push(`breakdown ${windowName} provider keys mismatch`);
+          continue;
+        }
+        if (typeof entry.provider !== "string" || !isSafeId(entry.provider)) {
+          violations.push(`breakdown ${windowName} unsafe provider id`);
+        }
+        checkLabel(entry, violations, `breakdown ${windowName} provider ${String(entry.provider)}`);
+        if (!isNumber(entry.sessions) || !isNumber(entry.tokens) || !isNumber(entry.costUsd)) {
+          violations.push(`breakdown ${windowName} provider numbers`);
+        }
+        checkSplit(entry, violations, `breakdown ${windowName} provider ${String(entry.provider)}`, "tokens");
+      }
+      for (const entry of windowModels) {
+        if (!isRecord(entry) || !keysAre(entry, BREAKDOWN_MODEL_KEYS)) {
+          violations.push(`breakdown ${windowName} model keys mismatch`);
+          continue;
+        }
+        if (typeof entry.provider !== "string" || !isSafeId(entry.provider)) {
+          violations.push(`breakdown ${windowName} unsafe model provider id`);
+        }
+        if (typeof entry.model !== "string" || !isSafeId(entry.model)) {
+          violations.push(`breakdown ${windowName} unsafe model id`);
+        }
+        checkLabel(entry, violations, `breakdown ${windowName} model ${String(entry.model)}`);
+        if (!isNumber(entry.sessions) || !isNumber(entry.tokens) || !isNumber(entry.costUsd)) {
+          violations.push(`breakdown ${windowName} model numbers`);
+        }
+        if (typeof entry.lastUsed !== "string" || !DATE_RE.test(entry.lastUsed)) {
+          violations.push(`breakdown ${windowName} model lastUsed`);
+        }
+        checkSplit(entry, violations, `breakdown ${windowName} model ${String(entry.model)}`, "tokens");
       }
     }
   }

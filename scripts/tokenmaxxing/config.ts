@@ -41,12 +41,13 @@ const SAFE_ID = /^[A-Za-z0-9._:\[\]-][A-Za-z0-9._:/\[\]-]*$/;
 /**
  * Providers that must never reach the public file. Their ledger rows are
  * dropped before aggregation, so they cannot contribute to totals, days,
- * models, sessions or the unpriced list.
+ * models, sessions or the unpriced list. Empty today (lyber.ai is back in
+ * scope); the mechanism stays live and covered by a test.
  */
-export const EXCLUDED_PROVIDERS: readonly string[] = ["lyber"];
+export const EXCLUDED_PROVIDERS: readonly string[] = [];
 
-export function isExcludedProvider(provider: string): boolean {
-  return EXCLUDED_PROVIDERS.includes(provider);
+export function isExcludedProvider(provider: string, excluded: readonly string[] = EXCLUDED_PROVIDERS): boolean {
+  return excluded.includes(provider);
 }
 
 /**
@@ -58,6 +59,24 @@ export const FREE_PROVIDERS: readonly string[] = ["ollama"];
 
 export function isFreeProvider(provider: string): boolean {
   return FREE_PROVIDERS.includes(provider);
+}
+
+/** Display labels for the public breakdowns; unknown ids fall back to the id. */
+const PROVIDER_LABELS: Record<string, string> = {
+  anthropic: "Anthropic",
+  openai: "OpenAI",
+  "opencode-go": "OpenCode Go",
+  "opencode-zen": "OpenCode Zen",
+  nan: "nan",
+  lyber: "lyber.ai",
+  xai: "Grok",
+  grok: "Grok",
+  zai: "z.ai",
+  ollama: "Ollama",
+};
+
+export function providerLabel(provider: string): string {
+  return PROVIDER_LABELS[provider] ?? provider;
 }
 
 export function isSafeId(value: string): boolean {

@@ -16,6 +16,7 @@ import {
   type CredentialSource,
 } from "./quotas";
 import { validateOutput } from "./sanitize";
+import { validOutput } from "./testFixtures";
 
 const claudeFixture = {
   five_hour: { utilization: 44.4, resets_at: "2026-01-02T03:04:05.000Z" },
@@ -136,30 +137,9 @@ const nullSources = {
 };
 
 function baseOutput() {
-  return {
-    generatedAt: "2026-01-01T00:00:00.000Z",
-    timezone: "America/Caracas",
-    firstUsageDate: "2026-01-01",
-    totals: {
-      processedTokens: 1,
-      costUsd: 0,
-      cacheSavingsUsd: 0,
-      sessions: 1,
-      undatedTokens: 0,
-      undatedCostUsd: 0,
-    },
-    days: [
-      {
-        date: "2026-01-01",
-        providers: { anthropic: { tokens: 1, costUsd: 0 } },
-        models: [{ provider: "anthropic", model: "claude-opus-5-5", tokens: 1, costUsd: 0 }],
-      },
-    ],
-    models: [{ provider: "anthropic", model: "claude-opus-5-5", tokens: 1, costUsd: 0, lastUsed: "2026-01-01" }],
-    quotas: [],
-    unpricedModels: [],
-  };
+  return validOutput();
 }
+
 
 describe("collectQuotas", () => {
   test("reports no_credential without any request", async () => {

@@ -7,6 +7,8 @@ import {
   statsDates,
 } from "./parsers/statsCache";
 import { aggregate } from "./aggregate";
+import { claudeDatesInLedger } from "./ingest";
+import { openLedger, upsertUsage } from "./ledger";
 import { validateOutput } from "./sanitize";
 import type { PriceTable } from "./pricing";
 
@@ -176,6 +178,74 @@ describe("stats-cache backfill", () => {
     expect(output.totals.processedTokens).toBe(6000);
     // firstSessionDate (04-20) predates every dated row.
     expect(output.firstUsageDate).toBe("2026-04-20");
+    expect(validateOutput(output)).toEqual([]);
+  });
+});
+
+describe("claude desktop vs stats-cache occupancy", () => {
+  function seedRow(db: ReturnType<typeof openLedger>, agent: string, source: string, id: string, day: string): void {
+    upsertUsage(db, {
+      agent,
+      provider: "anthropic",
+      model: "claude-sonnet-5",
+      externalId: id,
+      inputTokens: 10,
+      cacheReadTokens: 100,
+      cacheWriteTokens: 0,
+      outputTokens: 5,
+      reasoningTokens: 0,
+      reportedCostUsd: 0,
+      occurredAt: `${day}T12:00:00.000Z`,
+      sessionId: "s",
+      source,
+    });
+  }
+
+  test("desktop rows no longer suppress the stats backfill", () => {
+    const db = openLedger(":memory:");
+    try {
+      // Claude Code covers 2026-06-22; Desktop covers 2026-06-23.
+      seedRow(db, "claude", "transcript", "code-1", "2026-06-22");
+      seedRow(db, "claude-desktop", "claude-desktop", "desk-1", "2026-06-23");
+
+      const occupied = claudeDatesInLedger(db);
+      expect([...occupied]).toEqual(["2026-06-22"]);
+
+      const cache = parseStatsCache(raw)!;
+      const rows = buildStatsRows(cache, occupied);
+      // 06-22 skipped (transcripts), 06-23 kept (desktop is a different agent).
+      expect(rows.map((entry) => entry.externalId)).toEqual([
+        "stats:2026-06-23:claude-sonnet-5",
+      ]);
+    } finally {
+      db.close();
+    }
+  });
+
+  test("desktop usage still attributes to Anthropic and model rows", () => {
+    const output = aggregate({
+      rows: [
+        {
+          agent: "claude-desktop",
+          provider: "anthropic",
+          model: "claude-sonnet-5",
+          sessionId: "desk-1",
+          inputTokens: 10,
+          cacheReadTokens: 100,
+          cacheWriteTokens: 5,
+          outputTokens: 5,
+          reportedCostUsd: 0,
+          occurredAt: "2026-06-23T12:00:00.000Z",
+          usageDate: "2026-06-23",
+        },
+      ],
+      prices,
+      quotas: [],
+      generatedAt: "2026-08-21T00:00:00.000Z",
+      timezone: "America/Caracas",
+    });
+    expect(output.breakdowns.all.providers[0]).toMatchObject({ provider: "anthropic", label: "Anthropic" });
+    expect(output.breakdowns.all.models[0].model).toBe("claude-sonnet-5");
     expect(validateOutput(output)).toEqual([]);
   });
 });

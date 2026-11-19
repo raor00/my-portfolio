@@ -48,15 +48,17 @@ export function mapClaudeLine(line: string): RawUsage | null {
 export async function readClaudeFile(
   path: string,
   onRow: (row: RawUsage) => void,
-  options: { sessionId?: string; source?: string } = {},
+  options: { sessionId?: string; source?: string; agent?: string } = {},
 ): Promise<void> {
   const sessionId = options.sessionId ?? baseName(path).replace(/\.jsonl$/, "");
   const source = options.source ?? "transcript";
+  const agent = options.agent;
   await streamJsonLines(path, (line) => {
     const row = mapClaudeLine(line);
     if (!row) return;
     row.sessionId = sessionId;
     row.source = source;
+    if (agent) row.agent = agent;
     onRow(row);
   });
 }
