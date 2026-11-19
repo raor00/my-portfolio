@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { trackEvent } from "@/lib/analytics";
 import type { Lang } from "@/i18n/translations";
 
 export default function Navbar() {
@@ -129,7 +130,11 @@ export default function Navbar() {
             <div className="w-px h-4 bg-black/10 mx-2" />
 
             {/* CTA */}
-            <Link href="/contacto" className="glass-btn-amber px-4 py-1.5 text-[13px] rounded-xl text-white">
+            <Link
+              href="/contacto"
+              onClick={() => trackEvent("cta_hire_click", { placement: "navbar_desktop" })}
+              className="glass-btn-amber px-4 py-1.5 text-[13px] rounded-xl text-white"
+            >
               {t.nav.cta}
             </Link>
           </nav>
@@ -204,7 +209,10 @@ export default function Navbar() {
                   ))}
                   <Link
                     href="/contacto"
-                    onClick={() => setIsOpen(false)}
+                    onClick={() => {
+                      trackEvent("cta_hire_click", { placement: "navbar_mobile" });
+                      setIsOpen(false);
+                    }}
                     className="glass-btn-amber mt-1 px-3 py-2 rounded-xl text-sm text-white text-center"
                   >
                     {t.nav.cta}
@@ -232,7 +240,10 @@ function LangSwitch({ lang, setLang, mounted }: { lang: Lang; setLang: (l: Lang)
       {(["es", "en"] as Lang[]).map((l) => (
         <button
           key={l}
-          onClick={() => setLang(l)}
+          onClick={() => {
+          if (l !== lang) trackEvent("language_switch", { to: l, from: lang });
+          setLang(l);
+        }}
           className="relative px-2.5 py-1 text-[11px] font-semibold z-10"
           style={{
             fontFamily: "var(--font-mono-display), monospace",

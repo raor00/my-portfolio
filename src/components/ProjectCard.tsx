@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { trackEvent } from "@/lib/analytics";
 import { motion, useMotionValue, useTransform, useSpring, useMotionTemplate } from "framer-motion";
 import { useState } from "react";
 import { Project } from "@/config/data";
@@ -232,7 +233,12 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           {project.demo && (
             <button
               type="button"
-              onClick={(e) => { e.preventDefault(); e.stopPropagation(); setDemoOpen(true); }}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                trackEvent("project_demo_open", { slug: project.slug });
+                setDemoOpen(true);
+              }}
               className="glass-btn-amber flex items-center gap-1.5 text-xs px-4 py-2 rounded-lg text-white"
               style={{ fontFamily: "var(--font-mono-display), monospace" }}
             >
@@ -241,6 +247,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
           )}
           <Link
             href={`/proyectos/${project.slug}`}
+            onClick={() => trackEvent("project_card_open", { slug: project.slug })}
             className="glass-btn-amber flex items-center gap-1.5 text-xs px-4 py-2 rounded-lg text-white"
             style={{ fontFamily: "var(--font-mono-display), monospace" }}
           >
@@ -286,6 +293,7 @@ export default function ProjectCard({ project, index = 0 }: ProjectCardProps) {
 
           <Link
             href={`/contacto?proyecto=${project.slug}`}
+            onClick={() => trackEvent("cta_contact_click", { placement: "project_card", slug: project.slug })}
             className="flex items-center gap-1.5 text-xs font-medium px-4 py-2 rounded-lg transition-all hover:scale-[1.02]"
             style={{
               background: "rgba(0,0,0,0.04)",

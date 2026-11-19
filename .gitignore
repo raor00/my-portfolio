@@ -8,3 +8,5 @@ out
 src/.DS_Store
 0
 tsconfig.tsbuildinfo
+.vercel
+.env*
