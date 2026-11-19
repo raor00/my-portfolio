@@ -83,9 +83,37 @@ export interface Experience {
   roleEn: string;
   company: string;
   period: string;
-  description: string;
-  descriptionEn: string;
+  summary: string;
+  summaryEn: string;
+  /** Impact bullets, same shape as project results. Numbers only where proven. */
+  impacts: string[];
+  impactsEn: string[];
   technologies: string[];
+}
+
+/**
+ * Enterprise work shown on the home page. Only the first platform is named;
+ * the other two are described by scope and volume, without names, clients,
+ * URLs or screenshots.
+ */
+export interface EnterprisePlatform {
+  id: "cops" | "commerce" | "nda";
+  name: string;
+  nameEn: string;
+  anonymous: boolean;
+  nda: boolean;
+  summary: string;
+  summaryEn: string;
+  scope: string[];
+  metrics: { label: string; labelEn: string; value: string }[];
+  href: string | null;
+}
+
+export interface GithubPresence {
+  url: string;
+  publicRepositories: number;
+  since: string;
+  languages: string[];
 }
 
 const baseProjects: Project[] = [
@@ -960,32 +988,64 @@ export const experience: Experience[] = [
     roleEn: "Technology Development Coordinator",
     company: "COP'S Electronics, S.A.",
     period: "2025 — 2026",
-    description:
-      "Lideré el desarrollo del sistema de tickets interno (Next.js 14 + Supabase) con RBAC de 5 niveles, reduciendo el tiempo de seguimiento de incidencias un 30%. Coordiné 10+ proyectos de seguridad electrónica: CCTV, control de acceso Hikvision y Milestone VMS para clientes bancarios, industriales y de gobierno.",
-    descriptionEn:
-      "Led development of the internal ticket management system (Next.js 14 + Supabase) with 5-level RBAC, reducing incident tracking time by 30%. Coordinated 10+ electronic security projects: CCTV, Hikvision access control, and Milestone VMS for banking, industrial, and government clients.",
-    technologies: ["Next.js", "Supabase", "TypeScript", "Hikvision", "Milestone VMS"],
+    summary:
+      "Lideré el sistema de tickets interno que hoy opera la empresa y coordiné proyectos de seguridad electrónica para clientes bancarios, industriales y de gobierno.",
+    summaryEn:
+      "Led the internal ticketing system the company still runs today, and coordinated electronic security projects for banking, industrial and government clients.",
+    impacts: [
+      "Sistema de tickets en producción con RBAC de 5 niveles, defendido además como tesis universitaria.",
+      "Reducción del 30% en el tiempo de seguimiento de incidencias reportada por el equipo operativo.",
+      "Coordinación de 10+ proyectos de seguridad electrónica: CCTV, control de acceso Hikvision y Milestone VMS.",
+    ],
+    impactsEn: [
+      "Ticketing system in production with 5-level RBAC, also defended as a university thesis.",
+      "30% reduction in incident tracking time reported by the operations team.",
+      "Coordinated 10+ electronic security projects: CCTV, Hikvision access control and Milestone VMS.",
+    ],
+    technologies: ["Next.js", "Supabase", "TypeScript", "RBAC", "Hikvision", "Milestone VMS"],
   },
   {
     role: "Full Stack Developer — Freelance",
     roleEn: "Full Stack Developer — Freelance",
-    company: "Clientes independientes",
+    company: "Estudios independientes",
     period: "2022 — Presente",
-    description:
-      "Desarrollo de aplicaciones web a medida: ERPs, plataformas e-commerce, catálogos digitales y sistemas de cotización. Proyectos ganadores de hackathon (Dev3pack 2026, Platanus · Anthropic 2026) e integración de agentes IA con Claude y Codex.",
-    descriptionEn:
-      "Custom web application development: ERPs, e-commerce platforms, digital catalogs, and quote systems. Hackathon-winning projects (Dev3pack 2026, Platanus · Anthropic 2026) and AI agent integration with Claude and Codex.",
-    technologies: ["Next.js", "Solana", "Claude API", "Supabase", "TypeScript"],
+    summary:
+      "Construyo plataformas a medida que ya operan en producción: ERPs, comercio a alto volumen, catálogos, cotizadores y agentes IA.",
+    summaryEn:
+      "I build custom platforms that already run in production: ERPs, high-volume commerce, catalogs, quoting tools and AI agents.",
+    impacts: [
+      "Plataforma de comercio y operaciones que procesa más de USD 800,000 al mes (cliente en confidencialidad).",
+      "ERPs en operación diaria: inventario, taller, garantías y facturación.",
+      "Ganador de Dev3pack Global Hackathon 2026 (#1 Venezuela · Top 9 LATAM · #28 de 386).",
+      "Agentes IA en producto real con Claude API y Codex, sobre Next.js y Supabase.",
+    ],
+    impactsEn: [
+      "Commerce and operations platform processing over USD 800,000 per month (client under confidentiality).",
+      "ERPs running daily: inventory, workshop, warranties and invoicing.",
+      "Dev3pack Global Hackathon 2026 winner (#1 Venezuela · Top 9 LATAM · #28 of 386).",
+      "AI agents in real products with Claude API and Codex, on Next.js and Supabase.",
+    ],
+    technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Claude API", "Solana", "Vercel"],
   },
   {
     role: "Trafficker Pago — Meta Ads",
     roleEn: "Paid Traffic Specialist — Meta Ads",
     company: "Cartera de clientes independientes",
     period: "2022 — Presente",
-    description:
-      "Gestión de campañas de rendimiento en Meta Ads con presupuestos de hasta $3,000/mes por cliente. Clientes activos en tecnología, reparación de dispositivos y retail. Auditorías de CPA/ROAS/CTR, audiencias personalizadas y lookalike via Meta Pixel.",
-    descriptionEn:
-      "Performance campaign management on Meta Ads with budgets up to $3,000/month per client. Active clients in tech, device repair, and retail. CPA/ROAS/CTR audits, custom and lookalike audiences via Meta Pixel.",
+    summary:
+      "Gestiono campañas de rendimiento en Meta Ads para clientes de tecnología, reparación de dispositivos y retail.",
+    summaryEn:
+      "I run Meta Ads performance campaigns for clients in tech, device repair and retail.",
+    impacts: [
+      "Presupuestos gestionados de hasta USD 3,000 por mes por cliente.",
+      "Auditorías de CPA, ROAS y CTR con audiencias personalizadas y lookalike vía Meta Pixel.",
+      "Medición con GA4 y pruebas A/B sobre el embudo completo.",
+    ],
+    impactsEn: [
+      "Managed budgets of up to USD 3,000 per month per client.",
+      "CPA, ROAS and CTR audits with custom and lookalike audiences via Meta Pixel.",
+      "GA4 measurement and A/B testing across the full funnel.",
+    ],
     technologies: ["Meta Ads", "Facebook Business", "Meta Pixel", "GA4", "A/B Testing"],
   },
   {
@@ -993,10 +1053,18 @@ export const experience: Experience[] = [
     roleEn: "iPhone Technician · Paid Media Specialist",
     company: "Servicio técnico independiente",
     period: "2022 — 2024",
-    description:
-      "Técnico especializado en reparación de iPhone (pantallas, baterías, puertos, diagnóstico de placa). Diseño y gestión de campañas Meta Ads para captación local de clientes del servicio técnico.",
-    descriptionEn:
-      "Specialized iPhone repair technician (screens, batteries, charging ports, logic board diagnostics). Designed and managed Meta Ads campaigns for local service customer acquisition.",
+    summary:
+      "Reparación de iPhone a nivel componente y captación local de clientes con campañas de Meta Ads.",
+    summaryEn:
+      "Component-level iPhone repair plus local customer acquisition with Meta Ads campaigns.",
+    impacts: [
+      "Diagnóstico y reparación de pantalla, batería, puerto de carga y placa.",
+      "Campañas de captación local diseñadas y gestionadas de punta a punta.",
+    ],
+    impactsEn: [
+      "Screen, battery, charging port and logic board diagnostics and repair.",
+      "Local acquisition campaigns designed and managed end to end.",
+    ],
     technologies: ["Meta Ads", "Facebook Business", "iPhone Repair"],
   },
 ];
@@ -1017,21 +1085,28 @@ export const personalInfo = {
   available: true,
 };
 
+/**
+ * Achievement copy. Every number below is traceable:
+ * - hackathon placements: this file's project entries and public/llms.txt
+ * - thesis + RBAC ticketing: experience entry above and the tier-2 COPS page
+ * - commerce volume: owner-provided figure for the anonymous platform
+ * - Meta Ads budgets: services and experience entries above
+ */
 export const achievements: Achievement[] = [
   {
     icon: "🏆",
     title: "Dev3pack Global Hackathon 2026",
     titleEn: "Dev3pack Global Hackathon 2026",
-    detail: "#1 Venezuela · Top 9 LATAM · #28 mundial de 386 proyectos — Tropico Wallet",
-    detailEn: "#1 Venezuela · Top 9 LATAM · #28 worldwide out of 386 projects — Tropico Wallet",
+    detail: "#1 Venezuela · Top 9 LATAM · #28 de 386 proyectos — Tropico Wallet",
+    detailEn: "#1 Venezuela · Top 9 LATAM · #28 of 386 projects — Tropico Wallet",
     project: "tropico-wallet",
   },
   {
     icon: "🤖",
     title: "Platanus · Anthropic Hackathon 2026",
     titleEn: "Platanus · Anthropic Hackathon 2026",
-    detail: "Llave — marketplace de alquiler venezolano con agente IA (Claude API)",
-    detailEn: "Llave — Venezuelan rental marketplace with AI agent (Claude API)",
+    detail: "Llave — marketplace de alquiler con agente IA sobre Claude API",
+    detailEn: "Llave — rental marketplace with an AI agent on Claude API",
     project: "llave",
   },
   {
@@ -1044,13 +1119,89 @@ export const achievements: Achievement[] = [
   },
   {
     icon: "🎓",
-    title: "Tesis universitaria culminada",
-    titleEn: "University thesis completed",
-    detail: "COP'S Platform — ticket management system desarrollado y defendido como tesis, en uso como herramienta interna real",
-    detailEn: "COP'S Platform — ticket management system built and defended as a thesis, in use as a real internal tool",
+    title: "Tesis universitaria defendida",
+    titleEn: "University thesis defended",
+    detail: "COP'S Platform — sistema de tickets con RBAC de 5 niveles, en uso real como herramienta interna",
+    detailEn: "COP'S Platform — 5-level RBAC ticketing system, in real use as an internal tool",
     project: "cops-platform",
   },
+  {
+    icon: "📈",
+    title: "Comercio a alto volumen en producción",
+    titleEn: "High-volume commerce in production",
+    detail: "Plataforma que procesa más de USD 800,000 al mes (cliente en confidencialidad)",
+    detailEn: "Platform processing over USD 800,000 per month (client under confidentiality)",
+    project: null,
+  },
+  {
+    icon: "◍",
+    title: "Meta Ads con presupuesto gestionado",
+    titleEn: "Managed Meta Ads budgets",
+    detail: "Hasta USD 3,000 por mes por cliente, con auditorías de CPA/ROAS/CTR",
+    detailEn: "Up to USD 3,000 per month per client, with CPA/ROAS/CTR audits",
+    project: null,
+  },
 ];
+
+/**
+ * Three enterprise platforms. Only COPS is named; the other two are described
+ * by scope and volume with no client, country detail, URL or screenshot.
+ */
+export const enterprisePlatforms: EnterprisePlatform[] = [
+  {
+    id: "cops",
+    name: "COP'S Platform",
+    nameEn: "COP'S Platform",
+    anonymous: false,
+    nda: false,
+    summary:
+      "Plataforma de tickets y operaciones para una empresa de electrónica y seguridad: incidencias, roles, seguimiento y reportes. Nació como tesis y hoy corre en producción.",
+    summaryEn:
+      "Ticketing and operations platform for an electronics and security company: incidents, roles, tracking and reporting. Started as a thesis and runs in production today.",
+    scope: ["Next.js", "Supabase", "PostgreSQL", "RBAC 5 niveles", "Reportes"],
+    metrics: [
+      { label: "Roles de acceso", labelEn: "Access roles", value: "5" },
+      { label: "Estado", labelEn: "Status", value: "Producción" },
+    ],
+    href: "/proyectos/cops-platform",
+  },
+  {
+    id: "commerce",
+    name: "Plataforma de comercio y operaciones",
+    nameEn: "Commerce and operations platform",
+    anonymous: true,
+    nda: false,
+    summary:
+      "Comercio y operación de alto volumen: catálogo, pedidos, inventario multi-sede, facturación y control de acceso por roles. Cliente en confidencialidad.",
+    summaryEn:
+      "High-volume commerce and operations: catalog, orders, multi-location inventory, invoicing and role-based access control. Client under confidentiality.",
+    scope: ["Next.js", "NestJS", "PostgreSQL", "Inventario multi-sede", "Facturación"],
+    metrics: [{ label: "Volumen procesado", labelEn: "Processed volume", value: "USD 800,000+/mes" }],
+    href: null,
+  },
+  {
+    id: "nda",
+    name: "Plataforma empresarial confidencial",
+    nameEn: "Confidential enterprise platform",
+    anonymous: true,
+    nda: true,
+    summary:
+      "Sistema interno crítico bajo NDA: flujos operativos, permisos por rol, auditoría de cambios y tableros de control para equipos de operación.",
+    summaryEn:
+      "Critical internal system under NDA: operational workflows, role-based permissions, change auditing and control dashboards for operations teams.",
+    scope: ["Full-stack", "PostgreSQL", "RBAC", "Auditoría", "Dashboards"],
+    metrics: [{ label: "Detalle", labelEn: "Detail", value: "Bajo NDA" }],
+    href: null,
+  },
+];
+
+/** Public GitHub presence, aggregated. Verified through the GitHub API (9 public repos). */
+export const githubPresence: GithubPresence = {
+  url: "https://github.com/raor00",
+  publicRepositories: 9,
+  since: "2023",
+  languages: ["TypeScript", "JavaScript", "Astro", "SQL"],
+};
 
 export const services: Service[] = [
   {

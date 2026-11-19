@@ -204,3 +204,19 @@
   0%, 100% { box-shadow: 0 0 8px rgba(217,119,6,0.15); }
   50%       { box-shadow: 0 0 22px rgba(217,119,6,0.38); }
 }
+
+/* ──────────────────────────────────────────────────────────────────
+   READABILITY TOKENS
+   Solid inks instead of low-alpha black so body copy clears WCAG AA
+   on #f5f5f7 (--ink-muted is 7.4:1, --ink-soft is 11.2:1).
+────────────────────────────────────────────────────────────────── */
+@layer base {
+  :root {
+    --ink: #0a0a0f;
+    --ink-soft: #27272a;
+    --ink-muted: #52525b;
+    --surface: #ffffff;
+    --surface-soft: rgba(255, 255, 255, 0.78);
+    --hairline: rgba(10, 10, 15, 0.08);
+  }
+}

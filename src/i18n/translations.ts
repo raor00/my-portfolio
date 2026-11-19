@@ -56,6 +56,29 @@ export const translations = {
       subtitle: "Soluciones completas desde la idea hasta producción. Elegí lo que necesitás.",
       cta: "HABLEMOS",
     },
+    platforms: {
+      label: "// PLATAFORMAS",
+      title: "PLATAFORMAS_EMPRESARIALES",
+      subtitle:
+        "Sistemas que corren en producción todos los días. Dos de ellos bajo confidencialidad: sin nombre, sin cliente y sin enlaces.",
+      namedBadge: "CON NOMBRE",
+      anonymousBadge: "CONFIDENCIAL",
+      ndaBadge: "BAJO NDA",
+      viewCase: "VER CASO",
+      metricsTitle: "NÚMEROS",
+      confidentialityNote:
+        "Los detalles de los casos anónimos quedan fuera del sitio por acuerdo con el cliente.",
+    },
+    github: {
+      label: "// GITHUB",
+      title: "CÓDIGO_PÚBLICO",
+      subtitle: "Lo que publico abiertamente. El trabajo de clientes vive en repositorios privados.",
+      repositories: "repositorios públicos",
+      since: "En GitHub desde",
+      languages: "Lenguajes principales",
+      cta: "VER PERFIL",
+      note: "Sin contribuciones, sin repos privados y sin nombres de clientes.",
+    },
     achievements: {
       label: "// LOGROS",
       title: "RECONOCIMIENTOS_",
@@ -101,6 +124,27 @@ export const translations = {
       button: "Hablemos de tu proyecto",
     },
     about: {
+      faqLabel: "// PREGUNTAS",
+      faqTitle: "RESPUESTAS_RÁPIDAS",
+      faqSubtitle: "Lo que suelen preguntar antes de escribir.",
+      faq: [
+        {
+          q: "¿Quién es Rafael Oviedo?",
+          a: "Rafael Oviedo es un ingeniero en informática venezolano, full stack developer y AI agent engineer. Construye plataformas a medida —ERPs, comercio, SaaS— y agentes IA, y ganó el Dev3pack Global Hackathon 2026 (#1 Venezuela, #28 de 386 proyectos).",
+        },
+        {
+          q: "¿Qué stack usa?",
+          a: "Next.js, TypeScript, React, Tailwind CSS, Node.js, NestJS, Supabase y PostgreSQL, desplegado en Vercel. En IA trabaja con Claude API y Codex; en blockchain, con Solana.",
+        },
+        {
+          q: "¿Está disponible para nuevos proyectos?",
+          a: "Sí. Toma proyectos freelance y colaboraciones remotas en español e inglés, con dedicación parcial o por proyecto.",
+        },
+        {
+          q: "¿Cómo se contrata?",
+          a: "Escribiendo a devraor00@gmail.com o desde el formulario de contacto. Cuenta qué necesitas (web, SaaS, ERP, IA o ads) y responde en menos de 24 horas con alcance y próximos pasos.",
+        },
+      ],
       pageLabel: "// ABOUT",
       pageTitle: "QUIÉN_SOY",
       bioTitle: "FULL STACK · AI AGENT ENGINEER · INGENIERO EN INFORMÁTICA",
@@ -354,6 +398,29 @@ export const translations = {
       subtitle: "Complete solutions from idea to production. Pick what you need.",
       cta: "LET'S_TALK",
     },
+    platforms: {
+      label: "// PLATFORMS",
+      title: "ENTERPRISE_PLATFORMS",
+      subtitle:
+        "Systems running in production every day. Two of them under confidentiality: no name, no client and no links.",
+      namedBadge: "NAMED",
+      anonymousBadge: "CONFIDENTIAL",
+      ndaBadge: "UNDER NDA",
+      viewCase: "VIEW CASE",
+      metricsTitle: "NUMBERS",
+      confidentialityNote:
+        "Details of the anonymous cases stay off the site by agreement with the client.",
+    },
+    github: {
+      label: "// GITHUB",
+      title: "PUBLIC_CODE",
+      subtitle: "What I publish openly. Client work lives in private repositories.",
+      repositories: "public repositories",
+      since: "On GitHub since",
+      languages: "Main languages",
+      cta: "VIEW PROFILE",
+      note: "No contribution graph, no private repos and no client names.",
+    },
     achievements: {
       label: "// ACHIEVEMENTS",
       title: "RECOGNITION_",
@@ -399,6 +466,27 @@ export const translations = {
       button: "Let's talk about your project",
     },
     about: {
+      faqLabel: "// QUESTIONS",
+      faqTitle: "QUICK_ANSWERS",
+      faqSubtitle: "What people usually ask before writing.",
+      faq: [
+        {
+          q: "Who is Rafael Oviedo?",
+          a: "Rafael Oviedo is a Venezuela-based software engineer, full stack developer and AI agent engineer. He builds custom platforms — ERPs, commerce, SaaS — and AI agents, and won the Dev3pack Global Hackathon 2026 (#1 Venezuela, #28 of 386 projects).",
+        },
+        {
+          q: "What stack does he use?",
+          a: "Next.js, TypeScript, React, Tailwind CSS, Node.js, NestJS, Supabase and PostgreSQL, deployed on Vercel. For AI he works with Claude API and Codex; for blockchain, with Solana.",
+        },
+        {
+          q: "Is he available for new projects?",
+          a: "Yes. He takes freelance projects and remote collaborations in Spanish and English, part-time or per project.",
+        },
+        {
+          q: "How do you hire him?",
+          a: "Email devraor00@gmail.com or use the contact form. Describe what you need (web, SaaS, ERP, AI or ads) and he replies in under 24 hours with scope and next steps.",
+        },
+      ],
       pageLabel: "// ABOUT",
       pageTitle: "WHO_I_AM",
       bioTitle: "FULL STACK · AI AGENT ENGINEER · SOFTWARE ENGINEER",

@@ -218,9 +218,17 @@ export default function SobreMiPage() {
                         {exp.period}
                       </span>
                     </div>
-                    <p className="text-sm leading-relaxed mb-3" style={{ color: "rgba(0,0,0,0.5)" }}>
-                      {lang === "en" ? exp.descriptionEn : exp.description}
+                    <p className="text-sm leading-relaxed" style={{ color: "var(--ink-muted)" }}>
+                      {lang === "en" ? exp.summaryEn : exp.summary}
                     </p>
+                    <ul className="mt-3 mb-3 space-y-1.5">
+                      {(lang === "en" ? exp.impactsEn : exp.impacts).map((impact) => (
+                        <li key={impact} className="flex gap-2 text-sm leading-relaxed" style={{ color: "rgba(0,0,0,0.62)" }}>
+                          <span aria-hidden="true" className="mt-[7px] w-1 h-1 rounded-full shrink-0" style={{ background: "#d97706" }} />
+                          <span>{impact}</span>
+                        </li>
+                      ))}
+                    </ul>
                     <div className="flex flex-wrap gap-1.5">
                       {exp.technologies.map((tech) => (
                         <span key={tech} className="text-[11px] px-2 py-0.5 rounded-md"
