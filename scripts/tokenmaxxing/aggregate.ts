@@ -1,5 +1,5 @@
 import type { Database } from "bun:sqlite";
-import { EXCLUDED_PROVIDERS, isExcludedProvider } from "./config";
+import { EXCLUDED_PROVIDERS, isExcludedProvider, isFreeProvider } from "./config";
 import { cacheSavingsOf, costOf, findPrice, type ModelPrice, type PriceTable } from "./pricing";
 import type { QuotaProvider, TokenmaxxingDay, TokenmaxxingModel, TokenmaxxingOutput } from "./sanitize";
 import { toUsageDate } from "./time";
@@ -18,8 +18,6 @@ export interface UsageRow {
   usageDate: string;
 }
 
-const WINDOW_DAYS = 365;
-
 /** Models kept per day; everything else is folded into a single "other" row. */
 export const TOP_MODELS_PER_DAY = 8;
 
@@ -27,24 +25,20 @@ function round(value: number): number {
   return Math.round(value * 100) / 100;
 }
 
-function shiftDate(date: string, days: number): string {
-  const [year, month, day] = date.split("-").map(Number);
-  const shifted = new Date(Date.UTC(year, month - 1, day + days));
-  return shifted.toISOString().slice(0, 10);
-}
-
-/** Reads the window's ledger rows (local usage day, newest last). */
-export function readUsageRows(db: Database, today: string = toUsageDate(new Date())): UsageRow[] {
-  const from = shiftDate(today, -(WINDOW_DAYS - 1));
+/**
+ * Reads every ledger row (all-time), newest last. Excluded providers are dropped
+ * in SQL so they can never reach an accumulator.
+ */
+export function readUsageRows(db: Database): UsageRow[] {
   const placeholders = EXCLUDED_PROVIDERS.map(() => "?").join(",");
-  const notIn = placeholders ? ` AND provider NOT IN (${placeholders})` : "";
+  const notIn = placeholders ? ` WHERE provider NOT IN (${placeholders})` : "";
   const rows = db
     .prepare(
       `SELECT agent, provider, model, session_id, input_tokens, cache_read_tokens,
               cache_write_tokens, output_tokens, reported_cost_usd, occurred_at, usage_date
-       FROM usage WHERE usage_date >= ? AND usage_date <= ?${notIn} ORDER BY usage_date`,
+       FROM usage${notIn} ORDER BY usage_date`,
     )
-    .all(from, today, ...EXCLUDED_PROVIDERS) as {
+    .all(...EXCLUDED_PROVIDERS) as {
     agent: string;
     provider: string;
     model: string;
@@ -73,12 +67,22 @@ export function readUsageRows(db: Database, today: string = toUsageDate(new Date
   }));
 }
 
+export interface UndatedUsage {
+  model: string;
+  tokens: number;
+  buckets: { input: number; cacheRead: number; cacheWrite: number; output: number };
+}
+
 export interface AggregateOptions {
   rows: UsageRow[];
   prices: PriceTable;
   quotas: QuotaProvider[];
   generatedAt: string;
   timezone: string;
+  /** Claude usage whose days are gone: all-time totals only, never a day row. */
+  undatedRemainder?: UndatedUsage[];
+  /** Earliest known usage date from the source stats cache, if any. */
+  firstSessionDate?: string | null;
 }
 
 interface ModelAccumulator {
@@ -134,6 +138,8 @@ export function aggregate(options: AggregateOptions): TokenmaxxingOutput {
     let cost = 0;
     if (row.reportedCostUsd > 0) {
       cost = row.reportedCostUsd;
+    } else if (isFreeProvider(row.provider)) {
+      cost = 0;
     } else {
       const price: ModelPrice | null = findPrice(prices, row.provider, row.model);
       if (price) {
@@ -175,6 +181,20 @@ export function aggregate(options: AggregateOptions): TokenmaxxingOutput {
     modelsOfDay.set(key, dayModel);
     dayModels.set(row.usageDate, modelsOfDay);
   }
+
+  let undatedTokens = 0;
+  let undatedCostUsd = 0;
+  for (const entry of options.undatedRemainder ?? []) {
+    undatedTokens += entry.tokens;
+    const price = findPrice(prices, "anthropic", entry.model);
+    if (price) undatedCostUsd += costOf(price, entry.buckets);
+  }
+
+  const dayDates = [...days.keys()].sort();
+  const candidates = [dayDates[0], options.firstSessionDate ? toUsageDate(options.firstSessionDate) : ""].filter(
+    (value): value is string => typeof value === "string" && value.length === 10,
+  );
+  const firstUsageDate = candidates.length > 0 ? candidates.sort()[0] : "";
 
   const rankedModels = [...models.entries()].sort((a, b) => b[1].tokens - a[1].tokens);
   const topModelKeys = rankedModels.slice(0, TOP_MODELS_PER_DAY).map(([key]) => key);
@@ -230,11 +250,14 @@ export function aggregate(options: AggregateOptions): TokenmaxxingOutput {
   return {
     generatedAt,
     timezone,
+    firstUsageDate,
     totals: {
       processedTokens,
       costUsd: round(costUsd),
       cacheSavingsUsd: round(cacheSavingsUsd),
       sessions: sessions.size,
+      undatedTokens,
+      undatedCostUsd: round(undatedCostUsd),
     },
     days: outputDays,
     models: outputModels,

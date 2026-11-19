@@ -1,11 +1,14 @@
 {
-  "generatedAt": "2026-11-19T12:04:56.440Z",
+  "generatedAt": "2026-11-19T12:21:31.397Z",
   "timezone": "America/Caracas",
+  "firstUsageDate": "2026-03-18",
   "totals": {
-    "processedTokens": 49175900492,
-    "costUsd": 8412.13,
-    "cacheSavingsUsd": 44990.34,
-    "sessions": 3163
+    "processedTokens": 56084570715,
+    "costUsd": 14013.25,
+    "cacheSavingsUsd": 65183.66,
+    "sessions": 3175,
+    "undatedTokens": 4665882694,
+    "undatedCostUsd": 3914.31
   },
   "days": [
     {
@@ -145,6 +148,23 @@
       ]
     },
     {
+      "date": "2026-04-05",
+      "providers": {
+        "ollama": {
+          "tokens": 98641,
+          "costUsd": 0
+        }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 98641,
+          "costUsd": 0
+        }
+      ]
+    },
+    {
       "date": "2026-04-20",
       "providers": {
         "openai": {
@@ -175,6 +195,40 @@
           "model": "other",
           "tokens": 467602,
           "costUsd": 0.39
+        }
+      ]
+    },
+    {
+      "date": "2026-05-05",
+      "providers": {
+        "ollama": {
+          "tokens": 249518,
+          "costUsd": 0
+        }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 249518,
+          "costUsd": 0
+        }
+      ]
+    },
+    {
+      "date": "2026-05-06",
+      "providers": {
+        "ollama": {
+          "tokens": 29,
+          "costUsd": 0
+        }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 29,
+          "costUsd": 0
         }
       ]
     },
@@ -334,6 +388,10 @@
     {
       "date": "2026-06-02",
       "providers": {
+        "ollama": {
+          "tokens": 1377,
+          "costUsd": 0
+        },
         "openai": {
           "tokens": 16368631,
           "costUsd": 10.35
@@ -343,7 +401,7 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 16368631,
+          "tokens": 16370008,
           "costUsd": 10.35
         }
       ]
@@ -589,6 +647,10 @@
     {
       "date": "2026-06-22",
       "providers": {
+        "anthropic": {
+          "tokens": 300735,
+          "costUsd": 0.15
+        },
         "openai": {
           "tokens": 1848214,
           "costUsd": 2.36
@@ -598,8 +660,42 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 1848214,
-          "costUsd": 2.36
+          "tokens": 2148949,
+          "costUsd": 2.51
+        }
+      ]
+    },
+    {
+      "date": "2026-06-23",
+      "providers": {
+        "anthropic": {
+          "tokens": 76172349,
+          "costUsd": 34.6
+        }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 76172349,
+          "costUsd": 34.6
+        }
+      ]
+    },
+    {
+      "date": "2026-06-24",
+      "providers": {
+        "anthropic": {
+          "tokens": 71636321,
+          "costUsd": 33.27
+        }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 71636321,
+          "costUsd": 33.27
         }
       ]
     },
@@ -623,6 +719,10 @@
     {
       "date": "2026-07-03",
       "providers": {
+        "anthropic": {
+          "tokens": 9338504,
+          "costUsd": 4.81
+        },
         "openai": {
           "tokens": 57168774,
           "costUsd": 43.61
@@ -632,14 +732,35 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 57168774,
-          "costUsd": 43.61
+          "tokens": 66507278,
+          "costUsd": 48.42
+        }
+      ]
+    },
+    {
+      "date": "2026-07-05",
+      "providers": {
+        "anthropic": {
+          "tokens": 2161843,
+          "costUsd": 1.11
+        }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 2161843,
+          "costUsd": 1.11
         }
       ]
     },
     {
       "date": "2026-07-06",
       "providers": {
+        "anthropic": {
+          "tokens": 164159,
+          "costUsd": 0.6
+        },
         "openai": {
           "tokens": 65069986,
           "costUsd": 42.26
@@ -649,14 +770,18 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 65069986,
-          "costUsd": 42.26
+          "tokens": 65234145,
+          "costUsd": 42.86
         }
       ]
     },
     {
       "date": "2026-07-07",
       "providers": {
+        "anthropic": {
+          "tokens": 28700842,
+          "costUsd": 14.77
+        },
         "openai": {
           "tokens": 29273255,
           "costUsd": 10.91
@@ -666,14 +791,35 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 29273255,
-          "costUsd": 10.91
+          "tokens": 57974097,
+          "costUsd": 25.68
+        }
+      ]
+    },
+    {
+      "date": "2026-07-08",
+      "providers": {
+        "anthropic": {
+          "tokens": 79166908,
+          "costUsd": 19.16
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 79166908,
+          "costUsd": 19.16
         }
       ]
     },
     {
       "date": "2026-07-09",
       "providers": {
+        "anthropic": {
+          "tokens": 267959090,
+          "costUsd": 118.7
+        },
         "openai": {
           "tokens": 20165244,
           "costUsd": 7.54
@@ -681,16 +827,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 206659262,
+          "costUsd": 84.24
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 20165244,
-          "costUsd": 7.54
+          "tokens": 81465072,
+          "costUsd": 42
         }
       ]
     },
     {
       "date": "2026-07-10",
       "providers": {
+        "anthropic": {
+          "tokens": 285853947,
+          "costUsd": 118.11
+        },
         "openai": {
           "tokens": 525556,
           "costUsd": 0.4
@@ -698,16 +854,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 270953576,
+          "costUsd": 110.44
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 525556,
-          "costUsd": 0.4
+          "tokens": 15425927,
+          "costUsd": 8.07
         }
       ]
     },
     {
       "date": "2026-07-11",
       "providers": {
+        "anthropic": {
+          "tokens": 208874738,
+          "costUsd": 218.19
+        },
         "openai": {
           "tokens": 2471184,
           "costUsd": 0.12
@@ -715,16 +881,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 111975486,
+          "costUsd": 45.64
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 2471184,
-          "costUsd": 0.12
+          "tokens": 99370436,
+          "costUsd": 172.67
         }
       ]
     },
     {
       "date": "2026-07-12",
       "providers": {
+        "anthropic": {
+          "tokens": 122890041,
+          "costUsd": 151.8
+        },
         "openai": {
           "tokens": 1678672,
           "costUsd": 0.07
@@ -732,16 +908,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 48491375,
+          "costUsd": 19.77
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 1678672,
-          "costUsd": 0.07
+          "tokens": 76077338,
+          "costUsd": 132.1
         }
       ]
     },
     {
       "date": "2026-07-13",
       "providers": {
+        "anthropic": {
+          "tokens": 72348106,
+          "costUsd": 36.03
+        },
         "openai": {
           "tokens": 365589,
           "costUsd": 0.02
@@ -749,16 +935,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 67694090,
+          "costUsd": 27.59
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 365589,
-          "costUsd": 0.02
+          "tokens": 5019605,
+          "costUsd": 8.45
         }
       ]
     },
     {
       "date": "2026-07-14",
       "providers": {
+        "anthropic": {
+          "tokens": 203334527,
+          "costUsd": 213.16
+        },
         "openai": {
           "tokens": 1228946,
           "costUsd": 0.08
@@ -766,16 +962,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 108091118,
+          "costUsd": 44.06
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 1228946,
-          "costUsd": 0.08
+          "tokens": 96472355,
+          "costUsd": 169.18
         }
       ]
     },
     {
       "date": "2026-07-15",
       "providers": {
+        "anthropic": {
+          "tokens": 480316160,
+          "costUsd": 503.74
+        },
         "openai": {
           "tokens": 3368585,
           "costUsd": 0.3
@@ -783,16 +989,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 254535310,
+          "costUsd": 103.75
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 3368585,
-          "costUsd": 0.3
+          "tokens": 229149435,
+          "costUsd": 400.28
         }
       ]
     },
     {
       "date": "2026-07-16",
       "providers": {
+        "anthropic": {
+          "tokens": 217859738,
+          "costUsd": 258.01
+        },
         "openai": {
           "tokens": 35838760,
           "costUsd": 24.4
@@ -800,16 +1016,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 94014065,
+          "costUsd": 38.32
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 35838760,
-          "costUsd": 24.4
+          "tokens": 159684433,
+          "costUsd": 244.08
         }
       ]
     },
     {
       "date": "2026-07-17",
       "providers": {
+        "anthropic": {
+          "tokens": 248640786,
+          "costUsd": 275.23
+        },
         "openai": {
           "tokens": 9036879,
           "costUsd": 5.78
@@ -817,16 +1043,83 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 122464806,
+          "costUsd": 49.92
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 9036879,
-          "costUsd": 5.78
+          "tokens": 135212859,
+          "costUsd": 231.09
+        }
+      ]
+    },
+    {
+      "date": "2026-07-18",
+      "providers": {
+        "anthropic": {
+          "tokens": 4572863,
+          "costUsd": 1.86
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 4572863,
+          "costUsd": 1.86
+        }
+      ]
+    },
+    {
+      "date": "2026-07-19",
+      "providers": {
+        "anthropic": {
+          "tokens": 6489075,
+          "costUsd": 2.65
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 6489075,
+          "costUsd": 2.65
+        }
+      ]
+    },
+    {
+      "date": "2026-07-20",
+      "providers": {
+        "anthropic": {
+          "tokens": 261399539,
+          "costUsd": 240.28
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 163368024,
+          "costUsd": 66.59
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 98031515,
+          "costUsd": 173.69
         }
       ]
     },
     {
       "date": "2026-07-21",
       "providers": {
+        "anthropic": {
+          "tokens": 327132747,
+          "costUsd": 364.07
+        },
         "openai": {
           "tokens": 10807102,
           "costUsd": 7.47
@@ -834,16 +1127,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 161391149,
+          "costUsd": 65.78
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 10807102,
-          "costUsd": 7.47
+          "tokens": 176548700,
+          "costUsd": 305.75
         }
       ]
     },
     {
       "date": "2026-07-22",
       "providers": {
+        "anthropic": {
+          "tokens": 108271663,
+          "costUsd": 163.55
+        },
         "openai": {
           "tokens": 52209729,
           "costUsd": 27.76
@@ -851,16 +1154,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 20935292,
+          "costUsd": 8.53
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 52209729,
-          "costUsd": 27.76
+          "tokens": 139546100,
+          "costUsd": 182.78
         }
       ]
     },
     {
       "date": "2026-07-23",
       "providers": {
+        "anthropic": {
+          "tokens": 329062175,
+          "costUsd": 333.83
+        },
         "openai": {
           "tokens": 52738495,
           "costUsd": 29.41
@@ -868,16 +1181,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 175940600,
+          "costUsd": 71.72
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 52738495,
-          "costUsd": 29.41
+          "tokens": 205860070,
+          "costUsd": 291.52
         }
       ]
     },
     {
       "date": "2026-07-24",
       "providers": {
+        "anthropic": {
+          "tokens": 460051414,
+          "costUsd": 390.55
+        },
         "openai": {
           "tokens": 6271566,
           "costUsd": 5.29
@@ -885,16 +1208,72 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 278816602,
+          "costUsd": 113.65
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 6271566,
-          "costUsd": 5.29
+          "tokens": 187506378,
+          "costUsd": 282.19
+        }
+      ]
+    },
+    {
+      "date": "2026-07-25",
+      "providers": {
+        "anthropic": {
+          "tokens": 4994078,
+          "costUsd": 2.42
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 4305327,
+          "costUsd": 1.75
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 688751,
+          "costUsd": 0.67
+        }
+      ]
+    },
+    {
+      "date": "2026-07-26",
+      "providers": {
+        "anthropic": {
+          "tokens": 7669973,
+          "costUsd": 4.5
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 5236543,
+          "costUsd": 2.13
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 2433430,
+          "costUsd": 2.36
         }
       ]
     },
     {
       "date": "2026-07-27",
       "providers": {
+        "anthropic": {
+          "tokens": 658145578,
+          "costUsd": 374.7
+        },
         "openai": {
           "tokens": 35651275,
           "costUsd": 19.82
@@ -902,16 +1281,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 480013266,
+          "costUsd": 195.66
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 35651275,
-          "costUsd": 19.82
+          "tokens": 213783587,
+          "costUsd": 198.86
         }
       ]
     },
     {
       "date": "2026-07-28",
       "providers": {
+        "anthropic": {
+          "tokens": 468313056,
+          "costUsd": 283.56
+        },
         "openai": {
           "tokens": 317228058,
           "costUsd": 176.67
@@ -919,16 +1308,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 302615348,
+          "costUsd": 123.35
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 317228058,
-          "costUsd": 176.67
+          "tokens": 482925766,
+          "costUsd": 336.88
         }
       ]
     },
     {
       "date": "2026-07-29",
       "providers": {
+        "anthropic": {
+          "tokens": 493820846,
+          "costUsd": 377.51
+        },
         "openai": {
           "tokens": 26300455,
           "costUsd": 12.27
@@ -936,16 +1335,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 248188732,
+          "costUsd": 101.16
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 26300455,
-          "costUsd": 12.27
+          "tokens": 271932569,
+          "costUsd": 288.62
         }
       ]
     },
     {
       "date": "2026-07-30",
       "providers": {
+        "anthropic": {
+          "tokens": 308119126,
+          "costUsd": 245.16
+        },
         "openai": {
           "tokens": 51849711,
           "costUsd": 19.26
@@ -953,16 +1362,141 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 197845396,
+          "costUsd": 80.64
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 51849711,
-          "costUsd": 19.26
+          "tokens": 162123441,
+          "costUsd": 183.77
+        }
+      ]
+    },
+    {
+      "date": "2026-07-31",
+      "providers": {
+        "anthropic": {
+          "tokens": 42100332,
+          "costUsd": 23.63
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 30616608,
+          "costUsd": 12.48
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 11483724,
+          "costUsd": 11.15
+        }
+      ]
+    },
+    {
+      "date": "2026-08-01",
+      "providers": {
+        "anthropic": {
+          "tokens": 2917009,
+          "costUsd": 1.6
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 2181460,
+          "costUsd": 0.89
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 735549,
+          "costUsd": 0.71
+        }
+      ]
+    },
+    {
+      "date": "2026-08-02",
+      "providers": {
+        "anthropic": {
+          "tokens": 163016613,
+          "costUsd": 97.66
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 107607561,
+          "costUsd": 43.86
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 55409052,
+          "costUsd": 53.8
+        }
+      ]
+    },
+    {
+      "date": "2026-08-03",
+      "providers": {
+        "anthropic": {
+          "tokens": 75902699,
+          "costUsd": 52.85
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 40865130,
+          "costUsd": 16.66
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 35037569,
+          "costUsd": 36.2
+        }
+      ]
+    },
+    {
+      "date": "2026-08-04",
+      "providers": {
+        "anthropic": {
+          "tokens": 280864627,
+          "costUsd": 279.28
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 116171981,
+          "costUsd": 47.35
+        },
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 164692646,
+          "costUsd": 231.93
         }
       ]
     },
     {
       "date": "2026-08-05",
       "providers": {
+        "anthropic": {
+          "tokens": 173514945,
+          "costUsd": 250.99
+        },
         "openai": {
           "tokens": 111128417,
           "costUsd": 47.79
@@ -970,16 +1504,60 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 1657730,
+          "costUsd": 0.68
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 111128417,
-          "costUsd": 47.79
+          "tokens": 282985632,
+          "costUsd": 298.1
+        }
+      ]
+    },
+    {
+      "date": "2026-08-06",
+      "providers": {
+        "anthropic": {
+          "tokens": 5218639,
+          "costUsd": 1.92
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 5218639,
+          "costUsd": 1.92
+        }
+      ]
+    },
+    {
+      "date": "2026-08-07",
+      "providers": {
+        "anthropic": {
+          "tokens": 1607037,
+          "costUsd": 0.85
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 1607037,
+          "costUsd": 0.85
         }
       ]
     },
     {
       "date": "2026-08-10",
       "providers": {
+        "anthropic": {
+          "tokens": 11710258,
+          "costUsd": 10.03
+        },
         "openai": {
           "tokens": 294661,
           "costUsd": 0.32
@@ -987,16 +1565,26 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 2378587,
+          "costUsd": 0.97
+        },
+        {
           "provider": "other",
           "model": "other",
-          "tokens": 294661,
-          "costUsd": 0.32
+          "tokens": 9626332,
+          "costUsd": 9.38
         }
       ]
     },
     {
       "date": "2026-08-11",
       "providers": {
+        "anthropic": {
+          "tokens": 960643,
+          "costUsd": 0.93
+        },
         "openai": {
           "tokens": 895031,
           "costUsd": 0.85
@@ -1006,8 +1594,8 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 895031,
-          "costUsd": 0.85
+          "tokens": 1855674,
+          "costUsd": 1.78
         }
       ]
     },
@@ -1029,14 +1617,58 @@
       ]
     },
     {
+      "date": "2026-08-17",
+      "providers": {
+        "anthropic": {
+          "tokens": 357750,
+          "costUsd": 0.35
+        }
+      },
+      "models": [
+        {
+          "provider": "other",
+          "model": "other",
+          "tokens": 357750,
+          "costUsd": 0.35
+        }
+      ]
+    },
+    {
+      "date": "2026-08-19",
+      "providers": {
+        "anthropic": {
+          "tokens": 126308662,
+          "costUsd": 51.48
+        }
+      },
+      "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 126308662,
+          "costUsd": 51.48
+        }
+      ]
+    },
+    {
       "date": "2026-08-20",
       "providers": {
+        "anthropic": {
+          "tokens": 75080773,
+          "costUsd": 30.6
+        },
         "xai": {
           "tokens": 320821,
           "costUsd": 0.29
         }
       },
       "models": [
+        {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 75080773,
+          "costUsd": 30.6
+        },
         {
           "provider": "other",
           "model": "other",
@@ -1111,6 +1743,12 @@
       },
       "models": [
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 74,
+          "costUsd": 0
+        },
+        {
           "provider": "xai",
           "model": "grok-4.6",
           "tokens": 136182,
@@ -1119,7 +1757,7 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 174625149,
+          "tokens": 174625075,
           "costUsd": 48.86
         }
       ]
@@ -1539,6 +2177,12 @@
           "costUsd": 18.75
         },
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 7334339,
+          "costUsd": 3.05
+        },
+        {
           "provider": "xai",
           "model": "grok-4.6",
           "tokens": 61135203,
@@ -1553,8 +2197,8 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 18706963,
-          "costUsd": 5.45
+          "tokens": 11372624,
+          "costUsd": 2.4
         }
       ]
     },
@@ -1582,6 +2226,12 @@
           "costUsd": 35.08
         },
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 7572073,
+          "costUsd": 4.35
+        },
+        {
           "provider": "xai",
           "model": "grok-4.6",
           "tokens": 82272880,
@@ -1596,8 +2246,8 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 88976358,
-          "costUsd": 4.35
+          "tokens": 81404285,
+          "costUsd": 0
         }
       ]
     },
@@ -1635,6 +2285,12 @@
           "costUsd": 76.87
         },
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 2475749,
+          "costUsd": 1.16
+        },
+        {
           "provider": "xai",
           "model": "grok-4.6",
           "tokens": 154375435,
@@ -1649,8 +2305,8 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 132962834,
-          "costUsd": 1.16
+          "tokens": 130487085,
+          "costUsd": 0
         }
       ]
     },
@@ -1684,6 +2340,12 @@
           "costUsd": 49.27
         },
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 347224,
+          "costUsd": 0.25
+        },
+        {
           "provider": "xai",
           "model": "grok-4.6",
           "tokens": 165555436,
@@ -1698,8 +2360,8 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 64627692,
-          "costUsd": 0.25
+          "tokens": 64280468,
+          "costUsd": 0
         }
       ]
     },
@@ -1862,6 +2524,12 @@
           "costUsd": 61.24
         },
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 5248176,
+          "costUsd": 2.14
+        },
+        {
           "provider": "xai",
           "model": "grok-4.6",
           "tokens": 171370673,
@@ -1878,12 +2546,6 @@
           "model": "glm5.3-flash",
           "tokens": 564844303,
           "costUsd": 18.96
-        },
-        {
-          "provider": "other",
-          "model": "other",
-          "tokens": 5248176,
-          "costUsd": 2.14
         }
       ]
     },
@@ -2280,15 +2942,9 @@
           "costUsd": 8.32
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
-          "tokens": 232781063,
-          "costUsd": 0
-        },
-        {
           "provider": "other",
           "model": "other",
-          "tokens": 19055975,
+          "tokens": 251837038,
           "costUsd": 0.61
         }
       ]
@@ -2325,16 +2981,16 @@
           "costUsd": 16.17
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
-          "tokens": 105110,
-          "costUsd": 0
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 4349366,
+          "costUsd": 2.51
         },
         {
           "provider": "other",
           "model": "other",
-          "tokens": 22286947,
-          "costUsd": 6.86
+          "tokens": 18042691,
+          "costUsd": 4.34
         }
       ]
     },
@@ -2370,16 +3026,16 @@
           "costUsd": 11.89
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
-          "tokens": 159398,
-          "costUsd": 0
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 13111459,
+          "costUsd": 4.62
         },
         {
           "provider": "other",
           "model": "other",
-          "tokens": 14993716,
-          "costUsd": 5.02
+          "tokens": 2041655,
+          "costUsd": 0.4
         }
       ]
     },
@@ -2425,15 +3081,9 @@
           "costUsd": 0.11
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
-          "tokens": 2098059,
-          "costUsd": 0
-        },
-        {
           "provider": "other",
           "model": "other",
-          "tokens": 17509887,
+          "tokens": 19607946,
           "costUsd": 0.14
         }
       ]
@@ -2470,8 +3120,8 @@
           "costUsd": 30.63
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
+          "provider": "other",
+          "model": "other",
           "tokens": 38343439,
           "costUsd": 0
         }
@@ -2566,16 +3216,16 @@
           "costUsd": 0.21
         },
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 126739,
+          "costUsd": 0.32
+        },
+        {
           "provider": "xai",
           "model": "grok-4.6",
           "tokens": 43638550,
           "costUsd": 27.2
-        },
-        {
-          "provider": "other",
-          "model": "other",
-          "tokens": 126739,
-          "costUsd": 0.32
         }
       ]
     },
@@ -2672,8 +3322,8 @@
           "costUsd": 9.21
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
+          "provider": "other",
+          "model": "other",
           "tokens": 20237874,
           "costUsd": 0
         }
@@ -2709,16 +3359,16 @@
           "costUsd": 17.31
         },
         {
+          "provider": "anthropic",
+          "model": "claude-sonnet-5",
+          "tokens": 4066936,
+          "costUsd": 1.67
+        },
+        {
           "provider": "xai",
           "model": "grok-4.6",
           "tokens": 21219488,
           "costUsd": 13.03
-        },
-        {
-          "provider": "other",
-          "model": "other",
-          "tokens": 4066936,
-          "costUsd": 1.67
         }
       ]
     },
@@ -2758,8 +3408,8 @@
           "costUsd": 87.68
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
+          "provider": "other",
+          "model": "other",
           "tokens": 139966619,
           "costUsd": 0
         }
@@ -2807,15 +3457,9 @@
           "costUsd": 34.14
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
-          "tokens": 41786183,
-          "costUsd": 0
-        },
-        {
           "provider": "other",
           "model": "other",
-          "tokens": 3805632,
+          "tokens": 45591815,
           "costUsd": 3.76
         }
       ]
@@ -3106,15 +3750,9 @@
           "costUsd": 80.48
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
-          "tokens": 2909394,
-          "costUsd": 0
-        },
-        {
           "provider": "other",
           "model": "other",
-          "tokens": 262467,
+          "tokens": 3171861,
           "costUsd": 0.2
         }
       ]
@@ -3155,15 +3793,9 @@
           "costUsd": 3.27
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
-          "tokens": 2290965,
-          "costUsd": 0
-        },
-        {
           "provider": "other",
           "model": "other",
-          "tokens": 422415,
+          "tokens": 2713380,
           "costUsd": 0.23
         }
       ]
@@ -3194,8 +3826,8 @@
           "costUsd": 22.75
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
+          "provider": "other",
+          "model": "other",
           "tokens": 15595817,
           "costUsd": 0
         }
@@ -3213,7 +3845,7 @@
           "costUsd": 0.73
         },
         "xai": {
-          "tokens": 33650484,
+          "tokens": 47934514,
           "costUsd": 20.41
         }
       },
@@ -3243,15 +3875,9 @@
           "costUsd": 20.41
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
-          "tokens": 241375560,
-          "costUsd": 0
-        },
-        {
           "provider": "other",
           "model": "other",
-          "tokens": 35408415,
+          "tokens": 291068005,
           "costUsd": 20.96
         }
       ]
@@ -3266,6 +3892,10 @@
         "nan": {
           "tokens": 470830926,
           "costUsd": 3.81
+        },
+        "xai": {
+          "tokens": 18966317,
+          "costUsd": 0
         }
       },
       "models": [
@@ -3288,15 +3918,9 @@
           "costUsd": 86.46
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
-          "tokens": 137471706,
-          "costUsd": 0
-        },
-        {
           "provider": "other",
           "model": "other",
-          "tokens": 1574540,
+          "tokens": 158012563,
           "costUsd": 3.12
         }
       ]
@@ -3311,6 +3935,10 @@
         "nan": {
           "tokens": 518332660,
           "costUsd": 6.57
+        },
+        "xai": {
+          "tokens": 5121112,
+          "costUsd": 0
         }
       },
       "models": [
@@ -3335,7 +3963,7 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 9903235,
+          "tokens": 15024347,
           "costUsd": 3.47
         }
       ]
@@ -3352,7 +3980,7 @@
           "costUsd": 9.82
         },
         "xai": {
-          "tokens": 142097716,
+          "tokens": 165778751,
           "costUsd": 79.11
         }
       },
@@ -3384,7 +4012,7 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 49943507,
+          "tokens": 73624542,
           "costUsd": 18.09
         }
       ]
@@ -3444,7 +4072,7 @@
           "costUsd": 6.47
         },
         "xai": {
-          "tokens": 155470857,
+          "tokens": 160296325,
           "costUsd": 87.42
         }
       },
@@ -3470,7 +4098,7 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 17335365,
+          "tokens": 22160833,
           "costUsd": 7.66
         }
       ]
@@ -3528,6 +4156,10 @@
         "nan": {
           "tokens": 21802813,
           "costUsd": 0.51
+        },
+        "xai": {
+          "tokens": 2335089,
+          "costUsd": 0
         }
       },
       "models": [
@@ -3546,7 +4178,7 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 79919895,
+          "tokens": 82254984,
           "costUsd": 27.34
         }
       ]
@@ -3626,15 +4258,9 @@
           "costUsd": 0.08
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
-          "tokens": 41640871,
-          "costUsd": 0
-        },
-        {
           "provider": "other",
           "model": "other",
-          "tokens": 40181769,
+          "tokens": 81822640,
           "costUsd": 15.08
         }
       ]
@@ -3681,15 +4307,9 @@
           "costUsd": 15.7
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
-          "tokens": 93211046,
-          "costUsd": 0
-        },
-        {
           "provider": "other",
           "model": "other",
-          "tokens": 105027018,
+          "tokens": 198238064,
           "costUsd": 96.27
         }
       ]
@@ -3736,15 +4356,9 @@
           "costUsd": 10.59
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
-          "tokens": 100523425,
-          "costUsd": 0
-        },
-        {
           "provider": "other",
           "model": "other",
-          "tokens": 31744333,
+          "tokens": 132267758,
           "costUsd": 12.88
         }
       ]
@@ -3785,15 +4399,9 @@
           "costUsd": 13.99
         },
         {
-          "provider": "nan",
-          "model": "mimo-v2.6-flash",
-          "tokens": 1269881,
-          "costUsd": 0
-        },
-        {
           "provider": "other",
           "model": "other",
-          "tokens": 63019334,
+          "tokens": 64289215,
           "costUsd": 16.05
         }
       ]
@@ -3951,6 +4559,10 @@
         "opencode-go": {
           "tokens": 399456051,
           "costUsd": 3.8
+        },
+        "xai": {
+          "tokens": 2583813,
+          "costUsd": 0
         }
       },
       "models": [
@@ -3975,7 +4587,7 @@
         {
           "provider": "other",
           "model": "other",
-          "tokens": 20584917,
+          "tokens": 23168730,
           "costUsd": 9.56
         }
       ]
@@ -4100,32 +4712,32 @@
       "date": "2026-11-19",
       "providers": {
         "anthropic": {
-          "tokens": 7078240,
-          "costUsd": 5.35
+          "tokens": 24777421,
+          "costUsd": 17.44
         },
         "opencode-go": {
-          "tokens": 12099155,
-          "costUsd": 0.38
+          "tokens": 57602854,
+          "costUsd": 1.16
         }
       },
       "models": [
         {
           "provider": "anthropic",
           "model": "claude-opus-5-5",
-          "tokens": 6380428,
-          "costUsd": 5.06
+          "tokens": 22367779,
+          "costUsd": 16.57
         },
         {
           "provider": "opencode-go",
           "model": "deepseek-v4.1-flash",
-          "tokens": 12099155,
-          "costUsd": 0.38
+          "tokens": 57602854,
+          "costUsd": 1.16
         },
         {
           "provider": "other",
           "model": "other",
-          "tokens": 697812,
-          "costUsd": 0.29
+          "tokens": 2409642,
+          "costUsd": 0.88
         }
       ]
     }
@@ -4148,16 +4760,23 @@
     {
       "provider": "anthropic",
       "model": "claude-opus-5-5",
-      "tokens": 6467055730,
-      "costUsd": 3479.25,
+      "tokens": 6483043081,
+      "costUsd": 3490.76,
       "lastUsed": "2026-11-19"
     },
     {
       "provider": "opencode-go",
       "model": "deepseek-v4.1-flash",
-      "tokens": 5984842246,
-      "costUsd": 73.13,
+      "tokens": 6030345945,
+      "costUsd": 73.9,
       "lastUsed": "2026-11-19"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-sonnet-5",
+      "tokens": 3968090516,
+      "costUsd": 1606.19,
+      "lastUsed": "2026-10-18"
     },
     {
       "provider": "xai",
@@ -4188,6 +4807,13 @@
       "lastUsed": "2026-11-12"
     },
     {
+      "provider": "anthropic",
+      "model": "claude-opus-4-8",
+      "tokens": 1106072896,
+      "costUsd": 1961.42,
+      "lastUsed": "2026-10-31"
+    },
+    {
       "provider": "opencode-go",
       "model": "deepseek-v4-flash-vision-exp",
       "tokens": 1020450214,
@@ -4197,9 +4823,16 @@
     {
       "provider": "anthropic",
       "model": "claude-sonnet-5-5",
-      "tokens": 985582200,
-      "costUsd": 297.97,
+      "tokens": 987294030,
+      "costUsd": 298.56,
       "lastUsed": "2026-11-19"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-opus-5",
+      "tokens": 879672820,
+      "costUsd": 888.64,
+      "lastUsed": "2026-08-27"
     },
     {
       "provider": "deepseek",
@@ -4207,6 +4840,13 @@
       "tokens": 808932576,
       "costUsd": 7.64,
       "lastUsed": "2026-09-08"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-fable-5",
+      "tokens": 573438720,
+      "costUsd": 1039.64,
+      "lastUsed": "2026-08-05"
     },
     {
       "provider": "nan",
@@ -4242,6 +4882,13 @@
       "tokens": 299832202,
       "costUsd": 133.67,
       "lastUsed": "2026-07-09"
+    },
+    {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-6",
+      "tokens": 263818128,
+      "costUsd": 128.1,
+      "lastUsed": "2026-07-12"
     },
     {
       "provider": "nan",
@@ -4300,6 +4947,13 @@
       "lastUsed": "2026-09-24"
     },
     {
+      "provider": "xai",
+      "model": "grok-4.7-build",
+      "tokens": 71796864,
+      "costUsd": 0,
+      "lastUsed": "2026-11-16"
+    },
+    {
       "provider": "openai",
       "model": "gpt-5.3-codex",
       "tokens": 54603449,
@@ -4315,10 +4969,10 @@
     },
     {
       "provider": "anthropic",
-      "model": "claude-sonnet-5",
-      "tokens": 44632135,
-      "costUsd": 20.07,
-      "lastUsed": "2026-10-18"
+      "model": "claude-opus-4-7",
+      "tokens": 44767220,
+      "costUsd": 56.96,
+      "lastUsed": "2026-11-08"
     },
     {
       "provider": "anthropic",
@@ -4342,13 +4996,6 @@
       "lastUsed": "2026-09-17"
     },
     {
-      "provider": "anthropic",
-      "model": "claude-opus-5",
-      "tokens": 20429795,
-      "costUsd": 54.39,
-      "lastUsed": "2026-08-27"
-    },
-    {
       "provider": "opencode-go",
       "model": "qwen3.6-plus",
       "tokens": 16769490,
@@ -4356,18 +5003,18 @@
       "lastUsed": "2026-10-12"
     },
     {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-20251001",
+      "tokens": 14240505,
+      "costUsd": 2.92,
+      "lastUsed": "2026-07-30"
+    },
+    {
       "provider": "openai",
       "model": "gpt-6-luna",
       "tokens": 10267964,
       "costUsd": 0.18,
       "lastUsed": "2026-09-22"
-    },
-    {
-      "provider": "anthropic",
-      "model": "claude-opus-4-7",
-      "tokens": 8383371,
-      "costUsd": 16.99,
-      "lastUsed": "2026-11-08"
     },
     {
       "provider": "openai",
@@ -4382,13 +5029,6 @@
       "tokens": 4079782,
       "costUsd": 6.5,
       "lastUsed": "2026-09-22"
-    },
-    {
-      "provider": "anthropic",
-      "model": "claude-opus-4-8",
-      "tokens": 3334590,
-      "costUsd": 4.17,
-      "lastUsed": "2026-10-31"
     },
     {
       "provider": "openai",
@@ -4426,11 +5066,25 @@
       "lastUsed": "2026-09-02"
     },
     {
+      "provider": "ollama",
+      "model": "qwen2.5-coder:1.5b-base",
+      "tokens": 250924,
+      "costUsd": 0,
+      "lastUsed": "2026-06-02"
+    },
+    {
       "provider": "opencode-go",
       "model": "grok-4.7",
       "tokens": 232614,
       "costUsd": 0.3,
       "lastUsed": "2026-11-18"
+    },
+    {
+      "provider": "ollama",
+      "model": "gemma4:e4b",
+      "tokens": 96112,
+      "costUsd": 0,
+      "lastUsed": "2026-04-05"
     },
     {
       "provider": "b-ai",
@@ -4447,6 +5101,13 @@
       "lastUsed": "2026-08-27"
     },
     {
+      "provider": "ollama",
+      "model": "llama3.1:8b",
+      "tokens": 2529,
+      "costUsd": 0,
+      "lastUsed": "2026-04-05"
+    },
+    {
       "provider": "anthropic",
       "model": "claude-opus-4-5-20251101/claude-opus-5",
       "tokens": 74,
@@ -4458,6 +5119,7 @@
   "unpricedModels": [
     "claude-opus-4-5-20251101/claude-opus-5",
     "glm-5.3-flash",
+    "grok-4.7-build",
     "mimo-v2.5",
     "mimo-v2.6-flash",
     "mimo-v2.6-flash-free",

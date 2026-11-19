@@ -14,6 +14,16 @@ export const OUTPUT_PATH = join(REPO_ROOT, "src", "data", "tokenmaxxing.json");
 export const SOURCES = {
   claudeProjects: join(HOME, ".claude", "projects"),
   claudeCredentialsFile: join(HOME, ".claude", ".credentials.json"),
+  /** Claude Code stats cache: covers dates whose transcripts were purged. */
+  claudeStatsCache: join(HOME, ".claude", "stats-cache.json"),
+  /** Claude Desktop agent-mode audit logs (Claude Code transcript shape). */
+  claudeDesktopSessions: join(HOME, "Library", "Application Support", "Claude", "local-agent-mode-sessions"),
+  /** Orca's own Codex runtime home: near-duplicate of ~/.codex/sessions. */
+  codexOrcaSessions: join(HOME, "Library", "Application Support", "Orca", "codex-runtime-home", "home", "sessions"),
+  /** Grok CLI prompt updates. */
+  grokSessions: join(HOME, ".grok", "sessions"),
+  /** Continue extension token log. */
+  continueTokens: join(HOME, ".continue", "dev_data", "0.2.0", "tokensGenerated.jsonl"),
   codexSessions: join(HOME, ".codex", "sessions"),
   codexArchived: join(HOME, ".codex", "archived_sessions"),
   codexAuthFile: join(HOME, ".codex", "auth.json"),
@@ -37,6 +47,17 @@ export const EXCLUDED_PROVIDERS: readonly string[] = ["lyber"];
 
 export function isExcludedProvider(provider: string): boolean {
   return EXCLUDED_PROVIDERS.includes(provider);
+}
+
+/**
+ * Providers that run locally (or are price-free) and must never be priced from
+ * the public price table: their usage counts as $0 and never lands in
+ * unpricedModels.
+ */
+export const FREE_PROVIDERS: readonly string[] = ["ollama"];
+
+export function isFreeProvider(provider: string): boolean {
+  return FREE_PROVIDERS.includes(provider);
 }
 
 export function isSafeId(value: string): boolean {

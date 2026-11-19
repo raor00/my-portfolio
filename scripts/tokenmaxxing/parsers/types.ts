@@ -14,6 +14,10 @@ export interface RawUsage {
   occurredAt: string;
   /** Source session identity, used only for the public `sessions` count. */
   sessionId?: string;
+  /** Reader provenance: "transcript", "claude-desktop", "stats-cache", ... */
+  source?: string;
+  /** True when the token split was derived from ratios, not measured. */
+  estimatedSplit?: boolean;
 }
 
 export interface LedgerRow extends RawUsage {

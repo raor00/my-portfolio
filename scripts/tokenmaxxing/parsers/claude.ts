@@ -25,7 +25,8 @@ export function mapClaudeLine(line: string): RawUsage | null {
   if (!model || !externalId) return null;
   if (model === "<synthetic>") return null;
 
-  const occurredAt = str(obj.timestamp);
+  // Claude Code writes `timestamp`; Claude Desktop audit logs fall back to `_audit_timestamp`.
+  const occurredAt = str(obj.timestamp) || str(obj._audit_timestamp);
   if (!occurredAt) return null;
 
   return {
@@ -44,12 +45,18 @@ export function mapClaudeLine(line: string): RawUsage | null {
 }
 
 /** Streams one Claude transcript file. The caller owns dedupe and persistence. */
-export async function readClaudeFile(path: string, onRow: (row: RawUsage) => void): Promise<void> {
-  const sessionId = baseName(path).replace(/\.jsonl$/, "");
+export async function readClaudeFile(
+  path: string,
+  onRow: (row: RawUsage) => void,
+  options: { sessionId?: string; source?: string } = {},
+): Promise<void> {
+  const sessionId = options.sessionId ?? baseName(path).replace(/\.jsonl$/, "");
+  const source = options.source ?? "transcript";
   await streamJsonLines(path, (line) => {
     const row = mapClaudeLine(line);
     if (!row) return;
     row.sessionId = sessionId;
+    row.source = source;
     onRow(row);
   });
 }

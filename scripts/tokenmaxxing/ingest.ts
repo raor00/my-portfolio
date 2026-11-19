@@ -1,12 +1,16 @@
 import type { Database } from "bun:sqlite";
-import { statSync } from "node:fs";
+import { existsSync, readFileSync, statSync } from "node:fs";
 import { SOURCES } from "./config";
 import { baseName, listFilesRecursive, type FileStat } from "./lines";
 import { countByAgent, countRows, setSourceFile, sourceFileUnchanged, upsertUsage } from "./ledger";
 import { readClaudeFile } from "./parsers/claude";
 import { readCodexFile } from "./parsers/codex";
+import { readContinueFile } from "./parsers/continue";
+import { readGrokFile } from "./parsers/grok";
 import { readPiFile } from "./parsers/pi";
 import { copyOpencodeDb, readOpencodeRows } from "./parsers/opencode";
+import { buildStatsRows, computeUndatedRemainder, parseStatsCache, type StatsCache, type UndatedRemainderModel } from "./parsers/statsCache";
+import type { RawUsage } from "./parsers/types";
 
 export interface IngestStats {
   filesRead: number;
@@ -14,6 +18,19 @@ export interface IngestStats {
   rowsWritten: number;
   rowsTotal: number;
   perAgent: Record<string, number>;
+  /** Rows synthesized from the purged-transcript stats cache. */
+  statsRows: number;
+  /** Dates skipped because transcripts already cover them. */
+  statsDatesSkipped: number;
+  /** True when the stats cache could not be read. */
+  statsCacheMissing: boolean;
+}
+
+export interface IngestResult {
+  stats: IngestStats;
+  /** Claude usage with no surviving day-level source (all-time totals only). */
+  undatedRemainder: UndatedRemainderModel[];
+  firstSessionDate: string | null;
 }
 
 function isUnchanged(db: Database, file: FileStat): boolean {
@@ -28,7 +45,7 @@ async function ingestJsonlFiles(
   db: Database,
   files: FileStat[],
   stats: IngestStats,
-  read: (path: string, onRow: (row: import("./parsers/types").RawUsage) => void) => Promise<void>,
+  read: (path: string, onRow: (row: RawUsage) => void) => Promise<void>,
 ): Promise<void> {
   for (const file of files) {
     if (isUnchanged(db, file)) {
@@ -44,15 +61,30 @@ async function ingestJsonlFiles(
 }
 
 /** Incremental ingest of every local transcript source into the ledger. */
-export async function ingestAllSources(db: Database): Promise<IngestStats> {
-  const stats: IngestStats = { filesRead: 0, filesSkipped: 0, rowsWritten: 0, rowsTotal: 0, perAgent: {} };
+export async function ingestAllSources(db: Database): Promise<IngestResult> {
+  const stats: IngestStats = {
+    filesRead: 0,
+    filesSkipped: 0,
+    rowsWritten: 0,
+    rowsTotal: 0,
+    perAgent: {},
+    statsRows: 0,
+    statsDatesSkipped: 0,
+    statsCacheMissing: false,
+  };
 
   const claudeFiles = listFilesRecursive(SOURCES.claudeProjects, ".jsonl");
   await ingestJsonlFiles(db, claudeFiles, stats, (path, onRow) => readClaudeFile(path, onRow));
 
+  const desktopFiles = listFilesRecursive(SOURCES.claudeDesktopSessions, ".jsonl");
+  await ingestJsonlFiles(db, desktopFiles, stats, (path, onRow) =>
+    readClaudeFile(path, onRow, { sessionId: sessionKeyOf(path), source: "claude-desktop" }),
+  );
+
   const codexFiles = [
     ...listFilesRecursive(SOURCES.codexSessions, ".jsonl"),
     ...listFilesRecursive(SOURCES.codexArchived, ".jsonl"),
+    ...listFilesRecursive(SOURCES.codexOrcaSessions, ".jsonl"),
   ];
   await ingestJsonlFiles(db, codexFiles, stats, (path, onRow) => readCodexFile(path, onRow));
 
@@ -61,11 +93,59 @@ export async function ingestAllSources(db: Database): Promise<IngestStats> {
     readPiFile(path, baseName(path).replace(/\.jsonl$/, ""), onRow),
   );
 
+  const grokFiles = listFilesRecursive(SOURCES.grokSessions, ".jsonl");
+  await ingestJsonlFiles(db, grokFiles, stats, (path, onRow) => readGrokFile(path, onRow));
+
+  const continueFiles = existsSync(SOURCES.continueTokens) ? [statFile(SOURCES.continueTokens)] : [];
+  await ingestJsonlFiles(db, continueFiles, stats, (path, onRow) => readContinueFile(path, onRow));
+
   ingestOpencode(db, stats);
+
+  const cache = loadStatsCache();
+  let undatedRemainder: UndatedRemainderModel[] = [];
+  if (cache) {
+    const occupied = claudeDatesInLedger(db);
+    for (const date of cache.days) {
+      if (occupied.has(date.date)) stats.statsDatesSkipped += 1;
+    }
+    for (const row of buildStatsRows(cache, occupied)) {
+      if (upsertUsage(db, row, "max-output")) stats.statsRows += 1;
+    }
+    undatedRemainder = computeUndatedRemainder(cache);
+  } else {
+    stats.statsCacheMissing = true;
+  }
 
   stats.rowsTotal = countRows(db);
   stats.perAgent = countByAgent(db);
-  return stats;
+  return { stats, undatedRemainder, firstSessionDate: cache?.firstSessionDate ?? null };
+}
+
+function sessionKeyOf(path: string): string {
+  return baseName(path).replace(/\.jsonl$/, "");
+}
+
+function statFile(path: string): FileStat {
+  const info = statSync(path);
+  return { path, size: info.size, mtimeMs: Math.floor(info.mtimeMs) };
+}
+
+function loadStatsCache(): StatsCache | null {
+  if (!existsSync(SOURCES.claudeStatsCache)) return null;
+  try {
+    const raw = JSON.parse(readFileSync(SOURCES.claudeStatsCache, "utf8")) as unknown;
+    return parseStatsCache(raw);
+  } catch {
+    return null;
+  }
+}
+
+/** Local usage days that already have a Claude row from any transcript source. */
+function claudeDatesInLedger(db: Database): Set<string> {
+  const rows = db
+    .prepare("SELECT DISTINCT usage_date FROM usage WHERE agent = 'claude' AND source <> 'stats-cache'")
+    .all() as { usage_date: string }[];
+  return new Set(rows.map((row) => row.usage_date));
 }
 
 const OPENCODE_WATERMARK_KEY = `${SOURCES.opencodeDb}::rowid`;

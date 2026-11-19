@@ -47,11 +47,16 @@ export interface TokenmaxxingTotals {
   costUsd: number;
   cacheSavingsUsd: number;
   sessions: number;
+  /** Claude usage whose day-level sources are gone: totals only, never a day. */
+  undatedTokens: number;
+  undatedCostUsd: number;
 }
 
 export interface TokenmaxxingOutput {
   generatedAt: string;
   timezone: string;
+  /** Earliest known usage date across every source. */
+  firstUsageDate: string;
   totals: TokenmaxxingTotals;
   days: TokenmaxxingDay[];
   models: TokenmaxxingModel[];
@@ -62,6 +67,7 @@ export interface TokenmaxxingOutput {
 export const OUTPUT_KEYS = [
   "generatedAt",
   "timezone",
+  "firstUsageDate",
   "totals",
   "days",
   "models",
@@ -69,7 +75,14 @@ export const OUTPUT_KEYS = [
   "unpricedModels",
 ] as const;
 
-export const TOTALS_KEYS = ["processedTokens", "costUsd", "cacheSavingsUsd", "sessions"] as const;
+export const TOTALS_KEYS = [
+  "processedTokens",
+  "costUsd",
+  "cacheSavingsUsd",
+  "sessions",
+  "undatedTokens",
+  "undatedCostUsd",
+] as const;
 export const DAY_KEYS = ["date", "providers", "models"] as const;
 export const DAY_PROVIDER_KEYS = ["tokens", "costUsd"] as const;
 export const DAY_MODEL_KEYS = ["provider", "model", "tokens", "costUsd"] as const;
@@ -106,6 +119,9 @@ export function validateOutput(value: unknown): string[] {
     violations.push("generatedAt is not an ISO timestamp");
   }
   if (typeof value.timezone !== "string" || value.timezone === "") violations.push("timezone missing");
+  if (typeof value.firstUsageDate !== "string" || !DATE_RE.test(value.firstUsageDate)) {
+    violations.push("firstUsageDate is not a date");
+  }
 
   const totals = value.totals;
   if (!isRecord(totals) || !keysAre(totals, TOTALS_KEYS)) {

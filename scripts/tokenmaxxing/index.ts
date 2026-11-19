@@ -24,14 +24,15 @@ async function main(): Promise<void> {
 
   const startedAt = Date.now();
   const db = openLedger(LEDGER_PATH);
-  let stats;
+  let ingested;
   let rows;
   try {
-    stats = await ingestAllSources(db);
+    ingested = await ingestAllSources(db);
     rows = readUsageRows(db);
   } finally {
     db.close();
   }
+  const { stats, undatedRemainder, firstSessionDate } = ingested;
 
   const prices = await loadPrices({ onStatus: (line) => console.error(line) });
 
@@ -46,6 +47,8 @@ async function main(): Promise<void> {
     quotas,
     generatedAt: new Date().toISOString(),
     timezone: localTimeZone(),
+    undatedRemainder,
+    firstSessionDate,
   });
 
   const violations = validateOutput(output);
@@ -66,8 +69,12 @@ async function main(): Promise<void> {
   const quotaSummary = quotas.length === 0 ? "quotas=off" : `quotas=${quotas.map((q) => `${q.id}:${q.status}`).join(",")}`;
   console.log(
     `tokenmaxxing: ${elapsed}s files read=${stats.filesRead} skipped=${stats.filesSkipped} ` +
-      `rows=${stats.rowsTotal} (${perAgent}) priced-days=${output.days.length} ` +
-      `models=${output.models.length} unpriced=${output.unpricedModels.length} ${quotaSummary}`,
+      `rows=${stats.rowsTotal} (${perAgent}) days=${output.days.length} first=${output.firstUsageDate} ` +
+      `models=${output.models.length} unpriced=${output.unpricedModels.length} ` +
+      `stats-rows=${stats.statsRows} stats-dates-skipped=${stats.statsDatesSkipped}` +
+      `${stats.statsCacheMissing ? " stats-cache=missing" : ""} ` +
+      `undated=${undatedRemainder.length}models/${output.totals.undatedTokens}tok ` +
+      `$${output.totals.undatedCostUsd} ${quotaSummary}`,
   );
 }
 

@@ -8,7 +8,15 @@ function valid() {
   return {
     generatedAt: "2026-01-02T00:00:00.000Z",
     timezone: "America/Caracas",
-    totals: { processedTokens: 1000, costUsd: 1.23, cacheSavingsUsd: 0.45, sessions: 7 },
+    firstUsageDate: "2026-01-01",
+    totals: {
+      processedTokens: 1000,
+      costUsd: 1.23,
+      cacheSavingsUsd: 0.45,
+      sessions: 7,
+      undatedTokens: 0,
+      undatedCostUsd: 0,
+    },
     days: [
       {
         date: "2026-01-01",

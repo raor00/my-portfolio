@@ -20,6 +20,8 @@ CREATE TABLE IF NOT EXISTS usage (
   occurred_at TEXT NOT NULL,
   usage_date TEXT NOT NULL,
   session_id TEXT NOT NULL DEFAULT '',
+  source TEXT NOT NULL DEFAULT 'transcript',
+  estimated_split INTEGER NOT NULL DEFAULT 0,
   UNIQUE(agent, external_id)
 );
 CREATE TABLE IF NOT EXISTS source_file (
@@ -52,6 +54,12 @@ function migrate(db: Database): void {
   if (!names.has("session_id")) {
     db.exec("ALTER TABLE usage ADD COLUMN session_id TEXT NOT NULL DEFAULT ''");
   }
+  if (!names.has("source")) {
+    db.exec("ALTER TABLE usage ADD COLUMN source TEXT NOT NULL DEFAULT 'transcript'");
+  }
+  if (!names.has("estimated_split")) {
+    db.exec("ALTER TABLE usage ADD COLUMN estimated_split INTEGER NOT NULL DEFAULT 0");
+  }
 }
 
 export function isAllZeroTokens(row: RawUsage): boolean {
@@ -76,8 +84,8 @@ const UPSERT_REPLACE = `
 INSERT INTO usage (
   agent, provider, model, external_id, input_tokens, cache_read_tokens,
   cache_write_tokens, output_tokens, reasoning_tokens, reported_cost_usd,
-  occurred_at, usage_date, session_id
-) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  occurred_at, usage_date, session_id, source, estimated_split
+) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 ON CONFLICT(agent, external_id) DO UPDATE SET
   provider = excluded.provider,
   model = excluded.model,
@@ -89,7 +97,9 @@ ON CONFLICT(agent, external_id) DO UPDATE SET
   reported_cost_usd = excluded.reported_cost_usd,
   occurred_at = excluded.occurred_at,
   usage_date = excluded.usage_date,
-  session_id = excluded.session_id
+  session_id = excluded.session_id,
+  source = excluded.source,
+  estimated_split = excluded.estimated_split
 `;
 
 /**
@@ -125,6 +135,8 @@ export function upsertUsage(db: Database, raw: RawUsage, mode: LedgerRow["upsert
       row.occurredAt,
       row.usageDate,
       row.sessionId ?? "",
+      row.source ?? "transcript",
+      row.estimatedSplit ? 1 : 0,
     );
   return result.changes > 0;
 }
