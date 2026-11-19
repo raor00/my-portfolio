@@ -377,13 +377,13 @@ export default function Home() {
                         {lang === "en" ? metric.labelEn : metric.label}
                       </dt>
                       <dd className="text-sm font-semibold" style={{ color: "var(--ink)" }}>
-                        {metric.value}
+                        {lang === "en" ? metric.valueEn : metric.value}
                       </dd>
                     </div>
                   ))}
                 </dl>
                 <div className="mt-3 flex flex-wrap gap-1.5">
-                  {platform.scope.map((item) => (
+                  {(lang === "en" ? platform.scopeEn : platform.scope).map((item) => (
                     <span
                       key={item}
                       className="text-[11px] px-2 py-0.5 rounded-md"

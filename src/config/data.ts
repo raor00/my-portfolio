@@ -105,7 +105,8 @@ export interface EnterprisePlatform {
   summary: string;
   summaryEn: string;
   scope: string[];
-  metrics: { label: string; labelEn: string; value: string }[];
+  scopeEn: string[];
+  metrics: { label: string; labelEn: string; value: string; valueEn: string }[];
   href: string | null;
 }
 
@@ -1159,9 +1160,10 @@ export const enterprisePlatforms: EnterprisePlatform[] = [
     summaryEn:
       "Ticketing and operations platform for an electronics and security company: incidents, roles, tracking and reporting. Started as a thesis and runs in production today.",
     scope: ["Next.js", "Supabase", "PostgreSQL", "RBAC 5 niveles", "Reportes"],
+    scopeEn: ["Next.js", "Supabase", "PostgreSQL", "5-level RBAC", "Reporting"],
     metrics: [
-      { label: "Roles de acceso", labelEn: "Access roles", value: "5" },
-      { label: "Estado", labelEn: "Status", value: "Producción" },
+      { label: "Roles de acceso", labelEn: "Access roles", value: "5", valueEn: "5" },
+      { label: "Estado", labelEn: "Status", value: "Producción", valueEn: "Production" },
     ],
     href: "/proyectos/cops-platform",
   },
@@ -1176,7 +1178,15 @@ export const enterprisePlatforms: EnterprisePlatform[] = [
     summaryEn:
       "High-volume commerce and operations: catalog, orders, multi-location inventory, invoicing and role-based access control. Client under confidentiality.",
     scope: ["Next.js", "NestJS", "PostgreSQL", "Inventario multi-sede", "Facturación"],
-    metrics: [{ label: "Volumen procesado", labelEn: "Processed volume", value: "USD 800,000+/mes" }],
+    scopeEn: ["Next.js", "NestJS", "PostgreSQL", "Multi-location inventory", "Invoicing"],
+    metrics: [
+      {
+        label: "Volumen procesado",
+        labelEn: "Processed volume",
+        value: "USD 800,000+/mes",
+        valueEn: "USD 800,000+/month",
+      },
+    ],
     href: null,
   },
   {
@@ -1190,7 +1200,8 @@ export const enterprisePlatforms: EnterprisePlatform[] = [
     summaryEn:
       "Critical internal system under NDA: operational workflows, role-based permissions, change auditing and control dashboards for operations teams.",
     scope: ["Full-stack", "PostgreSQL", "RBAC", "Auditoría", "Dashboards"],
-    metrics: [{ label: "Detalle", labelEn: "Detail", value: "Bajo NDA" }],
+    scopeEn: ["Full-stack", "PostgreSQL", "RBAC", "Auditing", "Dashboards"],
+    metrics: [{ label: "Detalle", labelEn: "Detail", value: "Bajo NDA", valueEn: "Under NDA" }],
     href: null,
   },
 ];
