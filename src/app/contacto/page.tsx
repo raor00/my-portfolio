@@ -3,10 +3,10 @@
 import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { personalInfo } from "@/config/data";
+import { personalInfo, services, getProjectBySlug } from "@/config/data";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { isServiceId, type ServiceId } from "@/lib/site";
 
-/* ── Animation variants ─────────────────────────────────── */
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
   visible: (i: number = 0) => ({
@@ -41,32 +41,66 @@ const lineReveal = {
   visible: { scaleX: 1, transition: { duration: 0.6, ease: [0.21, 1.02, 0.73, 1] as [number, number, number, number] } },
 };
 
-/* ── Types ──────────────────────────────────────────────── */
-interface FormData   { nombre: string; email: string; mensaje: string; }
-interface FormErrors { nombre?: string; email?: string; mensaje?: string; }
-type Status = "idle" | "loading" | "success";
+interface FormData {
+  nombre: string;
+  email: string;
+  empresa: string;
+  servicio: string;
+  mensaje: string;
+  website: string;
+}
+interface FormErrors {
+  nombre?: string;
+  email?: string;
+  mensaje?: string;
+}
+type Status = "idle" | "loading" | "success" | "error";
+
+const emptyForm: FormData = {
+  nombre: "",
+  email: "",
+  empresa: "",
+  servicio: "",
+  mensaje: "",
+  website: "",
+};
 
 function ContactoContent() {
-  const { t } = useLanguage();
+  const { t, lang } = useLanguage();
   const searchParams = useSearchParams();
-  const [form, setForm] = useState<FormData>({ nombre: "", email: "", mensaje: "" });
+  const [form, setForm] = useState<FormData>(emptyForm);
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<Status>("idle");
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const proyecto = searchParams.get("proyecto");
-    if (!proyecto) return;
+    const servicioParam = searchParams.get("servicio");
 
-    const normalized = proyecto.replace(/-/g, " ");
     setForm((prev) => {
-      if (prev.mensaje.trim()) return prev;
+      const next = { ...prev };
 
-      return {
-        ...prev,
-        mensaje: `Hola Rafael, quiero una solución similar a ${normalized}. Me gustaría conversar sobre mi proyecto.`,
-      };
+      if (servicioParam && isServiceId(servicioParam) && !prev.servicio) {
+        next.servicio = servicioParam;
+      }
+
+      if (!prev.mensaje.trim()) {
+        if (proyecto) {
+          const found = getProjectBySlug(proyecto);
+          const name = found?.title ?? proyecto.replace(/-/g, " ");
+          next.mensaje = t.contact.projectPrefill.replace("{name}", name);
+        } else if (servicioParam && isServiceId(servicioParam)) {
+          const svc = services.find((s) => s.id === servicioParam);
+          const name = svc
+            ? lang === "en" ? svc.titleEn : svc.title
+            : t.contact.serviceOptions[servicioParam as ServiceId];
+          next.mensaje = t.contact.servicePrefill.replace("{name}", name);
+        }
+      }
+
+      return next;
     });
-  }, [searchParams]);
+  }, [searchParams, t, lang]);
 
   function validate(d: FormData): FormErrors {
     const e: FormErrors = {};
@@ -79,7 +113,7 @@ function ContactoContent() {
     return e;
   }
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
     setForm((p) => ({ ...p, [name]: value }));
     if (errors[name as keyof FormErrors]) setErrors((p) => ({ ...p, [name]: undefined }));
@@ -90,10 +124,36 @@ function ContactoContent() {
     const errs = validate(form);
     if (Object.keys(errs).length > 0) { setErrors(errs); return; }
     setStatus("loading");
-    await new Promise((r) => setTimeout(r, 1500));
-    setStatus("success");
-    setForm({ nombre: "", email: "", mensaje: "" });
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (!res.ok) {
+        setStatus("error");
+        return;
+      }
+      setStatus("success");
+      setForm(emptyForm);
+    } catch {
+      setStatus("error");
+    }
   };
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(personalInfo.email);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1800);
+    } catch {
+      window.open(`mailto:${personalInfo.email}`);
+    }
+  };
+
+  const mailtoHref = `mailto:${personalInfo.email}?subject=${encodeURIComponent(
+    form.servicio ? `Proyecto: ${form.servicio}` : "Nuevo proyecto",
+  )}&body=${encodeURIComponent(form.mensaje || "")}`;
 
   const inputCls = "w-full px-4 py-3 rounded-xl text-sm outline-none transition-all";
   const inputStyle = (hasError: boolean): React.CSSProperties => ({
@@ -103,17 +163,12 @@ function ContactoContent() {
     boxShadow: hasError ? "0 0 0 3px rgba(239,68,68,0.08)" : "none",
   });
 
+  const serviceKeys = Object.keys(t.contact.serviceOptions) as ServiceId[];
+
   return (
     <div className="min-h-screen py-20 sm:py-24 px-4 sm:px-6">
       <div className="max-w-5xl mx-auto">
-
-        {/* ── Header ─────────────────────────────────── */}
-        <motion.div
-          variants={stagger}
-          initial="hidden"
-          animate="visible"
-          className="mb-12 sm:mb-16"
-        >
+        <motion.div variants={stagger} initial="hidden" animate="visible" className="mb-12 sm:mb-16">
           <motion.span variants={fadeUp} className="tech-label">{t.contact.pageLabel}</motion.span>
           <motion.h1
             variants={fadeUp}
@@ -133,14 +188,55 @@ function ContactoContent() {
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-10">
+          <motion.div variants={stagger} initial="hidden" animate="visible" className="lg:col-span-2 space-y-3">
+            <motion.div
+              variants={fadeLeft}
+              custom={0}
+              className="p-4 rounded-2xl"
+              style={{
+                background: "rgba(255,255,255,0.8)",
+                border: "1px solid rgba(217,119,6,0.22)",
+                backdropFilter: "blur(8px)",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.05)",
+              }}
+            >
+              <p className="tech-label text-left">EMAIL</p>
+              <a
+                href={`mailto:${personalInfo.email}`}
+                className="block text-sm mt-1 font-medium hover:text-amber-700 transition-colors"
+                style={{ color: "#0a0a0f", fontFamily: "var(--font-mono-display), monospace" }}
+              >
+                {personalInfo.email}
+              </a>
+              <div className="flex flex-wrap gap-2 mt-3">
+                <button
+                  type="button"
+                  onClick={copyEmail}
+                  className="text-[11px] px-3 py-1.5 rounded-lg"
+                  style={{
+                    fontFamily: "var(--font-mono-display), monospace",
+                    background: "rgba(217,119,6,0.08)",
+                    border: "1px solid rgba(217,119,6,0.2)",
+                    color: "#b45309",
+                  }}
+                >
+                  {copied ? t.contact.emailCopied : t.contact.copyEmail}
+                </button>
+                <a
+                  href={mailtoHref}
+                  className="text-[11px] px-3 py-1.5 rounded-lg"
+                  style={{
+                    fontFamily: "var(--font-mono-display), monospace",
+                    background: "rgba(0,0,0,0.04)",
+                    border: "1px solid rgba(0,0,0,0.08)",
+                    color: "rgba(0,0,0,0.55)",
+                  }}
+                >
+                  {t.contact.writeDirectly}
+                </a>
+              </div>
+            </motion.div>
 
-          {/* ── Info cards ─────────────────────────────── */}
-          <motion.div
-            variants={stagger}
-            initial="hidden"
-            animate="visible"
-            className="lg:col-span-2 space-y-3"
-          >
             {[
               {
                 label: "GITHUB",
@@ -171,7 +267,7 @@ function ContactoContent() {
               {
                 label: "X / TWITTER",
                 value: "@raor_00",
-                href: "https://x.com/raor_00",
+                href: personalInfo.x,
                 iconBg: "rgba(0,0,0,0.06)",
                 iconBorder: "rgba(0,0,0,0.14)",
                 iconColor: "#000000",
@@ -185,7 +281,7 @@ function ContactoContent() {
               <motion.a
                 key={item.label}
                 variants={fadeLeft}
-                custom={i}
+                custom={i + 1}
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -218,7 +314,7 @@ function ContactoContent() {
 
             <motion.div
               variants={fadeLeft}
-              custom={3}
+              custom={4}
               className="p-4 rounded-2xl mt-2"
               style={{ background: "rgba(240,253,244,0.8)", border: "1px solid rgba(74,222,128,0.25)" }}
             >
@@ -235,13 +331,7 @@ function ContactoContent() {
             </motion.div>
           </motion.div>
 
-          {/* ── Form ───────────────────────────────────── */}
-          <motion.div
-            variants={fadeRight}
-            initial="hidden"
-            animate="visible"
-            className="lg:col-span-3"
-          >
+          <motion.div variants={fadeRight} initial="hidden" animate="visible" className="lg:col-span-3">
             {status === "success" ? (
               <motion.div
                 initial={{ opacity: 0, scale: 0.97 }}
@@ -295,7 +385,11 @@ function ContactoContent() {
               >
                 <motion.span variants={fadeUp} className="tech-label block mb-2">{t.contact.formLabel}</motion.span>
 
-                {/* Name */}
+                <div className="absolute -left-[9999px] h-0 w-0 overflow-hidden" aria-hidden="true">
+                  <label htmlFor="website">Website</label>
+                  <input id="website" name="website" tabIndex={-1} autoComplete="off" value={form.website} onChange={handleChange} />
+                </div>
+
                 <motion.div variants={fadeUp}>
                   <label
                     htmlFor="nombre"
@@ -308,6 +402,7 @@ function ContactoContent() {
                     id="nombre" name="nombre" type="text"
                     value={form.nombre} onChange={handleChange}
                     placeholder={t.contact.namePlaceholder}
+                    autoComplete="name"
                     className={inputCls}
                     style={inputStyle(!!errors.nombre)}
                   />
@@ -318,7 +413,6 @@ function ContactoContent() {
                   )}
                 </motion.div>
 
-                {/* Email */}
                 <motion.div variants={fadeUp}>
                   <label
                     htmlFor="email"
@@ -331,6 +425,7 @@ function ContactoContent() {
                     id="email" name="email" type="email"
                     value={form.email} onChange={handleChange}
                     placeholder={t.contact.emailPlaceholder}
+                    autoComplete="email"
                     className={inputCls}
                     style={inputStyle(!!errors.email)}
                   />
@@ -341,7 +436,47 @@ function ContactoContent() {
                   )}
                 </motion.div>
 
-                {/* Message */}
+                <div className="grid sm:grid-cols-2 gap-5">
+                  <motion.div variants={fadeUp}>
+                    <label
+                      htmlFor="servicio"
+                      className="block mb-2 text-xs"
+                      style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.45)", letterSpacing: "0.1em" }}
+                    >
+                      {t.contact.serviceLabel}
+                    </label>
+                    <select
+                      id="servicio" name="servicio"
+                      value={form.servicio} onChange={handleChange}
+                      className={inputCls}
+                      style={inputStyle(false)}
+                    >
+                      <option value="">{t.contact.servicePlaceholder}</option>
+                      {serviceKeys.map((key) => (
+                        <option key={key} value={key}>{t.contact.serviceOptions[key]}</option>
+                      ))}
+                    </select>
+                  </motion.div>
+
+                  <motion.div variants={fadeUp}>
+                    <label
+                      htmlFor="empresa"
+                      className="block mb-2 text-xs"
+                      style={{ fontFamily: "var(--font-mono-display), monospace", color: "rgba(0,0,0,0.45)", letterSpacing: "0.1em" }}
+                    >
+                      {t.contact.companyLabel}
+                    </label>
+                    <input
+                      id="empresa" name="empresa" type="text"
+                      value={form.empresa} onChange={handleChange}
+                      placeholder={t.contact.companyPlaceholder}
+                      autoComplete="organization"
+                      className={inputCls}
+                      style={inputStyle(false)}
+                    />
+                  </motion.div>
+                </div>
+
                 <motion.div variants={fadeUp}>
                   <label
                     htmlFor="mensaje"
@@ -354,7 +489,7 @@ function ContactoContent() {
                     id="mensaje" name="mensaje" rows={5}
                     value={form.mensaje} onChange={handleChange}
                     placeholder={t.contact.messagePlaceholder}
-                    maxLength={500}
+                    maxLength={2000}
                     className={`${inputCls} resize-none`}
                     style={inputStyle(!!errors.mensaje)}
                   />
@@ -363,9 +498,26 @@ function ContactoContent() {
                       {errors.mensaje}
                     </p>
                   ) : (
-                    <p className="tech-label mt-1">{form.mensaje.length}/500</p>
+                    <p className="tech-label mt-1">{form.mensaje.length}/2000</p>
                   )}
                 </motion.div>
+
+                {status === "error" && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-3 rounded-xl text-sm"
+                    style={{ background: "rgba(254,226,226,0.8)", border: "1px solid rgba(239,68,68,0.25)", color: "#991b1b" }}
+                  >
+                    <p className="font-medium" style={{ fontFamily: "var(--font-mono-display), monospace" }}>
+                      {t.contact.errorTitle}
+                    </p>
+                    <p className="mt-1 text-xs">
+                      {t.contact.errorDesc}{" "}
+                      <a href={mailtoHref} className="underline">{personalInfo.email}</a>
+                    </p>
+                  </motion.div>
+                )}
 
                 <motion.button
                   variants={fadeUp}
