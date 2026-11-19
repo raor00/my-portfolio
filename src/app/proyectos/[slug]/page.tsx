@@ -1,10 +1,12 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { getProjectBySlug } from "@/config/data";
 import { useLanguage } from "@/i18n/LanguageContext";
+import DemoModal from "@/components/DemoModal";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -23,6 +25,7 @@ const stagger = {
 export default function ProjectDetailPage() {
   const { slug } = useParams<{ slug: string }>();
   const { t, lang } = useLanguage();
+  const [demoOpen, setDemoOpen] = useState(false);
 
   const project = getProjectBySlug(slug);
 
@@ -242,6 +245,16 @@ export default function ProjectDetailPage() {
               {t.projectDetail.ctaDescription}
             </p>
             <div className="flex flex-wrap gap-3 mt-5">
+              {project.demo && (
+                <button
+                  type="button"
+                  onClick={() => setDemoOpen(true)}
+                  className="glass-btn-amber inline-flex items-center px-4 py-2 rounded-lg text-xs text-white"
+                  style={{ fontFamily: "var(--font-mono-display), monospace" }}
+                >
+                  ▶ {t.card.viewDemo}
+                </button>
+              )}
               <Link
                 href={project.primaryCta?.href || "/contacto"}
                 target={project.primaryCta?.external ? "_blank" : undefined}
@@ -265,6 +278,22 @@ export default function ProjectDetailPage() {
                 {conversionCta || t.card.ctaSolve}
               </Link>
 
+              {project.liveUrl && (
+                <Link
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center px-4 py-2 rounded-lg text-xs"
+                  style={{
+                    fontFamily: "var(--font-mono-display), monospace",
+                    background: "rgba(217,119,6,0.08)",
+                    border: "1px solid rgba(217,119,6,0.2)",
+                    color: "#b45309",
+                  }}
+                >
+                  {project.liveUrl.replace(/^https?:\/\//, "")}
+                </Link>
+              )}
               {project.secondaryCta && secondaryCtaLabel && (
                 <Link
                   href={project.secondaryCta.href}
@@ -301,6 +330,14 @@ export default function ProjectDetailPage() {
           </motion.div>
         </motion.div>
       </div>
+      {project.demo && (
+        <DemoModal
+          open={demoOpen}
+          onClose={() => setDemoOpen(false)}
+          demo={project.demo}
+          title={project.title}
+        />
+      )}
     </div>
   );
 }
