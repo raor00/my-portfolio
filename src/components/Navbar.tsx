@@ -201,6 +201,13 @@ export default function Navbar() {
                       {link.label}
                     </Link>
                   ))}
+                  <Link
+                    href="/contacto"
+                    onClick={() => setIsOpen(false)}
+                    className="glass-btn-amber mt-1 px-3 py-2 rounded-xl text-sm text-white text-center"
+                  >
+                    {t.nav.cta}
+                  </Link>
                 </div>
               </motion.div>
             )}
