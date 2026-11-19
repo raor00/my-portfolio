@@ -12,7 +12,7 @@ import type { RawUsage } from "./types";
  * The provider always comes from `providerID`; it is never inferred from the
  * model id (opencode, nan and tokenrouter all serve shared models).
  */
-export function mapOpencodeRow(id: string, data: string): RawUsage | null {
+export function mapOpencodeRow(id: string, data: string, sessionId?: string): RawUsage | null {
   const obj = parseJsonObject(data);
   if (!obj) return null;
   if (str(obj.role) !== "assistant") return null;
@@ -29,7 +29,9 @@ export function mapOpencodeRow(id: string, data: string): RawUsage | null {
   if (!model) return null;
 
   const cost = num(obj.cost);
-  const sessionId = str(obj.sessionID) || id;
+  // The real session lives in the message table's session_id column; the JSON
+  // payload carries no sessionID. The message id is only a last resort.
+  const resolvedSession = sessionId || str(obj.sessionID) || id;
 
   return {
     agent: "opencode",
@@ -43,7 +45,7 @@ export function mapOpencodeRow(id: string, data: string): RawUsage | null {
     reasoningTokens: num(tokens.reasoning),
     reportedCostUsd: cost > 0 ? cost : 0,
     occurredAt: new Date(timeMs).toISOString(),
-    sessionId,
+    sessionId: resolvedSession,
   };
 }
 
@@ -86,14 +88,14 @@ export function readOpencodeRows(dbPath: string, afterRowid: number): OpencodeRe
   const db = new Database(dbPath);
   try {
     const rows = db
-      .prepare("SELECT rowid, id, data FROM message WHERE rowid > ? ORDER BY rowid")
-      .all(afterRowid) as { rowid: number; id: string; data: string }[];
+      .prepare("SELECT rowid, id, session_id, data FROM message WHERE rowid > ? ORDER BY rowid")
+      .all(afterRowid) as { rowid: number; id: string; session_id: string | null; data: string }[];
 
     const out: RawUsage[] = [];
     let maxRowid = afterRowid;
     for (const row of rows) {
       if (row.rowid > maxRowid) maxRowid = row.rowid;
-      const mapped = mapOpencodeRow(str(row.id), str(row.data));
+      const mapped = mapOpencodeRow(str(row.id), str(row.data), str(row.session_id));
       if (mapped) out.push(mapped);
     }
     return { rows: out, maxRowid };

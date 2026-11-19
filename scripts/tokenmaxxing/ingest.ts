@@ -105,6 +105,7 @@ export async function ingestAllSources(db: Database): Promise<IngestResult> {
   const continueFiles = existsSync(SOURCES.continueTokens) ? [statFile(SOURCES.continueTokens)] : [];
   await ingestJsonlFiles(db, continueFiles, stats, (path, onRow) => readContinueFile(path, onRow));
 
+  resetBrokenOpencodeSessions(db);
   ingestOpencode(db, stats);
 
   const cache = loadStatsCache();
@@ -176,6 +177,23 @@ export function claudeDatesInLedger(db: Database): Set<string> {
 }
 
 const OPENCODE_WATERMARK_KEY = `${SOURCES.opencodeDb}::rowid`;
+
+/**
+ * Earlier runs keyed opencode sessions on the message id, so every message
+ * looked like its own session. Detects that state (session id == external id)
+ * and wipes the opencode rows plus the rowid watermark so the next pass
+ * re-ingests them with the real `message.session_id`.
+ */
+export function resetBrokenOpencodeSessions(db: Database): number {
+  const broken = db
+    .prepare("SELECT COUNT(*) AS count FROM usage WHERE agent = 'opencode' AND session_id = external_id")
+    .get() as { count: number } | null;
+  if (!broken || broken.count === 0) return 0;
+
+  const removed = db.prepare("DELETE FROM usage WHERE agent = 'opencode'").run();
+  db.prepare("DELETE FROM source_file WHERE path = ?").run(OPENCODE_WATERMARK_KEY);
+  return removed.changes;
+}
 
 function ingestOpencode(db: Database, stats: IngestStats): void {
   let mtimeMs = 0;
